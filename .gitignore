@@ -1,2 +1,7 @@
 # IDEs
 .vscode/
+node_modules
+.env.local
+
+# JavaScript dependencies
+package-lock.json
