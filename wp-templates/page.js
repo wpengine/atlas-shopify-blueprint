@@ -38,7 +38,7 @@ export default function Component(props) {
         menuItems={primaryMenu}
       />
       <Main>
-            <ContentWrapper content={content} />
+        <ContentWrapper content={content} />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
