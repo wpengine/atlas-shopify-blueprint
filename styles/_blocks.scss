@@ -10,3 +10,43 @@
 @import '@wordpress/base-styles/variables';
 @import '@wordpress/base-styles/breakpoints';
 @import '@wordpress/block-library/src/style';
+
+// custom class set in blocks properties in Gutenberg sidebar
+.inner-blueprint-content,
+.outer-blueprint-block .wp-block-columns {
+  width: 985px;
+  margin: 0 auto !important;
+}
+
+.outer-blueprint-hero .wp-block-columns {
+  .inner-hero {
+    padding: 2em;
+  }
+}
+
+.has-white-color {
+  color: var(--wpe--color--white);
+}
+
+.has-white-background-color {
+  background: var(--wpe--color--white);
+}
+
+.wp-block-cover__inner-container {
+  z-index: 999 !important;
+}
+
+.wp-block-button {
+  background-color: var(--wpe--color--black);
+  color: var(--wpe--color--white);
+
+  a {
+    color: var(--wpe--color--white);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: var(--wpe--color--white);
+    }
+  }
+}

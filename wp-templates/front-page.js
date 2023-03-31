@@ -9,17 +9,15 @@ import {
   NavigationMenu,
   Hero,
   SEO,
+  ContentWrapper,
 } from '../components';
 
-export default function Component() {
-  const { data } = useQuery(Component.query, {
-    variables: Component.variables(),
-  });
-
+export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
-    data?.generalSettings;
-  const primaryMenu = data?.headerMenuItems?.nodes ?? [];
-  const footerMenu = data?.footerMenuItems?.nodes ?? [];
+    props?.data?.generalSettings;
+  const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
+  const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
+  const { title, content } = props?.data?.page ?? { title: '' };
 
   return (
     <>
@@ -30,26 +28,35 @@ export default function Component() {
         menuItems={primaryMenu}
       />
       <Main>
-        <Container>
-          <Hero title={'Front Page'} />
-          <div className="text-center">
-            <p>This page is utilizing the "front-page" WordPress template.</p>
-            <code>wp-templates/front-page.js</code>
-          </div>
-        </Container>
+        <ContentWrapper content={content} />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
 
+Component.variables = ({ databaseId }, ctx) => {
+  return {
+    databaseId,
+    headerLocation: MENUS.PRIMARY_LOCATION,
+    footerLocation: MENUS.FOOTER_LOCATION,
+    asPreview: ctx?.asPreview,
+  };
+};
+
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
   query GetPageData(
+    $databaseId: ID!
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
+    $asPreview: Boolean = false
   ) {
+    page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+      title
+      content
+    }
     generalSettings {
       ...BlogInfoFragment
     }
@@ -65,10 +72,3 @@ Component.query = gql`
     }
   }
 `;
-
-Component.variables = () => {
-  return {
-    headerLocation: MENUS.PRIMARY_LOCATION,
-    footerLocation: MENUS.FOOTER_LOCATION,
-  };
-};
