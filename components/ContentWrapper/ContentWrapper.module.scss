@@ -1,134 +1,144 @@
 .component {
-	max-width: var(--wpe--content--max-width);
-	margin: 0 auto;
-	line-height: 1.6875;
+  margin: 0 auto;
+  line-height: 1.6875;
 
-	:global {
-		// Scope WordPress block styles within ContentWrapper.
-		@import 'styles/blocks';
+  :global {
+    // Scope WordPress block styles within ContentWrapper.
+    @import 'styles/blocks';
 
-		* {
-			max-width: 100%;
-		}
+    // custom class set in blocks properties in Gutenberg sidebar
+    .inner-blueprint-content,
+    .outer-blueprint-block .wp-block-columns {
+      width: 60% !important;
+      margin: 0 auto !important;
+    }
 
-		figure {
-			margin-left: 0;
-			margin-right: 0;
-		}
+    .has-white-color {
+      color: white !important;
+    }
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			margin: 4.8rem 0;
-		}
+    * {
+      max-width: 100%;
+    }
 
-		strong {
-			font-weight: 700;
-		}
+    figure {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
-		a {
-			color: var(--wpe--link--color);
-			text-decoration: underline;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 4.8rem 0;
+    }
 
-			&:hover,
-			&:focus {
-				color: var(--wpe--link--color);
-				text-decoration: none;
-			}
-		}
+    strong {
+      font-weight: 700;
+    }
 
-		li {
-			font-size: 1.6rem;
-		}
+    a {
+      color: var(--wpe--link--color);
+      text-decoration: underline;
 
-		img {
-			display: block;
-			height: auto;
-			max-width: 100%;
-		}
+      &:hover,
+      &:focus {
+        color: var(--wpe--link--color);
+        text-decoration: none;
+      }
+    }
 
-		.alignleft {
-			display: inline;
-			float: left;
-			margin-right: 1.5em;
-		}
+    li {
+      font-size: 1.6rem;
+    }
 
-		.alignright {
-			display: inline;
-			float: right;
-			margin-left: 1.5em;
-		}
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
 
-		.aligncenter {
-			clear: both;
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-		}
+    .alignleft {
+      display: inline;
+      float: left;
+      margin-right: 1.5em;
+    }
 
-		code,
-		pre {
-			color: var(--color-white);
-			background: var(--color-black);
-		}
+    .alignright {
+      display: inline;
+      float: right;
+      margin-left: 1.5em;
+    }
 
-		code {
-			padding: 0.25rem 0.5rem;
-		}
+    .aligncenter {
+      clear: both;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-		pre {
-			max-width: 100%;
-			overflow: auto;
-			padding: 1rem;
-		}
+    code,
+    pre {
+      color: var(--color-white);
+      background: var(--color-black);
+    }
 
-		blockquote {
-			border-top: 1px solid var(--color-black);
-			border-bottom: 1px solid var(--color-black);
-			font-style: italic;
-			margin-top: 0;
-			margin-left: 0;
-			margin-right: 0;
-			padding: 4rem 1rem 4rem;
-			text-align: center;
+    code {
+      padding: 0.25rem 0.5rem;
+    }
 
-			&::before {
-				content: '”';
-				display: block;
-				font-size: 6rem;
-				line-height: 0;
-				margin: 2rem 0;
-			}
+    pre {
+      max-width: 100%;
+      overflow: auto;
+      padding: 1rem;
+    }
 
-			> *:last-child {
-				margin-bottom: 0;
-			}
-		}
+    blockquote {
+      border-top: 1px solid var(--color-black);
+      border-bottom: 1px solid var(--color-black);
+      font-style: italic;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 4rem 1rem 4rem;
+      text-align: center;
 
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
+      &::before {
+        content: '”';
+        display: block;
+        font-size: 6rem;
+        line-height: 0;
+        margin: 2rem 0;
+      }
 
-		thead th {
-			border-bottom: 1px solid var(--wpe--color--border);
-			padding-bottom: 0.5em;
-		}
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    }
 
-		th {
-			padding: 0.4rem 0;
-			text-align: left;
-		}
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-		tr {
-			border-bottom: 1px solid var(--wpe--color--border);
-		}
+    thead th {
+      border-bottom: 1px solid var(--wpe--color--border);
+      padding-bottom: 0.5em;
+    }
 
-		td {
-			padding: 0.4em;
-		}
-	}
+    th {
+      padding: 0.4rem 0;
+      text-align: left;
+    }
+
+    tr {
+      border-bottom: 1px solid var(--wpe--color--border);
+    }
+
+    td {
+      padding: 0.4em;
+    }
+  }
 }
