@@ -11,8 +11,7 @@ jobs:
         type: string
     working_directory: .
     steps:
-      - checkout:
-          path: .
+      - checkout
       - attach_workspace:
           at: .
       - node/install-packages:
