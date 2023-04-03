@@ -1,0 +1,42 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.1.0
+
+jobs:
+  build-and-lint:
+    executor:
+      name: node/default
+    parameters:
+      slug:
+        type: string
+    working_directory: .
+    steps:
+      - checkout:
+          path: .
+      - attach_workspace:
+          at: .
+      - node/install-packages:
+          app-dir: <<parameters.slug>>
+      - run:
+          name: NPM build
+          command: |
+            npm run build
+          working_directory: <<parameters.slug>>
+      - run:
+          name: NPM lint
+          command: |
+            npm run lint
+          working_directory: <<parameters.slug>>
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+# Orchestrate our job run sequence
+workflows:
+  build:
+    jobs:
+    - build-and-lint:
+        slug: atlas-shopify-blueprint
+        filters:
+          tags:
+            only: /.*/
