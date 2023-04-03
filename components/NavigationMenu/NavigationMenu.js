@@ -23,6 +23,7 @@ export default function NavigationMenu({ menuItems, className }) {
           const { id, path, label, children, cssClasses } = item;
 
           // @TODO - Remove guard clause after ghost menu items are no longer appended to array.
+          // eslint-disable-next-line no-prototype-builtins
           if (!item.hasOwnProperty('__typename')) {
             return null;
           }
@@ -41,8 +42,9 @@ export default function NavigationMenu({ menuItems, className }) {
   return (
     <nav
       className={cx(['component', className])}
-      role="navigation"
-      aria-label={`${menuItems[0]?.menu?.node?.name} menu`}>
+      role='navigation'
+      aria-label={`${menuItems[0]?.menu?.node?.name} menu`}
+    >
       {renderMenu(hierarchicalMenuItems)}
     </nav>
   );

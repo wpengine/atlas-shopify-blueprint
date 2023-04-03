@@ -1,21 +1,25 @@
-import { gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
   Header,
   Footer,
   Main,
+  Container,
   NavigationMenu,
   SEO,
-  ContentWrapper,
 } from '../components';
+import { getNextStaticProps } from '@faustwp/core';
 
-export default function Component(props) {
+export default function Page() {
+  const { data } = useQuery(Page.query, {
+    variables: Page.variables(),
+  });
+
   const { title: siteTitle, description: siteDescription } =
-    props?.data?.generalSettings ?? {};
-  const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
-  const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { content } = props?.data?.page ?? { title: '' };
+    data?.generalSettings ?? {};
+  const primaryMenu = data?.headerMenuItems?.nodes ?? [];
+  const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
   return (
     <>
@@ -26,39 +30,24 @@ export default function Component(props) {
         menuItems={primaryMenu}
       />
       <Main>
-        <ContentWrapper content={content} />
-        <div>latest products</div>
-        <div>customer testimonlials</div>
-        <div>sale items</div>
-        <div>promo banner</div>
+        <Container>
+          <div className='text-center'>
+            <p>Search bar and results go here</p>
+          </div>
+        </Container>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
 
-Component.variables = ({ databaseId }, ctx) => {
-  return {
-    databaseId,
-    headerLocation: MENUS.PRIMARY_LOCATION,
-    footerLocation: MENUS.FOOTER_LOCATION,
-    asPreview: ctx?.asPreview,
-  };
-};
-
-Component.query = gql`
+Page.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  query GetPageData(
-    $databaseId: ID!
+  query GetMenuItems(
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
-    $asPreview: Boolean = false
   ) {
-    page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-      title
-      content
-    }
     generalSettings {
       ...BlogInfoFragment
     }
@@ -74,3 +63,17 @@ Component.query = gql`
     }
   }
 `;
+
+Page.variables = () => {
+  return {
+    headerLocation: MENUS.PRIMARY_LOCATION,
+    footerLocation: MENUS.FOOTER_LOCATION,
+  };
+};
+
+export function getStaticProps(ctx) {
+  return getNextStaticProps(ctx, {
+    Page,
+    props: {},
+  });
+}
