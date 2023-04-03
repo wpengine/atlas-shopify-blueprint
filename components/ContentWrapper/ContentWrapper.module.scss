@@ -6,17 +6,6 @@
     // Scope WordPress block styles within ContentWrapper.
     @import 'styles/blocks';
 
-    // custom class set in blocks properties in Gutenberg sidebar
-    .inner-blueprint-content,
-    .outer-blueprint-block .wp-block-columns {
-      width: 60% !important;
-      margin: 0 auto !important;
-    }
-
-    .has-white-color {
-      color: white !important;
-    }
-
     * {
       max-width: 100%;
     }
@@ -25,16 +14,7 @@
       margin-left: 0;
       margin-right: 0;
     }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 4.8rem 0;
-    }
-
+    
     strong {
       font-weight: 700;
     }
