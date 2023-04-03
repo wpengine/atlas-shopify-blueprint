@@ -11,9 +11,9 @@ jobs:
         type: string
     working_directory: .
     steps:
-      - checkout
       - attach_workspace:
           at: .
+      - checkout
       - node/install-packages:
           app-dir: <<parameters.slug>>
       - run:
