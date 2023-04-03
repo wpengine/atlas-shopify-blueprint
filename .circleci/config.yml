@@ -29,6 +29,11 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run:
+          name: List
+          command: |
+            pwd
+            ls -la
       - node/install-packages:
           app-dir: <<parameters.slug>>
       - run:
