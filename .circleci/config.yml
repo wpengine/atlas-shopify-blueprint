@@ -30,7 +30,7 @@ jobs:
     parameters:
       slug:
         type: string
-    working_directory: <<parameters.slug>>
+    working_directory: .
     steps:
       - attach_workspace:
           at: .
@@ -66,6 +66,8 @@ workflows:
             only: /.*/
     - build-npm:
         slug: atlas-shopify-blueprint
+        requires:
+          - checkout-blueprint
         filters:
           branches:
             only: /.*/
