@@ -38,5 +38,5 @@ workflows:
     - build-and-lint:
         slug: atlas-shopify-blueprint
         filters:
-          tags:
+          branches:
             only: /.*/
