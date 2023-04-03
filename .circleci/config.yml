@@ -22,7 +22,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - .
+            - <<parameters.slug>>
   build-npm:
     executor:
       name: node/default
