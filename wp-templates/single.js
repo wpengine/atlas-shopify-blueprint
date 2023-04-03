@@ -20,7 +20,7 @@ export default function Component(props) {
   }
 
   const { title: siteTitle, description: siteDescription } =
-    props?.data?.generalSettings;
+    props?.data?.generalSettings ?? {};
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
   const { title, content, featuredImage, date, author } = props.data.post;
