@@ -30,6 +30,8 @@ jobs:
     parameters:
       slug:
         type: string
+      next_public_wordpress_url:
+        type: string
     working_directory: .
     steps:
       - attach_workspace:
@@ -44,6 +46,7 @@ jobs:
       - run:
           name: NPM build
           command: |
+            export NEXT_PUBLIC_WORDPRESS_URL=<<parameters.next_public_wordpress_url>>
             npm run build
           working_directory: <<parameters.slug>>
       - run:
@@ -66,6 +69,7 @@ workflows:
             only: /.*/
     - build-npm:
         slug: atlas-shopify-blueprint
+        next_public_wordpress_url: http://foo.com
         requires:
           - checkout-blueprint
         filters:
