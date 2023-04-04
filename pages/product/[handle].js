@@ -1,22 +1,20 @@
 import { gql, useQuery } from '@apollo/client';
-import * as MENUS from '../constants/menus';
-import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import * as MENUS from '../../constants/menus';
+import { BlogInfoFragment } from '../../fragments/GeneralSettings';
 import {
   Header,
-  Hero,
   Footer,
   Main,
   Container,
   NavigationMenu,
   SEO,
-} from '../components';
+} from '../../components';
 import { getNextStaticProps } from '@faustwp/core';
 
 export default function Page(props) {
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
-  const title = props.title;
 
   const { title: siteTitle, description: siteDescription } =
     data?.generalSettings ?? {};
@@ -33,10 +31,8 @@ export default function Page(props) {
       />
       <Main>
         <Container>
-          <Hero title={title} />
           <div className='text-center'>
-            <p>This page is utilizing the Next.js File based routes.</p>
-            <code>pages/example.js</code>
+            <p>{`This is the product page for ${props.handle}`}</p>
           </div>
         </Container>
       </Main>
@@ -48,7 +44,7 @@ export default function Page(props) {
 Page.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  query GetPageData(
+  query GetMenuItems(
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
   ) {
@@ -78,6 +74,13 @@ Page.variables = () => {
 export function getStaticProps(ctx) {
   return getNextStaticProps(ctx, {
     Page,
-    props: { title: 'File Page Example' },
+    props: { handle: ctx.params.handle },
   });
+}
+
+export function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
 }
