@@ -66,6 +66,7 @@ jobs:
       - run:
           name: NPM lint
           command: |
+            ls -la
             npm run lint
           working_directory: <<parameters.slug>>
       - persist_to_workspace:
