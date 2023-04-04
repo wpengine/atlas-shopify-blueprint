@@ -58,6 +58,12 @@ jobs:
       - node/install-packages:
           app-dir: <<parameters.slug>>
       - run:
+          name: List
+          command: |
+            pwd
+            ls -la
+          working_directory: <<parameters.slug>>
+      - run:
           name: NPM lint
           command: |
             npm run lint
