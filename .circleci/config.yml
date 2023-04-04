@@ -55,6 +55,8 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - node/install-packages:
+          app-dir: <<parameters.slug>>
       - run:
           name: NPM lint
           command: |
