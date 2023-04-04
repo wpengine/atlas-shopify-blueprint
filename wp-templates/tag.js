@@ -15,7 +15,7 @@ import {
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
-    props?.data?.generalSettings;
+    props?.data?.generalSettings ?? {};
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
   const { name, posts } = props.data.nodeByUri;
@@ -34,6 +34,7 @@ export default function Component(props) {
           <Container>
             {posts.edges.map((post) => (
               <Post
+                key={post.node.id}
                 title={post.node.title}
                 content={post.node.content}
                 date={post.node.date}

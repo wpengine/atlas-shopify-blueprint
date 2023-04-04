@@ -1,23 +1,21 @@
-import { useQuery, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
   Header,
   Footer,
   Main,
-  Container,
   NavigationMenu,
-  Hero,
   SEO,
   ContentWrapper,
 } from '../components';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
-    props?.data?.generalSettings;
+    props?.data?.generalSettings ?? {};
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, content } = props?.data?.page ?? { title: '' };
+  const { content } = props?.data?.page ?? { title: '' };
 
   return (
     <>
@@ -29,6 +27,10 @@ export default function Component(props) {
       />
       <Main>
         <ContentWrapper content={content} />
+        <div>latest products</div>
+        <div>customer testimonlials</div>
+        <div>sale items</div>
+        <div>promo banner</div>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
