@@ -58,10 +58,9 @@ jobs:
       - node/install-packages:
           app-dir: <<parameters.slug>>
       - run:
-          name: List
+          name: Set env file
           command: |
-            pwd
-            ls -la
+            cp .env.local.sample .env.local
           working_directory: <<parameters.slug>>
       - run:
           name: NPM lint
