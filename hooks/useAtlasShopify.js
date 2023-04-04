@@ -1,42 +1,42 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
-import cookieCutter from 'cookie-cutter';
+// import cookieCutter from 'cookie-cutter';
 
 async function fetchCart(body) {
-  const cartToken = cookieCutter.get('atlas-shopify-token-cart');
+  // const cartToken = cookieCutter.get('atlas-shopify-token-cart');
 
-  const headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-  };
+  // const headers = {
+  //   'Content-Type': 'application/json',
+  //   'Accept': 'application/json',
+  // };
 
-  if (cartToken) {
-    headers['Authorization'] = 'Bearer ' + cartToken;
-  }
+  // if (cartToken) {
+  //   headers['Authorization'] = 'Bearer ' + cartToken;
+  // }
 
-  // const result = await fetch(
-  //   `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/atlas-commerce-connector-bigcommerce/v1/cart`,
-  //   {
-  //     method: 'POST',
-  //     headers,
-  //     body: JSON.stringify(body),
-  //   }
-  // );
+  // // const result = await fetch(
+  // //   `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/atlas-commerce-connector-bigcommerce/v1/cart`,
+  // //   {
+  // //     method: 'POST',
+  // //     headers,
+  // //     body: JSON.stringify(body),
+  // //   }
+  // // );
 
   const data = {};
 
-  if (data.token) {
-    cookieCutter.set('atlas-shopify-token-cart', data.token, { path: '/' });
-  }
+  // if (data.token) {
+  //   cookieCutter.set('atlas-shopify-token-cart', data.token, { path: '/' });
+  // }
 
-  if (data.cart_data) {
-    try {
-      data.cart_data = JSON.parse(data.cart_data);
-    } catch (e) {
-      console.err(e);
-      console.log('There was an issue retrieving the cart data');
-    }
-  }
+  // if (data.cart_data) {
+  //   try {
+  //     data.cart_data = JSON.parse(data.cart_data);
+  //   } catch (e) {
+  //     console.err(e);
+  //     console.log('There was an issue retrieving the cart data');
+  //   }
+  // }
 
   return data;
 }
@@ -96,12 +96,12 @@ export function AtlasShopifyProvider({ children }) {
   async function checkCart() {
     const data = await fetchCart({ action: 'check' });
 
-    if (data.status !== 200 && data.message.indexOf('deleted')) {
-      cookieCutter.set('atlas-shopify-token-cart', '', {
-        path: '/',
-        expires: new Date(0),
-      });
-    }
+    // if (data.status !== 200 && data.message.indexOf('deleted')) {
+    //   cookieCutter.set('atlas-shopify-token-cart', '', {
+    //     path: '/',
+    //     expires: new Date(0),
+    //   });
+    // }
 
     setCartData(data.cart_data ?? 'Empty');
   }
