@@ -9,6 +9,8 @@ export { Heading } from './Heading';
 export { Main } from './Main';
 export { NavigationMenu } from './NavigationMenu';
 export { PostInfo } from './PostInfo';
+export { ProductCard } from './ProductCard';
+export { ProductSection } from './ProductSection';
 export { SkipNavigationLink } from './SkipNavigationLink';
 export { Hero } from './Hero';
 export { Post } from './Post';
