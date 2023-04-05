@@ -16,11 +16,14 @@
     "@wordpress/base-styles": "^4.7.0",
     "@wordpress/block-library": "^7.13.0",
     "classnames": "^2.3.1",
+    "cookie-cutter": "^0.2.0",
     "graphql": "^16.6.0",
     "next": "^12.1.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.54.9"
+    "react-icons": "^4.8.0",
+    "sass": "^1.54.9",
+    "use-debounce": "^9.0.3"
   },
   "devDependencies": {
     "eslint": "8.26.0",
