@@ -37,9 +37,11 @@ export default function Component(props) {
             heading='Our latest Products'
             products={latestProducts}
           />
-          <div>customer testimonlials</div>
+          {/* 
+          <div>customer testimonials</div>
           <div>sale items</div>
-          <div>promo banner</div>
+          <div>promo banner</div> 
+          */}
         </Container>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
