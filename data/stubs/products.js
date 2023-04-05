@@ -1,408 +1,7 @@
-export const productsStub = {
+const productsStub = {
   'data': {
     'products': {
       'nodes': [
-        {
-          'id': 'gid://shopify/Product/8137960325423',
-          'handle': 'fog-linen-chambray-towel-beige-stripe',
-          'title': '[Sample] Fog Linen Chambray Towel - Beige Stripe',
-          'description':
-            'The perfect beach towel: thin, lightweight and highly absorbent. Crafted by Fog Linen in Japan using soft Lithuanian linen, each towel rolls up for compact stowaway. Dry off after a refreshing dip in the ocean and stretch out on it for a sun bath. The thinness ensures a quick dry so you can have it rolled back up in your bag without soaking your belongings. z Measures 75 x 145 cm/29.5 x 57 in 100% Linen',
-          'featuredImage': {
-            'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel1b.1663855818.1280.1280.jpg?v=1678889435',
-          },
-          'images': {
-            'nodes': [
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel1b.1663855818.1280.1280.jpg?v=1678889435',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel2b.1663855818.1280.1280.jpg?v=1678889435',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel3b.1663855818.1280.1280.jpg?v=1678886048',
-              },
-            ],
-          },
-          'collections': {
-            'nodes': [
-              {
-                'title': 'Bath',
-              },
-              {
-                'title': 'Shop All',
-              },
-            ],
-          },
-          'variants': {
-            'nodes': [
-              {
-                'sku': 'SLCTBS-A9615491',
-                'price': {
-                  'amount': '149.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-5596D19E',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-08950B35',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-7765C099',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-FC402DAC',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-4404031B',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-EBD25EBB',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-6C6855B4',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-2C8FBF3C',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-906CEB57',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-B6062BD4',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-5819AF19',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E4DD8E16',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-BC2B8DF2',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-A588AB27',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-CCAEAE80',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-AA87E3C9',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-7113955F',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-AF6BD618',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-3E102384',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-9D20C568',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-ADB96FB6',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-DDB31DBA',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-1FB01D8C',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-15688F0B',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-CB178380',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E8CD0FC8',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E0F9565B',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-AC1B2718',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-65BF836D',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-4B78DADB',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-4C827E7D',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-D5AC2CA3',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-3B1520F8',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-99A2A51F',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E90FEF02',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-55462E47',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-A818A1D5',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-5A16741E',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-7A4493EA',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-8E5DA4B2',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-440E68D3',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-2D8DC13D',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-70D1759E',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-C17A7D36',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-            ],
-          },
-        },
         {
           'id': 'gid://shopify/Product/8137960948015',
           'handle': 'orbit-terrarium-large',
@@ -824,6 +423,407 @@ export const productsStub = {
           },
         },
         {
+          'id': 'gid://shopify/Product/8137960325423',
+          'handle': 'fog-linen-chambray-towel-beige-stripe',
+          'title': '[Sample] Fog Linen Chambray Towel - Beige Stripe',
+          'description':
+            'The perfect beach towel: thin, lightweight and highly absorbent. Crafted by Fog Linen in Japan using soft Lithuanian linen, each towel rolls up for compact stowaway. Dry off after a refreshing dip in the ocean and stretch out on it for a sun bath. The thinness ensures a quick dry so you can have it rolled back up in your bag without soaking your belongings. z Measures 75 x 145 cm/29.5 x 57 in 100% Linen',
+          'featuredImage': {
+            'url':
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel1b.1663855818.1280.1280.jpg?v=1678889435',
+          },
+          'images': {
+            'nodes': [
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel1b.1663855818.1280.1280.jpg?v=1678889435',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel2b.1663855818.1280.1280.jpg?v=1678889435',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel3b.1663855818.1280.1280.jpg?v=1678886048',
+              },
+            ],
+          },
+          'collections': {
+            'nodes': [
+              {
+                'title': 'Bath',
+              },
+              {
+                'title': 'Shop All',
+              },
+            ],
+          },
+          'variants': {
+            'nodes': [
+              {
+                'sku': 'SLCTBS-A9615491',
+                'price': {
+                  'amount': '149.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-5596D19E',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-08950B35',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-7765C099',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-FC402DAC',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-4404031B',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-EBD25EBB',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-6C6855B4',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-2C8FBF3C',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-906CEB57',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-B6062BD4',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-5819AF19',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-E4DD8E16',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-BC2B8DF2',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-A588AB27',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-CCAEAE80',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-AA87E3C9',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-7113955F',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-AF6BD618',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-3E102384',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-9D20C568',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-ADB96FB6',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-DDB31DBA',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-1FB01D8C',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-15688F0B',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-CB178380',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-E8CD0FC8',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-E0F9565B',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-AC1B2718',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-65BF836D',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-4B78DADB',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-4C827E7D',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-D5AC2CA3',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-3B1520F8',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-99A2A51F',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-E90FEF02',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-55462E47',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-A818A1D5',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-5A16741E',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-7A4493EA',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-8E5DA4B2',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-440E68D3',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-2D8DC13D',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-70D1759E',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'SLCTBS-C17A7D36',
+                'price': {
+                  'amount': '49.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+            ],
+          },
+        },
+        {
           'id': 'gid://shopify/Product/8137962586415',
           'handle': 'tiered-wire-basket',
           'title': '[Sample] Tiered Wire Basket',
@@ -986,3 +986,4 @@ export const productsStub = {
     },
   },
 };
+export default productsStub;
