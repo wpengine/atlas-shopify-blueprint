@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       <div className={styles.productImageContainer}>
         <Link href={productHref}>
           <a>
-            {product?.salePrice !== 0 ? (
+            {product?.variants?.nodes[0]?.compareAtPrice ? (
               <span className={styles.onsale}>Sale!</span>
             ) : null}
             <img
