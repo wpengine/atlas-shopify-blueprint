@@ -1,6 +1,15 @@
 .component {
   @import 'styles/css-variables';
 
+  ul {
+    list-style: circle inside;
+    padding-inline-start: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
   a {
     color: var(--wpe--color--black);
 

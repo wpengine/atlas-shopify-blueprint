@@ -14,6 +14,7 @@ export { ProductSection } from './ProductSection';
 export { SearchInput } from './SearchInput';
 export { SearchRecommendations } from './SearchRecommendations';
 export { SearchResults } from './SearchResults';
+export { SearchSection } from './SearchSection';
 export { SkipNavigationLink } from './SkipNavigationLink';
 export { TestimonialsSection } from './TestimonialsSection';
 export { Hero } from './Hero';

@@ -11,10 +11,10 @@ export default function SearchRecommendations({ categories }) {
     <div className={styles.component}>
       <h4>Browse by Category</h4>
       <ul>
-        {categories?.map?.((category) => (
-          <li key={category?.databaseId ?? 0}>
-            <Link href={'/product-category/' + category?.slug ?? '#'}>
-              <a>{category?.name}</a>
+        {categories?.map?.((category, index) => (
+          <li key={category + '-' + index ?? 0}>
+            <Link href={'/product-category/' + category.toLowerCase() ?? '#'}>
+              <a>{category}</a>
             </Link>
           </li>
         ))}
