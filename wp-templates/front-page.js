@@ -12,6 +12,7 @@ import {
   TestimonialsSection,
 } from '../components';
 import productsStub from '../data/stubs/products';
+import { PromoSection } from '../components/PromoSection';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
@@ -40,9 +41,7 @@ export default function Component(props) {
         <ProductSection heading='Latest Products' products={latestProducts} />
         <TestimonialsSection />
         <ProductSection heading='On Sale' products={saleProducts} />
-        {/*
-          <div>promo banner</div> 
-          */}
+        <PromoSection />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>

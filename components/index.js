@@ -11,6 +11,7 @@ export { NavigationMenu } from './NavigationMenu';
 export { PostInfo } from './PostInfo';
 export { ProductCard } from './ProductCard';
 export { ProductSection } from './ProductSection';
+export { PromoSection } from './PromoSection';
 export { SkipNavigationLink } from './SkipNavigationLink';
 export { TestimonialsSection } from './TestimonialsSection';
 export { Hero } from './Hero';

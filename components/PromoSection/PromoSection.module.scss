@@ -1,0 +1,27 @@
+.component {
+  @import 'styles/css-variables';
+
+  background-color: var(--wpe--color--grey);
+
+  h2 {
+    padding: 2em;
+  }
+
+  .section {
+    display: flex;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 50px;
+    padding: 1em;
+    margin-bottom: 0em;
+  }
+
+  .description {
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+  }
+}
