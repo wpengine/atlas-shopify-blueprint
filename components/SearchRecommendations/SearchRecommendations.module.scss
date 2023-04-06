@@ -1,0 +1,13 @@
+.component {
+  @import 'styles/css-variables';
+
+  a {
+    color: var(--wpe--color--black);
+
+    &:hover,
+    &:focus {
+      color: var(--wpe--color--black);
+      text-decoration: underline;
+    }
+  }
+}

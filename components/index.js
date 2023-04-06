@@ -12,6 +12,7 @@ export { PostInfo } from './PostInfo';
 export { ProductCard } from './ProductCard';
 export { ProductSection } from './ProductSection';
 export { SearchInput } from './SearchInput';
+export { SearchRecommendations } from './SearchRecommendations';
 export { SkipNavigationLink } from './SkipNavigationLink';
 export { TestimonialsSection } from './TestimonialsSection';
 export { Hero } from './Hero';
