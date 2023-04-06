@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import styles from './ProductSection.module.scss';
 import { ProductCard } from '../ProductCard';
