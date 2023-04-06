@@ -2,7 +2,6 @@ import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
-  Container,
   Header,
   Footer,
   Main,
@@ -10,6 +9,7 @@ import {
   SEO,
   ContentWrapper,
   ProductSection,
+  TestimonialsSection,
 } from '../components';
 import productsStub from '../data/stubs/products';
 
@@ -21,6 +21,12 @@ export default function Component(props) {
   const { content } = props?.data?.page ?? { title: '' };
 
   const latestProducts = productsStub?.data?.products?.nodes?.slice(0, 4);
+  const saleProducts = productsStub?.data?.products?.nodes?.filter(
+    (product) => {
+      return product.variants.nodes[0].compareAtPrice !== null;
+    }
+  );
+  console.log(saleProducts);
 
   return (
     <>
@@ -32,17 +38,12 @@ export default function Component(props) {
       />
       <Main>
         <ContentWrapper content={content} />
-        <Container>
-          <ProductSection
-            heading='Our latest Products'
-            products={latestProducts}
-          />
-          {/* 
-          <div>customer testimonials</div>
-          <div>sale items</div>
+        <ProductSection heading='Latest Products' products={latestProducts} />
+        <TestimonialsSection />
+        <ProductSection heading='On Sale' products={saleProducts} />
+        {/*
           <div>promo banner</div> 
           */}
-        </Container>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
