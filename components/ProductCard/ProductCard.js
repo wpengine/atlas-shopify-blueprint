@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
               <>
                 <del>
                   {'$' + product?.variants?.nodes[0]?.compareAtPrice?.amount}
-                </del>
+                </del>{' '}
                 {'$' + product?.variants?.nodes[0]?.price?.amount}
               </>
             ) : (

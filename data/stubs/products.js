@@ -466,7 +466,10 @@ const productsStub = {
                   'amount': '149.0',
                   'currencyCode': 'USD',
                 },
-                'compareAtPrice': null,
+                'compareAtPrice': {
+                  'amount': '155.0',
+                  'currencyCode': 'USD',
+                },
               },
               {
                 'sku': 'SLCTBS-5596D19E',
@@ -875,7 +878,10 @@ const productsStub = {
                   'amount': '119.95',
                   'currencyCode': 'USD',
                 },
-                'compareAtPrice': null,
+                'compareAtPrice': {
+                  'amount': '125.0',
+                  'currencyCode': 'USD',
+                },
               },
             ],
           },
@@ -977,7 +983,10 @@ const productsStub = {
                   'amount': '200.0',
                   'currencyCode': 'USD',
                 },
-                'compareAtPrice': null,
+                'compareAtPrice': {
+                  'amount': '250.0',
+                  'currencyCode': 'USD',
+                },
               },
             ],
           },
