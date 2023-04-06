@@ -26,7 +26,6 @@ export default function Component(props) {
       return product.variants.nodes[0].compareAtPrice !== null;
     }
   );
-  console.log(saleProducts);
 
   return (
     <>
