@@ -1,0 +1,25 @@
+.component {
+  @import 'styles/css-variables';
+
+  background-color: var(--wpe--color--grey);
+
+  h2 {
+    padding: 2em;
+  }
+
+  .section {
+    display: flex;
+
+    .testimonialCard {
+      flex: 1;
+
+      figure {
+        margin: 1em !important;
+      }
+
+      p {
+        margin: 1em !important;
+      }
+    }
+  }
+}
