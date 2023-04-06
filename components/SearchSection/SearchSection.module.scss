@@ -1,13 +1,13 @@
 .component {
   @import 'styles/css-variables';
 
-  background-color: var(--wpe--color-white);
+  background-color: var(--wpe--color--white);
   margin-bottom: 4rem;
   margin-top: -2px;
 
   .search-header-text {
     text-align: center;
-    color: var(--wpe--color-white);
+    color: var(--wpe--color--white);
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
