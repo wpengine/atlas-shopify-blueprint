@@ -41,7 +41,7 @@ export default function Component(props) {
         <ProductSection heading='Latest Products' products={latestProducts} />
         <TestimonialsSection />
         <ProductSection heading='On Sale' products={saleProducts} />
-        <PromoSection />
+        <PromoSection ctaLink={'/about'} ctaLabel={'About'}/>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
