@@ -9,6 +9,7 @@ import {
   NavigationMenu,
   SEO,
   ProductCard,
+  EntryHeader,
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
 import productsStub from '../data/stubs/products';
@@ -34,8 +35,10 @@ export default function Page() {
       <Main>
         <Container>
           <div className='text-center'>
-            <h1 className='page-heading'>Shop</h1>
-            <p>Shop your Shopify products with WordPress and WPGraphQL</p>
+            <EntryHeader
+              title='Shop'
+              subTitle='Shop your Shopify products with WordPress and WPGraphQL'
+            />
             <div className='shop-grid'>
               {productsStub.data?.products?.nodes?.map?.((product) => (
                 <ProductCard key={product.id} product={product} />
