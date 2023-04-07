@@ -1,17 +1,15 @@
 import React from 'react';
 import TestimonialCard from './TestimonialCard';
 import { Container } from '../Container';
-import classNames from 'classnames';
 import styles from './TestimonialsSection.module.scss';
 
-const cx = classNames.bind(styles);
 
 const TestimonialsSection = () => {
   return (
-    <div className={cx(['section', styles.component])}>
+    <div className={`section ${styles.component}`}>
       <Container>
         <h2>Customer Testimonials</h2>
-        <div className={cx(styles.section)}>
+        <div className='section'>
           <TestimonialCard
             image='https://demo.studiopress.com/page-builder/spend/eso_spend_customer_testimonial_1.jpg'
             blurb='I can sync all my BigCommerce products into WordPress and catch all updates automatically. Now I can create content in WordPress with BigCommerce products!'
