@@ -35,7 +35,7 @@ export default function Page() {
         <Container>
           <div className='text-center'>
             <h1 className='page-heading'>Shop</h1>
-            <p>Shop your BigCommerce products with WordPress and WPGraphQL</p>
+            <p>Shop your Shopify products with WordPress and WPGraphQL</p>
             <div className='shop-grid'>
               {productsStub.data?.products?.nodes?.map?.((product) => (
                 <ProductCard key={product.id} product={product} />
