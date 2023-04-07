@@ -9,6 +9,8 @@
   position: relative;
   display: flex !important;
   flex-wrap: wrap;
+  flex: 0 0 25%;
+  max-width: 25%;
 
   a {
     position: relative;
