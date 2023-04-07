@@ -45,9 +45,9 @@ const ProductCard = ({ product }) => {
             )}
           </span>
         </div>
-        <div className={styles.buttonContainer}>
+        <div className={'buttonContainer'}>
           <Link href={productHref}>
-            <a className={styles.button}>View product</a>
+            <a className={'button'}>View product</a>
           </Link>
         </div>
       </div>

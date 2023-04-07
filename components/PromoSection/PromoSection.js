@@ -7,9 +7,9 @@ const cx = classNames.bind(styles);
 
 const Cta = ({ ctaLink = null, ctaLabel = null }) => {
   return (ctaLink && ctaLabel) ? (
-    <div className={styles.buttonContainer}>
+    <div className={'buttonContainer'}>
       <Link href={ctaLink}>
-        <a className={styles.button}>{`${ctaLabel}`}</a>
+        <a className={'button'}>{`${ctaLabel}`}</a>
       </Link>
     </div>
   ) : null;
