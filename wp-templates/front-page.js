@@ -41,7 +41,12 @@ export default function Component(props) {
         <ProductSection heading='Latest Products' products={latestProducts} />
         <TestimonialsSection />
         <ProductSection heading='On Sale' products={saleProducts} />
-        <PromoSection showCta />
+        <PromoSection
+          showCta
+          ctaLink='/about'
+          ctaLabel='About'
+          title='Promo Banners'
+          description='You can use this component to promote articles or specific products. And optionally add a CTA below.' />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
