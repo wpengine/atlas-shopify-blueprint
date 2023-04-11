@@ -1,0 +1,22 @@
+.component {
+  @import 'styles/css-variables';
+
+  background-color: var(--wpe--color--grey);
+
+  h2 {
+    padding: 2em;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 50px;
+    padding: 1em 0 0 0;
+  }
+
+  .description {
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+  }
+}

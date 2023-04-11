@@ -9,6 +9,7 @@ import {
   SEO,
   ContentWrapper,
   ProductSection,
+  PromoSection,
   TestimonialsSection,
 } from '../components';
 import productsStub from '../data/stubs/products';
@@ -40,9 +41,12 @@ export default function Component(props) {
         <ProductSection heading='Latest Products' products={latestProducts} />
         <TestimonialsSection />
         <ProductSection heading='On Sale' products={saleProducts} />
-        {/*
-          <div>promo banner</div> 
-          */}
+        <PromoSection
+          showCta
+          ctaLink='/about'
+          ctaLabel='About'
+          title='Promo Banners'
+          description='You can use this component to promote articles or specific products. And optionally add a CTA below.' />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
