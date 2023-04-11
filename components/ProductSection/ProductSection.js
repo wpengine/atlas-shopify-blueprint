@@ -9,7 +9,7 @@ const ProductSection = ({ products, heading }) => {
   return (
     <div className={cx(['section', styles.component])}>
       <Container>
-        <h2>{heading}</h2>
+        <h1>{heading}</h1>
         <div className={cx(styles.section)}>
           {products?.map?.((product) => {
             return <ProductCard key={product.id} product={product} />;

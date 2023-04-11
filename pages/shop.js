@@ -8,8 +8,11 @@ import {
   Container,
   NavigationMenu,
   SEO,
+  ProductCard,
+  EntryHeader,
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
+import productsStub from '../data/stubs/products';
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -32,7 +35,15 @@ export default function Page() {
       <Main>
         <Container>
           <div className='text-center'>
-            <p>List of products goes here using React Components</p>
+            <EntryHeader
+              title='Shop'
+              subTitle='Shop your Shopify products with WordPress and WPGraphQL'
+            />
+            <div className='shop-grid'>
+              {productsStub.data?.products?.nodes?.map?.((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
           </div>
         </Container>
       </Main>
