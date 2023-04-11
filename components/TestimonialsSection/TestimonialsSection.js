@@ -6,7 +6,7 @@ const TestimonialsSection = () => {
   return (
     <div className={`section ${styles.component}`}>
       <Container>
-        <h2>Customer Testimonials</h2>
+        <h1>Customer Testimonials</h1>
         <div className='section'>
           <TestimonialCard
             image='https://demo.studiopress.com/page-builder/spend/eso_spend_customer_testimonial_1.jpg'
