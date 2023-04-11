@@ -1,6 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
 import { ProductCard } from '../ProductCard';
-import { LoadingSearchResult } from './LoadingSearchResult';
+import LoadingSearchResult from './LoadingSearchResult';
 import styles from './SearchResults.module.scss';
 import classNames from 'classnames';
 
