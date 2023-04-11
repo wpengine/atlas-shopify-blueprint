@@ -4,7 +4,7 @@
  *
  * @returns {React.ReactElement} The LoadingSearchResults component.
  */
-export default function LoadingSearchResult({ styles }) {
+function LoadingSearchResult({ styles }) {
   return (
     <div className={styles['loading-result']}>
       <div className={styles['loading-result-title']} />
@@ -13,3 +13,5 @@ export default function LoadingSearchResult({ styles }) {
     </div>
   );
 }
+
+export default LoadingSearchResult;
