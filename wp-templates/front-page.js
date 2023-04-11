@@ -9,10 +9,10 @@ import {
   SEO,
   ContentWrapper,
   ProductSection,
+  PromoSection,
   TestimonialsSection,
 } from '../components';
 import productsStub from '../data/stubs/products';
-import { PromoSection } from '../components/PromoSection';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
