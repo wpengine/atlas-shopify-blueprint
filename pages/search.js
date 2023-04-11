@@ -5,9 +5,9 @@ import {
   Header,
   Footer,
   Main,
-  Container,
   NavigationMenu,
   SEO,
+  SearchSection,
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
 
@@ -30,11 +30,7 @@ export default function Page() {
         menuItems={primaryMenu}
       />
       <Main>
-        <Container>
-          <div className='text-center'>
-            <p>Search bar and results go here</p>
-          </div>
-        </Container>
+        <SearchSection />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>

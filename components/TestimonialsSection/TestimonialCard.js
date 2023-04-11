@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TestimonialCard = ({ image, blurb, author, styles }) => {
   return (
     <div className={styles.testimonialCard}>
