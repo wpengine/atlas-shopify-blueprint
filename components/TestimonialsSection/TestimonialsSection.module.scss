@@ -7,19 +7,15 @@
     padding: 2em;
   }
 
-  .section {
-    display: flex;
+  .testimonialCard {
+    flex: 1;
 
-    .testimonialCard {
-      flex: 1;
+    figure {
+      margin: 1em !important;
+    }
 
-      figure {
-        margin: 1em !important;
-      }
-
-      p {
-        margin: 1em !important;
-      }
+    p {
+      margin: 1em !important;
     }
   }
 }
