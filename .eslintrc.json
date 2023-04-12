@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "eslint:recommended"],
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:jest/recommended"],
   "plugins": ["unused-imports"],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
