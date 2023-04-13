@@ -21,7 +21,7 @@ jobs:
   js-build:
     executor:
       name: node/default
-      tag: '16.13.0'
+      tag: '18.16.0'
     parameters:
       slug:
         type: string
@@ -47,7 +47,7 @@ jobs:
   js-lint:
     executor:
       name: node/default
-      tag: '16.13.0'
+      tag: '18.16.0'
     parameters:
       slug:
         type: string
@@ -74,7 +74,7 @@ jobs:
   js-test:
     executor:
       name: node/default
-      tag: '16.13.0'
+      tag: '18.16.0'
     parameters:
       slug:
         type: string
