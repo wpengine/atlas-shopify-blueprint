@@ -71,9 +71,31 @@ jobs:
           root: .
           paths:
             - .
+  js-test:
+    executor:
+      name: node/default
+      tag: '16.13.0'
+    parameters:
+      slug:
+        type: string
+    working_directory: .
+    steps:
+      - attach_workspace:
+          at: .
+      - node/install-packages:
+          app-dir: <<parameters.slug>>
+      - run:
+          name: NPM test
+          command: |
+            npm run test
+          working_directory: <<parameters.slug>>
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 # Orchestrate our job run sequence
 workflows:
-  build:
+  build-and-test:
     jobs:
     - checkout-blueprint:
         slug: atlas-shopify-blueprint
@@ -89,6 +111,13 @@ workflows:
           branches:
             only: /.*/
     - js-lint:
+        slug: atlas-shopify-blueprint
+        requires:
+          - checkout-blueprint
+        filters:
+          branches:
+            only: /.*/
+    - js-test:
         slug: atlas-shopify-blueprint
         requires:
           - checkout-blueprint
