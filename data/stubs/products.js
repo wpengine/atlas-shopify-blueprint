@@ -3,100 +3,52 @@ const productsStub = {
     'products': {
       'nodes': [
         {
-          'id': 'gid://shopify/Product/8137960948015',
-          'handle': 'orbit-terrarium-large',
-          'title': '[Sample] Orbit Terrarium - Large',
+          'id': 'gid://shopify/Product/8235106631983',
+          'handle': 'radiowave-shirt',
+          'title': 'Radiowave Shirt',
           'description':
-            'This strikingly beautiful terrarium will make a welcome addition to your home bringing some green to the scene. A handblown glass sphere rests freely on a thick, concave carved fir base allowing it to be angled in any direction. Plants, rocks and soil are not included. Measures 21.59 cm dia x 26.7 cm h / 8.5 in dia x 10.5 in h',
+            'The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts. Eco-friendly Materials Before the hippie movement Rit Dye was known as a hobby for older women. Other methods of decorating shirts include using paints, markers, fabric transfer crayons, dyes, spray paint, and many more. Some techniques that can be used include sponging, stenciling, daubing, stamping, screen printing, bleaching, and many more.',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumlarge.1663855819.1280.1280.jpg?v=1677497869',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumlarge.1663855819.1280.1280.jpg?v=1677497869',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumlarge2.1663855819.1280.1280.jpg?v=1677497869',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-green.jpg?v=1681383187',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumlarge.1663855819.386.513.jpg?v=1677497868',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-gray.jpg?v=1681383187',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-blue.jpg?v=1681383187',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Garden',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Clothing',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'OTL',
+                'sku': 'RWV-1',
                 'price': {
-                  'amount': '109.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-            ],
-          },
-        },
-        {
-          'id': 'gid://shopify/Product/8137961242927',
-          'handle': 'orbit-terrarium-small',
-          'title': '[Sample] Orbit Terrarium - Small',
-          'description':
-            'This strikingly beautiful terrarium will make a welcome addition to your home bringing some green to the scene. A handblown glass sphere rests freely on a thick, concave carved fir base allowing it to be angled in any direction. Plants, rocks and soil are not included. Measures 16.5 cm dia x 17.8 cm h / 6.5 in dia x 7 in h',
-          'featuredImage': {
-            'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumsmall.1663855819.1280.1280.jpg?v=1677497877',
-          },
-          'images': {
-            'nodes': [
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumsmall.1663855819.1280.1280.jpg?v=1677497877',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumsmall2.1663855819.1280.1280.jpg?v=1677497877',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/roundterrariumsmall.1663855819.386.513.jpg?v=1677497876',
-              },
-            ],
-          },
-          'collections': {
-            'nodes': [
-              {
-                'title': 'Garden',
-              },
-              {
-                'title': 'Shop All',
-              },
-            ],
-          },
-          'variants': {
-            'nodes': [
-              {
-                'sku': 'OTS',
-                'price': {
-                  'amount': '80.0',
+                  'amount': '18.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': {
-                  'amount': '89.0',
+                  'amount': '20.0',
                   'currencyCode': 'USD',
                 },
               },
@@ -104,62 +56,44 @@ const productsStub = {
           },
         },
         {
-          'id': 'gid://shopify/Product/8137961439535',
-          'handle': 'sample-able-brewing-system',
-          'title': '[Sample] Able Brewing System',
+          'id': 'gid://shopify/Product/8235109876015',
+          'handle': 'quark-shirt',
+          'title': 'Quark Shirt',
           'description':
-            'Stemming from an intense passion for the most flavourful cup of coffee, Able Brewing set out to create a brewer that was as aesthetically pleasing as it was functional. They imagined a product that would easily find itself at home in your kitchen during your morning routine. A product that would successfully showcase the Kone filter that they had painstakingly perfected. Inspired by Japanese and Mid-Century design, the resulting brewer elegantly serves pour over coffee. The multi-part design allows the top brewer portion to be removed once brewing is complete leaving a single pot server. The all ceramic exterior is dishwasher safe. Made in the USA Measures 20.3 x 15.2 cm / 8 in x 6 in Capacity 946 ml / 32 oz.',
+            'The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts.',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem4.1663855819.1280.1280.jpg?v=1677497888',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-blue_efbc40ad-505f-4cc7-9be7-4ba8a6fa3e85.jpg?v=1681383505',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem4.1663855819.1280.1280.jpg?v=1677497888',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-blue_efbc40ad-505f-4cc7-9be7-4ba8a6fa3e85.jpg?v=1681383505',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem5.1663855819.1280.1280.jpg?v=1677497888',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-green_63c75bb1-430a-4676-934f-8cf10245a1e9.jpg?v=1681383505',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem3.1663855819.1280.1280.jpg?v=1677497888',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem2.1663855819.1280.1280.jpg?v=1677497888',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem1.1663855819.1280.1280.jpg?v=1677497888',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/ablebrewingsystem4.1663855819.386.513.jpg?v=1677497886',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal_7ee654ff-80b5-4cdd-b8c6-55aea7833901.jpg?v=1681383505',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Kitchen',
-              },
-              {
-                'title': 'Utility',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Clothing',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'ABS',
+                'sku': 'QRK-1',
                 'price': {
-                  'amount': '500.0',
+                  'amount': '20.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
@@ -168,59 +102,48 @@ const productsStub = {
           },
         },
         {
-          'id': 'gid://shopify/Product/8137961865519',
-          'handle': 'chemex-coffeemaker-3-cup',
-          'title': '[Sample] Chemex Coffeemaker 3 Cup',
+          'id': 'gid://shopify/Product/8235111022895',
+          'handle': 'topography-shirt',
+          'title': 'Topography Shirt',
           'description':
-            "The Chemex Coffeemaker was created in 1939 by famed inventor Peter J. Schlumbohm. Applying his knowledge of filtration and extraction, Mr. Schlumbohm was able to craft the vessel that would pour the perfect cup of joe. The angles of the drip, thickness of the filter paper and the air vent chamber allow coffee to brew in a specified time and release gases that are usually trapped in by other brewing methods. This results in a smooth, bitter-free cup in less than four minutes. Made of labratory heatproof borosilicate glass with a simple wooden handle, the Chemex coffeemaker's design has been inducted in to the permanent collection of The Museum of Modern Art. Measures 21 cm h x 7.6 cm dia/8.25 in h x 3 in diameter Capacity 473 ml/1 Pint",
+            'The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts. Eco-friendly Materials Before the hippie movement Rit Dye was known as a hobby for older women. Other methods of decorating shirts include using paints, markers, fabric transfer crayons, dyes, spray paint, and many more. Some techniques that can be used include sponging, stenciling, daubing, stamping, screen printing, bleaching, and many more.',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/3cupchemex5.1663855819.1280.1280.jpg?v=1677497899',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-gray_2717712f-efe9-443b-a417-dc074b129a14.jpg?v=1681383619',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/3cupchemex5.1663855819.1280.1280.jpg?v=1677497899',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-gray_2717712f-efe9-443b-a417-dc074b129a14.jpg?v=1681383619',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/chemex3cupfilters1.1663855819.1280.1280.jpg?v=1677497899',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-angles.jpg?v=1681383619',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/3cupchemex2.1663855819.1280.1280.jpg?v=1677497899',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-blue_576d2a07-b4c6-4480-9fa1-3205c35b3bdb.jpg?v=1681383619',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/3cupchemex1.1663855819.1280.1280.jpg?v=1677497899',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/3cupchemex4.1663855819.1280.1280.jpg?v=1677497899',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/3cupchemex5.1663855819.386.513.jpg?v=1677497898',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal_23f25130-eb72-4e1f-8172-f6bfddd28e56.jpg?v=1681383619',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Kitchen',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Clothing',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'CC3C',
+                'sku': 'TPG-1',
                 'price': {
-                  'amount': '50.0',
+                  'amount': '20.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
@@ -229,135 +152,72 @@ const productsStub = {
           },
         },
         {
-          'id': 'gid://shopify/Product/8137962062127',
-          'handle': '1-l-le-parfait-jar',
-          'title': '[Sample] 1 L Le Parfait Jar',
+          'id': 'gid://shopify/Product/8235118264623',
+          'handle': 'triangulum-hoodie',
+          'title': 'Triangulum Hoodie',
           'description':
-            'When translated Le Parfait means "the perfect one" - and that\'s just what this air-tight jar is. Designed for canning, these jars will ensure your harvest does not spoil, but is kept well-preserved for those cold winter months that lie ahead. Also can be used to store grains, beans and spices. Lid easily removes for a thorough cleaning. May be frozen - just be sure to leave enough room for expansion. 1 L/34 fl oz',
+            'The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts. Eco-friendly Materials Before the hippie movement Rit Dye was known as a hobby for older women. Other methods of decorating shirts include using paints, markers, fabric transfer crayons, dyes, spray paint, and many more. Some techniques that can be used include sponging, stenciling, daubing, stamping, screen printing, bleaching, and many more.',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/leparfaitmedium1.1663855819.1280.1280.jpg?v=1677497908',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple.jpg?v=1681383898',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/leparfaitmedium1.1663855819.1280.1280.jpg?v=1677497908',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple.jpg?v=1681383898',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/leparfaitmedium4.1663855819.1280.1280.jpg?v=1677497908',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue.jpg?v=1681383898',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/leparfaitmedium3.1663855819.1280.1280.jpg?v=1677497908',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray.jpg?v=1681383898',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red.jpg?v=1681383898',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Kitchen',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Clothing',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'SLLPJ-6088C959',
+                'sku': 'TRI-1',
                 'price': {
-                  'amount': '9.95',
+                  'amount': '35.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
               },
               {
-                'sku': 'SLLPJ-20D88EFC',
+                'sku': 'TRI-2',
                 'price': {
-                  'amount': '9.95',
+                  'amount': '35.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
               },
               {
-                'sku': 'SLLPJ-0BAF36BA',
+                'sku': 'TRI-3',
                 'price': {
-                  'amount': '9.95',
+                  'amount': '35.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
               },
               {
-                'sku': 'SLLPJ-CD28D4F0',
+                'sku': 'TRI-4',
                 'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-9A544946',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-F2FD045F',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-0138EE43',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-D334BA28',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-8650D0FD',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-8D93E1C3',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-973630F5',
-                'price': {
-                  'amount': '9.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLLPJ-889E9C0A',
-                'price': {
-                  'amount': '9.95',
+                  'amount': '35.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
@@ -366,55 +226,72 @@ const productsStub = {
           },
         },
         {
-          'id': 'gid://shopify/Product/8137962160431',
-          'handle': 'oak-cheese-grater',
-          'title': '[Sample] Oak Cheese Grater',
+          'id': 'gid://shopify/Product/8235132125487',
+          'handle': 'pinwheel-hoodie',
+          'title': 'Pinwheel Hoodie',
           'description':
-            'Crafted from oak and stainless steel this handy cheese grater is the perfect addition for the considered tabletop. Works wonderfully for grated parmesan: the fine stainless steel teeth grate the thing strings of cheese into the drawer below allowing guests to pinch as needed. \\nMeasures 14 x 8.6 x 8.9 cm / 5.5 x 3.38 x 3.5 in',
+            'The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts. Eco-friendly Materials Before the hippie movement Rit Dye was known as a hobby for older women. Other methods of decorating shirts include using paints, markers, fabric transfer crayons, dyes, spray paint, and many more. Some techniques that can be used include sponging, stenciling, daubing, stamping, screen printing, bleaching, and many more.',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/oakcheesegrater1.1663855819.1280.1280.jpg?v=1678806041',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue_17265ea5-f14f-43d6-9225-e4a44b417340.jpg?v=1681384577',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/oakcheesegrater1.1663855819.1280.1280.jpg?v=1678806041',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue_17265ea5-f14f-43d6-9225-e4a44b417340.jpg?v=1681384577',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/oakcheesegrater4.1663855819.1280.1280.jpg?v=1678806041',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_5e0b7f2e-c002-4c73-9de5-23161b3a358d.jpg?v=1681384577',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/oakcheesegrater3.1663855819.1280.1280.jpg?v=1678806041',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-charcoal.jpg?v=1681384577',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/oakcheesegrater2.1663855819.1280.1280.jpg?v=1678806041',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/oakcheesegrater2.1663855819.386.513.jpg?v=1677497917',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple_36aece3f-1b8b-454c-8995-f0098cb6f912.jpg?v=1681384577',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Kitchen',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Clothing',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'OCG',
+                'sku': 'PIN-1',
                 'price': {
-                  'amount': '23.0',
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'PIN-2',
+                'price': {
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'PIN-3',
+                'price': {
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'PIN-4',
+                'price': {
+                  'amount': '35.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': null,
@@ -423,463 +300,167 @@ const productsStub = {
           },
         },
         {
-          'id': 'gid://shopify/Product/8137960325423',
-          'handle': 'fog-linen-chambray-towel-beige-stripe',
-          'title': '[Sample] Fog Linen Chambray Towel - Beige Stripe',
+          'id': 'gid://shopify/Product/8235135271215',
+          'handle': 'andromeda-hoodie',
+          'title': 'Andromeda Hoodie',
           'description':
-            'The perfect beach towel: thin, lightweight and highly absorbent. Crafted by Fog Linen in Japan using soft Lithuanian linen, each towel rolls up for compact stowaway. Dry off after a refreshing dip in the ocean and stretch out on it for a sun bath. The thinness ensures a quick dry so you can have it rolled back up in your bag without soaking your belongings. z Measures 75 x 145 cm/29.5 x 57 in 100% Linen',
+            'The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts. Eco-friendly Materials Before the hippie movement Rit Dye was known as a hobby for older women. Other methods of decorating shirts include using paints, markers, fabric transfer crayons, dyes, spray paint, and many more. Some techniques that can be used include sponging, stenciling, daubing, stamping, screen printing, bleaching, and many more.',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel1b.1663855818.1280.1280.jpg?v=1678889435',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray_b0bf23fa-aac6-451a-a1b0-23bc81114a1e.jpg?v=1681384795',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel1b.1663855818.1280.1280.jpg?v=1678889435',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray_b0bf23fa-aac6-451a-a1b0-23bc81114a1e.jpg?v=1681384795',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel2b.1663855818.1280.1280.jpg?v=1678889435',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_2d71bcca-cb82-4450-838b-73717467f29f.jpg?v=1681384795',
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/foglinenbeigestripetowel3b.1663855818.1280.1280.jpg?v=1678886048',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-charcoal_82062466-c51f-4d87-b678-22b9998f58fb.jpg?v=1681384795',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple_fc7ec2d8-2aa2-46f3-8cd6-26e4fa30114d.jpg?v=1681384795',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Bath',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Clothing',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'SLCTBS-A9615491',
+                'sku': 'ADR-1',
                 'price': {
-                  'amount': '149.0',
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'ADR-2',
+                'price': {
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'ADR-3',
+                'price': {
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+              {
+                'sku': 'ADR-4',
+                'price': {
+                  'amount': '35.0',
+                  'currencyCode': 'USD',
+                },
+                'compareAtPrice': null,
+              },
+            ],
+          },
+        },
+        {
+          'id': 'gid://shopify/Product/8235139072303',
+          'handle': 'toasty-cap-wool',
+          'title': 'Toasty Cap Wool',
+          'description':
+            'A beanie is a head-hugging brimless cap, made from triangular panels of material joined by a button at the crown and seamed together around the sides. Commonly made of cloth or felt material, beanies may also be made from leather or silk. In some US regions and parts of Canada the term "beanie" refers to a knitted cap (often woollen), alternately called a "stocking cap" or "tuque".',
+          'featuredImage': {
+            'url':
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-3.jpg?v=1681384941',
+          },
+          'images': {
+            'nodes': [
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-3.jpg?v=1681384941',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue_0a3c10b7-4b98-4ff1-87b8-853c51323245.jpg?v=1681384941',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray_f2992330-00eb-4f6d-8fa3-b51886d34a27.jpg?v=1681384941',
+              },
+              {
+                'url':
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_e1146f5b-9b7c-4c62-a7bb-a249864c0eec.jpg?v=1681384942',
+              },
+            ],
+          },
+          'collections': {
+            'nodes': [
+              {
+                'title': 'Apparel & Accessories',
+              },
+            ],
+          },
+          'variants': {
+            'nodes': [
+              {
+                'sku': 'TCW-1',
+                'price': {
+                  'amount': '19.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': {
-                  'amount': '155.0',
+                  'amount': '29.0',
                   'currencyCode': 'USD',
                 },
-              },
-              {
-                'sku': 'SLCTBS-5596D19E',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-08950B35',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-7765C099',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-FC402DAC',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-4404031B',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-EBD25EBB',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-6C6855B4',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-2C8FBF3C',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-906CEB57',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-B6062BD4',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-5819AF19',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E4DD8E16',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-BC2B8DF2',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-A588AB27',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-CCAEAE80',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-AA87E3C9',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-7113955F',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-AF6BD618',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-3E102384',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-9D20C568',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-ADB96FB6',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-DDB31DBA',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-1FB01D8C',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-15688F0B',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-CB178380',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E8CD0FC8',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E0F9565B',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-AC1B2718',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-65BF836D',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-4B78DADB',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-4C827E7D',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-D5AC2CA3',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-3B1520F8',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-99A2A51F',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-E90FEF02',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-55462E47',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-A818A1D5',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-5A16741E',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-7A4493EA',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-8E5DA4B2',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-440E68D3',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-2D8DC13D',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-70D1759E',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-              {
-                'sku': 'SLCTBS-C17A7D36',
-                'price': {
-                  'amount': '49.0',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
               },
             ],
           },
         },
         {
-          'id': 'gid://shopify/Product/8137962586415',
-          'handle': 'tiered-wire-basket',
-          'title': '[Sample] Tiered Wire Basket',
+          'id': 'gid://shopify/Product/8235141300527',
+          'handle': 'toasty-cap-cotton',
+          'title': 'Toasty Cap Cotton',
           'description':
-            "Here's a three tiered wire basket to clean up your countertop and elevate your storage space. Display a selection of fresh fruit to encourage healthy snacking: pile it high and watch it fly. Can also be used as a caddy for dinner time fixings. Gather up a nice display of baked buns or cupcakes and usher them off to the table with the handy carry ring at the top. Measures 63 x 30 cm/25 x 12 in",
+            'A beanie is a head-hugging brimless cap, made from triangular panels of material joined by a button at the crown and seamed together around the sides. Commonly made of cloth or felt material, beanies may also be made from leather or silk. In some US regions and parts of Canada the term "beanie" refers to a knitted cap (often woollen), alternately called a "stocking cap" or "tuque".',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/tieredbasket.1663855819.1280.1280.jpg?v=1677497936',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/tieredbasket.1663855819.1280.1280.jpg?v=1677497936',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/tieredwirebasket3.1663855819.1280.1280.jpg?v=1677497936',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/tieredwirebasket4.1663855819.1280.1280.jpg?v=1677497936',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/tieredwirebasket2.1663855819.1280.1280.jpg?v=1677497936',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/tieredbasket.1663855819.386.513.jpg?v=1677497935',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Kitchen',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Apparel & Accessories',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'TWB',
+                'sku': 'TCC-1',
                 'price': {
-                  'amount': '119.95',
+                  'amount': '20.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': {
-                  'amount': '125.0',
+                  'amount': '25.0',
                   'currencyCode': 'USD',
                 },
               },
@@ -887,104 +468,40 @@ const productsStub = {
           },
         },
         {
-          'id': 'gid://shopify/Product/8137963897135',
-          'handle': 'laundry-detergent',
-          'title': '[Sample] Laundry Detergent',
+          'id': 'gid://shopify/Product/8235143561519',
+          'handle': 'toasty-cap-eco',
+          'title': 'Toasty Cap Eco',
           'description':
-            'A 100% biodegradable plant based 3x concentrated laundry detergent for use in conventional and high efficiency machines. This product is leaping bunny certified and has not been tested on animals.\\nLavender Scented. Contains 48 High Efficiency Loads.\\nFree from synthetic fragrance and phthalates, optical brighteners, dye, chlorine bleach and ammonia.\\ningredients: purified water, decyl glucoside, caprylyl/capryl glucoside, coconut fatty acid, L-lactic acid, potassium hydroxide, protease enzyme, amylase enzyme, citric acid, lipase enzyme\\n950 ml/32 fl oz',
+            'A beanie is a head-hugging brimless cap, made from triangular panels of material joined by a button at the crown and seamed together around the sides. Commonly made of cloth or felt material, beanies may also be made from leather or silk. In some US regions and parts of Canada the term "beanie" refers to a knitted cap (often woollen), alternately called a "stocking cap" or "tuque".',
           'featuredImage': {
             'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/CommonGoodLaundrySoap.1663855819.1280.1280.jpg?v=1677497943',
+              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-1.jpg?v=1681385217',
           },
           'images': {
             'nodes': [
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/CommonGoodLaundrySoap.1663855819.1280.1280.jpg?v=1677497943',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/CommonGoodLaundrySoap.1663855819.386.513.jpg?v=1677497942',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-1.jpg?v=1681385217',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
-                'title': 'Utility',
-              },
-              {
-                'title': 'Shop All',
+                'title': 'Apparel & Accessories',
               },
             ],
           },
           'variants': {
             'nodes': [
               {
-                'sku': 'CGLD',
+                'sku': 'TCE-1',
                 'price': {
-                  'amount': '29.95',
-                  'currencyCode': 'USD',
-                },
-                'compareAtPrice': null,
-              },
-            ],
-          },
-        },
-        {
-          'id': 'gid://shopify/Product/8137964323119',
-          'handle': 'canvas-laundry-cart',
-          'title': '[Sample] Canvas Laundry Cart',
-          'description':
-            "The last laundry cart you'll ever buy. This industrial non-collapsable cart is constructed with a steel framed body using heavyweight canvas capped with a soft leather rim sitting on four smooth rolling casters. Keeps the grubby garments off the floor and almost makes laundry enjoyable. Can also be used as the ideal storage solution: many people find it ideal for children's toys or a load of chopped firewood. Load it up and wheel it away. Natural Heavyweight Canvas with Vegetable Tanned Leather Rim Measures 45 x 45 x 53 cm/18 x 18 x 21 in This item is not available for international orders nor does it qualify for gift-wrapping.",
-          'featuredImage': {
-            'url':
-              'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/naturalcanvascart2.1663855819.1280.1280.jpg?v=1677497952',
-          },
-          'images': {
-            'nodes': [
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/naturalcanvascart2.1663855819.1280.1280.jpg?v=1677497952',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/naturalcanvascart1.1663855819.1280.1280.jpg?v=1677497952',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/naturalcanvascart5.1663855819.1280.1280.jpg?v=1677497952',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/naturalcanvascart3.1663855819.1280.1280.jpg?v=1677497952',
-              },
-              {
-                'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/naturalcanvascart2.1663855819.386.513.jpg?v=1677497951',
-              },
-            ],
-          },
-          'collections': {
-            'nodes': [
-              {
-                'title': 'Utility',
-              },
-              {
-                'title': 'Shop All',
-              },
-            ],
-          },
-          'variants': {
-            'nodes': [
-              {
-                'sku': 'CLC',
-                'price': {
-                  'amount': '200.0',
+                  'amount': '15.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': {
-                  'amount': '250.0',
+                  'amount': '240.0',
                   'currencyCode': 'USD',
                 },
               },
@@ -995,4 +512,5 @@ const productsStub = {
     },
   },
 };
+
 export default productsStub;
