@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
-import {PromoSection} from '../PromoSection';
+import {PromoSection} from '..';
 
 describe('<PromoSection />', () => {
   it('displays the CTA button', () => {
@@ -11,7 +11,7 @@ describe('<PromoSection />', () => {
   });
 
   it('does not display the CTA button', () => {
-    render(<PromoSection showCta={false} ctaLabel='Foo' ctaLink='/foo' />);
+    render(<PromoSection ctaLabel='Foo' ctaLink='/foo' />);
 
     expect(screen.queryByText('Foo')).toBeNull();
   });
