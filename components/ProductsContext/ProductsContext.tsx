@@ -1,9 +1,10 @@
 import * as React from "react";
+import ShopifyApiClient from "../../api/shopifyApiClient";
 
 type Price = {
   amount: string;
   currencyCode: string;
-}
+};
 
 type VariantNode = {
   sku: string;
@@ -46,10 +47,14 @@ type ProductsApiResponse = {
 
 type ProductsContext = {
   products: ProductsApiResponse;
+  shopifyApiClient: ShopifyApiClient;
 };
 
+const emptyApiResponse: ProductsApiResponse = { data: { products: { nodes: [] } } };
+
 const defaultProductsContext: ProductsContext = {
-  products: { data: { products: { nodes: [] } } },
+  products: emptyApiResponse,
+  shopifyApiClient: new ShopifyApiClient(),
 };
 
 const ProductsContextParent = React.createContext(defaultProductsContext);
@@ -85,4 +90,5 @@ const useProductsContext = (): ProductsContext => {
   }
   return context;
 };
-export { ProductsContextProvider, useProductsContext };
+
+export { ProductsContextProvider, useProductsContext, ProductsApiResponse };

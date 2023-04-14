@@ -1,18 +1,12 @@
 import { gql } from '@apollo/client';
+import * as React from 'react';
+
+import { ContentWrapper, Footer, Header, Main, NavigationMenu, ProductSection, PromoSection, SEO, TestimonialsSection } from '../components';
+import { ProductsContextProvider, useProductsContext, ProductsApiResponse } from '../components/ProductsContext/ProductsContext';
 import * as MENUS from '../constants/menus';
-import { BlogInfoFragment } from '../fragments/GeneralSettings';
-import {
-  Header,
-  Footer,
-  Main,
-  NavigationMenu,
-  SEO,
-  ContentWrapper,
-  ProductSection,
-  PromoSection,
-  TestimonialsSection,
-} from '../components';
 import productsStub from '../data/stubs/products';
+import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import { GetProducts } from '../api/queries/Product';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
@@ -20,6 +14,18 @@ export default function Component(props) {
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
   const { content } = props?.data?.page ?? { title: '' };
+
+  const { shopifyApiClient } = useProductsContext();
+  const { products, setProducts } = React.useState<ProductsApiResponse>(null);
+  
+  React.useEffect(() => {
+    if (!products) {
+      shopifyApiClient.client.query({ query: GetProducts }).then( response => {
+        console.log(response);
+        setProducts(response);
+      });
+    }
+  }, [ products, shopifyApiClient, setProducts ]);
 
   const latestProducts = productsStub?.data?.products?.nodes?.slice(0, 4);
   const saleProducts = productsStub?.data?.products?.nodes?.filter(
@@ -38,9 +44,11 @@ export default function Component(props) {
       />
       <Main>
         <ContentWrapper content={content} />
-        <ProductSection heading='Latest Products' products={latestProducts} />
-        <TestimonialsSection />
-        <ProductSection heading='On Sale' products={saleProducts} />
+        <ProductsContextProvider>
+          <ProductSection heading='Latest Products' products={latestProducts} />
+          <TestimonialsSection />
+          <ProductSection heading='On Sale' products={saleProducts} />
+        </ProductsContextProvider>
         <PromoSection
           showCta
           ctaLink='/about'
