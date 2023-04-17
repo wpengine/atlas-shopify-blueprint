@@ -1,11 +1,17 @@
 import { gql } from '@apollo/client';
-import * as React from 'react';
-
-import { ContentWrapper, Footer, Header, Main, NavigationMenu, ProductSection, PromoSection, SEO, TestimonialsSection } from '../components';
-import { ProductsContextProvider, useProductsContext } from '../components/ProductsContext/ProductsContext';
-import * as MENUS from '../constants/menus';
+import {
+  ContentWrapper,
+  Footer,
+  Header,
+  Main,
+  NavigationMenu,
+  ProductSection,
+  PromoSection,
+  SEO,
+  TestimonialsSection,
+} from '../components';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
-import { GetProducts } from '../api/queries/Product';
+import * as MENUS from '../constants/menus';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
@@ -14,17 +20,12 @@ export default function Component(props) {
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
   const { content } = props?.data?.page ?? { title: '' };
 
-  const { shopifyApiClient } = useProductsContext();
-  const [apiResponse, setApiResponse] = React.useState(null);
+  const latestProducts = props?.products?.slice(0, 4);
+  const saleProducts = props?.products?.filter((product) => {
+    return product.variants.nodes[0].compareAtPrice !== null;
+  });
 
-  console.log('PROPS FRONT-PAGE:');
-  console.log(props);
-
-  React.useEffect(() => {
-    shopifyApiClient.client.query({ query: GetProducts }).then(response => {
-      setApiResponse(response);
-    });
-  }, [shopifyApiClient.client]);
+  console.log(latestProducts, saleProducts);
 
   return (
     <>
@@ -36,21 +37,16 @@ export default function Component(props) {
       />
       <Main>
         <ContentWrapper content={content} />
-        <ProductsContextProvider>
-          <ProductSection heading='Latest Products' products={apiResponse?.data?.products?.nodes?.slice(0, 4)} />
-          <TestimonialsSection />
-          <ProductSection heading='On Sale' products={apiResponse?.data?.products?.nodes?.filter(
-            (product) => {
-              return product.variants.nodes[0].compareAtPrice !== null;
-            }
-          )} />
-        </ProductsContextProvider>
+        <ProductSection heading='Latest Products' products={latestProducts} />
+        <TestimonialsSection />
+        <ProductSection heading='On Sale' products={saleProducts} />
         <PromoSection
           showCta
           ctaLink='/about'
           ctaLabel='About'
           title='Promo Banners'
-          description='You can use this component to promote articles or specific products. And optionally add a CTA below.' />
+          description='You can use this component to promote articles or specific products. And optionally add a CTA below.'
+        />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
