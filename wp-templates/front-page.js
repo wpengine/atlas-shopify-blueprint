@@ -2,9 +2,8 @@ import { gql } from '@apollo/client';
 import * as React from 'react';
 
 import { ContentWrapper, Footer, Header, Main, NavigationMenu, ProductSection, PromoSection, SEO, TestimonialsSection } from '../components';
-import { ProductsContextProvider, useProductsContext, ProductsApiResponse } from '../components/ProductsContext/ProductsContext';
+import { ProductsContextProvider, useProductsContext } from '../components/ProductsContext/ProductsContext';
 import * as MENUS from '../constants/menus';
-import productsStub from '../data/stubs/products';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import { GetProducts } from '../api/queries/Product';
 
@@ -16,23 +15,13 @@ export default function Component(props) {
   const { content } = props?.data?.page ?? { title: '' };
 
   const { shopifyApiClient } = useProductsContext();
-  const { products, setProducts } = React.useState<ProductsApiResponse>(null);
-  
-  React.useEffect(() => {
-    if (!products) {
-      shopifyApiClient.client.query({ query: GetProducts }).then( response => {
-        console.log(response);
-        setProducts(response);
-      });
-    }
-  }, [ products, shopifyApiClient, setProducts ]);
+  const [apiResponse, setApiResponse] = React.useState(null);
 
-  const latestProducts = productsStub?.data?.products?.nodes?.slice(0, 4);
-  const saleProducts = productsStub?.data?.products?.nodes?.filter(
-    (product) => {
-      return product.variants.nodes[0].compareAtPrice !== null;
-    }
-  );
+  React.useEffect(() => {
+    shopifyApiClient.client.query({ query: GetProducts }).then(response => {
+      setApiResponse(response);
+    });
+  }, [shopifyApiClient.client]);
 
   return (
     <>
@@ -45,9 +34,13 @@ export default function Component(props) {
       <Main>
         <ContentWrapper content={content} />
         <ProductsContextProvider>
-          <ProductSection heading='Latest Products' products={latestProducts} />
+          <ProductSection heading='Latest Products' products={apiResponse?.data?.products?.nodes?.slice(0, 4)} />
           <TestimonialsSection />
-          <ProductSection heading='On Sale' products={saleProducts} />
+          <ProductSection heading='On Sale' products={apiResponse?.data?.products?.nodes?.filter(
+            (product) => {
+              return product.variants.nodes[0].compareAtPrice !== null;
+            }
+          )} />
         </ProductsContextProvider>
         <PromoSection
           showCta

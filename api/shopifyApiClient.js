@@ -2,7 +2,6 @@ import {
   ApolloClient,
   createHttpLink,
   InMemoryCache,
-  NormalizedCacheObject,
 } from "@apollo/client";
 
 const store = "blueprintbetatest"; // process.env.SHOPIFY_STORE_NAME
@@ -10,8 +9,6 @@ const token = "3accc15150c6fadc731a4763deb6a2ee"; // process.env.SHOPIFY_TOKEN
 const url = `https://${store}.myshopify.com/api/2023-01/graphql.json`;
 
 class ShopifyApiClient {
-
-  client: ApolloClient<NormalizedCacheObject>;
 
   constructor() {
     this.client = new ApolloClient({
