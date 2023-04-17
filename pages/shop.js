@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import { getNextStaticProps } from '@faustwp/core';
+import { getNextServerSideProps } from '@faustwp/core';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import { GET_PRODUCTS } from '../queries/Products';
 import shopifyClient from '../utilities/shopifyClient';
@@ -85,14 +85,14 @@ Page.variables = () => {
   };
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const { data } = await shopifyClient.query({
     query: GET_PRODUCTS,
   });
 
   const { products } = data;
 
-  return getNextStaticProps(ctx, {
+  return getNextServerSideProps(ctx, {
     Page,
     props: { products: products.nodes },
   });
