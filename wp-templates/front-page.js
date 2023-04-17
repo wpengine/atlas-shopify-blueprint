@@ -17,6 +17,9 @@ export default function Component(props) {
   const { shopifyApiClient } = useProductsContext();
   const [apiResponse, setApiResponse] = React.useState(null);
 
+  console.log('PROPS FRONT-PAGE:');
+  console.log(props);
+
   React.useEffect(() => {
     shopifyApiClient.client.query({ query: GetProducts }).then(response => {
       setApiResponse(response);

@@ -1,38 +1,12 @@
 import { gql } from '@apollo/client';
+import { ProductFragment } from '../../fragments/Product';
 
-export const GetProducts = gql`{
-  products(first: 250) {
-    nodes {
-      id
-      handle
-      title
-      description
-      featuredImage {
-        url
-      }
-      images(first: 100) {
-        nodes {
-          url
-        }
-      }
-      collections(first: 100) {
-        nodes {
-          title
-        }
-      }
-      variants(first: 100) {
-        nodes {
-          sku
-          price {
-            amount
-            currencyCode
-          }
-          compareAtPrice {
-            amount
-            currencyCode
-          }
-        }
+export const GetProducts = gql`
+  ${ProductFragment}
+  query GetProducts {
+    products(first: 250) {
+      nodes {
+        ...ProductFragment
       }
     }
-  }
-}`;
+  }`;
