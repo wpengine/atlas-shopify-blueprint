@@ -1,6 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
-import * as MENUS from '../constants/menus';
+import { getNextStaticProps } from '@faustwp/core';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import { GET_PRODUCTS } from '../queries/Products';
+import shopifyClient from '../utilities/shopifyClient';
+import * as MENUS from '../constants/menus';
 import {
   Header,
   Footer,
@@ -11,10 +14,8 @@ import {
   ProductCard,
   EntryHeader,
 } from '../components';
-import { getNextStaticProps } from '@faustwp/core';
-import productsStub from '../data/stubs/products';
 
-export default function Page() {
+export default function Page(props) {
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -23,6 +24,8 @@ export default function Page() {
     data?.generalSettings ?? {};
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
+
+  const products = props?.products ?? [];
 
   return (
     <>
@@ -40,7 +43,7 @@ export default function Page() {
               subTitle='Shop your Shopify products with WordPress and WPGraphQL'
             />
             <div className='shop-grid'>
-              {productsStub.data?.products?.nodes?.map?.((product) => (
+              {products?.map?.((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
@@ -82,9 +85,15 @@ Page.variables = () => {
   };
 };
 
-export function getStaticProps(ctx) {
+export async function getStaticProps(ctx) {
+  const { data } = await shopifyClient.query({
+    query: GET_PRODUCTS,
+  });
+
+  const { products } = data;
+
   return getNextStaticProps(ctx, {
     Page,
-    props: {},
+    props: { products: products.nodes },
   });
 }
