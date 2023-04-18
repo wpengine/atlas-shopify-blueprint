@@ -1,5 +1,6 @@
 import empty from "../data/stubs/cart/empty";
 import single from "../data/stubs/cart/single";
+import multiple from "../data/stubs/cart/multiple";
 
 // This is temporary, replace with query
 const CART_STATE_KEY = "cart-state";
@@ -9,7 +10,7 @@ const useStub = (state: string | null) => {
   }
 
   if (state === "multiple") {
-    return single;
+    return multiple;
   }
 
   return empty;
