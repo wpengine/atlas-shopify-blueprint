@@ -19,7 +19,7 @@ const CartTable = ({cartItems, setProductNotification}) => {
             </tr>
           </thead>
           <tbody>
-              <h1>Empty</h1>
+            {/* Render items */}
           </tbody>
         </table>
       </div>
