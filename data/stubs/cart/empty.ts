@@ -1,6 +1,19 @@
 const empty = {
   cart: {
-    id: "gid://shopify/Cart/c1-175b407e27a1d5b45f126c0d37d9bd54",
+    id: "gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d",
+    checkoutUrl:
+      "https://blueprintbetatest.myshopify.com/cart/c/c1-c63c275d6f27eb309d4efac08dee2e7d",
+    totalQuantity: 0,
+    cost: {
+      totalAmount: {
+        amount: "0.0",
+        currencyCode: "USD",
+      },
+      subtotalAmount: {
+        amount: "0.0",
+        currencyCode: "USD",
+      },
+    },
     lines: {
       nodes: [],
     },
