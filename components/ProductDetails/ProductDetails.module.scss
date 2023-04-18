@@ -1,0 +1,9 @@
+.component {
+  display: flex;
+  margin-top: 4rem;
+  gap: 4rem;
+
+  .detailsColumn {
+    flex: 1;
+  }
+}
