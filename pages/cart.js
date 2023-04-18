@@ -26,14 +26,13 @@ export default function Page() {
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
   const cart = empty.cart;
-  const cartItems = cart.lines;
+  const cartItems = cart.lines.nodes;
   const cartCount = cartItems.length
-  const isCartEmpty = cartCount > 0;
+  const isCartEmpty = cartCount === 0;
   const isCartLoading = false;
   const cartSubTotal = cart.cost.subtotalAmount.amount;
   const cartTotal = cart.cost.totalAmount.amount;
   const checkoutUrl = cart.checkoutUrl;
-
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
@@ -45,7 +44,8 @@ export default function Page() {
       <Main>
         <Container>
           <div className='text-center'>
-          {!isCartEmpty && !isCartLoading && (
+            <h1>Cart</h1>
+            {!isCartEmpty && !isCartLoading && (
               <>
                 <CartTable
                   cartItems={cartItems}
