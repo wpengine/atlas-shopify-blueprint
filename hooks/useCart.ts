@@ -17,10 +17,7 @@ const useStub = (state: string | null) => {
 
 const useCart = () => {
   const cart = useStub(window.localStorage.getItem(CART_STATE_KEY));
-  // const cartId = getCartIdFromCookie();
-  // const {data: cart, loading, error} = useQuery(CartQuery, {id: cartId});
-
-  return { cart, loading: false, error: null };
+  return { cart };
 };
 
 export default useCart;
