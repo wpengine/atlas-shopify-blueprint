@@ -1,6 +1,6 @@
-import { gql, useQuery } from '@apollo/client';
-import * as MENUS from '../constants/menus';
-import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import { gql, useQuery } from "@apollo/client";
+import * as MENUS from "../constants/menus";
+import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import {
   Header,
   Footer,
@@ -8,14 +8,13 @@ import {
   Container,
   NavigationMenu,
   SEO,
-} from '../components';
-import { getNextStaticProps } from '@faustwp/core';
-import CartTable from '../components/Cart/CartTable';
-import CartTotals from '../components/Cart/CartTotals';
-import empty from "../data/stubs/cart/empty";
+} from "../components";
+import { getNextStaticProps } from "@faustwp/core";
+import CartTable from "../components/Cart/CartTable";
+import CartTotals from "../components/Cart/CartTotals";
+import useCart from "../hooks/useCart";
 
 export default function Page() {
-
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -25,14 +24,15 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const cart = empty.cart;
+  const { cart } = useCart();
   const cartItems = cart.lines.nodes;
-  const cartCount = cartItems.length
+  const cartCount = cartItems.length;
   const isCartEmpty = cartCount === 0;
   const isCartLoading = false;
   const cartSubTotal = cart.cost.subtotalAmount.amount;
   const cartTotal = cart.cost.totalAmount.amount;
   const checkoutUrl = cart.checkoutUrl;
+
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
@@ -43,7 +43,7 @@ export default function Page() {
       />
       <Main>
         <Container>
-          <div className='text-center'>
+          <div className="text-center">
             <h1>Cart</h1>
             {!isCartEmpty && !isCartLoading && (
               <>
