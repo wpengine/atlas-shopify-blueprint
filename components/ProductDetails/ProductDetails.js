@@ -22,7 +22,8 @@ const ProductDetails = ({ product }) => {
 
   const handleOptionChange = (option) => {
     const variant = product.variants.nodes.find(
-      (variant) => variant.selectedOptions[0].name === option
+      (variant) =>
+        variant.selectedOptions[0].value.toLowerCase() === option.target.value
     );
 
     setSelectedVariant(variant);

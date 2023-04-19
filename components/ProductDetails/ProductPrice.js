@@ -3,7 +3,7 @@ const ProductPrice = ({ salePrice, price }) => {
     <p className='price'>
       {salePrice !== null ? (
         <>
-          <del>${price}</del> ${salePrice.amount}
+          <del>${price}</del> ${salePrice?.amount}
         </>
       ) : (
         <>${price}</>

@@ -31,12 +31,17 @@ const ProductMeta = ({
           ))}
         </p>
       )}
-      <h2>{variantOptions?.label}</h2>
       <form onSubmit={handleSubmit}>
-        <ProductVariantOptions
-          options={variantOptions?.options}
-          onChange={handleOptionChange}
-        />
+        {variantOptions?.label !== 'Title' && (
+          <>
+            <h2>{variantOptions?.label}</h2>
+            <ProductVariantOptions
+              selected={variant?.selectedOptions[0]?.value}
+              options={variantOptions?.options}
+              handleOptionChange={handleOptionChange}
+            />
+          </>
+        )}
 
         <div>
           <label style={{ display: 'block' }}>Quantity:</label>

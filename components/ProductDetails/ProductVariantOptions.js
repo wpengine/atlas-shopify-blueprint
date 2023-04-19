@@ -1,6 +1,6 @@
 import styles from './ProductVariantOptions.module.scss';
 
-const ProductVariantOptions = ({ options, onChange }) => {
+const ProductVariantOptions = ({ selected, options, handleOptionChange }) => {
   return (
     <div className={styles.formField}>
       {options?.map?.((option, index) => (
@@ -14,22 +14,14 @@ const ProductVariantOptions = ({ options, onChange }) => {
             value={option}
             id={`variant-option-${option}`}
             aria-label={option}
-            // checked={option.id === value}
-            // onChange={() => onChange(option)}
+            checked={selected?.toLowerCase() === option}
+            onChange={handleOptionChange}
           />
-          <label className={styles.formOption}>
-            {option.value_data?.colors?.map((color, index) => (
-              <span
-                title={option.label}
-                className={
-                  styles.formOptionVariant + ' ' + styles.formOptionVariantColor
-                }
-                style={{ backgroundColor: color }}
-                key={index}
-              />
-            ))}
+          <label
+            htmlFor={`variant-option-${option}`}
+            className={styles.formOption}
+          >
             <span
-              title={option.label}
               className={
                 styles.formOptionVariant + ' ' + styles.formOptionVariantPattern
               }
