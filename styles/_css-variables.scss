@@ -50,4 +50,9 @@
     0 20px 60px -30px rgba(0, 0, 0, 0.5);
 
   --wpe--loading--search--result-background-color: #ddd;
+
+  // Variant selection
+  --color-swatches-gap: var(--space-2xs);
+  --color-swatch-size: 32px;
+  --color-swatch-radius: 50%;
 }
