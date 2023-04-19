@@ -1,27 +1,8 @@
-import useAtlasShopify from "../../hooks/useAtlasShopify";
 import { useRouter } from "next/router";
 import empty from "../../data/stubs/cart/empty";
 
 export function CartQuickView({ styles }) {
   const router = useRouter();
-  // const { cartData } = useAtlasShopify();
-
-  // let cartSubTotal = (0).toFixed(2);
-  // let cartItems = [];
-  // let cartCount = 0;
-
-  // if (cartData && cartData !== 'Empty') {
-  //   cartSubTotal = cartData.cart_amount.toFixed(2);
-  //   cartItems = [].concat(
-  //     cartData.line_items.physical_items,
-  //     cartData.line_items.custom_items,
-  //     cartData.line_items.digital_items,
-  //     cartData.line_items.gift_certificates
-  //   );
-  //   cartCount = cartItems.reduce((acc, item) => {
-  //     return acc + item.quantity;
-  //   }, 0);
-  // }
 
   const cart = empty.cart;
   const cartItems = cart.lines.nodes;

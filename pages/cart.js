@@ -12,10 +12,11 @@ import {
 import { getNextStaticProps } from '@faustwp/core';
 import CartTable from '../components/Cart/CartTable';
 import CartTotals from '../components/Cart/CartTotals';
-import empty from "../data/stubs/cart/empty";
-import single from "../data/stubs/cart/single";
+import useCart from "../hooks/useCart";
 
 export default function Page() {
+
+  const {cart} = useCart();
 
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
@@ -26,7 +27,7 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const cart = empty.cart;
+  // const cart = empty.cart;
   const cartItems = cart.lines.nodes;
   const cartCount = cartItems.length
   const isCartEmpty = cartCount === 0;
@@ -34,6 +35,7 @@ export default function Page() {
   const cartSubTotal = cart.cost.subtotalAmount.amount;
   const cartTotal = cart.cost.totalAmount.amount;
   const checkoutUrl = cart.checkoutUrl;
+  console.log(cartItems)
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
@@ -62,7 +64,7 @@ export default function Page() {
                 </>
               )}
             {isCartEmpty && !isCartLoading && <p>You have no items in cart</p>}
-            {isCartLoading && <Loader />}
+            {/* {isCartLoading && <Loader />} */}
           </div>
         </Container>
       </Main>

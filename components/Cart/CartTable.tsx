@@ -1,8 +1,7 @@
 import React from "react"
-import useAtlasShopify from "../../hooks/useAtlasShopify";
-import { AiOutlineCloseCircle} from "react-icons/ai"
 import styles from './CartTable.module.scss'
 
+// variables are not used cause of empty cart approach - in single and multiple items they will be used 
 
 const CartTable = ({cartItems, setProductNotification}) => {
     return (
