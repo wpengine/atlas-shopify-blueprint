@@ -1,13 +1,14 @@
-import React from 'react';
-import styles from './CartTotals.module.scss';
-import classNames from 'classnames';
+import React from "react";
+import styles from "./CartTotals.module.scss";
+import classNames from "classnames";
 
 const cx = classNames.bind(styles);
 
 const CartTotals = ({ cartSubTotal, cartTotal, checkout_url }) => {
   return (
     <div className={styles.cartTotals}>
-      <h3>Cart Totals</h3>
+      <h3>Sumamry</h3>
+
       <table>
         <tbody>
           <tr>

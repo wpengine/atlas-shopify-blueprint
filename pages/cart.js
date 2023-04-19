@@ -13,6 +13,7 @@ import { getNextStaticProps } from "@faustwp/core";
 import CartTable from "../components/Cart/CartTable";
 import CartTotals from "../components/Cart/CartTotals";
 import useCart from "../hooks/useCart";
+import { Loader } from "../components/Loader";
 
 export default function Page() {
   const { data } = useQuery(Page.query, {

@@ -1,16 +1,39 @@
 .cartTotals {
-  float: right;
+  @import 'styles/breakpoints';
+  @import 'styles/css-variables';
+
+  width: 100%;
+  margin-top: 3rem;
+  margin-left: auto;
+
+  @media (min-width: $breakpoint-small) {
+    width: 30%;
+  }
+
+  table {
+    th, td {
+      width: 50%;
+      padding: 1rem;
+    }
+    th {
+      background-color: var(--wpe--color--offwhite);
+      text-align: right;
+    }
+    tr {
+      text-align: left;
+    }
+  }
 
   .checkoutButton {
     width: 100%;
-    float: right;
+    margin-top: 1rem;
     text-align: center;
   }
 
   .button {
-    background-color: #107f67;
-    border-color: #107f67;
-    color: #ffffff;
+    background-color: var(--wpe--color--green);
+    border-color: var(--wpe--color--dark-green);
+    color: var(--wpe--color--white);
     display: block;
     margin-bottom: 0.6rem;
     border: 0;
@@ -21,10 +44,9 @@
     font-weight: 600;
     text-shadow: none;
     word-break: break-all;
+    
     &:hover {
-      background-color: #00664e;
-      border-color: #00664e;
-      color: #ffffff;
+      background-color: var(--wpe--color--dark-green);
     }
   }
 }
