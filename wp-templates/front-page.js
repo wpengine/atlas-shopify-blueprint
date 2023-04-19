@@ -1,18 +1,17 @@
 import { gql } from '@apollo/client';
-import * as MENUS from '../constants/menus';
-import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
-  Header,
+  ContentWrapper,
   Footer,
+  Header,
   Main,
   NavigationMenu,
-  SEO,
-  ContentWrapper,
   ProductSection,
   PromoSection,
+  SEO,
   TestimonialsSection,
 } from '../components';
-import productsStub from '../data/stubs/products';
+import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import * as MENUS from '../constants/menus';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
@@ -21,12 +20,10 @@ export default function Component(props) {
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
   const { content } = props?.data?.page ?? { title: '' };
 
-  const latestProducts = productsStub?.data?.products?.nodes?.slice(0, 4);
-  const saleProducts = productsStub?.data?.products?.nodes?.filter(
-    (product) => {
-      return product.variants.nodes[0].compareAtPrice !== null;
-    }
-  );
+  const latestProducts = props?.products?.slice(0, 4);
+  const saleProducts = props?.products?.filter((product) => {
+    return product.variants.nodes[0].compareAtPrice !== null;
+  });
 
   return (
     <>
@@ -46,7 +43,8 @@ export default function Component(props) {
           ctaLink='/about'
           ctaLabel='About'
           title='Promo Banners'
-          description='You can use this component to promote articles or specific products. And optionally add a CTA below.' />
+          description='You can use this component to promote articles or specific products. And optionally add a CTA below.'
+        />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
