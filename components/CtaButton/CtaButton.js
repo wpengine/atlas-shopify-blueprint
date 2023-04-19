@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import styles from './CtaButton.module.scss';
 
-const CtaButton = ({ctaLink = null, ctaLabel = null }) => {
+const CtaButton = ({ ctaLink = null, ctaLabel = null }) => {
   return (
-    <div className='buttonContainer'>
+    <div className={styles.buttonContainer}>
       <Link href={ctaLink}>
-        <a className='button'>{ctaLabel}</a>
+        <a className={styles.button}>{ctaLabel}</a>
       </Link>
     </div>
   );

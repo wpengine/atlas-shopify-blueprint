@@ -1,9 +1,10 @@
+import Link from 'next/link';
+import { CtaButton } from '../CtaButton';
 import classNames from 'classnames/bind';
 import styles from './ProductCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-import Link from 'next/link';
 const ProductCard = ({ product }) => {
   const productHref = `/product/${product?.handle}`;
   const thumbnail = product?.featuredImage?.url;
@@ -45,11 +46,7 @@ const ProductCard = ({ product }) => {
             )}
           </span>
         </div>
-        <div className='buttonContainer'>
-          <Link href={productHref}>
-            <a className='button'>View product</a>
-          </Link>
-        </div>
+        <CtaButton ctaLink={productHref} ctaLabel='View product' />
       </div>
     </div>
   );
