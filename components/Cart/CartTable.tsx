@@ -44,7 +44,8 @@ const CartTable = ({ cartItems }) => {
               </td>
               <td>{item.merchandise.product.title}</td>
               <td>
-                <span>$</span> {item.cost.amountPerQuantity.amount}
+                <span>$</span>
+                {item.cost.amountPerQuantity.amount}
               </td>
               <td>
                 <div className={styles.quantity}>

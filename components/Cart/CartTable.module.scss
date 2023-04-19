@@ -21,7 +21,11 @@
       }
       td {
         border: 1px solid var(--wpe--color--offwhite);
-        padding: 0;
+        padding: 1rem;
+
+        @media (min-width: $breakpoint-extra-small) {
+          padding: 0;
+        }
       }
     };
 
