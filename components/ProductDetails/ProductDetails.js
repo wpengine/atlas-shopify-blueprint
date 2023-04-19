@@ -3,7 +3,7 @@ import ProductPrice from './ProductPrice';
 import styles from './ProductDetails.module.scss';
 
 const ProductDetails = ({ product }) => {
-  const salePrice = product?.variants?.nodes[0]?.compareAtPrice?.amount;
+  const salePrice = product?.variants?.nodes[0]?.compareAtPrice;
 
   return (
     <div className={styles.component}>
