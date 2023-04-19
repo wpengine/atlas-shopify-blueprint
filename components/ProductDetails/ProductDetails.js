@@ -12,7 +12,7 @@ const ProductDetails = ({ product }) => {
         <img src={product?.featuredImage?.url} alt={product?.title} />
       </div>
       <div className={styles.detailsColumn}>
-        {salePrice && <span className='onsale'>Sale!</span>}
+        {salePrice && <span className={styles.onSale}>Sale!</span>}
         <h1>{product?.title}</h1>
         <ProductPrice
           salePrice={salePrice}

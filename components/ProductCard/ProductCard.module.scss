@@ -16,6 +16,23 @@
     position: relative;
   }
 
+  .onSale {
+    border: 1px solid;
+    border-color: var(--wpe--color--slate);
+    color: var(--wpe--color--slate);
+    padding: 0.202em 0.6180469716em;
+    margin: 10px;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1em;
+    border-radius: 3px;
+    position: absolute;
+    background-color: var(--wpe--color--white);
+    z-index: 999;
+  }
+
   .productImageContainer {
     position: relative;
     display: block;
