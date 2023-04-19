@@ -4,6 +4,7 @@
   table {
     width: 100%;
     overflow-x: auto;
+    padding-top: 3rem;
 
     .cartImage {
       height: 90px;
@@ -13,6 +14,11 @@
       @media (max-width: $breakpoint-extra-small) {
         display: none;
       }
+    }
+    tr {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

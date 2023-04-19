@@ -13,6 +13,7 @@ import { getNextStaticProps } from '@faustwp/core';
 import CartTable from '../components/Cart/CartTable';
 import CartTotals from '../components/Cart/CartTotals';
 import empty from "../data/stubs/cart/empty";
+import single from "../data/stubs/cart/single";
 
 export default function Page() {
 
@@ -43,23 +44,23 @@ export default function Page() {
       />
       <Main>
         <Container>
-          <div className='text-center'>
+          <div className='text-center spacing-top checkout-section'>
             <h1>Cart</h1>
             {!isCartEmpty && !isCartLoading && (
-              <>
-                <CartTable
-                  cartItems={cartItems}
-                  cartCount={cartCount}
-                  cartSubTotal={cartSubTotal}
-                  cartTotal={cartTotal}
-                />
-                <CartTotals
-                  cartSubTotal={cartSubTotal}
-                  cartTotal={cartTotal}
-                  checkoutUrl={checkoutUrl}
-                />
-              </>
-            )}
+                <>
+                  <CartTable
+                    cartItems={cartItems}
+                    cartCount={cartCount}
+                    cartSubTotal={cartSubTotal}
+                    cartTotal={cartTotal}
+                  />
+                  <CartTotals
+                    cartSubTotal={cartSubTotal}
+                    cartTotal={cartTotal}
+                    checkoutUrl={checkoutUrl}
+                  />
+                </>
+              )}
             {isCartEmpty && !isCartLoading && <p>You have no items in cart</p>}
             {isCartLoading && <Loader />}
           </div>

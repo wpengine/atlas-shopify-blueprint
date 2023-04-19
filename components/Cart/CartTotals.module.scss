@@ -1,10 +1,12 @@
 .cartTotals {
   float: right;
+  padding: 5rem;
 
   .checkoutButton {
-    width: 100%;
-    float: right;
+    width: 30%;
+    // float: right;
     text-align: center;
+    margin: auto;
   }
 
   .button {
@@ -26,5 +28,14 @@
       border-color: #00664e;
       color: #ffffff;
     }
+  }
+  table {
+    width: 100%;
+  }
+  tbody {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }
