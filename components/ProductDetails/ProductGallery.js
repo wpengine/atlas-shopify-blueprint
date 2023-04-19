@@ -12,18 +12,19 @@ function ProductGallery({ selected, images, handleImageChange }) {
       </div>
       <div className={styles.productGallery}>
         <div className={styles.imageGrid}>
-          {images.map((image, index) => (
-            <div className={styles.productImage} key={`slide-image-${index}`}>
-              <img
-                src={image?.url}
-                className={styles.productGalleryThumbnail}
-                key={`slide-image-${index}`}
-                alt={image?.altText}
-                loading='lazy'
-                onClick={() => handleClick(image?.url)}
-              />
-            </div>
-          ))}
+          {images.length > 1 &&
+            images.map((image, index) => (
+              <div className={styles.productImage} key={`slide-image-${index}`}>
+                <img
+                  src={image}
+                  className={styles.productGalleryThumbnail}
+                  key={`slide-image-${index}`}
+                  alt={image?.altText}
+                  loading='lazy'
+                  onClick={() => handleClick(image)}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </>

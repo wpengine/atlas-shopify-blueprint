@@ -12,11 +12,12 @@ const ProductDetails = ({ product }) => {
 
   const collections = product?.collections?.nodes ?? [];
 
-  const productImages = product?.images?.nodes ?? [];
-
   const variantsLabel = product?.variants?.nodes[0]?.selectedOptions[0]?.name;
   const variantsOptions = product?.variants?.nodes?.map((variant) =>
     variant.selectedOptions[0].value.toLowerCase()
+  );
+  const variantImages = product?.variants?.nodes.map(
+    (variantImage) => variantImage.image.url
   );
 
   const handleChange = () => {
@@ -41,7 +42,7 @@ const ProductDetails = ({ product }) => {
     <div className={styles.component}>
       <div className={styles.detailsColumn}>
         <ProductGallery
-          images={productImages}
+          images={variantImages}
           selected={selectedVariant?.image?.url}
           variant={selectedVariant?.selectedOptions[0]?.value}
           handleImageChange={handleVariantChange}
