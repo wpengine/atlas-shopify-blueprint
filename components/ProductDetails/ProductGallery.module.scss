@@ -1,0 +1,10 @@
+.productGallery {
+  display: flex;
+
+  .imageGrid {
+    display: flex;
+    gap: 2em;
+    margin-top: 2em;
+    cursor: pointer;
+  }
+}

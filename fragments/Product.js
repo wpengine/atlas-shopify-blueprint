@@ -23,6 +23,9 @@ export const ProductFragment = gql`
     variants(first: 100) {
       nodes {
         sku
+        image {
+          url
+        }
         selectedOptions {
           name
           value

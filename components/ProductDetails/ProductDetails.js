@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ProductDescription from './ProductDescription';
 import ProductPrice from './ProductPrice';
 import ProductMeta from './ProductMeta';
+import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
 
 const ProductDetails = ({ product }) => {
@@ -10,6 +11,8 @@ const ProductDetails = ({ product }) => {
   );
 
   const collections = product?.collections?.nodes ?? [];
+
+  const productImages = product?.images?.nodes ?? [];
 
   const variantsLabel = product?.variants?.nodes[0]?.selectedOptions[0]?.name;
   const variantsOptions = product?.variants?.nodes?.map((variant) =>
@@ -20,10 +23,11 @@ const ProductDetails = ({ product }) => {
     return;
   };
 
-  const handleOptionChange = (option) => {
+  const handleVariantChange = (property) => {
     const variant = product.variants.nodes.find(
       (variant) =>
-        variant.selectedOptions[0].value.toLowerCase() === option.target.value
+        variant.selectedOptions[0].value.toLowerCase() === property ||
+        variant.image.url === property
     );
 
     setSelectedVariant(variant);
@@ -36,8 +40,12 @@ const ProductDetails = ({ product }) => {
   return (
     <div className={styles.component}>
       <div className={styles.detailsColumn}>
-        {/* <ProductGallery images={productImages} /> */}
-        <img src={product?.featuredImage?.url} alt={product?.title} />
+        <ProductGallery
+          images={productImages}
+          selected={selectedVariant?.image?.url}
+          variant={selectedVariant?.selectedOptions[0]?.value}
+          handleImageChange={handleVariantChange}
+        />
       </div>
       <div className={styles.detailsColumn}>
         {selectedVariant?.compareAtPrice && (
@@ -55,7 +63,7 @@ const ProductDetails = ({ product }) => {
           variantOptions={{ label: variantsLabel, options: variantsOptions }}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          handleOptionChange={handleOptionChange}
+          handleOptionChange={handleVariantChange}
         />
       </div>
     </div>
