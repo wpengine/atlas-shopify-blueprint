@@ -1,4 +1,5 @@
 .cartTotals {
+  @import 'styles/css-variables';
   float: right;
   padding: 5rem;
 
@@ -24,9 +25,9 @@
     text-shadow: none;
     word-break: break-all;
     &:hover {
-      background-color: #00664e;
-      border-color: #00664e;
-      color: #ffffff;
+      background-color: var(--wpe--color--green);
+      border-color: var(--wpe--color--green);
+      color: var(--wpe--color--white);
     }
   }
   table {
