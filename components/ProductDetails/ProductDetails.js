@@ -9,6 +9,7 @@ const ProductDetails = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants?.nodes[0]
   );
+  const [quantity, setQuantity] = useState(0);
 
   const collections = product?.collections?.nodes ?? [];
 
@@ -20,8 +21,8 @@ const ProductDetails = ({ product }) => {
     (variantImage) => variantImage.image.url
   );
 
-  const handleChange = () => {
-    return;
+  const handleQuantityChange = (e) => {
+    setQuantity(e.target.value);
   };
 
   const handleVariantChange = (property) => {
@@ -35,7 +36,8 @@ const ProductDetails = ({ product }) => {
   };
 
   const handleSubmit = () => {
-    return;
+    // add to cart here
+    return quantity;
   };
 
   return (
@@ -62,7 +64,7 @@ const ProductDetails = ({ product }) => {
           variant={selectedVariant}
           collections={collections}
           variantOptions={{ label: variantsLabel, options: variantsOptions }}
-          handleChange={handleChange}
+          handleChange={handleQuantityChange}
           handleSubmit={handleSubmit}
           handleOptionChange={handleVariantChange}
         />
