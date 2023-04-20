@@ -34,7 +34,7 @@ export default function Page() {
   const cartSubTotal = cart.cost.subtotalAmount.amount;
   const cartTotal = cart.cost.totalAmount.amount;
   const checkoutUrl = cart.checkoutUrl;
-  
+
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
@@ -63,7 +63,6 @@ export default function Page() {
                 </>
               )}
             {isCartEmpty && !isCartLoading && <p>You have no items in cart</p>}
-            {/* {isCartLoading && <Loader />} */}
           </div>
         </Container>
       </Main>
