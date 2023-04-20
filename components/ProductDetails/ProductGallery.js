@@ -19,6 +19,7 @@ function ProductGallery({ selected, images, handleImageChange }) {
                   src={image}
                   className={styles.productGalleryThumbnail}
                   key={`slide-image-${index}`}
+                  data-testid={`slide-image-${index}`}
                   alt={image?.altText}
                   loading='lazy'
                   onClick={() => handleClick(image)}

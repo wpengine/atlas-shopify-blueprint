@@ -17,8 +17,9 @@ const ProductVariantOptions = ({ selected, options, handleOptionChange }) => {
             name={option}
             value={option}
             id={`variant-option-${option}`}
+            data-testid={`variant-option-${option}`}
             aria-label={option}
-            checked={selected?.toLowerCase() === option}
+            defaultChecked={selected?.toLowerCase() === option}
             onChange={handleChange}
           />
           <label
