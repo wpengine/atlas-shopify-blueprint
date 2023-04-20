@@ -1,13 +1,13 @@
+@import 'styles/css-variables';
+
 .cartTotals {
-  @import 'styles/css-variables';
   float: right;
   padding: 5rem;
 
   .checkoutButton {
-    width: 30%;
-    // float: right;
+    width: 100%;
+    float: right;
     text-align: center;
-    margin: auto;
   }
 
   .button {
@@ -29,14 +29,5 @@
       border-color: var(--wpe--color--green);
       color: var(--wpe--color--white);
     }
-  }
-  table {
-    width: 100%;
-  }
-  tbody {
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
   }
 }

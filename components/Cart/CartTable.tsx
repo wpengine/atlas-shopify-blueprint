@@ -1,8 +1,6 @@
 import React from "react"
 import styles from './CartTable.module.scss'
 
-// variables are not used cause of empty cart approach - in single and multiple items they will be used 
-
 const CartTable = () => {
     return (
       <div className={styles.cartTable}>

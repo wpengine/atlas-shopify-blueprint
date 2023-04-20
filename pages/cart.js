@@ -27,7 +27,6 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  // const cart = empty.cart;
   const cartItems = cart.lines.nodes;
   const cartCount = cartItems.length
   const isCartEmpty = cartCount === 0;
@@ -35,7 +34,7 @@ export default function Page() {
   const cartSubTotal = cart.cost.subtotalAmount.amount;
   const cartTotal = cart.cost.totalAmount.amount;
   const checkoutUrl = cart.checkoutUrl;
-  console.log(cartItems)
+  
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />

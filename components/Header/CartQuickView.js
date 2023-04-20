@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
-import empty from "../../data/stubs/cart/empty";
+import useCart from "../../hooks/useCart";
 
 export function CartQuickView({ styles }) {
   const router = useRouter();
 
-  const cart = empty.cart;
+  const {cart} = useCart();
+
   const cartItems = cart.lines.nodes;
   const cartCount = cartItems.length;
   const isCartEmpty = cartCount === 0;
