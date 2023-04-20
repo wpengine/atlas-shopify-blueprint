@@ -55,7 +55,7 @@ const ProductMeta = ({
             className={styles.quantity}
           />
         </div>
-        <CtaButton ctaLink='#' ctaLabel='Add to cart' />
+        <CtaButton ctaLabel='Add to cart' ctaClick={handleSubmit} />
       </form>
     </div>
   );

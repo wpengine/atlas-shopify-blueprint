@@ -36,7 +36,7 @@ const ProductDetails = ({ product }) => {
   };
 
   const handleSubmit = () => {
-    // add to cart here
+    console.log('Add to cart will happen here');
     return quantity;
   };
 
