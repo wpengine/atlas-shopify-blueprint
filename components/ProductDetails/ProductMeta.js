@@ -36,7 +36,7 @@ const ProductMeta = ({
           <>
             <h2>{variantOptions?.label}</h2>
             <ProductVariantOptions
-              selected={variant?.selectedOptions[0]?.value}
+              selected={variant?.selectedOptions?.[0]?.value}
               options={variantOptions?.options}
               handleOptionChange={handleOptionChange}
             />

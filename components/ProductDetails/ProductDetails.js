@@ -13,12 +13,12 @@ const ProductDetails = ({ product }) => {
 
   const collections = product?.collections?.nodes ?? [];
 
-  const variantsLabel = product?.variants?.nodes[0]?.selectedOptions[0]?.name;
-  const variantsOptions = product?.variants?.nodes?.map((variant) =>
-    variant.selectedOptions[0].value.toLowerCase()
+  const variantsLabel = product?.variants?.nodes[0]?.selectedOptions?.[0]?.name;
+  const variantsOptions = product?.variants?.nodes?.map?.((variant) =>
+    variant.selectedOptions?.[0]?.value.toLowerCase()
   );
-  const variantImages = product?.variants?.nodes.map(
-    (variantImage) => variantImage.image.url
+  const variantImages = product?.variants?.nodes?.map?.(
+    (variantImage) => variantImage?.image?.url
   );
 
   const handleQuantityChange = (e) => {
@@ -46,7 +46,7 @@ const ProductDetails = ({ product }) => {
         <ProductGallery
           images={variantImages}
           selected={selectedVariant?.image?.url}
-          variant={selectedVariant?.selectedOptions[0]?.value}
+          variant={selectedVariant?.selectedOptions?.[0]?.value}
           handleImageChange={handleVariantChange}
         />
       </div>
