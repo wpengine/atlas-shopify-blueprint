@@ -4,6 +4,16 @@
   text-align: center;
 }
 
+.spacing-top {
+  margin-top: 2rem;
+}
+
+.checkout-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
