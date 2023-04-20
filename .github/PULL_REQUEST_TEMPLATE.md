@@ -4,6 +4,8 @@
 Include a summary of the change and some contextual information.
 -->
 
+This PR adds FEATURE. We decided to implement FEATURE using THIS METHOD instead of THAT METHOD because of REASONS.
+
 <!--
 Provide a link to the JIRA ticket (if any) for issue tracking purposes
 -->
@@ -19,6 +21,14 @@ Remember to notify CX of any changes before you merge
 <!--
 Describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Also list any relevant details for your test configuration such as how to test the changes locally or in staging.
 -->
+
+- Included/Didn't include unit tests. Execute the test suite using `npm run test` and all tests should pass.
+- Manual testing instructions:
+
+  - Step 1
+  - Step 2
+  - Step 3
+  - Expected result
 
 ## Screenshots
 
