@@ -5,6 +5,7 @@ import {
   AiOutlinePlusCircle,
 } from "react-icons/ai";
 import styles from "./CartTable.module.scss";
+import Link from "next/link";
 
 const CartTable = ({ cartItems }) => {
   const handleClickDelete = () => {};
@@ -25,8 +26,8 @@ const CartTable = ({ cartItems }) => {
           </tr>
         </thead>
         <tbody>
-          {cartItems.map((item, index) => (
-            <tr key={`cart-item-${index}`}>
+          {cartItems.map((item) => (
+            <tr key={`cart-item-${item.merchandise.product.handle}`}>
               <td>
                 <AiOutlineCloseCircle
                   size={24}
@@ -42,7 +43,11 @@ const CartTable = ({ cartItems }) => {
                   loading="lazy"
                 />
               </td>
-              <td>{item.merchandise.product.title}</td>
+              <td>
+                <Link href={`/product/${item.merchandise.product.handle}`}>
+                  {item.merchandise.product.title}
+                </Link>
+              </td>
               <td>
                 <span>$</span>
                 {item.cost.amountPerQuantity.amount}

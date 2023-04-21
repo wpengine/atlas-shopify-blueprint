@@ -1,13 +1,9 @@
 import { useRouter } from "next/router";
-import useCart from "../../hooks/useCart";
 
-export function CartQuickView({ styles }) {
+export function CartQuickView({ cart, styles }) {
   const router = useRouter();
 
-  const { cartSubTotal, cartCount, cartItems, isCartEmpty, checkoutUrl } =
-    useCart();
-
-  console.log(cartItems);
+  const { cartSubTotal, cartCount, cartItems, isCartEmpty, checkoutUrl } = cart;
 
   return (
     <ul id="site-header-cart" className={styles["site-header-cart"]}>
@@ -39,7 +35,10 @@ export function CartQuickView({ styles }) {
             <div className={styles["widget_shopping_cart_content"]}>
               <ul className={styles["product_list_widget"]}>
                 {cartItems.map((item) => (
-                  <li className={styles["mini_cart_item"]} key={item.id}>
+                  <li
+                    className={styles["mini_cart_item"]}
+                    key={item.merchandise.product.handle}
+                  >
                     <a href={`/product/${item.merchandise.product.handle}`}>
                       <img
                         width="324"

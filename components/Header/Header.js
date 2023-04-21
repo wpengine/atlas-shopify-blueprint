@@ -1,71 +1,73 @@
-import { useState } from 'react';
-import classNames from 'classnames/bind';
-import Link from 'next/link';
-import { FaBars, FaSearch } from 'react-icons/fa';
+import { useState } from "react";
+import classNames from "classnames/bind";
+import Link from "next/link";
+import { FaBars, FaSearch } from "react-icons/fa";
 import {
   Container,
   NavigationMenu,
   SkipNavigationLink,
-} from '../../components';
-import styles from './Header.module.scss';
-import CartQuickView from './CartQuickView';
+} from "../../components";
+import styles from "./Header.module.scss";
+import CartQuickView from "./CartQuickView";
+import useCart from "../../hooks/useCart";
 
 let cx = classNames.bind(styles);
 
 export default function Header({
-  title = 'Headless by WP Engine',
+  title = "Headless by WP Engine",
   description,
   menuItems,
 }) {
   const [isNavShown, setIsNavShown] = useState(false);
+  const cart = useCart();
 
   const navClasses = cx([
-    styles['primary-navigation'],
-    isNavShown ? styles['show'] : undefined,
+    styles["primary-navigation"],
+    isNavShown ? styles["show"] : undefined,
   ]);
 
   return (
-    <header className={cx('component')}>
+    <header className={cx("component")}>
       <SkipNavigationLink />
       <Container>
-        <div className={styles['bar']}>
-          <div className={styles['logo']}>
-            <Link href='/'>
-              <a title='Home'>
+        <div className={styles["bar"]}>
+          <div className={styles["logo"]}>
+            <Link href="/">
+              <a title="Home">
                 <h3>{title}</h3>
                 <span>{description}</span>
               </a>
             </Link>
           </div>
 
-          <div className={styles['search']}>
-            <Link href='/search'>
+          <div className={styles["search"]}>
+            <Link href="/search">
               <a>
-                <FaSearch title='Search' role='img' />
+                <FaSearch title="Search" role="img" />
               </a>
             </Link>
           </div>
 
           <button
-            type='button'
-            className={styles['nav-toggle']}
+            type="button"
+            className={styles["nav-toggle"]}
             onClick={() => setIsNavShown(!isNavShown)}
-            aria-label='Toggle navigation'
-            aria-controls={styles['primary-navigation']}
+            aria-label="Toggle navigation"
+            aria-controls={styles["primary-navigation"]}
             aria-expanded={isNavShown}
           >
             <FaBars />
           </button>
         </div>
 
-        <div className={styles['nav-cart-bar']}>
+        <div className={styles["nav-cart-bar"]}>
           <NavigationMenu
-            id={styles['primary-navigation']}
+            id={styles["primary-navigation"]}
             className={navClasses}
             menuItems={menuItems}
           ></NavigationMenu>
 
-          <CartQuickView styles={styles} />
+          <CartQuickView cart={cart} styles={styles} />
         </div>
       </Container>
     </header>

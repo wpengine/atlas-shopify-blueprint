@@ -1,11 +1,10 @@
 import React from "react";
-import useCart from "../../hooks/useCart";
 
 import { Loader } from "../Loader";
 import CartTable from "./CartTable";
 import CartTotals from "./CartTotals";
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   const {
     cartItems,
     isCartEmpty,
@@ -13,7 +12,7 @@ const Cart = () => {
     cartSubTotal,
     cartTotal,
     checkoutUrl,
-  } = useCart();
+  } = cart;
 
   if (isCartLoading) {
     return <Loader />;

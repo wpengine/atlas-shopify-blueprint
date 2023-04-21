@@ -11,6 +11,7 @@ import {
 } from "../components";
 import { getNextStaticProps } from "@faustwp/core";
 import Cart from "../components/Cart/Cart";
+import useCart from "../hooks/useCart";
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -21,6 +22,8 @@ export default function Page() {
     data?.generalSettings ?? {};
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
+
+  const cart = useCart();
 
   return (
     <>
@@ -34,8 +37,8 @@ export default function Page() {
         <Container>
           <div className="text-center spacing-top">
             <h1>Cart</h1>
-            
-            <Cart />
+
+            <Cart cart={cart} />
           </div>
         </Container>
       </Main>
