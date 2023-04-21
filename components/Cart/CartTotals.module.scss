@@ -1,0 +1,33 @@
+@import 'styles/css-variables';
+
+.cartTotals {
+  float: right;
+  padding: 5rem;
+
+  .checkoutButton {
+    width: 100%;
+    float: right;
+    text-align: center;
+  }
+
+  .button {
+    background-color: #107f67;
+    border-color: #107f67;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.6rem;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    font-weight: 600;
+    text-shadow: none;
+    word-break: break-all;
+    &:hover {
+      background-color: var(--wpe--color--green);
+      border-color: var(--wpe--color--green);
+      color: var(--wpe--color--white);
+    }
+  }
+}
