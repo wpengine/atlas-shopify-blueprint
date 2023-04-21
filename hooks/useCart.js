@@ -5,7 +5,6 @@ import multiple from "../data/stubs/cart/multiple";
 // This is temporary, replace with query
 // Usage: in your DevTools type `localStorage.setItem('cart-state', 'single')`
 const CART_STATE_KEY = "cart-state";
-
 const useStub = (state) => {
   if (state === "single") {
     return single;
