@@ -10,10 +10,7 @@ import {
   SEO,
 } from "../components";
 import { getNextStaticProps } from "@faustwp/core";
-import CartTable from "../components/Cart/CartTable";
-import CartTotals from "../components/Cart/CartTotals";
-import useCart from "../hooks/useCart";
-import { Loader } from "../components/Loader";
+import Cart from "../components/Cart/Cart";
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -25,15 +22,6 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const { cart } = useCart();
-  const cartItems = cart.lines.nodes;
-  const cartCount = cartItems.length;
-  const isCartEmpty = cartCount === 0;
-  const isCartLoading = false;
-  const cartSubTotal = cart.cost.subtotalAmount.amount;
-  const cartTotal = cart.cost.totalAmount.amount;
-  const checkoutUrl = cart.checkoutUrl;
-
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
@@ -44,25 +32,10 @@ export default function Page() {
       />
       <Main>
         <Container>
-          <div className="text-center">
+          <div className="text-center spacing-top">
             <h1>Cart</h1>
-            {!isCartEmpty && !isCartLoading && (
-              <>
-                <CartTable
-                  cartItems={cartItems}
-                  cartCount={cartCount}
-                  cartSubTotal={cartSubTotal}
-                  cartTotal={cartTotal}
-                />
-                <CartTotals
-                  cartSubTotal={cartSubTotal}
-                  cartTotal={cartTotal}
-                  checkoutUrl={checkoutUrl}
-                />
-              </>
-            )}
-            {isCartEmpty && !isCartLoading && <p>You have no items in cart</p>}
-            {isCartLoading && <Loader />}
+            
+            <Cart />
           </div>
         </Container>
       </Main>

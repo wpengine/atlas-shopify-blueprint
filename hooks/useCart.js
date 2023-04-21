@@ -20,7 +20,21 @@ const useStub = (state) => {
 const useCart = () => {
   const { cart } = useStub(global.window?.localStorage.getItem(CART_STATE_KEY));
 
-  return { cart };
+  const cartItems = cart.lines.nodes;
+  const cartCount = cartItems.length;
+  const isCartEmpty = cartCount === 0;
+  const cartTotal = cart.cost.totalAmount.amount;
+  const cartSubTotal = cart.cost.subtotalAmount.amount;
+  const checkoutUrl = cart.checkoutUrl;
+
+  return {
+    cartItems,
+    cartCount,
+    isCartEmpty,
+    cartTotal,
+    cartSubTotal,
+    checkoutUrl,
+  };
 };
 
 export default useCart;

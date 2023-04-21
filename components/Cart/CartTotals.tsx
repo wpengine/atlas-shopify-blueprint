@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 const cx = classNames.bind(styles);
 
-const CartTotals = ({ cartSubTotal, cartTotal, checkout_url }) => {
+const CartTotals = ({ cartSubTotal, cartTotal, checkoutUrl }) => {
   return (
     <div className={styles.cartTotals}>
       <h3>Summary</h3>
@@ -28,7 +28,7 @@ const CartTotals = ({ cartSubTotal, cartTotal, checkout_url }) => {
         </tbody>
       </table>
       <a
-        href={checkout_url}
+        href={checkoutUrl}
         className={cx(styles.button, styles.checkoutButton)}
       >
         Checkout

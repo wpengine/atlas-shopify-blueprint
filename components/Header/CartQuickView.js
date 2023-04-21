@@ -4,13 +4,10 @@ import useCart from "../../hooks/useCart";
 export function CartQuickView({ styles }) {
   const router = useRouter();
 
-  const {cart} = useCart();
+  const { cartSubTotal, cartCount, cartItems, isCartEmpty, checkoutUrl } =
+    useCart();
 
-  const cartItems = cart.lines.nodes;
-  const cartCount = cartItems.length;
-  const isCartEmpty = cartCount === 0;
-  const cartSubTotal = cart.cost.subtotalAmount.amount;
-  const checkoutUrl = cart.checkoutUrl;
+  console.log(cartItems);
 
   return (
     <ul id="site-header-cart" className={styles["site-header-cart"]}>
@@ -19,8 +16,7 @@ export function CartQuickView({ styles }) {
           className={styles["cart-contents"]}
           title="View your shopping cart"
           style={{
-            cursor:
-              router.pathname === "/cart" ? "auto" : "pointer",
+            cursor: router.pathname === "/cart" ? "auto" : "pointer",
           }}
         >
           <span className={styles["price-amount"]}>
@@ -44,29 +40,33 @@ export function CartQuickView({ styles }) {
               <ul className={styles["product_list_widget"]}>
                 {cartItems.map((item) => (
                   <li className={styles["mini_cart_item"]} key={item.id}>
-                    <a href="#">
+                    <a href={`/product/${item.merchandise.product.handle}`}>
                       <img
                         width="324"
                         height="324"
-                        src={item.image_url}
+                        src={item.merchandise.product.featuredImage.url}
                         className={styles["thumbnail"]}
                         alt=""
                         loading="lazy"
                       ></img>
-                      {item.name}
+                      {item.merchandise.product.title}
                     </a>
                     <span className={styles["quantity"]}>
                       {item.quantity} ×{" "}
                       <span className={styles["price-amount"]}>
                         <span>$</span>
-                        {item.sale_price.toFixed(2)}
+                        {item.cost.amountPerQuantity.amount}
                       </span>
                     </span>
                   </li>
                 ))}
               </ul>
               <p className={styles["mini-cart__total"]}>
-                {!isCartEmpty && (
+                {isCartEmpty ? (
+                  <span className={styles["price-amount"]}>
+                    You have no items in cart
+                  </span>
+                ) : (
                   <>
                     <strong>Subtotal:</strong>
                     <span className={styles["price-amount"]}>
@@ -75,10 +75,6 @@ export function CartQuickView({ styles }) {
                     </span>
                   </>
                 )}
-                {isCartEmpty && (
-                  <span className={styles["price-amount"]}>You have no items in cart</span>
-                )} 
-
               </p>
               <p className={styles["mini-cart__buttons"]}>
                 <a href="/cart" className={styles["button"]}>
