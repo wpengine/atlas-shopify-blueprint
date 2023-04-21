@@ -4,7 +4,7 @@ import multiple from "../data/stubs/cart/multiple";
 
 // This is temporary, replace with query
 const CART_STATE_KEY = "cart-state";
-const useStub = (state: string | null) => {
+const useStub = (state) => {
   if (state === "single") {
     return single;
   }
@@ -17,7 +17,7 @@ const useStub = (state: string | null) => {
 };
 
 const useCart = () => {
-  const cart = useStub(window.localStorage.getItem(CART_STATE_KEY));
+  const {cart} = useStub(global?.window?.localStorage.getItem(CART_STATE_KEY));
   return { cart };
 };
 
