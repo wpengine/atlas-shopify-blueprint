@@ -67,7 +67,7 @@ export function CartQuickView({ cart, styles }) {
                   </span>
                 ) : (
                   <>
-                    <strong>Subtotal:</strong>
+                    <strong>Subtotal: </strong>
                     <span className={styles["price-amount"]}>
                       <span>$</span>
                       {cartSubTotal}
