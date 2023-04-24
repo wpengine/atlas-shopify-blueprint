@@ -1,6 +1,7 @@
-import { gql, useQuery } from '@apollo/client';
-import * as MENUS from '../constants/menus';
-import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import dynamic from "next/dynamic";
+import { gql, useQuery } from "@apollo/client";
+import * as MENUS from "../constants/menus";
+import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import {
   Header,
   Footer,
@@ -8,16 +9,13 @@ import {
   Container,
   NavigationMenu,
   SEO,
-} from '../components';
-import { getNextStaticProps } from '@faustwp/core';
-import CartTable from '../components/Cart/CartTable';
-import CartTotals from '../components/Cart/CartTotals';
+} from "../components";
+import { getNextStaticProps } from "@faustwp/core";
 import useCart from "../hooks/useCart";
 
+const Cart = dynamic(() => import("../components/Cart"), { ssr: false });
+
 export default function Page() {
-
-  const {cart} = useCart();
-
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -27,13 +25,7 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const cartItems = cart.lines.nodes;
-  const cartCount = cartItems.length
-  const isCartEmpty = cartCount === 0;
-  const isCartLoading = false;
-  const cartSubTotal = cart.cost.subtotalAmount.amount;
-  const cartTotal = cart.cost.totalAmount.amount;
-  const checkoutUrl = cart.checkoutUrl;
+  const cart = useCart();
 
   return (
     <>
@@ -45,24 +37,10 @@ export default function Page() {
       />
       <Main>
         <Container>
-          <div className='text-center spacing-top checkout-section'>
+          <div className="text-center spacing-top">
             <h1>Cart</h1>
-            {!isCartEmpty && !isCartLoading && (
-                <>
-                  <CartTable
-                    cartItems={cartItems}
-                    cartCount={cartCount}
-                    cartSubTotal={cartSubTotal}
-                    cartTotal={cartTotal}
-                  />
-                  <CartTotals
-                    cartSubTotal={cartSubTotal}
-                    cartTotal={cartTotal}
-                    checkoutUrl={checkoutUrl}
-                  />
-                </>
-              )}
-            {isCartEmpty && !isCartLoading && <p>You have no items in cart</p>}
+
+            <Cart cart={cart} />
           </div>
         </Container>
       </Main>

@@ -1,24 +1,56 @@
-@import 'styles/breakpoints';
-
 .cartTable {
+  @import 'styles/breakpoints';
+  @import 'styles/css-variables';
+
+  padding-top: 3rem;
+
   table {
     width: 100%;
     overflow-x: auto;
-    padding-top: 3rem;
+    border-collapse: collapse;
+
+    thead {
+      background-color: var(--wpe--color--offwhite);
+      
+      th {
+        padding: 1rem;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--wpe--color--offwhite);
+      }
+      td {
+        border: 1px solid var(--wpe--color--offwhite);
+        padding: 1rem;
+
+        @media (min-width: $breakpoint-extra-small) {
+          padding: 0;
+        }
+      }
+    };
 
     .cartImage {
       height: 90px;
+      margin: 0 auto;
+    }
+
+    .quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .clickableIcon {
+      cursor: pointer;
     }
 
     .hideOnMobile {
       @media (max-width: $breakpoint-extra-small) {
         display: none;
       }
-    }
-    tr {
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
     }
   }
 }
