@@ -7,7 +7,7 @@ module.exports = {
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.js$": "babel-jest",
+    "^.+\\.(js|ts)$": "babel-jest",
     "^.+\\.(css|scss)$": "jest-css-modules-transform"
   },
   moduleNameMapper: {
