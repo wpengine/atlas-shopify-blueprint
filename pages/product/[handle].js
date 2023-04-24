@@ -10,6 +10,7 @@ import {
   Main,
   Container,
   NavigationMenu,
+  ProductDetails,
   SEO,
 } from '../../components';
 
@@ -23,6 +24,8 @@ export default function Page(props) {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
+  const product = props?.product ?? {};
+
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
@@ -33,10 +36,11 @@ export default function Page(props) {
       />
       <Main>
         <Container>
-          <div className='text-center'>
-            <p>{`This is the product page for ${props.handle}`}</p>
-            <div>{JSON.stringify(props.product)}</div>
-          </div>
+          {/* TODO: Create this when we add the cart functionality */}
+          {/* {productNotification && (
+            <ProductNotification productNotification={productNotification} />
+          )} */}
+          <ProductDetails product={product} />
         </Container>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />

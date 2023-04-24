@@ -16,12 +16,20 @@ export const ProductFragment = gql`
     }
     collections(first: 100) {
       nodes {
+        handle
         title
       }
     }
     variants(first: 100) {
       nodes {
         sku
+        image {
+          url
+        }
+        selectedOptions {
+          name
+          value
+        }
         price {
           amount
           currencyCode

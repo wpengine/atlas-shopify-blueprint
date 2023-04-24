@@ -1,0 +1,26 @@
+.component {
+  @import 'styles/css-variables';
+
+  display: flex;
+  margin-top: 4rem;
+  gap: 4rem;
+
+  .onSale {
+    border: 1px solid;
+    border-color: var(--wpe--color--slate);
+    color: var(--wpe--color--slate);
+    padding: 0.202em 0.6180469716em;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1em;
+    border-radius: 3px;
+    position: relative;
+    background-color: var(--wpe--color--white);
+  }
+
+  .detailsColumn {
+    flex: 1;
+  }
+}

@@ -20,7 +20,7 @@ const productsStub = {
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-green.jpg?v=1681383187',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-green.jpg?v=1681383186',
               },
               {
                 'url':
@@ -35,6 +35,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'clothing',
                 'title': 'Clothing',
               },
             ],
@@ -43,6 +44,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'RWV-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Title',
+                    'value': 'Default Title',
+                  },
+                ],
                 'price': {
                   'amount': '18.0',
                   'currencyCode': 'USD',
@@ -84,6 +95,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'clothing',
                 'title': 'Clothing',
               },
             ],
@@ -92,6 +104,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'QRK-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-blue_efbc40ad-505f-4cc7-9be7-4ba8a6fa3e85.jpg?v=1681383505',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Title',
+                    'value': 'Default Title',
+                  },
+                ],
                 'price': {
                   'amount': '20.0',
                   'currencyCode': 'USD',
@@ -134,6 +156,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'clothing',
                 'title': 'Clothing',
               },
             ],
@@ -142,6 +165,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'TPG-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-gray_2717712f-efe9-443b-a417-dc074b129a14.jpg?v=1681383619',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Title',
+                    'value': 'Default Title',
+                  },
+                ],
                 'price': {
                   'amount': '20.0',
                   'currencyCode': 'USD',
@@ -184,6 +217,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'clothing',
                 'title': 'Clothing',
               },
             ],
@@ -192,6 +226,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'TRI-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue.jpg?v=1681383898',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Blue',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -200,6 +244,16 @@ const productsStub = {
               },
               {
                 'sku': 'TRI-2',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple.jpg?v=1681383898',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Purple',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -208,6 +262,16 @@ const productsStub = {
               },
               {
                 'sku': 'TRI-3',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red.jpg?v=1681383898',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Red',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -216,6 +280,16 @@ const productsStub = {
               },
               {
                 'sku': 'TRI-4',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray.jpg?v=1681383898',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Gray',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -258,6 +332,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'clothing',
                 'title': 'Clothing',
               },
             ],
@@ -266,6 +341,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'PIN-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue_17265ea5-f14f-43d6-9225-e4a44b417340.jpg?v=1681384577',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Blue',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -274,6 +359,16 @@ const productsStub = {
               },
               {
                 'sku': 'PIN-2',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple_36aece3f-1b8b-454c-8995-f0098cb6f912.jpg?v=1681384577',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Purple',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -282,6 +377,16 @@ const productsStub = {
               },
               {
                 'sku': 'PIN-3',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-charcoal.jpg?v=1681384577',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Charcoal',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -290,6 +395,16 @@ const productsStub = {
               },
               {
                 'sku': 'PIN-4',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_5e0b7f2e-c002-4c73-9de5-23161b3a358d.jpg?v=1681384577',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Red',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -332,6 +447,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'clothing',
                 'title': 'Clothing',
               },
             ],
@@ -340,6 +456,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'ADR-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray_b0bf23fa-aac6-451a-a1b0-23bc81114a1e.jpg?v=1681384795',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Gray',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -348,6 +474,16 @@ const productsStub = {
               },
               {
                 'sku': 'ADR-2',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_2d71bcca-cb82-4450-838b-73717467f29f.jpg?v=1681384795',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Red',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -356,6 +492,16 @@ const productsStub = {
               },
               {
                 'sku': 'ADR-3',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple_fc7ec2d8-2aa2-46f3-8cd6-26e4fa30114d.jpg?v=1681384795',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Purple',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -364,6 +510,16 @@ const productsStub = {
               },
               {
                 'sku': 'ADR-4',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-charcoal_82062466-c51f-4d87-b678-22b9998f58fb.jpg?v=1681384795',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Color',
+                    'value': 'Charcoal',
+                  },
+                ],
                 'price': {
                   'amount': '35.0',
                   'currencyCode': 'USD',
@@ -399,13 +555,14 @@ const productsStub = {
               },
               {
                 'url':
-                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_e1146f5b-9b7c-4c62-a7bb-a249864c0eec.jpg?v=1681384942',
+                  'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_e1146f5b-9b7c-4c62-a7bb-a249864c0eec.jpg?v=1681384941',
               },
             ],
           },
           'collections': {
             'nodes': [
               {
+                'handle': 'apparel-accessories',
                 'title': 'Apparel & Accessories',
               },
             ],
@@ -414,6 +571,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'TCW-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-3.jpg?v=1681384941',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Title',
+                    'value': 'Default Title',
+                  },
+                ],
                 'price': {
                   'amount': '19.0',
                   'currencyCode': 'USD',
@@ -447,6 +614,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'apparel-accessories',
                 'title': 'Apparel & Accessories',
               },
             ],
@@ -455,6 +623,16 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'TCC-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Title',
+                    'value': 'Default Title',
+                  },
+                ],
                 'price': {
                   'amount': '20.0',
                   'currencyCode': 'USD',
@@ -488,6 +666,7 @@ const productsStub = {
           'collections': {
             'nodes': [
               {
+                'handle': 'apparel-accessories',
                 'title': 'Apparel & Accessories',
               },
             ],
@@ -496,12 +675,22 @@ const productsStub = {
             'nodes': [
               {
                 'sku': 'TCE-1',
+                'image': {
+                  'url':
+                    'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-1.jpg?v=1681385217',
+                },
+                'selectedOptions': [
+                  {
+                    'name': 'Title',
+                    'value': 'Default Title',
+                  },
+                ],
                 'price': {
                   'amount': '15.0',
                   'currencyCode': 'USD',
                 },
                 'compareAtPrice': {
-                  'amount': '240.0',
+                  'amount': '24.0',
                   'currencyCode': 'USD',
                 },
               },
