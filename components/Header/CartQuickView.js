@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/router";
 
 export function CartQuickView({ cart, styles }) {

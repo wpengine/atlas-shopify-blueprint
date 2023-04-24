@@ -8,8 +8,10 @@ import {
   SkipNavigationLink,
 } from "../../components";
 import styles from "./Header.module.scss";
-import CartQuickView from "./CartQuickView";
 import useCart from "../../hooks/useCart";
+import dynamic from "next/dynamic";
+
+const CartQuickView = dynamic(() => import("./CartQuickView"), { ssr: false });
 
 let cx = classNames.bind(styles);
 
@@ -27,11 +29,11 @@ export default function Header({
   ]);
 
   return (
-    <header className={cx("component")}>
+    <header className={styles.component}>
       <SkipNavigationLink />
       <Container>
-        <div className={styles["bar"]}>
-          <div className={styles["logo"]}>
+        <div className={styles.bar}>
+          <div className={styles.logo}>
             <Link href="/">
               <a title="Home">
                 <h3>{title}</h3>
@@ -40,7 +42,7 @@ export default function Header({
             </Link>
           </div>
 
-          <div className={styles["search"]}>
+          <div className={styles.search}>
             <Link href="/search">
               <a>
                 <FaSearch title="Search" role="img" />

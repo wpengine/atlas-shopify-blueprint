@@ -26,53 +26,57 @@ const CartTable = ({ cartItems }) => {
           </tr>
         </thead>
         <tbody>
-          {cartItems.map((item) => (
-            <tr key={`cart-item-${item.merchandise.product.handle}`}>
-              <td>
-                <AiOutlineCloseCircle
-                  size={24}
-                  className={styles.clickableIcon}
-                  onClick={handleClickDelete}
-                />
-              </td>
-              <td className={styles.hideOnMobile}>
-                <img
-                  src={item.merchandise.product.featuredImage.url}
-                  alt={item.merchandise.product.featuredImage.altText}
-                  className={styles.cartImage}
-                  loading="lazy"
-                />
-              </td>
-              <td>
-                <Link href={`/product/${item.merchandise.product.handle}`}>
-                  {item.merchandise.product.title}
-                </Link>
-              </td>
-              <td>
-                <span>$</span>
-                {item.cost.amountPerQuantity.amount}
-              </td>
-              <td>
-                <div className={styles.quantity}>
-                  <AiOutlineMinusCircle
+          {cartItems.map((item) => {
+            const product = item.merchandise.product;
+
+            return (
+              <tr key={`cart-item-${product.handle}`}>
+                <td>
+                  <AiOutlineCloseCircle
                     size={24}
                     className={styles.clickableIcon}
-                    onClick={handleClickDecreaseQuantity}
+                    onClick={handleClickDelete}
                   />
-                  {item.quantity}
-                  <AiOutlinePlusCircle
-                    size={24}
-                    className={styles.clickableIcon}
-                    onClick={handleClickIncreaseQuantity}
+                </td>
+                <td className={styles.hideOnMobile}>
+                  <img
+                    src={product.featuredImage.url}
+                    alt={product.featuredImage.altText}
+                    className={styles.cartImage}
+                    loading="lazy"
                   />
-                </div>
-              </td>
-              <td className={styles.hideOnMobile}>
-                <span>$</span>
-                {item.cost.totalAmount.amount}
-              </td>
-            </tr>
-          ))}
+                </td>
+                <td>
+                  <Link href={`/product/${product.handle}`}>
+                    {product.title}
+                  </Link>
+                </td>
+                <td>
+                  <span>$</span>
+                  {item.cost.amountPerQuantity.amount}
+                </td>
+                <td>
+                  <div className={styles.quantity}>
+                    <AiOutlineMinusCircle
+                      size={24}
+                      className={styles.clickableIcon}
+                      onClick={handleClickDecreaseQuantity}
+                    />
+                    {item.quantity}
+                    <AiOutlinePlusCircle
+                      size={24}
+                      className={styles.clickableIcon}
+                      onClick={handleClickIncreaseQuantity}
+                    />
+                  </div>
+                </td>
+                <td className={styles.hideOnMobile}>
+                  <span>$</span>
+                  {item.cost.totalAmount.amount}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

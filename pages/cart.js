@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { gql, useQuery } from "@apollo/client";
 import * as MENUS from "../constants/menus";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
@@ -10,8 +11,9 @@ import {
   SEO,
 } from "../components";
 import { getNextStaticProps } from "@faustwp/core";
-import Cart from "../components/Cart/Cart";
 import useCart from "../hooks/useCart";
+
+const Cart = dynamic(() => import("../components/Cart"), { ssr: false });
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
