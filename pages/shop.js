@@ -10,7 +10,7 @@ import {
   NavigationMenu,
   SEO,
   EntryHeader,
-  ProductsList,
+  ProductList,
 } from "../components";
 
 export default function Page() {
@@ -37,7 +37,7 @@ export default function Page() {
               title="Shop"
               subTitle="Shop your Shopify products with WordPress and WPGraphQL"
             />
-            <ProductsList />
+            <ProductList />
           </div>
         </Container>
       </Main>

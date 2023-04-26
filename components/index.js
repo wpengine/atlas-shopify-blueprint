@@ -23,5 +23,5 @@ export { Hero } from "./Hero";
 export { Post } from "./Post";
 export { SEO } from "./SEO";
 export { Loader } from "./Loader";
-export { ProductsList } from "./ProductsList";
+export { ProductList } from "./ProductList";
 export { ShopFilter } from "./ShopFilter";

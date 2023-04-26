@@ -2,12 +2,12 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { GET_PRODUCTS } from "../../queries/Products";
-import { Loader, ShopFilter, ProductCard } from "../";
-import { filters } from "../../components/ShopFilter/const";
+import { Loader, ShopFilter, ProductCard } from "..";
+import { filters } from "../ShopFilter/const";
 import shopifyClient from "../../utilities/shopifyClient";
 
-export const ProductsList = () => {
-  const [sortValue, setSortValue] = useState("best-selling");
+export const ProductList = () => {
+  const [sortValue, setSortValue] = useState(filters.latest);
   const { data: productsData, loading } = useQuery(GET_PRODUCTS, {
     variables: filters[sortValue],
     client: shopifyClient,
