@@ -15,11 +15,13 @@ describe("<ProductList />", () => {
       },
       result: productsStub,
     };
+
     render(
       <MockedProvider mocks={[productsMock]} addTypename={true}>
         <ProductList />
       </MockedProvider>
     );
+
     expect(screen.getByTestId("loading")).toBeVisible();
     await waitFor(() => {
       expect(screen.getAllByRole("listitem").length).toEqual(
@@ -52,6 +54,7 @@ describe("<ProductList />", () => {
         },
       },
     };
+
     render(
       <MockedProvider
         mocks={[productsMock, sortedProductsMock]}
@@ -60,6 +63,7 @@ describe("<ProductList />", () => {
         <ProductList />
       </MockedProvider>
     );
+
     userEvent.selectOptions(
       screen.getByRole("combobox"),
       screen.getByRole("option", { name: "From High to Low Price" })
@@ -69,6 +73,7 @@ describe("<ProductList />", () => {
     const lastPrice = within(allProducts[allProducts.length - 1]).getByText(
       "$15.0"
     );
+
     expect(firstPrice).toBeInTheDocument();
     expect(lastPrice).toBeInTheDocument();
   });
