@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { ApolloProvider, gql, useQuery } from "@apollo/client";
 import { getNextServerSideProps } from "@faustwp/core";
 import { BlogInfoFragment } from "../fragments/GeneralSettings";
 import * as MENUS from "../constants/menus";
@@ -12,6 +12,7 @@ import {
   EntryHeader,
   ProductList,
 } from "../components";
+import shopifyClient from "../utilities/shopifyClient";
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -37,7 +38,9 @@ export default function Page() {
               title="Shop"
               subTitle="Shop your Shopify products with WordPress and WPGraphQL"
             />
-            <ProductList />
+            <ApolloProvider client={shopifyClient}>
+              <ProductList />
+            </ApolloProvider>
           </div>
         </Container>
       </Main>

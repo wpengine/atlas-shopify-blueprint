@@ -1,4 +1,4 @@
-export const filters = {
+export const FILTERS = {
   "best-selling": {
     sortKey: "BEST_SELLING",
   },

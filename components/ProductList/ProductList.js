@@ -3,21 +3,20 @@ import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { GET_PRODUCTS } from "../../queries/Products";
 import { Loader, ShopFilter, ProductCard } from "..";
-import { filters } from "../ShopFilter/const";
-import shopifyClient from "../../utilities/shopifyClient";
+import { FILTERS } from "../../constants/filters";
 
 export const ProductList = () => {
-  const [sortValue, setSortValue] = useState(filters.latest);
+  const [sortValue, setSortValue] = useState(FILTERS.latest);
   const { data: productsData, loading } = useQuery(GET_PRODUCTS, {
-    variables: filters[sortValue],
-    client: shopifyClient,
+    variables: FILTERS[sortValue],
   });
   const products = productsData?.products.nodes ?? [];
+
   return (
     <>
       <ShopFilter sortValue={sortValue} setSortValue={setSortValue} />
       {loading && <Loader />}
-      <div className="shop-grid">
+      <div className="shop-grid" role="list">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

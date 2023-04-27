@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { CtaButton } from '../CtaButton';
-import classNames from 'classnames/bind';
-import styles from './ProductCard.module.scss';
+import Link from "next/link";
+import { CtaButton } from "../CtaButton";
+import classNames from "classnames/bind";
+import styles from "./ProductCard.module.scss";
 
 const cx = classNames.bind(styles);
 
@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const thumbnail = product?.featuredImage?.url;
 
   return (
-    <div className={cx([styles.column, styles.productWrapper])}>
+    <div className={cx([styles.column, styles.productWrapper])} role="listitem">
       <div className={styles.productImageContainer}>
         <Link href={productHref}>
           <a>
@@ -19,9 +19,9 @@ const ProductCard = ({ product }) => {
             ) : null}
             <img
               className={styles.productImage}
-              src={thumbnail ?? '/ProductDefault.gif'}
+              src={thumbnail ?? "/ProductDefault.gif"}
               alt={product?.name}
-              loading='lazy'
+              loading="lazy"
             />
           </a>
         </Link>
@@ -37,16 +37,16 @@ const ProductCard = ({ product }) => {
             {product?.variants?.nodes[0]?.compareAtPrice ? (
               <>
                 <del>
-                  {'$' + product?.variants?.nodes[0]?.compareAtPrice?.amount}
-                </del>{' '}
-                {'$' + product?.variants?.nodes[0]?.price?.amount}
+                  {"$" + product?.variants?.nodes[0]?.compareAtPrice?.amount}
+                </del>{" "}
+                {"$" + product?.variants?.nodes[0]?.price?.amount}
               </>
             ) : (
-              '$' + product?.variants?.nodes[0]?.price?.amount
+              "$" + product?.variants?.nodes[0]?.price?.amount
             )}
           </span>
         </div>
-        <CtaButton ctaLink={productHref} ctaLabel='View product' />
+        <CtaButton ctaLink={productHref} ctaLabel="View product" />
       </div>
     </div>
   );
