@@ -2,11 +2,12 @@ import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 
 const shopifyClient = new ApolloClient({
   link: new createHttpLink({
-    uri: process.env.SHOPIFY_URL,
+    uri: process.env.NEXT_PUBLIC_SHOPIFY_URL,
 
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_TOKEN,
+      'X-Shopify-Storefront-Access-Token':
+        process.env.NEXT_PUBLIC_SHOPIFY_TOKEN,
     },
   }),
   cache: new InMemoryCache(),

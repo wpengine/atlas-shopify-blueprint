@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { useDebounce } from 'use-debounce';
 import { useRouter } from 'next/router';
-// import { SearchProductQuery } from '../queries/Product';
+import { SEARCH_PRODUCT } from '../queries/Products';
+import shopifyClient from '../utilities/shopifyClient';
 
 const searchInputDebounceMs = 500;
 
@@ -12,7 +13,7 @@ const searchInputDebounceMs = 500;
  *
  * @returns {{searchQuery: string, setSearchQuery: (newValue) => void, searchResults: object[] | null, loadMore: () => void, isLoading: boolean}} Result object
  */
-export default function useSearch() {
+function useSearch() {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedSearchQuery] = useDebounce(
     searchQuery,
@@ -32,7 +33,7 @@ export default function useSearch() {
   const [
     fetchResults,
     { data: searchData, loading: searchLoading, error: searchError },
-  ] = useLazyQuery('SearchProductQuery');
+  ] = useLazyQuery(SEARCH_PRODUCT, { client: shopifyClient });
 
   /**
    * Fetch initial results. This can happen either upon first search. Or after
@@ -42,14 +43,7 @@ export default function useSearch() {
     setIsLoading(true);
 
     clearResults();
-
-    fetchResults({
-      variables: {
-        query: debouncedSearchQuery,
-        first: 100,
-        after: undefined,
-      },
-    });
+    fetchResults({ variables: { query: debouncedSearchQuery } });
   }, [debouncedSearchQuery, fetchResults]);
 
   function clearResults() {
@@ -120,3 +114,5 @@ export default function useSearch() {
     error,
   };
 }
+
+export default useSearch;

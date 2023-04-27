@@ -2,18 +2,12 @@ import { Container } from '../Container';
 import { SearchInput } from '../SearchInput';
 import { SearchRecommendations } from '../SearchRecommendations';
 import { SearchResults } from '../SearchResults';
+import useSearch from '../../hooks/useSearch';
 import styles from './SearchSection.module.scss';
 
 const SearchSection = () => {
-  // TODO: Hook up the search functionality
-  // const { searchQuery, setSearchQuery, searchResults, isLoading, error } =
-  //   useSearch();
-
-  const searchQuery = '';
-  const setSearchQuery = {};
-  const searchResults = null;
-  const isLoading = false;
-  const error = '';
+  const { searchQuery, setSearchQuery, searchResults, isLoading, error } =
+    useSearch();
 
   return (
     <Container>
