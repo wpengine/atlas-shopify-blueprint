@@ -6,7 +6,7 @@ import { Loader, ShopFilter, ProductCard } from "..";
 import { FILTERS } from "../../constants/filters";
 
 export const ProductList = () => {
-  const [sortValue, setSortValue] = useState(FILTERS.latest);
+  const [sortValue, setSortValue] = useState("");
   const { data: productsData, loading } = useQuery(GET_PRODUCTS, {
     variables: FILTERS[sortValue],
   });
