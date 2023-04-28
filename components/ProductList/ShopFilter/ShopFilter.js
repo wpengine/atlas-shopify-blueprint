@@ -5,7 +5,7 @@ export const ShopFilter = ({ sortValue, setSortValue }) => {
     setSortValue(event.target.value);
   };
   return (
-    <div className="sort-filter">
+    <div>
       <select role="combobox" onChange={handleChange} value={sortValue}>
         <option role="option" value="best-selling">
           Best selling
