@@ -1,1 +1,1 @@
-export { ProductList, ShopFilter } from "./ProductList";
+export { ProductList } from "./ProductList";
