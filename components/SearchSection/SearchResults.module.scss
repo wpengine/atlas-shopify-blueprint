@@ -7,21 +7,6 @@
     margin-bottom: 6rem;
   }
 
-  .no-results {
-    text-align: center;
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    color: var(--wpe--color--grey);
-  }
-
-  .no-results-icon {
-    font-size: 6rem;
-  }
-
-  .no-results-text {
-    font-size: 3rem;
-  }
-
   @keyframes SearchResultLoadingAnimation {
     0% {
       background-position: -500px 0;
