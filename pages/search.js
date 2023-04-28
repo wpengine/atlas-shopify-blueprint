@@ -1,6 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import { getNextStaticProps } from '@faustwp/core';
+import { GET_COLLECTIONS } from '../queries/Collections';
+import shopifyClient from '../utilities/shopifyClient';
 import {
   Header,
   Footer,
@@ -9,9 +12,8 @@ import {
   SEO,
   SearchSection,
 } from '../components';
-import { getNextStaticProps } from '@faustwp/core';
 
-export default function Page() {
+export default function Page(props) {
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -30,7 +32,7 @@ export default function Page() {
         menuItems={primaryMenu}
       />
       <Main>
-        <SearchSection />
+        <SearchSection collections={props.collections} />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
@@ -67,9 +69,15 @@ Page.variables = () => {
   };
 };
 
-export function getStaticProps(ctx) {
+export async function getStaticProps(ctx) {
+  const { data } = await shopifyClient.query({
+    query: GET_COLLECTIONS,
+  });
+
+  const { collections } = data;
+
   return getNextStaticProps(ctx, {
     Page,
-    props: {},
+    props: { collections: collections.nodes },
   });
 }

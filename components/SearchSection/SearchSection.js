@@ -5,7 +5,7 @@ import { SearchResults } from '../SearchResults';
 import useSearch from '../../hooks/useSearch';
 import styles from './SearchSection.module.scss';
 
-const SearchSection = () => {
+const SearchSection = ({ collections }) => {
   const { searchQuery, setSearchQuery, searchResults, isLoading, error } =
     useSearch();
 
@@ -31,9 +31,7 @@ const SearchSection = () => {
       <SearchResults searchResults={searchResults} isLoading={isLoading} />
 
       {!isLoading && searchResults === null && (
-        <SearchRecommendations
-          categories={['Garden', 'Kitchen', 'Bath', 'Shop All', 'Utility']}
-        />
+        <SearchRecommendations collections={collections} />
       )}
     </Container>
   );
