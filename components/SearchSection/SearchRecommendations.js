@@ -9,7 +9,7 @@ import styles from './SearchRecommendations.module.scss';
 export default function SearchRecommendations({ collections }) {
   return (
     <div className={styles.component}>
-      <h4>Browse Collections</h4>
+      <h1>Browse Collections</h1>
       <ul>
         {collections?.map?.((collection, index) => (
           <li key={collection.title + '-' + index ?? 0}>

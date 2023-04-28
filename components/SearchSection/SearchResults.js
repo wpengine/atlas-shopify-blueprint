@@ -1,4 +1,3 @@
-import { FaSearch } from 'react-icons/fa';
 import { ProductCard } from '../ProductCard';
 import LoadingSearchResult from './LoadingSearchResult';
 import styles from './SearchResults.module.scss';
@@ -20,12 +19,7 @@ export default function SearchResults({ searchResults, isLoading }) {
 
   // If there are no results, return a message.
   if (!isLoading && !searchResults?.length) {
-    return (
-      <div className={styles['no-results']}>
-        <FaSearch className={styles['no-results-icon']} />
-        <div className={styles['no-results-text']}>No results</div>
-      </div>
-    );
+    return <h1>No results</h1>;
   }
 
   return (
