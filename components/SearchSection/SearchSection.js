@@ -1,7 +1,7 @@
 import { Container } from '../Container';
-import { SearchInput } from '../SearchInput';
-import { SearchRecommendations } from '../SearchRecommendations';
-import { SearchResults } from '../SearchResults';
+import SearchInput from './SearchInput';
+import SearchRecommendations from './SearchRecommendations';
+import SearchResults from './SearchResults';
 import useSearch from '../../hooks/useSearch';
 import styles from './SearchSection.module.scss';
 
