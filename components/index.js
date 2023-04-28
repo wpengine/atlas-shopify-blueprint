@@ -24,4 +24,3 @@ export { Post } from "./Post";
 export { SEO } from "./SEO";
 export { Loader } from "./Loader";
 export { ProductList } from "./ProductList";
-export { ShopFilter } from "./ProductList/ShopFilter";

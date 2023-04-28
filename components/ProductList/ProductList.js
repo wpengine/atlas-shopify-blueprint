@@ -2,7 +2,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { GET_PRODUCTS } from "../../queries/Products";
-import { Loader, ShopFilter, ProductCard } from "..";
+import { Loader, ProductCard } from "..";
+import { ShopFilter } from "./ShopFilter";
 import { FILTERS } from "../../constants/filters";
 
 export const ProductList = () => {
