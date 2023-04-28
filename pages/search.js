@@ -1,4 +1,4 @@
-import { gql, useQuery } from '@apollo/client';
+import { ApolloProvider, gql, useQuery } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import { getNextStaticProps } from '@faustwp/core';
@@ -32,7 +32,9 @@ export default function Page(props) {
         menuItems={primaryMenu}
       />
       <Main>
-        <SearchSection collections={props.collections} />
+        <ApolloProvider client={shopifyClient}>
+          <SearchSection collections={props.collections} />
+        </ApolloProvider>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>

@@ -6,7 +6,7 @@
  */
 function LoadingSearchResult({ styles }) {
   return (
-    <div className={styles['loading-result']}>
+    <div className={styles['loading-result']} data-testid='loading-result'>
       <div className={styles['loading-result-title']} />
       <div className={styles['loading-result-meta']} />
       <div className={styles['loading-result-excerpt']} />
