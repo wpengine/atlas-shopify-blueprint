@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.12",
-    "@faustwp/cli": "0.2.10",
+    "@faustwp/cli": "0.2.12",
     "@faustwp/core": "0.2.11",
-    "@wordpress/base-styles": "^4.22.0",
+    "@wordpress/base-styles": "^4.23.0",
     "@wordpress/block-library": "^7.13.0",
     "classnames": "^2.3.1",
     "cookie-cutter": "^0.2.0",
@@ -29,13 +29,13 @@
     "use-debounce": "^9.0.3"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "babel-jest": "^29.5.0",
     "eslint": "8.39.0",
-    "eslint-config-next": "13.3.1",
+    "eslint-config-next": "13.3.4",
     "eslint-plugin-unused-imports": "^2.0.0",
     "jest": "^29.5.0",
     "jest-css-modules-transform": "^4.4.2"
