@@ -14,7 +14,7 @@
     "@apollo/client": "^3.7.12",
     "@faustwp/cli": "0.2.10",
     "@faustwp/core": "0.2.11",
-    "@wordpress/base-styles": "^4.22.0",
+    "@wordpress/base-styles": "^4.23.0",
     "@wordpress/block-library": "^7.13.0",
     "classnames": "^2.3.1",
     "cookie-cutter": "^0.2.0",
@@ -29,7 +29,7 @@
     "use-debounce": "^9.0.3"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
