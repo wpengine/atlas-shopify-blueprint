@@ -31,6 +31,7 @@ export default function SearchInput({ value, onChange, ...props }) {
         ref={input}
         id='search'
         name='search'
+        role='input'
         className={styles.input}
         value={value}
         onChange={(e) => {

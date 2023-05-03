@@ -1,8 +1,6 @@
-import { FaSearch } from 'react-icons/fa';
 import { ProductCard } from '../ProductCard';
 import LoadingSearchResult from './LoadingSearchResult';
 import styles from './SearchResults.module.scss';
-import classNames from 'classnames';
 
 /**
  * Renders the search results list.
@@ -13,8 +11,6 @@ import classNames from 'classnames';
  * @returns {React.ReactElement} The SearchResults component.
  */
 
-const cx = classNames.bind(styles);
-
 export default function SearchResults({ searchResults, isLoading }) {
   // If there are no results, or are loading, return null.
   if (!isLoading && searchResults === null) {
@@ -23,21 +19,14 @@ export default function SearchResults({ searchResults, isLoading }) {
 
   // If there are no results, return a message.
   if (!isLoading && !searchResults?.length) {
-    return (
-      <div className={styles['no-results']}>
-        <FaSearch className={styles['no-results-icon']} />
-        <div className={styles['no-results-text']}>No results</div>
-      </div>
-    );
+    return <h1>No results</h1>;
   }
 
   return (
     <div className={styles.component}>
-      <div className={styles.shopTitle}>
-        <h1>Results</h1>
-      </div>
+      <h1>Results</h1>
 
-      <div className={cx('row', 'row-wrap', styles.shop)}>
+      <div className='shop-grid'>
         {searchResults?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -6,15 +6,15 @@ import styles from './SearchRecommendations.module.scss';
  *
  * @returns {React.ReactElement} The SearchRecommendations component.
  */
-export default function SearchRecommendations({ categories }) {
+export default function SearchRecommendations({ collections }) {
   return (
     <div className={styles.component}>
-      <h4>Browse by Category</h4>
+      <h1>Browse Collections</h1>
       <ul>
-        {categories?.map?.((category, index) => (
-          <li key={category + '-' + index ?? 0}>
-            <Link href={'/product-category/' + category.toLowerCase() ?? '#'}>
-              <a>{category}</a>
+        {collections?.map?.((collection, index) => (
+          <li key={collection.title + '-' + index ?? 0}>
+            <Link href={'/product-collection/' + collection.handle ?? '#'}>
+              <a>{collection.title}</a>
             </Link>
           </li>
         ))}

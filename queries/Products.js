@@ -20,3 +20,14 @@ export const GET_PRODUCT = gql`
     }
   }
 `;
+
+export const SEARCH_PRODUCT = gql`
+  ${ProductFragment}
+  query SearchProduct($query: String!) {
+    products(first: 250, query: $query) {
+      nodes {
+        ...ProductFragment
+      }
+    }
+  }
+`;
