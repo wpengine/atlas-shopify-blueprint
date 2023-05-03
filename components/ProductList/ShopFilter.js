@@ -4,6 +4,7 @@ export const ShopFilter = ({ sortValue, setSortValue }) => {
   const handleChange = (event) => {
     setSortValue(event.target.value);
   };
+
   return (
     <select role="combobox" onChange={handleChange} value={sortValue}>
       <option role="option" value="best-selling">
