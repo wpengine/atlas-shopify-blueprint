@@ -1,9 +1,7 @@
-import { gql, useQuery } from '@apollo/client';
-import { getNextServerSideProps } from '@faustwp/core';
-import { BlogInfoFragment } from '../fragments/GeneralSettings';
-import { GET_PRODUCTS } from '../queries/Products';
-import shopifyClient from '../utilities/shopifyClient';
-import * as MENUS from '../constants/menus';
+import { ApolloProvider, gql, useQuery } from "@apollo/client";
+import { getNextServerSideProps } from "@faustwp/core";
+import { BlogInfoFragment } from "../fragments/GeneralSettings";
+import * as MENUS from "../constants/menus";
 import {
   Header,
   Footer,
@@ -11,21 +9,19 @@ import {
   Container,
   NavigationMenu,
   SEO,
-  ProductCard,
   EntryHeader,
-} from '../components';
+  ProductList,
+} from "../components";
+import shopifyClient from "../utilities/shopifyClient";
 
-export default function Page(props) {
+export default function Page() {
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
-
   const { title: siteTitle, description: siteDescription } =
     data?.generalSettings ?? {};
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
-
-  const products = props?.products ?? [];
 
   return (
     <>
@@ -37,16 +33,14 @@ export default function Page(props) {
       />
       <Main>
         <Container>
-          <div className='text-center'>
+          <div className="text-center">
             <EntryHeader
-              title='Shop'
-              subTitle='Shop your Shopify products with WordPress and WPGraphQL'
+              title="Shop"
+              subTitle="Shop your Shopify products with WordPress and WPGraphQL"
             />
-            <div className='shop-grid'>
-              {products?.map?.((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            <ApolloProvider client={shopifyClient}>
+              <ProductList />
+            </ApolloProvider>
           </div>
         </Container>
       </Main>
@@ -86,14 +80,7 @@ Page.variables = () => {
 };
 
 export async function getServerSideProps(ctx) {
-  const { data } = await shopifyClient.query({
-    query: GET_PRODUCTS,
-  });
-
-  const { products } = data;
-
   return getNextServerSideProps(ctx, {
     Page,
-    props: { products: products.nodes },
   });
 }
