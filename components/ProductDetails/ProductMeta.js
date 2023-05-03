@@ -17,12 +17,12 @@ const ProductMeta = ({
 
       {collections.length >= 1 && (
         <p>
-          Categories:{' '}
+          Collections:{' '}
           {collections.map((collection, index) => (
             <span key={`product-collection-${index}`}>
               {index === 0 ? '' : ', '}
               <Link
-                href={`/product-category/${collection.handle}`}
+                href={`/product-collection/${collection.handle}`}
                 key={`product-collection-link-${index}`}
               >
                 <a>{collection.title}</a>

@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.12",
+    "@apollo/react-testing": "^4.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@faustwp/cli": "0.2.12",
     "@faustwp/core": "0.2.11",
     "@wordpress/base-styles": "^4.23.0",

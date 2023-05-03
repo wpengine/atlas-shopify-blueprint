@@ -1,19 +1,13 @@
 import { Container } from '../Container';
-import { SearchInput } from '../SearchInput';
-import { SearchRecommendations } from '../SearchRecommendations';
-import { SearchResults } from '../SearchResults';
+import SearchInput from './SearchInput';
+import SearchRecommendations from './SearchRecommendations';
+import SearchResults from './SearchResults';
+import useSearch from '../../hooks/useSearch';
 import styles from './SearchSection.module.scss';
 
-const SearchSection = () => {
-  // TODO: Hook up the search functionality
-  // const { searchQuery, setSearchQuery, searchResults, isLoading, error } =
-  //   useSearch();
-
-  const searchQuery = '';
-  const setSearchQuery = {};
-  const searchResults = null;
-  const isLoading = false;
-  const error = '';
+const SearchSection = ({ collections }) => {
+  const { searchQuery, setSearchQuery, searchResults, isLoading, error } =
+    useSearch();
 
   return (
     <Container>
@@ -37,9 +31,7 @@ const SearchSection = () => {
       <SearchResults searchResults={searchResults} isLoading={isLoading} />
 
       {!isLoading && searchResults === null && (
-        <SearchRecommendations
-          categories={['Garden', 'Kitchen', 'Bath', 'Shop All', 'Utility']}
-        />
+        <SearchRecommendations collections={collections} />
       )}
     </Container>
   );
