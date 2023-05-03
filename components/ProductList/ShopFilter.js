@@ -5,21 +5,19 @@ export const ShopFilter = ({ sortValue, setSortValue }) => {
     setSortValue(event.target.value);
   };
   return (
-    <div>
-      <select role="combobox" onChange={handleChange} value={sortValue}>
-        <option role="option" value="best-selling">
-          Best selling
-        </option>
-        <option role="option" value="latest">
-          Latest
-        </option>
-        <option role="option" value="price-asc">
-          Price: Low to High
-        </option>
-        <option role="option" value="price-desc">
-          Price: High to Low
-        </option>
-      </select>
-    </div>
+    <select role="combobox" onChange={handleChange} value={sortValue}>
+      <option role="option" value="best-selling">
+        Best selling
+      </option>
+      <option role="option" value="latest">
+        Latest
+      </option>
+      <option role="option" value="price-asc">
+        Price: Low to High
+      </option>
+      <option role="option" value="price-desc">
+        Price: High to Low
+      </option>
+    </select>
   );
 };
