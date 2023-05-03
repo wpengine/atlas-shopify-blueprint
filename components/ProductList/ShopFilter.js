@@ -14,10 +14,10 @@ export const ShopFilter = ({ sortValue, setSortValue }) => {
           Latest
         </option>
         <option role="option" value="price-asc">
-          From Low to High Price
+          Price: Low to High
         </option>
         <option role="option" value="price-desc">
-          From High to Low Price
+          Price: High to Low
         </option>
       </select>
     </div>
