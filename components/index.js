@@ -13,6 +13,7 @@ export { ProductCard } from './ProductCard';
 export { ProductSection } from './ProductSection';
 export { SearchSection } from './SearchSection';
 export { ProductDetails } from './ProductDetails';
+export { ProductList } from './ProductList';
 export { PromoSection } from './PromoSection';
 export { SkipNavigationLink } from './SkipNavigationLink';
 export { TestimonialsSection } from './TestimonialsSection';
