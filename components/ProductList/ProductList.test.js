@@ -66,7 +66,7 @@ describe("<ProductList />", () => {
 
     userEvent.selectOptions(
       screen.getByRole("combobox"),
-      screen.getByRole("option", { name: "From High to Low Price" })
+      screen.getByRole("option", { name: "Price: High to Low" })
     );
     const allProducts = await screen.findAllByRole("listitem");
     const firstPrice = within(allProducts[0]).getByText("$35.0");
