@@ -24,7 +24,7 @@ export default function Page(props) {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const collection = props.handle ?? '';
+  const collection = props.collectionHandle ?? '';
 
   return (
     <>
@@ -83,11 +83,11 @@ Page.variables = () => {
 };
 
 export async function getServerSideProps(ctx) {
-  const handle = ctx.params.handle;
+  const collectionHandle = ctx.params.handle;
   return getNextServerSideProps(ctx, {
     Page,
     props: {
-      handle,
+      collectionHandle,
     },
   });
 }
