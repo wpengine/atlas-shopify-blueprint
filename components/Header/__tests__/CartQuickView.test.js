@@ -1,11 +1,11 @@
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom';
 
-import { fireEvent, render, screen } from "@testing-library/react";
-import { CartQuickView } from "./CartQuickView";
-import single from "../../data/stubs/cart/single";
+import { fireEvent, render, screen } from '@testing-library/react';
+import { CartQuickView } from '../CartQuickView';
+import single from '../../../data/stubs/cart/single';
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockReturnValue({ pathname: "/product/test-product" }),
+jest.mock('next/router', () => ({
+  useRouter: jest.fn().mockReturnValue({ pathname: '/product/test-product' }),
 }));
 
 const emptyCartMock = {
@@ -13,7 +13,7 @@ const emptyCartMock = {
   cartCount: 0,
   cartItems: [],
   isCartEmpty: true,
-  checkoutUrl: "",
+  checkoutUrl: '',
 };
 
 const cartWithItemsMock = {
@@ -24,8 +24,8 @@ const cartWithItemsMock = {
   cartItems: single.cart.lines.nodes,
 };
 
-describe("<CartQuickView />", () => {
-  it("displays the empty cart state on hover", () => {
+describe('<CartQuickView />', () => {
+  it('displays the empty cart state on hover', () => {
     render(<CartQuickView cart={emptyCartMock} styles={{}} />);
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
@@ -33,7 +33,7 @@ describe("<CartQuickView />", () => {
     expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
   });
 
-  it("displays the items in cart", () => {
+  it('displays the items in cart', () => {
     render(<CartQuickView cart={cartWithItemsMock} styles={{}} />);
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));

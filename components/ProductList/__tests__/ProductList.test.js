@@ -1,11 +1,16 @@
 import '@testing-library/jest-dom';
 import { MockedProvider } from '@apollo/react-testing';
-import { render, screen, waitFor, within } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react';
 import ProductList from '../ProductList';
 import { GET_PRODUCTS } from '../../../queries/Products';
 import { GET_COLLECTION } from '../../../queries/Collections';
 import productsStub from '../../../data/stubs/products';
-import userEvent from '@testing-library/user-event';
 import { FILTERS } from '../../../constants/filters';
 
 describe('<ProductList />', () => {
@@ -13,6 +18,11 @@ describe('<ProductList />', () => {
     const productsMock = {
       request: {
         query: GET_PRODUCTS,
+        variables: {
+          sortKey: FILTERS['latest'].sortKey,
+          reverse: undefined,
+          handle: null,
+        },
       },
       result: productsStub,
     };
@@ -24,7 +34,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    await waitFor(() => {
+    waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         productsStub.data.products.nodes.length
       );
@@ -35,6 +45,11 @@ describe('<ProductList />', () => {
     const productsMock = {
       request: {
         query: GET_PRODUCTS,
+        variables: {
+          sortKey: FILTERS['latest'].sortKey,
+          reverse: undefined,
+          handle: null,
+        },
       },
       result: productsStub,
     };
@@ -50,6 +65,8 @@ describe('<ProductList />', () => {
         query: GET_PRODUCTS,
         variables: {
           sortKey: FILTERS['price-desc'].sortKey,
+          reverse: FILTERS['price-desc'].reverse,
+          handle: null,
         },
       },
       result: {
@@ -70,19 +87,19 @@ describe('<ProductList />', () => {
       </MockedProvider>
     );
 
-    userEvent.selectOptions(
-      screen.getByRole('combobox'),
-      screen.getByRole('option', { name: 'Price: High to Low' })
-    );
+    fireEvent.change(screen.getByRole('combobox', { name: 'shop-filter' }), {
+      target: { value: 'price-desc' },
+    });
 
-    const allProducts = await screen.findAllByRole('listitem');
-    const firstPrice = within(allProducts[0]).getByText('$35.0');
-    const lastPrice = within(allProducts[allProducts.length - 1]).getByText(
-      '$15.0'
-    );
-
-    expect(firstPrice).toBeInTheDocument();
-    expect(lastPrice).toBeInTheDocument();
+    waitFor(async () => {
+      const allProducts = await screen.findAllByRole('listitem');
+      const firstPrice = within(allProducts[0]).getByText('$35.0');
+      const lastPrice = within(allProducts[allProducts.length - 1]).getByText(
+        '$15.0'
+      );
+      expect(firstPrice).toBeInTheDocument();
+      expect(lastPrice).toBeInTheDocument();
+    });
   });
 
   test('Rendering list of products by clothing collection', async () => {
@@ -95,7 +112,11 @@ describe('<ProductList />', () => {
     const collectionsMock = {
       request: {
         query: GET_COLLECTION,
-        variables: { handle: 'clothing' },
+        variables: {
+          handle: 'clothing',
+          sortKey: FILTERS['collection-latest'].sortKey,
+          reverse: undefined,
+        },
       },
       result: {
         data: {
@@ -115,14 +136,13 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    await waitFor(() => {
+    waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         collectionsMock.result.data.collection.products.nodes.length
       );
+      expect(screen.queryByText(/Toasty Cap Eco/i)).not.toBeInTheDocument();
+      expect(screen.getByText(/Andromeda Hoodie/i)).toBeInTheDocument();
     });
-
-    expect(screen.queryByText(/Toasty Cap Eco/i)).not.toBeInTheDocument();
-    expect(screen.getByText(/Andromeda Hoodie/i)).toBeInTheDocument();
   });
 
   test('Rendering list of products by apparel & accessories collection', async () => {
@@ -135,7 +155,11 @@ describe('<ProductList />', () => {
     const collectionsMock = {
       request: {
         query: GET_COLLECTION,
-        variables: { handle: 'apparel-accessories' },
+        variables: {
+          handle: 'apparel-accessories',
+          sortKey: FILTERS['collection-latest'].sortKey,
+          reverse: undefined,
+        },
       },
       result: {
         data: {
@@ -155,13 +179,12 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    await waitFor(() => {
+    waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         collectionsMock.result.data.collection.products.nodes.length
       );
+      expect(screen.getByText(/Toasty Cap Eco/i)).toBeInTheDocument();
+      expect(screen.queryByText(/Andromeda Hoodie/i)).not.toBeInTheDocument();
     });
-
-    expect(screen.getByText(/Toasty Cap Eco/i)).toBeInTheDocument();
-    expect(screen.queryByText(/Andromeda Hoodie/i)).not.toBeInTheDocument();
   });
 });
