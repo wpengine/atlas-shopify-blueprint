@@ -1,5 +1,5 @@
-import { gql } from "@apollo/client";
-import { ProductFragment } from "../fragments/Product";
+import { gql } from '@apollo/client';
+import { ProductFragment } from '../fragments/Product';
 
 export const GET_PRODUCTS = gql`
   ${ProductFragment}
