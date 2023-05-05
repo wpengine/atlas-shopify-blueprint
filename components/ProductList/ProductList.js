@@ -7,8 +7,10 @@ import { ProductCard } from '../ProductCard';
 import { ShopFilter } from './ShopFilter';
 import { FILTERS } from '../../constants/filters';
 
-const ProductList = ({ collection }) => {
-  const [sortValue, setSortValue] = useState('');
+const ProductList = ({ collection = null }) => {
+  const [sortValue, setSortValue] = useState(
+    collection ? 'collection-latest' : 'latest'
+  );
 
   const QUERY = collection ? GET_COLLECTION : GET_PRODUCTS;
 
@@ -25,7 +27,11 @@ const ProductList = ({ collection }) => {
 
   return (
     <>
-      <ShopFilter sortValue={sortValue} setSortValue={setSortValue} />
+      <ShopFilter
+        sortValue={sortValue}
+        setSortValue={setSortValue}
+        collection={collection}
+      />
       {loading && <Loader />}
       <div className='shop-grid' role='list'>
         {products?.map?.((product) => (
