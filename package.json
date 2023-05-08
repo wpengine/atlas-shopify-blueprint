@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.12",
+    "@apollo/client": "^3.7.14",
     "@apollo/react-testing": "^4.0.0",
     "@faustwp/cli": "0.2.12",
     "@faustwp/core": "0.2.11",
