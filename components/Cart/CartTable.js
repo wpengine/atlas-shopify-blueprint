@@ -6,6 +6,7 @@ import {
 } from "react-icons/ai";
 import styles from "./CartTable.module.scss";
 import Link from "next/link";
+import priceFormatter from "../../utilities/priceFormatter";
 
 const CartTable = ({ cartItems }) => {
   const handleClickDelete = () => {};
@@ -52,8 +53,7 @@ const CartTable = ({ cartItems }) => {
                   </Link>
                 </td>
                 <td>
-                  <span>$</span>
-                  {item.cost.amountPerQuantity.amount}
+                  {priceFormatter(item.cost.amountPerQuantity.amount)}
                 </td>
                 <td>
                   <div className={styles.quantity}>
@@ -71,8 +71,7 @@ const CartTable = ({ cartItems }) => {
                   </div>
                 </td>
                 <td className={styles.hideOnMobile}>
-                  <span>$</span>
-                  {item.cost.totalAmount.amount}
+                  {priceFormatter(item.cost.totalAmount.amount)}
                 </td>
               </tr>
             );

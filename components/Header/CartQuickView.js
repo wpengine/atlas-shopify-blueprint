@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import priceFormatter from "../../utilities/priceFormatter";
 
 export function CartQuickView({ cart, styles }) {
   const router = useRouter();
@@ -16,8 +17,7 @@ export function CartQuickView({ cart, styles }) {
           }}
         >
           <span className={styles["price-amount"]}>
-            <span>$</span>
-            {cartSubTotal}
+            {priceFormatter(cartSubTotal)}
           </span>{" "}
           <span className={styles["count"]}>
             {cartCount} item{cartCount === 1 ? "" : "s"}
@@ -53,8 +53,7 @@ export function CartQuickView({ cart, styles }) {
                     <span className={styles["quantity"]}>
                       {item.quantity} ×{" "}
                       <span className={styles["price-amount"]}>
-                        <span>$</span>
-                        {item.cost.amountPerQuantity.amount}
+                        {priceFormatter(item.cost.amountPerQuantity.amount)}
                       </span>
                     </span>
                   </li>
@@ -69,8 +68,7 @@ export function CartQuickView({ cart, styles }) {
                   <>
                     <strong>Subtotal: </strong>
                     <span className={styles["price-amount"]}>
-                      <span>$</span>
-                      {cartSubTotal}
+                      {priceFormatter(cartSubTotal)}
                     </span>
                   </>
                 )}

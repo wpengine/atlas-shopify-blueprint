@@ -58,6 +58,7 @@ const ProductDetails = ({ product }) => {
         <ProductPrice
           salePrice={selectedVariant?.compareAtPrice}
           price={selectedVariant?.price?.amount}
+          currencyCode={selectedVariant?.price?.currencyCode}
         />
         <ProductDescription description={product?.description} />
         <ProductMeta
