@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   AiOutlineCloseCircle,
   AiOutlineMinusCircle,
   AiOutlinePlusCircle,
-} from "react-icons/ai";
-import styles from "./CartTable.module.scss";
-import Link from "next/link";
+} from 'react-icons/ai';
+import styles from './CartTable.module.scss';
+import Link from 'next/link';
 
 const CartTable = ({ cartItems }) => {
   const handleClickDelete = () => {};

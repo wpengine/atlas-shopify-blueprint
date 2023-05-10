@@ -1,7 +1,7 @@
-import { ApolloProvider, gql, useQuery } from "@apollo/client";
-import { getNextServerSideProps } from "@faustwp/core";
-import { BlogInfoFragment } from "../fragments/GeneralSettings";
-import * as MENUS from "../constants/menus";
+import { ApolloProvider, gql, useQuery } from '@apollo/client';
+import { getNextServerSideProps } from '@faustwp/core';
+import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import * as MENUS from '../constants/menus';
 import {
   Header,
   Footer,
@@ -11,8 +11,8 @@ import {
   SEO,
   EntryHeader,
   ProductList,
-} from "../components";
-import shopifyClient from "../utilities/shopifyClient";
+} from '../components';
+import shopifyClient from '../utilities/shopifyClient';
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
