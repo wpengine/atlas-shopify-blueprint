@@ -35,7 +35,7 @@ export default function Component(props) {
       />
       <Main>
         <ContentWrapper content={content} />
-        <ProductSection heading='Latest Products' products={latestProducts} />
+        <ProductSection heading='New Arrivals' products={latestProducts} />
         <TestimonialsSection />
         <ProductSection heading='On Sale' products={saleProducts} />
         <PromoSection

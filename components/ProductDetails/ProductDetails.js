@@ -52,7 +52,7 @@ const ProductDetails = ({ product }) => {
       </div>
       <div className={styles.detailsColumn}>
         {selectedVariant?.compareAtPrice && (
-          <span className={styles.onSale}>Sale!</span>
+          <span className={styles.onSale}>Sale</span>
         )}
         <h1>{product?.title}</h1>
         <ProductPrice
