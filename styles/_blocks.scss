@@ -24,10 +24,6 @@
   }
 }
 
-.has-white-color {
-  color: var(--wpe--color--white);
-}
-
 .has-white-background-color {
   background: var(--wpe--color--white);
 }
@@ -49,4 +45,8 @@
       color: var(--wpe--color--white);
     }
   }
+}
+
+.wp-block-heading {
+  margin-block: 1.5rem;
 }
