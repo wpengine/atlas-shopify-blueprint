@@ -46,16 +46,16 @@ const ProductMeta = ({
         <div>
           <label style={{ display: 'block' }}>Quantity:</label>
           <input
-            type='number'
-            min='1'
+            type="number"
+            min="1"
             max={10}
-            step='1'
-            name='quantity'
+            step="1"
+            name="quantity"
             onChange={handleChange}
             className={styles.quantity}
           />
         </div>
-        <CtaButton ctaLabel='Add to cart' ctaClick={handleSubmit} />
+        <CtaButton ctaLabel="Add to cart" ctaClick={handleSubmit} />
       </form>
     </div>
   );

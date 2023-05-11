@@ -35,15 +35,15 @@ export default function Component(props) {
       />
       <Main>
         <ContentWrapper content={content} />
-        <ProductSection heading='Latest Products' products={latestProducts} />
+        <ProductSection heading="Latest Products" products={latestProducts} />
         <TestimonialsSection />
-        <ProductSection heading='On Sale' products={saleProducts} />
+        <ProductSection heading="On Sale" products={saleProducts} />
         <PromoSection
           showCta
-          ctaLink='/about'
-          ctaLabel='About'
-          title='Promo Banners'
-          description='You can use this component to promote articles or specific products. And optionally add a CTA below.'
+          ctaLink="/about"
+          ctaLabel="About"
+          title="Promo Banners"
+          description="You can use this component to promote articles or specific products. And optionally add a CTA below."
         />
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />

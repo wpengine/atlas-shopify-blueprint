@@ -36,10 +36,10 @@ export default function Page(props) {
       />
       <Main>
         <Container>
-          <div className='text-center'>
+          <div className="text-center">
             <EntryHeader
-              title='Shop'
-              subTitle='Shop your Shopify products with WordPress and WPGraphQL'
+              title="Shop"
+              subTitle="Shop your Shopify products with WordPress and WPGraphQL"
             />
             <ApolloProvider client={shopifyClient}>
               <ProductList collection={collection} />

@@ -12,7 +12,8 @@
 
   table {
     width: 100%;
-    th, td {
+    th,
+    td {
       width: 50%;
       padding: 1rem;
     }
@@ -45,7 +46,7 @@
     font-weight: 600;
     text-shadow: none;
     word-break: break-all;
-    
+
     &:hover {
       background-color: var(--wpe--color--dark-green);
     }
