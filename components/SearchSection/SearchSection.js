@@ -23,7 +23,7 @@ const SearchSection = ({ collections }) => {
         />
       </div>
       {error && (
-        <div className='alert-error'>
+        <div className="alert-error">
           An error has occurred. Please refresh and try again.
         </div>
       )}

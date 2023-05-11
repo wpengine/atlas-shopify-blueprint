@@ -1,6 +1,6 @@
 const ProductPrice = ({ salePrice, price }) => {
   return (
-    <p className='price'>
+    <p className="price">
       {salePrice !== null ? (
         <>
           <del>${price}</del> ${salePrice?.amount}

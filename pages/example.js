@@ -16,6 +16,7 @@ export default function Page(props) {
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
+
   const title = props.title;
 
   const { title: siteTitle, description: siteDescription } =
@@ -34,7 +35,7 @@ export default function Page(props) {
       <Main>
         <Container>
           <Hero title={title} />
-          <div className='text-center'>
+          <div className="text-center">
             <p>This page is utilizing the Next.js File based routes.</p>
             <code>pages/example.js</code>
           </div>

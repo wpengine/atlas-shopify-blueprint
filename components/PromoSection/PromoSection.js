@@ -7,14 +7,14 @@ const PromoSection = ({
   ctaLink = null,
   ctaLabel = null,
   title = null,
-  description = null
+  description = null,
 }) => {
   return (
     <div className={`section ${styles.component}`}>
       <Container>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.description}>{description}</div>
-        { showCta && <CtaButton ctaLink={ctaLink} ctaLabel={ctaLabel} /> }
+        {showCta && <CtaButton ctaLink={ctaLink} ctaLabel={ctaLabel} />}
       </Container>
     </div>
   );

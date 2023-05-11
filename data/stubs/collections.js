@@ -1,14 +1,14 @@
 const collectionsStub = {
-  'data': {
-    'collections': {
-      'nodes': [
+  data: {
+    collections: {
+      nodes: [
         {
-          'title': 'Clothing',
-          'handle': 'clothing',
+          title: 'Clothing',
+          handle: 'clothing',
         },
         {
-          'title': 'Apparel & Accessories',
-          'handle': 'apparel-accessories',
+          title: 'Apparel & Accessories',
+          handle: 'apparel-accessories',
         },
       ],
     },

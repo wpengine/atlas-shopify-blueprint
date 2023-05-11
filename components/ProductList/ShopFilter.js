@@ -7,22 +7,22 @@ export const ShopFilter = ({ sortValue, setSortValue, collection }) => {
 
   return (
     <select
-      role='combobox'
-      name='shop-filter'
+      role="combobox"
+      name="shop-filter"
       onChange={handleChange}
       value={sortValue}
-      aria-label='shop-filter'
+      aria-label="shop-filter"
     >
-      <option role='option' value={collection ? 'collection-latest' : 'latest'}>
+      <option role="option" value={collection ? 'collection-latest' : 'latest'}>
         Latest
       </option>
-      <option role='option' value='best-selling'>
+      <option role="option" value="best-selling">
         Best selling
       </option>
-      <option role='option' value='price-asc'>
+      <option role="option" value="price-asc">
         Price: Low to High
       </option>
-      <option role='option' value='price-desc'>
+      <option role="option" value="price-desc">
         Price: High to Low
       </option>
     </select>

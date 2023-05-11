@@ -131,7 +131,7 @@ describe('<ProductList />', () => {
 
     render(
       <MockedProvider mocks={[collectionsMock]} addTypename={true}>
-        <ProductList collection='clothing' />
+        <ProductList collection="clothing" />
       </MockedProvider>
     );
 
@@ -174,7 +174,7 @@ describe('<ProductList />', () => {
 
     render(
       <MockedProvider mocks={[collectionsMock]} addTypename={true}>
-        <ProductList collection='apparel-accessories' />
+        <ProductList collection="apparel-accessories" />
       </MockedProvider>
     );
 

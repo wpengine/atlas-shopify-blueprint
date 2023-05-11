@@ -8,7 +8,7 @@ function ProductGallery({ selected, images, handleImageChange }) {
   return (
     <>
       <div className={styles.featured}>
-        <img src={selected} alt='product image' />
+        <img src={selected} alt="product image" />
       </div>
       <div className={styles.productGallery}>
         <div className={styles.imageGrid}>
@@ -21,7 +21,7 @@ function ProductGallery({ selected, images, handleImageChange }) {
                   key={`slide-image-${index}`}
                   data-testid={`slide-image-${index}`}
                   alt={image?.altText}
-                  loading='lazy'
+                  loading="lazy"
                   onClick={() => handleClick(image)}
                 />
               </div>
