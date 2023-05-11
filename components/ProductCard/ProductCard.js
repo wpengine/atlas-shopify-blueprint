@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { CtaButton } from "../CtaButton";
-import classNames from "classnames/bind";
-import styles from "./ProductCard.module.scss";
-import priceFormatter from "../../utilities/priceFormatter";
+import Link from 'next/link';
+import { CtaButton } from '../CtaButton';
+import classNames from 'classnames/bind';
+import styles from './ProductCard.module.scss';
+import priceFormatter from '../../utilities/priceFormatter';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
             ) : null}
             <img
               className={styles.productImage}
-              src={thumbnail ?? "/ProductDefault.gif"}
+              src={thumbnail ?? '/ProductDefault.gif'}
               alt={product?.name}
               loading="lazy"
             />
@@ -42,7 +42,7 @@ const ProductCard = ({ product }) => {
                   product?.variants?.nodes[0]?.compareAtPrice?.amount,
                   product?.variants?.nodes[0]?.compareAtPrice?.currencyCode
                 )}
-                </del>{" "}
+                </del>{' '}
                 {priceFormatter(
                   product?.variants?.nodes[0]?.price?.amount,
                   product?.variants?.nodes[0]?.price?.currencyCode

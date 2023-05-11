@@ -33,7 +33,7 @@ const ProductList = ({ collection = null }) => {
         collection={collection}
       />
       {loading && <Loader />}
-      <div className='shop-grid' role='list'>
+      <div className="shop-grid" role="list">
         {products?.map?.((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -23,15 +23,15 @@ export default function SearchInput({ value, onChange, ...props }) {
   return (
     <div className={styles.component}>
       <FaSearch className={styles.icon} />
-      <label className='sr-only' htmlFor='search'>
+      <label className="sr-only" htmlFor="search">
         Search
       </label>
 
       <input
         ref={input}
-        id='search'
-        name='search'
-        role='input'
+        id="search"
+        name="search"
+        role="input"
         className={styles.input}
         value={value}
         onChange={(e) => {
@@ -41,8 +41,8 @@ export default function SearchInput({ value, onChange, ...props }) {
         }}
         autoFocus
         onFocus={(e) => e.target.select()}
-        type='text'
-        placeholder='Start typing...'
+        type="text"
+        placeholder="Start typing..."
         {...props}
       />
     </div>

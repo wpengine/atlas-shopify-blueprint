@@ -42,7 +42,7 @@ export default function NavigationMenu({ menuItems, className }) {
   return (
     <nav
       className={cx(['component', className])}
-      role='navigation'
+      role="navigation"
       aria-label={`${menuItems[0]?.menu?.node?.name} menu`}
     >
       {renderMenu(hierarchicalMenuItems)}

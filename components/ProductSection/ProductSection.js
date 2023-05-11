@@ -7,7 +7,7 @@ const ProductSection = ({ products, heading }) => {
     <div className={`section ${styles.component}`}>
       <Container>
         <h1>{heading}</h1>
-        <div className='section'>
+        <div className="section">
           {products?.map?.((product) => {
             return <ProductCard key={product.id} product={product} />;
           })}

@@ -26,7 +26,7 @@ export default function SearchResults({ searchResults, isLoading }) {
     <div className={styles.component}>
       <h1>Results</h1>
 
-      <div className='shop-grid'>
+      <div className="shop-grid">
         {searchResults?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

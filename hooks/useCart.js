@@ -1,16 +1,16 @@
-import empty from "../data/stubs/cart/empty";
-import single from "../data/stubs/cart/single";
-import multiple from "../data/stubs/cart/multiple";
+import empty from '../data/stubs/cart/empty';
+import single from '../data/stubs/cart/single';
+import multiple from '../data/stubs/cart/multiple';
 
 // This is temporary, replace with query
 // Usage: in your DevTools type `localStorage.setItem('cart-state', 'single')`
-const CART_STATE_KEY = "cart-state";
+const CART_STATE_KEY = 'cart-state';
 const useStub = (state) => {
-  if (state === "single") {
+  if (state === 'single') {
     return single;
   }
 
-  if (state === "multiple") {
+  if (state === 'multiple') {
     return multiple;
   }
 

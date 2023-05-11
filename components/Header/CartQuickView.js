@@ -7,13 +7,13 @@ export function CartQuickView({ cart, styles }) {
   const { cartSubTotal, cartCount, cartItems, isCartEmpty, checkoutUrl } = cart;
 
   return (
-    <ul id="site-header-cart" className={styles["site-header-cart"]}>
+    <ul id="site-header-cart" className={styles['site-header-cart']}>
       <li className="">
         <div
-          className={styles["cart-contents"]}
+          className={styles['cart-contents']}
           title="View your shopping cart"
           style={{
-            cursor: router.pathname === "/cart" ? "auto" : "pointer",
+            cursor: router.pathname === '/cart' ? 'auto' : 'pointer',
           }}
         >
           <span className={styles["icon-cart"]}>
@@ -29,14 +29,14 @@ export function CartQuickView({ cart, styles }) {
           </span>
         </div>
       </li>
-      {router.pathname !== "/cart" ? (
+      {router.pathname !== '/cart' ? (
         <li>
-          <div className={styles["widget_shopping_cart"]}>
-            <div className={styles["widget_shopping_cart_content"]}>
-              <ul className={styles["product_list_widget"]}>
+          <div className={styles['widget_shopping_cart']}>
+            <div className={styles['widget_shopping_cart_content']}>
+              <ul className={styles['product_list_widget']}>
                 {cartItems.map((item) => (
                   <li
-                    className={styles["mini_cart_item"]}
+                    className={styles['mini_cart_item']}
                     key={item.merchandise.product.handle}
                   >
                     <a href={`/product/${item.merchandise.product.handle}`}>
@@ -44,7 +44,7 @@ export function CartQuickView({ cart, styles }) {
                         width="324"
                         height="324"
                         src={item.merchandise.product.featuredImage.url}
-                        className={styles["thumbnail"]}
+                        className={styles['thumbnail']}
                         alt=""
                         loading="lazy"
                       ></img>
@@ -59,9 +59,9 @@ export function CartQuickView({ cart, styles }) {
                   </li>
                 ))}
               </ul>
-              <p className={styles["mini-cart__total"]}>
+              <p className={styles['mini-cart__total']}>
                 {isCartEmpty ? (
-                  <span className={styles["price-amount"]}>
+                  <span className={styles['price-amount']}>
                     You have no items in cart
                   </span>
                 ) : (
@@ -73,11 +73,11 @@ export function CartQuickView({ cart, styles }) {
                   </>
                 )}
               </p>
-              <p className={styles["mini-cart__buttons"]}>
-                <a href="/cart" className={styles["button"]}>
+              <p className={styles['mini-cart__buttons']}>
+                <a href="/cart" className={styles['button']}>
                   View cart
                 </a>
-                <a href={checkoutUrl} className={styles["button"]}>
+                <a href={checkoutUrl} className={styles['button']}>
                   Checkout
                 </a>
               </p>
