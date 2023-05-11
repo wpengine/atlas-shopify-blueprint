@@ -1,31 +1,32 @@
-import { useState } from "react";
-import classNames from "classnames/bind";
-import Link from "next/link";
-import { FaBars, FaSearch } from "react-icons/fa";
+import { useState } from 'react';
+import classNames from 'classnames/bind';
+import Link from 'next/link';
+import { FaBars, FaSearch } from 'react-icons/fa';
 import {
   Container,
   NavigationMenu,
   SkipNavigationLink,
-} from "../../components";
-import styles from "./Header.module.scss";
-import useCart from "../../hooks/useCart";
-import dynamic from "next/dynamic";
+} from '../../components';
+import styles from './Header.module.scss';
+import dynamic from 'next/dynamic';
+import useShopifyCart from '../../hooks/useShopifyCart';
 
-const CartQuickView = dynamic(() => import("./CartQuickView"), { ssr: false });
+const CartQuickView = dynamic(() => import('./CartQuickView'), { ssr: false });
 
 let cx = classNames.bind(styles);
 
 export default function Header({
-  title = "Headless by WP Engine",
+  title = 'Headless by WP Engine',
   description,
   menuItems,
 }) {
   const [isNavShown, setIsNavShown] = useState(false);
-  const cart = useCart();
+  const { cartItems, cartCount, isCartEmpty, cartSubTotal, checkoutUrl } =
+    useShopifyCart();
 
   const navClasses = cx([
-    styles["primary-navigation"],
-    isNavShown ? styles["show"] : undefined,
+    styles['primary-navigation'],
+    isNavShown ? styles['show'] : undefined,
   ]);
 
   return (
@@ -34,8 +35,8 @@ export default function Header({
       <Container>
         <div className={styles.bar}>
           <div className={styles.logo}>
-            <Link href="/">
-              <a title="Home">
+            <Link href='/'>
+              <a title='Home'>
                 <h3>{title}</h3>
                 <span>{description}</span>
               </a>
@@ -43,33 +44,42 @@ export default function Header({
           </div>
 
           <div className={styles.search}>
-            <Link href="/search">
+            <Link href='/search'>
               <a>
-                <FaSearch title="Search" role="img" />
+                <FaSearch title='Search' role='img' />
               </a>
             </Link>
           </div>
 
           <button
-            type="button"
-            className={styles["nav-toggle"]}
+            type='button'
+            className={styles['nav-toggle']}
             onClick={() => setIsNavShown(!isNavShown)}
-            aria-label="Toggle navigation"
-            aria-controls={styles["primary-navigation"]}
+            aria-label='Toggle navigation'
+            aria-controls={styles['primary-navigation']}
             aria-expanded={isNavShown}
           >
             <FaBars />
           </button>
         </div>
 
-        <div className={styles["nav-cart-bar"]}>
+        <div className={styles['nav-cart-bar']}>
           <NavigationMenu
-            id={styles["primary-navigation"]}
+            id={styles['primary-navigation']}
             className={navClasses}
             menuItems={menuItems}
           ></NavigationMenu>
 
-          <CartQuickView cart={cart} styles={styles} />
+          <CartQuickView
+            cart={{
+              cartItems,
+              cartCount,
+              isCartEmpty,
+              cartSubTotal,
+              checkoutUrl,
+            }}
+            styles={styles}
+          />
         </div>
       </Container>
     </header>

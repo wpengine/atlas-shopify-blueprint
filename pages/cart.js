@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
-import { gql, useQuery } from "@apollo/client";
-import * as MENUS from "../constants/menus";
-import { BlogInfoFragment } from "../fragments/GeneralSettings";
+import dynamic from 'next/dynamic';
+import { gql, useQuery } from '@apollo/client';
+import * as MENUS from '../constants/menus';
+import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
   Header,
   Footer,
@@ -9,11 +9,11 @@ import {
   Container,
   NavigationMenu,
   SEO,
-} from "../components";
-import { getNextStaticProps } from "@faustwp/core";
-import useCart from "../hooks/useCart";
+} from '../components';
+import { getNextStaticProps } from '@faustwp/core';
+import useShopifyCart from '../hooks/useShopifyCart';
 
-const Cart = dynamic(() => import("../components/Cart"), { ssr: false });
+const Cart = dynamic(() => import('../components/Cart'), { ssr: false });
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -25,7 +25,14 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const cart = useCart();
+  const {
+    cartItems,
+    cartCount,
+    isCartEmpty,
+    cartTotal,
+    cartSubTotal,
+    checkoutUrl,
+  } = useShopifyCart();
 
   return (
     <>
@@ -37,10 +44,19 @@ export default function Page() {
       />
       <Main>
         <Container>
-          <div className="text-center spacing-top">
+          <div className='text-center spacing-top'>
             <h1>Cart</h1>
 
-            <Cart cart={cart} />
+            <Cart
+              cart={{
+                cartItems,
+                cartCount,
+                isCartEmpty,
+                cartTotal,
+                cartSubTotal,
+                checkoutUrl,
+              }}
+            />
           </div>
         </Container>
       </Main>

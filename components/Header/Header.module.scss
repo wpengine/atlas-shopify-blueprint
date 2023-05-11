@@ -207,7 +207,7 @@
     .widget_shopping_cart {
       left: 0;
       display: none;
-      background-color: var(--wpe--color--slate);
+      background-color: var(--wpe--header--background-color);
       color: var(--wpe--color--white);
       position: absolute;
       top: 100%;
@@ -244,14 +244,14 @@
       }
       .mini-cart__total {
         padding: 1em;
-        background-color: var(--wpe--color--slate);
+        background-color: var(--wpe--header--background-color);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         margin: 0;
         text-align: center;
       }
       .mini-cart__buttons {
         padding: 1em;
-        background-color: var(--wpe--color--slate);
+        background-color: var(--wpe--header--background-color);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         margin: 0;
         text-align: center;
