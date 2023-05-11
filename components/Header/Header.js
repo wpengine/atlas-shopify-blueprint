@@ -53,18 +53,18 @@ export default function Header({
             <FaBars />
           </button>
 
-        <div className={styles['nav-cart-bar']}>
-          <NavigationMenu
-            id={styles['primary-navigation']}
-            className={navClasses}
-            menuItems={menuItems}
-          ></NavigationMenu>
+          <div className={styles['nav-cart-bar']}>
+            <NavigationMenu
+              id={styles['primary-navigation']}
+              className={navClasses}
+              menuItems={menuItems}
+            ></NavigationMenu>
 
             <Link href="/search">
-                  <a>
-                    <FaSearch title="Search" role="img" />
-                  </a>
-                </Link>
+              <a>
+                <FaSearch title="Search" role="img" />
+              </a>
+            </Link>
 
             <CartQuickView cart={cart} styles={styles} />
           </div>

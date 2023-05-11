@@ -1,29 +1,29 @@
-import priceFormatter from "../priceFormatter";
+import priceFormatter from '../priceFormatter';
 
 describe('priceFormatter', () => {
   it('formats a non decimal price to double digit', () => {
-      const price = priceFormatter('3');
+    const price = priceFormatter('3');
 
-      expect(price).toBe('$3.00');
+    expect(price).toBe('$3.00');
   });
   it('formats a single decimal price to double digit', () => {
-      const price = priceFormatter('3.5');
+    const price = priceFormatter('3.5');
 
-      expect(price).toBe('$3.50');
+    expect(price).toBe('$3.50');
   });
   it('formats a double decimal price to double digit', () => {
-      const price = priceFormatter('3.56');
+    const price = priceFormatter('3.56');
 
-      expect(price).toBe('$3.56');
+    expect(price).toBe('$3.56');
   });
   it('formats an empty price to double digit zero', () => {
-      const price = priceFormatter('');
+    const price = priceFormatter('');
 
-      expect(price).toBe('$0.00');
+    expect(price).toBe('$0.00');
   });
   it('formats a missing price to double digit zero', () => {
-      const price = priceFormatter();
+    const price = priceFormatter();
 
-      expect(price).toBe('$0.00');
+    expect(price).toBe('$0.00');
   });
 });

@@ -3,10 +3,10 @@ import {
   AiOutlineCloseCircle,
   AiOutlineMinusCircle,
   AiOutlinePlusCircle,
-} from "react-icons/ai";
-import styles from "./CartTable.module.scss";
-import Link from "next/link";
-import priceFormatter from "../../utilities/priceFormatter";
+} from 'react-icons/ai';
+import styles from './CartTable.module.scss';
+import Link from 'next/link';
+import priceFormatter from '../../utilities/priceFormatter';
 
 const CartTable = ({ cartItems }) => {
   const handleClickDelete = () => {};
@@ -52,9 +52,7 @@ const CartTable = ({ cartItems }) => {
                     {product.title}
                   </Link>
                 </td>
-                <td>
-                  {priceFormatter(item.cost.amountPerQuantity.amount)}
-                </td>
+                <td>{priceFormatter(item.cost.amountPerQuantity.amount)}</td>
                 <td>
                   <div className={styles.quantity}>
                     <AiOutlineMinusCircle

@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./CartTotals.module.scss";
-import classNames from "classnames";
-import priceFormatter from "../../utilities/priceFormatter";
+import React from 'react';
+import styles from './CartTotals.module.scss';
+import classNames from 'classnames';
+import priceFormatter from '../../utilities/priceFormatter';
 
 const cx = classNames.bind(styles);
 
@@ -14,15 +14,11 @@ const CartTotals = ({ cartSubTotal, cartTotal, checkoutUrl }) => {
         <tbody>
           <tr>
             <th>Subtotal</th>
-            <td>
-              {priceFormatter(cartSubTotal)}
-            </td>
+            <td>{priceFormatter(cartSubTotal)}</td>
           </tr>
           <tr>
             <th>Total</th>
-            <td>
-              {priceFormatter(cartTotal)}
-            </td>
+            <td>{priceFormatter(cartTotal)}</td>
           </tr>
         </tbody>
       </table>

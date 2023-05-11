@@ -38,10 +38,10 @@ const ProductCard = ({ product }) => {
             {product?.variants?.nodes[0]?.compareAtPrice ? (
               <>
                 <del>
-                {priceFormatter(
-                  product?.variants?.nodes[0]?.compareAtPrice?.amount,
-                  product?.variants?.nodes[0]?.compareAtPrice?.currencyCode
-                )}
+                  {priceFormatter(
+                    product?.variants?.nodes[0]?.compareAtPrice?.amount,
+                    product?.variants?.nodes[0]?.compareAtPrice?.currencyCode
+                  )}
                 </del>{' '}
                 {priceFormatter(
                   product?.variants?.nodes[0]?.price?.amount,

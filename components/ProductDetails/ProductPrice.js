@@ -1,4 +1,4 @@
-import priceFormatter from "../../utilities/priceFormatter";
+import priceFormatter from '../../utilities/priceFormatter';
 
 const ProductPrice = ({ salePrice, price, currencyCode }) => {
   return (
