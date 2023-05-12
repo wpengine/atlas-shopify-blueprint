@@ -12,6 +12,24 @@ const CartFragment = gql`
         merchandise {
           ... on ProductVariant {
             id
+            title
+            image {
+              url
+              altText
+            }
+            product {
+              id
+              handle
+              title
+            }
+          }
+        }
+        cost {
+          amountPerQuantity {
+            amount
+          }
+          totalAmount {
+            amount
           }
         }
         attributes {
@@ -40,24 +58,6 @@ const CartFragment = gql`
       totalDutyAmount {
         amount
         currencyCode
-      }
-    }
-    buyerIdentity {
-      email
-      phone
-      customer {
-        id
-      }
-      countryCode
-      deliveryAddressPreferences {
-        ... on MailingAddress {
-          address1
-          address2
-          city
-          provinceCode
-          countryCodeV2
-          zip
-        }
       }
     }
   }
