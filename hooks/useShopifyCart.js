@@ -5,6 +5,7 @@ import CREATE_CART from '../mutations/CreateCart';
 import RETRIEVE_CART from '../queries/Cart';
 import shopifyClient from '../utilities/shopifyClient';
 import ADD_TO_CART from '../mutations/AddToCart';
+import REMOVE_FROM_CART from '../mutations/RemoveFromCart';
 
 const ShopifyCartContext = React.createContext({});
 
@@ -47,6 +48,9 @@ export function ShopifyCartProvider({ children }) {
   });
 
   // remove from cart method
+  const [removeFromCart] = useMutation(REMOVE_FROM_CART, {
+    client: shopifyClient,
+  });
 
   // create checkout url method
 
@@ -66,6 +70,7 @@ export function ShopifyCartProvider({ children }) {
     cartSubTotal,
     checkoutUrl,
     addToCart,
+    removeFromCart,
     retrieveCart,
     setCartData,
     cartId,

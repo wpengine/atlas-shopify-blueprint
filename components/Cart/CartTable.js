@@ -7,8 +7,40 @@ import {
 import styles from './CartTable.module.scss';
 import Link from 'next/link';
 
-const CartTable = ({ cartItems }) => {
-  const handleClickDelete = () => {};
+const CartTable = ({
+  cartItems,
+  setProductNotification,
+  removeFromCart,
+  cartId,
+  setCartData,
+  retrieveCart,
+}) => {
+  const handleDelete = (cartId, lineId, product) => {
+    removeFromCart({
+      variables: {
+        cartId,
+        lineIds: [lineId],
+      },
+    })
+      .then(() =>
+        setProductNotification({
+          message: `"${product}" has been removed from your cart.`,
+          className: 'success',
+        })
+      )
+      .catch((err) => {
+        console.error(err);
+        setProductNotification({
+          message: `"There was an issue removing this item from the cart.`,
+          className: 'error',
+        });
+      })
+      .finally(() =>
+        retrieveCart().then((response) => {
+          setCartData(response.data.cart);
+        })
+      );
+  };
   const handleClickIncreaseQuantity = () => {};
   const handleClickDecreaseQuantity = () => {};
 
@@ -36,7 +68,7 @@ const CartTable = ({ cartItems }) => {
                   <AiOutlineCloseCircle
                     size={24}
                     className={styles.clickableIcon}
-                    onClick={handleClickDelete}
+                    onClick={() => handleDelete(cartId, item.id, product.title)}
                   />
                 </td>
                 <td className={styles.hideOnMobile}>

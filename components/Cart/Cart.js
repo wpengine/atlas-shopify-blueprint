@@ -4,7 +4,7 @@ import { Loader } from '../Loader';
 import CartTable from './CartTable';
 import CartTotals from './CartTotals';
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, setProductNotification }) => {
   const {
     cartItems,
     isCartEmpty,
@@ -12,6 +12,10 @@ const Cart = ({ cart }) => {
     cartSubTotal,
     cartTotal,
     checkoutUrl,
+    removeFromCart,
+    cartId,
+    setCartData,
+    retrieveCart,
   } = cart;
 
   if (isCartLoading) {
@@ -24,7 +28,14 @@ const Cart = ({ cart }) => {
 
   return (
     <>
-      <CartTable cartItems={cartItems} />
+      <CartTable
+        cartItems={cartItems}
+        removeFromCart={removeFromCart}
+        cartId={cartId}
+        setCartData={setCartData}
+        retrieveCart={retrieveCart}
+        setProductNotification={setProductNotification}
+      />
       <CartTotals
         cartSubTotal={cartSubTotal}
         cartTotal={cartTotal}

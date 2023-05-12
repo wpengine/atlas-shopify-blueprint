@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { gql, useQuery } from '@apollo/client';
 import * as MENUS from '../constants/menus';
@@ -9,6 +10,7 @@ import {
   Container,
   NavigationMenu,
   SEO,
+  ProductNotification,
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
 import useShopifyCart from '../hooks/useShopifyCart';
@@ -16,6 +18,8 @@ import useShopifyCart from '../hooks/useShopifyCart';
 const Cart = dynamic(() => import('../components/Cart'), { ssr: false });
 
 export default function Page() {
+  const [productNotification, setProductNotification] = useState();
+
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -32,6 +36,10 @@ export default function Page() {
     cartTotal,
     cartSubTotal,
     checkoutUrl,
+    removeFromCart,
+    cartId,
+    setCartData,
+    retrieveCart,
   } = useShopifyCart();
 
   return (
@@ -44,9 +52,14 @@ export default function Page() {
       />
       <Main>
         <Container>
-          <div className='text-center spacing-top'>
+          <div className="text-center spacing-top">
             <h1>Cart</h1>
-
+            {productNotification && (
+              <ProductNotification
+                productNotification={productNotification}
+                cartPage
+              />
+            )}
             <Cart
               cart={{
                 cartItems,
@@ -55,7 +68,12 @@ export default function Page() {
                 cartTotal,
                 cartSubTotal,
                 checkoutUrl,
+                removeFromCart,
+                cartId,
+                setCartData,
+                retrieveCart,
               }}
+              setProductNotification={setProductNotification}
             />
           </div>
         </Container>
