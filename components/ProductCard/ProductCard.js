@@ -22,6 +22,7 @@ const ProductCard = ({ product }) => {
               src={thumbnail ?? "/ProductDefault.gif"}
               alt={product?.name}
               loading="lazy"
+              data-testid="img"
             />
           </a>
         </Link>
