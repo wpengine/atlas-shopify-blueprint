@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { getNextStaticProps } from '@faustwp/core';
 import shopifyClient from '../../utilities/shopifyClient';
@@ -11,13 +12,19 @@ import {
   Container,
   NavigationMenu,
   ProductDetails,
+  ProductNotification,
   SEO,
 } from '../../components';
+import useShopifyCart from '../../hooks/useShopifyCart';
 
 export default function Page(props) {
+  const [productNotification, setProductNotification] = useState();
+
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
+
+  const { addToCart, cartId, retrieveCart, setCartData } = useShopifyCart();
 
   const { title: siteTitle, description: siteDescription } =
     data?.generalSettings ?? {};
@@ -25,6 +32,33 @@ export default function Page(props) {
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
   const product = props?.product ?? {};
+
+  const handleSubmit = (quantity, variantId) => {
+    addToCart({
+      variables: {
+        cartId,
+        lines: [{ quantity, merchandiseId: variantId }],
+      },
+    })
+      .then(() => {
+        setProductNotification({
+          message: `"${product?.title}" has been added to your cart.`,
+          className: 'success',
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        setProductNotification({
+          message: 'There was an issue adding this item to the cart',
+          className: 'error',
+        });
+      })
+      .finally(() =>
+        retrieveCart().then((response) => {
+          setCartData(response.data.cart);
+        })
+      );
+  };
 
   return (
     <>
@@ -36,11 +70,10 @@ export default function Page(props) {
       />
       <Main>
         <Container>
-          {/* TODO: Create this when we add the cart functionality */}
-          {/* {productNotification && (
+          {productNotification && (
             <ProductNotification productNotification={productNotification} />
-          )} */}
-          <ProductDetails product={product} />
+          )}
+          <ProductDetails product={product} handleSubmit={handleSubmit} />
         </Container>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />

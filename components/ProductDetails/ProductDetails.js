@@ -5,11 +5,10 @@ import ProductMeta from './ProductMeta';
 import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
 
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product, handleSubmit }) => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants?.nodes[0]
   );
-  const [quantity, setQuantity] = useState(0);
 
   const collections = product?.collections?.nodes ?? [];
 
@@ -21,10 +20,6 @@ const ProductDetails = ({ product }) => {
     (variantImage) => variantImage?.image?.url
   );
 
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-  };
-
   const handleVariantChange = (property) => {
     const variant = product.variants.nodes.find(
       (variant) =>
@@ -33,11 +28,6 @@ const ProductDetails = ({ product }) => {
     );
 
     setSelectedVariant(variant);
-  };
-
-  const handleSubmit = () => {
-    console.log('Add to cart will happen here');
-    return quantity;
   };
 
   return (
@@ -64,7 +54,6 @@ const ProductDetails = ({ product }) => {
           variant={selectedVariant}
           collections={collections}
           variantOptions={{ label: variantsLabel, options: variantsOptions }}
-          handleChange={handleQuantityChange}
           handleSubmit={handleSubmit}
           handleOptionChange={handleVariantChange}
         />

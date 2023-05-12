@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import { CtaButton } from '../CtaButton';
 import ProductVariantOptions from './ProductVariantOptions';
@@ -7,10 +8,11 @@ const ProductMeta = ({
   variant,
   collections,
   variantOptions,
-  handleChange,
   handleOptionChange,
   handleSubmit,
 }) => {
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <div className={styles.productMeta}>
       <p>SKU: {variant?.sku}</p>
@@ -31,32 +33,34 @@ const ProductMeta = ({
           ))}
         </p>
       )}
-      <form onSubmit={handleSubmit}>
-        {variantOptions?.label !== 'Title' && (
-          <>
-            <h2>{variantOptions?.label}</h2>
-            <ProductVariantOptions
-              selected={variant?.selectedOptions?.[0]?.value}
-              options={variantOptions?.options}
-              handleOptionChange={handleOptionChange}
-            />
-          </>
-        )}
-
-        <div>
-          <label style={{ display: 'block' }}>Quantity:</label>
-          <input
-            type="number"
-            min="1"
-            max={10}
-            step="1"
-            name="quantity"
-            onChange={handleChange}
-            className={styles.quantity}
+      {variantOptions?.label !== 'Title' && (
+        <>
+          <h2>{variantOptions?.label}</h2>
+          <ProductVariantOptions
+            selected={variant?.selectedOptions?.[0]?.value}
+            options={variantOptions?.options}
+            handleOptionChange={handleOptionChange}
           />
-        </div>
-        <CtaButton ctaLabel="Add to cart" ctaClick={handleSubmit} />
-      </form>
+        </>
+      )}
+
+      <div>
+        <label style={{ display: 'block' }}>Quantity:</label>
+        <input
+          type="number"
+          min="1"
+          max={10}
+          step="1"
+          name="quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          className={styles.quantity}
+        />
+      </div>
+      <CtaButton
+        ctaLabel="Add to cart"
+        ctaClick={() => handleSubmit(parseInt(quantity), variant?.id)}
+      />
     </div>
   );
 };
