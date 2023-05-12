@@ -28,6 +28,7 @@ const CartTable = ({ cartItems }) => {
         <tbody>
           {cartItems.map((item) => {
             const product = item.merchandise.product;
+            const image = item.merchandise.image;
 
             return (
               <tr key={`cart-item-${product.handle}`}>
@@ -40,8 +41,8 @@ const CartTable = ({ cartItems }) => {
                 </td>
                 <td className={styles.hideOnMobile}>
                   <img
-                    src={product.featuredImage.url}
-                    alt={product.featuredImage.altText}
+                    src={image.url}
+                    alt={image.altText}
                     className={styles.cartImage}
                     loading="lazy"
                   />
