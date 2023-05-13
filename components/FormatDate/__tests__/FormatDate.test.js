@@ -1,6 +1,5 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-// import { PostInfo } from "../../PostInfo";
 import FormatDate from "../FormatDate";
 
 describe("<FormatDate />", () => {
