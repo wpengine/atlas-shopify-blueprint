@@ -44,8 +44,6 @@ export function ShopifyCartProvider({ children }) {
   // remove from cart method
   const [removeFromCart] = useMutation(REMOVE_FROM_CART);
 
-  // create checkout url method
-
   const cartItems = cartData?.lines?.nodes ?? [];
   const cartCount = cartItems.length;
   const isCartEmpty = cartCount === 0;

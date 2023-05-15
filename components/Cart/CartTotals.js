@@ -30,6 +30,7 @@ const CartTotals = ({ cartSubTotal, cartTotal, checkoutUrl }) => {
       <a
         href={checkoutUrl}
         className={cx(styles.button, styles.checkoutButton)}
+        data-testid="checkout-btn"
       >
         Checkout
       </a>

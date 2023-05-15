@@ -29,7 +29,7 @@ describe('<Cart />', () => {
     expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
   });
 
-  it('displays the items in cart', async () => {
+  it('displays the items in cart and the checkout url is applied', async () => {
     const retrieveCartMock = {
       request: {
         query: RETRIEVE_CART,
@@ -56,6 +56,10 @@ describe('<Cart />', () => {
 
     waitFor(() => {
       expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
+      expect(screen.getByTestId('checkout-btn')).toHaveAttribute(
+        'href',
+        'https://blueprintbetatest.myshopify.com/cart/c/c1-6bcda1657c8fa22e7188b08d5b217a2a'
+      );
     });
   });
 });

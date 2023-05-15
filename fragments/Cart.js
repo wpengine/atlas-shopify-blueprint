@@ -5,6 +5,7 @@ const CartFragment = gql`
     id
     createdAt
     updatedAt
+    checkoutUrl
     lines(first: 10) {
       nodes {
         id
