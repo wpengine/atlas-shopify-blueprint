@@ -18,7 +18,7 @@ const ProductVariantOptions = ({ selected, options, handleOptionChange }) => {
             key={`variant-option-${index}`}
           >
             <input
-              type='radio'
+              type="radio"
               name={option}
               value={option}
               id={`variant-option-${option}`}

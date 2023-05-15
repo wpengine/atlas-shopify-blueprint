@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./CartTotals.module.scss";
-import classNames from "classnames";
+import React from 'react';
+import styles from './CartTotals.module.scss';
+import classNames from 'classnames';
 
 const cx = classNames.bind(styles);
 

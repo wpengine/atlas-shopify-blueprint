@@ -97,30 +97,30 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-    - checkout-blueprint:
-        slug: atlas-shopify-blueprint
-        filters:
-          branches:
-            only: /.*/
-    - js-build:
-        slug: atlas-shopify-blueprint
-        next_public_wordpress_url: http://foo.com
-        requires:
-          - checkout-blueprint
-        filters:
-          branches:
-            only: /.*/
-    - js-lint:
-        slug: atlas-shopify-blueprint
-        requires:
-          - checkout-blueprint
-        filters:
-          branches:
-            only: /.*/
-    - js-test:
-        slug: atlas-shopify-blueprint
-        requires:
-          - checkout-blueprint
-        filters:
-          branches:
-            only: /.*/
+      - checkout-blueprint:
+          slug: atlas-shopify-blueprint
+          filters:
+            branches:
+              only: /.*/
+      - js-build:
+          slug: atlas-shopify-blueprint
+          next_public_wordpress_url: http://foo.com
+          requires:
+            - checkout-blueprint
+          filters:
+            branches:
+              only: /.*/
+      - js-lint:
+          slug: atlas-shopify-blueprint
+          requires:
+            - checkout-blueprint
+          filters:
+            branches:
+              only: /.*/
+      - js-test:
+          slug: atlas-shopify-blueprint
+          requires:
+            - checkout-blueprint
+          filters:
+            branches:
+              only: /.*/

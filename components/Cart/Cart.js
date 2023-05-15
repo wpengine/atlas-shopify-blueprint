@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Loader } from "../Loader";
-import CartTable from "./CartTable";
-import CartTotals from "./CartTotals";
+import { Loader } from '../Loader';
+import CartTable from './CartTable';
+import CartTotals from './CartTotals';
 
 const Cart = ({ cart }) => {
   const {
