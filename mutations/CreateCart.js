@@ -25,10 +25,6 @@ const CREATE_CART = gql`
           }
         }
       }
-      userErrors {
-        field
-        message
-      }
     }
   }
 `;

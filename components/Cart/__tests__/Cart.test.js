@@ -1,35 +1,61 @@
 import '@testing-library/jest-dom';
-
-import { render, screen } from '@testing-library/react';
+import { MockedProvider } from '@apollo/react-testing';
+import { render, screen, waitFor } from '@testing-library/react';
+import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
+import CREATE_CART from '../../../mutations/CreateCart';
+import RETRIEVE_CART from '../../../queries/Cart';
+import empty from '../../../data/stubs/cart/empty';
+import multiple from '../../../data/stubs//cart/multiple';
 import Cart from '../Cart';
-import single from '../../../data/stubs/cart/single';
-
-const emptyCartMock = {
-  cartSubTotal: 0,
-  cartCount: 0,
-  cartItems: [],
-  isCartEmpty: true,
-  checkoutUrl: '',
-};
-
-const cartWithItemsMock = {
-  ...emptyCartMock,
-  cartSubTotal: 12,
-  cartCount: 1,
-  isCartEmpty: false,
-  cartItems: single.cart.lines.nodes,
-};
 
 describe('<Cart />', () => {
   it('displays the empty cart state', () => {
-    render(<Cart cart={emptyCartMock} />);
+    const createCartMock = {
+      request: {
+        query: CREATE_CART,
+        variables: { input: {} },
+      },
+      result: { data: empty },
+    };
+
+    render(
+      <MockedProvider mocks={[createCartMock]}>
+        <ShopifyCartProvider>
+          <Cart />
+        </ShopifyCartProvider>
+      </MockedProvider>
+    );
 
     expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
   });
 
-  it('displays the items in cart', () => {
-    render(<Cart cart={cartWithItemsMock} />);
+  it('displays the items in cart', async () => {
+    const retrieveCartMock = {
+      request: {
+        query: RETRIEVE_CART,
+        variables: {
+          id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+        },
+      },
+      result: { data: multiple },
+    };
 
-    expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
+    Object.defineProperty(window.document, 'cookie', {
+      writable: true,
+      value:
+        'atlas-shopify-cart=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+    });
+
+    render(
+      <MockedProvider mocks={[retrieveCartMock]} addTypename={true}>
+        <ShopifyCartProvider>
+          <Cart />
+        </ShopifyCartProvider>
+      </MockedProvider>
+    );
+
+    waitFor(() => {
+      expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
+    });
   });
 });
