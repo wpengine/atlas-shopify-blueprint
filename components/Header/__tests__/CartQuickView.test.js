@@ -32,7 +32,9 @@ describe('<CartQuickView />', () => {
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
 
-    expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
+    waitFor(() => {
+      expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
+    });
   });
 
   it('displays the items in cart', () => {

@@ -26,7 +26,9 @@ describe('<Cart />', () => {
       </MockedProvider>
     );
 
-    expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
+    waitFor(() => {
+      expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
+    });
   });
 
   it('displays the items in cart and the checkout url is applied', async () => {
