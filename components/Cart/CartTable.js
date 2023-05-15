@@ -24,14 +24,14 @@ const CartTable = ({
     })
       .then(() =>
         setProductNotification({
-          message: `"${product}" has been removed from your cart.`,
+          message: `${product} has been removed from your cart.`,
           className: 'success',
         })
       )
       .catch((err) => {
         console.error(err);
         setProductNotification({
-          message: `"There was an issue removing this item from the cart.`,
+          message: `There was an issue removing this item from the cart.`,
           className: 'error',
         });
       })

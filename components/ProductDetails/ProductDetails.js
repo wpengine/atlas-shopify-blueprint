@@ -42,7 +42,7 @@ const ProductDetails = ({ product, setProductNotification }) => {
     })
       .then(() => {
         setProductNotification({
-          message: `"${product?.title}" has been added to your cart.`,
+          message: `${product?.title} has been added to your cart.`,
           className: 'success',
         });
       })
