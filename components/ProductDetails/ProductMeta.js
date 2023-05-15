@@ -45,11 +45,17 @@ const ProductMeta = ({
       )}
 
       <div>
+        <p>
+          <b>
+            <span style={{ color: 'red' }}>{variant?.quantityAvailable}</span>{' '}
+            left at this price
+          </b>
+        </p>
         <label style={{ display: 'block' }}>Quantity:</label>
         <input
           type="number"
           min="1"
-          max={10}
+          max={variant?.quantityAvailable}
           step="1"
           name="quantity"
           value={quantity}

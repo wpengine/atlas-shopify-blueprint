@@ -24,6 +24,7 @@ export const ProductFragment = gql`
       nodes {
         id
         sku
+        quantityAvailable
         image {
           url
         }
