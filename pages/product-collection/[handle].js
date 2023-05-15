@@ -2,6 +2,8 @@ import { ApolloProvider, gql, useQuery } from '@apollo/client';
 import { getNextServerSideProps } from '@faustwp/core';
 import { BlogInfoFragment } from '../../fragments/GeneralSettings';
 import * as MENUS from '../../constants/menus';
+import shopifyClient from '../../utilities/shopifyClient';
+import { ShopifyCartProvider } from '../../hooks/useShopifyCart';
 import {
   Header,
   Footer,
@@ -12,7 +14,6 @@ import {
   EntryHeader,
   ProductList,
 } from '../../components';
-import shopifyClient from '../../utilities/shopifyClient';
 
 export default function Page(props) {
   const { data } = useQuery(Page.query, {
@@ -29,24 +30,26 @@ export default function Page(props) {
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
-      />
-      <Main>
-        <Container>
-          <div className="text-center">
-            <EntryHeader
-              title="Shop"
-              subTitle="Shop your Shopify products with WordPress and WPGraphQL"
-            />
-            <ApolloProvider client={shopifyClient}>
-              <ProductList collection={collection} />
-            </ApolloProvider>
-          </div>
-        </Container>
-      </Main>
+      <ApolloProvider client={shopifyClient}>
+        <ShopifyCartProvider>
+          <Header
+            title={siteTitle}
+            description={siteDescription}
+            menuItems={primaryMenu}
+          />
+          <Main>
+            <Container>
+              <div className="text-center">
+                <EntryHeader
+                  title="Shop"
+                  subTitle="Shop your Shopify products with WordPress and WPGraphQL"
+                />
+                <ProductList collection={collection} />
+              </div>
+            </Container>
+          </Main>
+        </ShopifyCartProvider>
+      </ApolloProvider>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );

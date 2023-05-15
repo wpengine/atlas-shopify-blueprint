@@ -9,7 +9,6 @@ import {
 } from '../../components';
 import styles from './Header.module.scss';
 import dynamic from 'next/dynamic';
-import useShopifyCart from '../../hooks/useShopifyCart';
 
 const CartQuickView = dynamic(() => import('./CartQuickView'), { ssr: false });
 
@@ -21,8 +20,6 @@ export default function Header({
   menuItems,
 }) {
   const [isNavShown, setIsNavShown] = useState(false);
-  const { cartItems, cartCount, isCartEmpty, cartSubTotal, checkoutUrl } =
-    useShopifyCart();
 
   const navClasses = cx([
     styles['primary-navigation'],
@@ -35,8 +32,8 @@ export default function Header({
       <Container>
         <div className={styles.bar}>
           <div className={styles.logo}>
-            <Link href='/'>
-              <a title='Home'>
+            <Link href="/">
+              <a title="Home">
                 <h3>{title}</h3>
                 <span>{description}</span>
               </a>
@@ -44,18 +41,18 @@ export default function Header({
           </div>
 
           <div className={styles.search}>
-            <Link href='/search'>
+            <Link href="/search">
               <a>
-                <FaSearch title='Search' role='img' />
+                <FaSearch title="Search" role="img" />
               </a>
             </Link>
           </div>
 
           <button
-            type='button'
+            type="button"
             className={styles['nav-toggle']}
             onClick={() => setIsNavShown(!isNavShown)}
-            aria-label='Toggle navigation'
+            aria-label="Toggle navigation"
             aria-controls={styles['primary-navigation']}
             aria-expanded={isNavShown}
           >
@@ -69,17 +66,7 @@ export default function Header({
             className={navClasses}
             menuItems={menuItems}
           ></NavigationMenu>
-
-          <CartQuickView
-            cart={{
-              cartItems,
-              cartCount,
-              isCartEmpty,
-              cartSubTotal,
-              checkoutUrl,
-            }}
-            styles={styles}
-          />
+          <CartQuickView styles={styles} />
         </div>
       </Container>
     </header>

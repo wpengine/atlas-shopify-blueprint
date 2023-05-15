@@ -1,22 +1,22 @@
 import React from 'react';
-
+import useShopifyCart from '../../hooks/useShopifyCart';
 import { Loader } from '../Loader';
 import CartTable from './CartTable';
 import CartTotals from './CartTotals';
 
-const Cart = ({ cart, setProductNotification }) => {
+const Cart = ({ setProductNotification }) => {
   const {
     cartItems,
-    isCartEmpty,
     isCartLoading,
-    cartSubTotal,
+    isCartEmpty,
     cartTotal,
+    cartSubTotal,
     checkoutUrl,
     removeFromCart,
     cartId,
     setCartData,
     retrieveCart,
-  } = cart;
+  } = useShopifyCart();
 
   if (isCartLoading) {
     return <Loader />;

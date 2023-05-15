@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery, ApolloProvider } from '@apollo/client';
 import { getNextStaticProps } from '@faustwp/core';
 import shopifyClient from '../../utilities/shopifyClient';
+import { ShopifyCartProvider } from '../../hooks/useShopifyCart';
 import { GET_PRODUCT } from '../../queries/Products';
 import * as MENUS from '../../constants/menus';
 import { BlogInfoFragment } from '../../fragments/GeneralSettings';
@@ -15,7 +16,6 @@ import {
   ProductNotification,
   SEO,
 } from '../../components';
-import useShopifyCart from '../../hooks/useShopifyCart';
 
 export default function Page(props) {
   const [productNotification, setProductNotification] = useState();
@@ -24,8 +24,6 @@ export default function Page(props) {
     variables: Page.variables(),
   });
 
-  const { addToCart, cartId, retrieveCart, setCartData } = useShopifyCart();
-
   const { title: siteTitle, description: siteDescription } =
     data?.generalSettings ?? {};
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
@@ -33,49 +31,31 @@ export default function Page(props) {
 
   const product = props?.product ?? {};
 
-  const handleSubmit = (quantity, variantId) => {
-    addToCart({
-      variables: {
-        cartId,
-        lines: [{ quantity, merchandiseId: variantId }],
-      },
-    })
-      .then(() => {
-        setProductNotification({
-          message: `"${product?.title}" has been added to your cart.`,
-          className: 'success',
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-        setProductNotification({
-          message: 'There was an issue adding this item to the cart',
-          className: 'error',
-        });
-      })
-      .finally(() =>
-        retrieveCart().then((response) => {
-          setCartData(response.data.cart);
-        })
-      );
-  };
-
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
-      />
-      <Main>
-        <Container>
-          {productNotification && (
-            <ProductNotification productNotification={productNotification} />
-          )}
-          <ProductDetails product={product} handleSubmit={handleSubmit} />
-        </Container>
-      </Main>
+      <ApolloProvider client={shopifyClient}>
+        <ShopifyCartProvider>
+          <Header
+            title={siteTitle}
+            description={siteDescription}
+            menuItems={primaryMenu}
+          />
+          <Main>
+            <Container>
+              {productNotification && (
+                <ProductNotification
+                  productNotification={productNotification}
+                />
+              )}
+              <ProductDetails
+                product={product}
+                setProductNotification={setProductNotification}
+              />
+            </Container>
+          </Main>
+        </ShopifyCartProvider>
+      </ApolloProvider>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );

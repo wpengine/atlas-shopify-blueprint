@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router';
+import useShopifyCart from '../../hooks/useShopifyCart';
 
-export function CartQuickView({ cart, styles }) {
+export function CartQuickView({ styles }) {
   const router = useRouter();
 
-  const { cartItems, cartCount, isCartEmpty, cartSubTotal, checkoutUrl } = cart;
+  const { cartItems, cartCount, isCartEmpty, cartSubTotal, checkoutUrl } =
+    useShopifyCart();
 
   return (
     <ul id="site-header-cart" className={styles['site-header-cart']}>

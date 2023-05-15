@@ -41,6 +41,8 @@ const CartTable = ({
         })
       );
   };
+
+  // TODO: implement these in upcoming story
   const handleClickIncreaseQuantity = () => {};
   const handleClickDecreaseQuantity = () => {};
 
@@ -58,7 +60,7 @@ const CartTable = ({
           </tr>
         </thead>
         <tbody>
-          {cartItems.map((item) => {
+          {cartItems?.map?.((item) => {
             const product = item.merchandise.product;
             const image = item.merchandise.image;
 
@@ -66,6 +68,7 @@ const CartTable = ({
               <tr key={`cart-item-${product.handle}`}>
                 <td>
                   <AiOutlineCloseCircle
+                    data-testid="remove-button"
                     size={24}
                     className={styles.clickableIcon}
                     onClick={() => handleDelete(cartId, item.id, product.title)}

@@ -3,7 +3,6 @@ import Cookies from 'universal-cookie';
 import { useMutation, useLazyQuery } from '@apollo/client';
 import CREATE_CART from '../mutations/CreateCart';
 import RETRIEVE_CART from '../queries/Cart';
-import shopifyClient from '../utilities/shopifyClient';
 import ADD_TO_CART from '../mutations/AddToCart';
 import REMOVE_FROM_CART from '../mutations/RemoveFromCart';
 
@@ -15,12 +14,9 @@ export function ShopifyCartProvider({ children }) {
   const cookies = new Cookies();
   const cartToken = cookies.get('atlas-shopify-cart') ?? null;
 
-  const [createCart] = useMutation(CREATE_CART, {
-    client: shopifyClient,
-  });
+  const [createCart] = useMutation(CREATE_CART);
   const [retrieveCart] = useLazyQuery(RETRIEVE_CART, {
     variables: { id: cartToken },
-    client: shopifyClient,
   });
 
   useEffect(() => {
@@ -43,14 +39,10 @@ export function ShopifyCartProvider({ children }) {
   }, []);
 
   // add to cart method
-  const [addToCart] = useMutation(ADD_TO_CART, {
-    client: shopifyClient,
-  });
+  const [addToCart] = useMutation(ADD_TO_CART);
 
   // remove from cart method
-  const [removeFromCart] = useMutation(REMOVE_FROM_CART, {
-    client: shopifyClient,
-  });
+  const [removeFromCart] = useMutation(REMOVE_FROM_CART);
 
   // create checkout url method
 

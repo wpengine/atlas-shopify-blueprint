@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import useShopifyCart from '../../hooks/useShopifyCart';
 import ProductDescription from './ProductDescription';
 import ProductPrice from './ProductPrice';
 import ProductMeta from './ProductMeta';
 import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
 
-const ProductDetails = ({ product, handleSubmit }) => {
+const ProductDetails = ({ product, setProductNotification }) => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants?.nodes[0]
   );
+
+  const { addToCart, cartId, retrieveCart, setCartData } = useShopifyCart();
 
   const collections = product?.collections?.nodes ?? [];
 
@@ -28,6 +31,33 @@ const ProductDetails = ({ product, handleSubmit }) => {
     );
 
     setSelectedVariant(variant);
+  };
+
+  const handleSubmit = (quantity, variantId) => {
+    addToCart({
+      variables: {
+        cartId,
+        lines: [{ quantity, merchandiseId: variantId }],
+      },
+    })
+      .then(() => {
+        setProductNotification({
+          message: `"${product?.title}" has been added to your cart.`,
+          className: 'success',
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        setProductNotification({
+          message: 'There was an issue adding this item to the cart',
+          className: 'error',
+        });
+      })
+      .finally(() =>
+        retrieveCart().then((response) => {
+          setCartData(response.data.cart);
+        })
+      );
   };
 
   return (
