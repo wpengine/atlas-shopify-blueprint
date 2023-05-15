@@ -1,9 +1,9 @@
-import classNames from "classnames/bind";
-import { gql } from "@apollo/client";
-import Link from "next/link";
-import flatListToHierarchical from "../../utilities/flatListToHierarchical";
-import styles from "./NavigationMenu.module.scss";
-import stylesFromWP from "./NavigationMenuClassesFromWP.module.scss";
+import classNames from 'classnames/bind';
+import { gql } from '@apollo/client';
+import Link from 'next/link';
+import flatListToHierarchical from '../../utilities/flatListToHierarchical';
+import styles from './NavigationMenu.module.scss';
+import stylesFromWP from './NavigationMenuClassesFromWP.module.scss';
 
 let cx = classNames.bind(styles);
 let cxFromWp = classNames.bind(stylesFromWP);
@@ -18,13 +18,13 @@ export default function NavigationMenu({ menuItems, className }) {
 
   function renderMenu(items) {
     return (
-      <ul className={cx("menu")}>
+      <ul className={cx('menu')}>
         {items.map((item) => {
           const { id, path, label, children, cssClasses } = item;
 
           // @TODO - Remove guard clause after ghost menu items are no longer appended to array.
           // eslint-disable-next-line no-prototype-builtins
-          if (!item.hasOwnProperty("__typename")) {
+          if (!item.hasOwnProperty('__typename')) {
             return null;
           }
 
@@ -34,7 +34,7 @@ export default function NavigationMenu({ menuItems, className }) {
               key={id}
               className={cxFromWp(cssClasses)}
             >
-              <Link href={path ?? ""}>{label ?? ""}</Link>
+              <Link href={path ?? ''}>{label ?? ''}</Link>
               {children.length ? renderMenu(children) : null}
             </li>
           );
