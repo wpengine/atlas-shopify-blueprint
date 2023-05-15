@@ -38,14 +38,11 @@ export function ShopifyCartProvider({ children }) {
     }
   }, []);
 
-  // add to cart method
   const [addToCart] = useMutation(ADD_TO_CART);
-
-  // remove from cart method
   const [removeFromCart] = useMutation(REMOVE_FROM_CART);
 
   const cartItems = cartData?.lines?.nodes ?? [];
-  const cartCount = cartItems.length;
+  const cartCount = cartData?.totalQuantity;
   const isCartEmpty = cartCount === 0;
   const cartTotal = cartData.cost?.totalAmount.amount ?? 0;
   const cartSubTotal = cartData.cost?.subtotalAmount.amount ?? 0;

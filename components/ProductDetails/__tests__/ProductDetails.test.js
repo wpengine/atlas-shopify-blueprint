@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom';
-
-import { render, screen, fireEvent } from '@testing-library/react';
+import RETRIEVE_CART from '../../../queries/Cart';
+import multiple from '../../../data/stubs/cart/multiple';
+import { MockedProvider } from '@apollo/react-testing';
+import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import productsStub from '../../../data/stubs/products';
 import { ProductDetails } from '..';
 
@@ -57,5 +60,39 @@ describe('<ProductDetails />', () => {
     expect(
       screen.getByTestId('variant-option-purple').getAttribute('checked')
     ).toBe('');
+  });
+
+  it('disables the button if the amount available is already added to the cart', async () => {
+    const retrieveCartMock = {
+      request: {
+        query: RETRIEVE_CART,
+        variables: {
+          id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+        },
+      },
+      result: { data: multiple },
+    };
+
+    Object.defineProperty(window.document, 'cookie', {
+      writable: true,
+      value:
+        'atlas-shopify-cart=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+    });
+
+    const variantsProduct = productsStub.data.products.nodes[7];
+
+    render(
+      <MockedProvider mocks={[retrieveCartMock]} addTypename={true}>
+        <ShopifyCartProvider>
+          <ProductDetails product={variantsProduct} />
+        </ShopifyCartProvider>
+      </MockedProvider>
+    );
+
+    waitFor(() => {
+      expect(screen.getByText(/Add to cart/i))
+        .closest('button')
+        .toBeDisabled();
+    });
   });
 });

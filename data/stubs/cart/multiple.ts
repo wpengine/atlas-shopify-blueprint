@@ -41,7 +41,7 @@ const multiple = {
           },
         },
         {
-          quantity: 2,
+          quantity: 1,
           cost: {
             amountPerQuantity: {
               amount: '20.0',
@@ -53,6 +53,7 @@ const multiple = {
           merchandise: {
             id: 'gid://shopify/ProductVariant/44876574720303',
             title: 'Default Title',
+            sku: 'TCC-1',
             image: {
               altText: null,
               url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',

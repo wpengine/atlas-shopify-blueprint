@@ -6,6 +6,7 @@ const CartFragment = gql`
     createdAt
     updatedAt
     checkoutUrl
+    totalQuantity
     lines(first: 10) {
       nodes {
         id
@@ -13,6 +14,7 @@ const CartFragment = gql`
         merchandise {
           ... on ProductVariant {
             id
+            sku
             title
             image {
               url

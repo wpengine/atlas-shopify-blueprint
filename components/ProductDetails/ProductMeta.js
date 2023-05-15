@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { CtaButton } from '../CtaButton';
 import ProductVariantOptions from './ProductVariantOptions';
 import styles from './ProductMeta.module.scss';
+import useShopifyCart from '../../hooks/useShopifyCart';
 
 const ProductMeta = ({
   variant,
@@ -12,6 +13,12 @@ const ProductMeta = ({
   handleSubmit,
 }) => {
   const [quantity, setQuantity] = useState(1);
+
+  const { cartItems } = useShopifyCart();
+
+  const itemInCart = cartItems?.find(
+    (line) => line.merchandise.sku === variant?.sku
+  );
 
   return (
     <div className={styles.productMeta}>
@@ -66,6 +73,7 @@ const ProductMeta = ({
       <CtaButton
         ctaLabel="Add to cart"
         ctaClick={() => handleSubmit(parseInt(quantity), variant?.id)}
+        disabled={itemInCart?.quantity === variant?.quantityAvailable}
       />
     </div>
   );

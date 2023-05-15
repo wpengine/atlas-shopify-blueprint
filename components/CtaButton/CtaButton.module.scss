@@ -14,5 +14,9 @@
     &:hover {
       background-color: var(--wpe--color--green);
     }
+    &:disabled {
+      background-color: var(--wpe--color--grey);
+      pointer-events: none;
+    }
   }
 }

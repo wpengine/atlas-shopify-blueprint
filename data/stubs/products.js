@@ -215,7 +215,7 @@ const productsStub = {
             nodes: [
               {
                 sku: 'TRI-1',
-                quantityAvailable: '',
+                quantityAvailable: '2',
                 id: 'gid://shopify/ProductVariant/44876466749743',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue.jpg?v=1681383898',
@@ -612,7 +612,7 @@ const productsStub = {
             nodes: [
               {
                 sku: 'TCC-1',
-                quantityAvailable: '',
+                quantityAvailable: '1',
                 id: 'gid://shopify/ProductVariant/44876574720303',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
