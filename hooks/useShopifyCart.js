@@ -45,10 +45,10 @@ export function ShopifyCartProvider({ children }) {
   const cartItems = cartData?.lines?.nodes ?? [];
   const cartCount = cartData?.totalQuantity;
   const isCartEmpty = cartCount === 0;
-  const cartTotal = cartData.cost?.totalAmount.amount ?? 0;
-  const cartSubTotal = cartData.cost?.subtotalAmount.amount ?? 0;
-  const checkoutUrl = cartData.checkoutUrl;
-  const cartId = cartData.id;
+  const cartTotal = cartData?.cost?.totalAmount.amount ?? 0;
+  const cartSubTotal = cartData?.cost?.subtotalAmount.amount ?? 0;
+  const checkoutUrl = cartData?.checkoutUrl;
+  const cartId = cartData?.id;
 
   const value = {
     cartItems,

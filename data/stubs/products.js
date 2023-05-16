@@ -40,7 +40,7 @@ const productsStub = {
             nodes: [
               {
                 sku: 'RWV-1',
-                quantityAvailable: '',
+                quantityAvailable: '4',
                 id: 'gid://shopify/ProductVariant/44876432343343',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187',
