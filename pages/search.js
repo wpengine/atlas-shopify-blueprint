@@ -4,6 +4,7 @@ import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import { getNextStaticProps } from '@faustwp/core';
 import { GET_COLLECTIONS } from '../queries/Collections';
 import shopifyClient from '../utilities/shopifyClient';
+import { ShopifyCartProvider } from '../hooks/useShopifyCart';
 import {
   Header,
   Footer,
@@ -26,16 +27,18 @@ export default function Page(props) {
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
-      />
-      <Main>
-        <ApolloProvider client={shopifyClient}>
-          <SearchSection collections={props.collections} />
-        </ApolloProvider>
-      </Main>
+      <ApolloProvider client={shopifyClient}>
+        <ShopifyCartProvider>
+          <Header
+            title={siteTitle}
+            description={siteDescription}
+            menuItems={primaryMenu}
+          />
+          <Main>
+            <SearchSection collections={props.collections} />
+          </Main>
+        </ShopifyCartProvider>
+      </ApolloProvider>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );

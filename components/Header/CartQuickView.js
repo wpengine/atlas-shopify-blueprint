@@ -1,14 +1,16 @@
 import { useRouter } from 'next/router';
+import useShopifyCart from '../../hooks/useShopifyCart';
 import priceFormatter from '../../utilities/priceFormatter';
 
-export function CartQuickView({ cart, styles }) {
+export function CartQuickView({ styles }) {
   const router = useRouter();
 
-  const { cartSubTotal, cartCount, cartItems, isCartEmpty, checkoutUrl } = cart;
+  const { cartItems, cartCount, isCartEmpty, cartSubTotal, checkoutUrl } =
+    useShopifyCart();
 
   return (
     <ul id="site-header-cart" className={styles['site-header-cart']}>
-      <li className="">
+      <li>
         <div
           className={styles['cart-contents']}
           title="View your shopping cart"
@@ -34,7 +36,7 @@ export function CartQuickView({ cart, styles }) {
           <div className={styles['widget_shopping_cart']}>
             <div className={styles['widget_shopping_cart_content']}>
               <ul className={styles['product_list_widget']}>
-                {cartItems.map((item) => (
+                {cartItems?.map?.((item) => (
                   <li
                     className={styles['mini_cart_item']}
                     key={item.merchandise.product.handle}
@@ -43,7 +45,7 @@ export function CartQuickView({ cart, styles }) {
                       <img
                         width="324"
                         height="324"
-                        src={item.merchandise.product.featuredImage.url}
+                        src={item.merchandise.image.url}
                         className={styles['thumbnail']}
                         alt=""
                         loading="lazy"

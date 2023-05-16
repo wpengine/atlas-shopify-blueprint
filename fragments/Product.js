@@ -22,7 +22,9 @@ export const ProductFragment = gql`
     }
     variants(first: 100) {
       nodes {
+        id
         sku
+        quantityAvailable
         image {
           url
         }

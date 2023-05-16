@@ -47,6 +47,8 @@ export const resultsStub = {
             nodes: [
               {
                 sku: 'TRI-1',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876466749743',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue.jpg?v=1681383898',
                   __typename: 'Image',
@@ -68,6 +70,8 @@ export const resultsStub = {
               },
               {
                 sku: 'TRI-2',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876466782511',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple.jpg?v=1681383898',
                   __typename: 'Image',
@@ -93,6 +97,8 @@ export const resultsStub = {
               },
               {
                 sku: 'TRI-3',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876466815279',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red.jpg?v=1681383898',
                   __typename: 'Image',
@@ -114,6 +120,8 @@ export const resultsStub = {
               },
               {
                 sku: 'TRI-4',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876466848047',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-gray.jpg?v=1681383898',
                   __typename: 'Image',
@@ -183,6 +191,8 @@ export const resultsStub = {
             nodes: [
               {
                 sku: 'PIN-1',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876533039407',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue_17265ea5-f14f-43d6-9225-e4a44b417340.jpg?v=1681384577',
                   __typename: 'Image',
@@ -204,6 +214,8 @@ export const resultsStub = {
               },
               {
                 sku: 'PIN-2',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876533072175',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-purple_36aece3f-1b8b-454c-8995-f0098cb6f912.jpg?v=1681384577',
                   __typename: 'Image',
@@ -225,6 +237,8 @@ export const resultsStub = {
               },
               {
                 sku: 'PIN-3',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876533104943',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-charcoal.jpg?v=1681384577',
                   __typename: 'Image',
@@ -246,6 +260,8 @@ export const resultsStub = {
               },
               {
                 sku: 'PIN-4',
+                quantityAvailable: '',
+                id: 'gid://shopify/ProductVariant/44876533137711',
                 image: {
                   url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-red_5e0b7f2e-c002-4c73-9de5-23161b3a358d.jpg?v=1681384577',
                   __typename: 'Image',

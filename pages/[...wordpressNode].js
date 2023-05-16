@@ -1,7 +1,16 @@
 import { getWordPressProps, WordPressTemplate } from '@faustwp/core';
+import { ApolloProvider } from '@apollo/client';
+import { ShopifyCartProvider } from '../hooks/useShopifyCart';
+import shopifyClient from '../utilities/shopifyClient';
 
 export default function Page(props) {
-  return <WordPressTemplate {...props} />;
+  return (
+    <ApolloProvider client={shopifyClient}>
+      <ShopifyCartProvider>
+        <WordPressTemplate {...props} />
+      </ShopifyCartProvider>
+    </ApolloProvider>
+  );
 }
 
 export function getStaticProps(ctx) {

@@ -8,7 +8,6 @@ import {
   SkipNavigationLink,
 } from '../../components';
 import styles from './Header.module.scss';
-import useCart from '../../hooks/useCart';
 import dynamic from 'next/dynamic';
 
 const CartQuickView = dynamic(() => import('./CartQuickView'), { ssr: false });
@@ -21,7 +20,6 @@ export default function Header({
   menuItems,
 }) {
   const [isNavShown, setIsNavShown] = useState(false);
-  const cart = useCart();
 
   const navClasses = cx([
     styles['primary-navigation'],
@@ -66,7 +64,7 @@ export default function Header({
               </a>
             </Link>
 
-            <CartQuickView cart={cart} styles={styles} />
+            <CartQuickView styles={styles} />
           </div>
         </div>
       </Container>

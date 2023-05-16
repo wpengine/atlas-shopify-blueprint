@@ -2,6 +2,8 @@ import { ApolloProvider, gql, useQuery } from '@apollo/client';
 import { getNextServerSideProps } from '@faustwp/core';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import * as MENUS from '../constants/menus';
+import shopifyClient from '../utilities/shopifyClient';
+import { ShopifyCartProvider } from '../hooks/useShopifyCart';
 import {
   Header,
   Footer,
@@ -12,7 +14,6 @@ import {
   EntryHeader,
   ProductList,
 } from '../components';
-import shopifyClient from '../utilities/shopifyClient';
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -26,24 +27,27 @@ export default function Page() {
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
-      />
-      <Main>
-        <Container>
-          <div className="text-center">
-            <EntryHeader
-              title="Shop"
-              subTitle="Shop your Shopify products with WordPress and WPGraphQL"
-            />
-            <ApolloProvider client={shopifyClient}>
-              <ProductList />
-            </ApolloProvider>
-          </div>
-        </Container>
-      </Main>
+      <ApolloProvider client={shopifyClient}>
+        <ShopifyCartProvider>
+          <Header
+            title={siteTitle}
+            description={siteDescription}
+            menuItems={primaryMenu}
+          />
+          <Main>
+            <Container>
+              <div className="text-center">
+                <EntryHeader
+                  title="Shop"
+                  subTitle="Shop your Shopify products with WordPress and WPGraphQL"
+                />
+
+                <ProductList />
+              </div>
+            </Container>
+          </Main>
+        </ShopifyCartProvider>
+      </ApolloProvider>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );

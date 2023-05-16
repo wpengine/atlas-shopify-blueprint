@@ -1,43 +1,70 @@
 import '@testing-library/jest-dom';
-
-import { fireEvent, render, screen } from '@testing-library/react';
+import { MockedProvider } from '@apollo/react-testing';
+import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { CartQuickView } from '../CartQuickView';
-import single from '../../../data/stubs/cart/single';
+import { CART_COOKIE } from '../../../constants/carts';
+import RETRIEVE_CART from '../../../queries/Cart';
+import CREATE_CART from '../../../mutations/CreateCart';
+import empty from '../../../data/stubs/cart/empty';
+import multiple from '../../../data/stubs/cart/multiple';
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ pathname: '/product/test-product' }),
 }));
 
-const emptyCartMock = {
-  cartSubTotal: 0,
-  cartCount: 0,
-  cartItems: [],
-  isCartEmpty: true,
-  checkoutUrl: '',
-};
-
-const cartWithItemsMock = {
-  ...emptyCartMock,
-  cartSubTotal: 12,
-  cartCount: 1,
-  isCartEmpty: false,
-  cartItems: single.cart.lines.nodes,
-};
-
 describe('<CartQuickView />', () => {
   it('displays the empty cart state on hover', () => {
-    render(<CartQuickView cart={emptyCartMock} styles={{}} />);
+    const createCartMock = {
+      request: {
+        query: CREATE_CART,
+        variables: { input: {} },
+      },
+      result: { data: empty },
+    };
+
+    render(
+      <MockedProvider mocks={[createCartMock]}>
+        <ShopifyCartProvider>
+          <CartQuickView styles={{}} />
+        </ShopifyCartProvider>
+      </MockedProvider>
+    );
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
 
-    expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
+    waitFor(() => {
+      expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
+    });
   });
 
   it('displays the items in cart', () => {
-    render(<CartQuickView cart={cartWithItemsMock} styles={{}} />);
+    const retrieveCartMock = {
+      request: {
+        query: RETRIEVE_CART,
+        variables: {
+          id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+        },
+      },
+      result: { data: multiple },
+    };
+
+    Object.defineProperty(window.document, 'cookie', {
+      writable: true,
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
+    });
+
+    render(
+      <MockedProvider mocks={[retrieveCartMock]}>
+        <ShopifyCartProvider>
+          <CartQuickView styles={{}} />
+        </ShopifyCartProvider>
+      </MockedProvider>
+    );
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
-
-    expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
+    waitFor(() => {
+      expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
+    });
   });
 });
