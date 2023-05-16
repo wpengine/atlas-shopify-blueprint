@@ -40,14 +40,6 @@ export default function Header({
             </Link>
           </div>
 
-          <div className={styles.search}>
-            <Link href="/search">
-              <a>
-                <FaSearch title="Search" role="img" />
-              </a>
-            </Link>
-          </div>
-
           <button
             type="button"
             className={styles['nav-toggle']}
@@ -58,15 +50,22 @@ export default function Header({
           >
             <FaBars />
           </button>
-        </div>
 
-        <div className={styles['nav-cart-bar']}>
-          <NavigationMenu
-            id={styles['primary-navigation']}
-            className={navClasses}
-            menuItems={menuItems}
-          ></NavigationMenu>
-          <CartQuickView styles={styles} />
+          <div className={styles['nav-cart-bar']}>
+            <NavigationMenu
+              id={styles['primary-navigation']}
+              className={navClasses}
+              menuItems={menuItems}
+            ></NavigationMenu>
+
+            <Link href="/search">
+              <a>
+                <FaSearch title="Search" role="img" />
+              </a>
+            </Link>
+
+            <CartQuickView styles={styles} />
+          </div>
         </div>
       </Container>
     </header>

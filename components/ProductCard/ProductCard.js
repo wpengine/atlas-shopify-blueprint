@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { CtaButton } from '../CtaButton';
 import classNames from 'classnames/bind';
 import styles from './ProductCard.module.scss';
+import priceFormatter from '../../utilities/priceFormatter';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +16,7 @@ const ProductCard = ({ product }) => {
         <Link href={productHref}>
           <a>
             {product?.variants?.nodes[0]?.compareAtPrice ? (
-              <span className={styles.onSale}>Sale!</span>
+              <span className={styles.onSale}>Sale</span>
             ) : null}
             <img
               className={styles.productImage}
@@ -37,12 +38,21 @@ const ProductCard = ({ product }) => {
             {product?.variants?.nodes[0]?.compareAtPrice ? (
               <>
                 <del>
-                  {'$' + product?.variants?.nodes[0]?.compareAtPrice?.amount}
+                  {priceFormatter(
+                    product?.variants?.nodes[0]?.compareAtPrice?.amount,
+                    product?.variants?.nodes[0]?.compareAtPrice?.currencyCode
+                  )}
                 </del>{' '}
-                {'$' + product?.variants?.nodes[0]?.price?.amount}
+                {priceFormatter(
+                  product?.variants?.nodes[0]?.price?.amount,
+                  product?.variants?.nodes[0]?.price?.currencyCode
+                )}
               </>
             ) : (
-              '$' + product?.variants?.nodes[0]?.price?.amount
+              priceFormatter(
+                product?.variants?.nodes[0]?.price?.amount,
+                product?.variants?.nodes[0]?.price?.currencyCode
+              )
             )}
           </span>
         </div>
