@@ -5,6 +5,7 @@ import CREATE_CART from '../mutations/CreateCart';
 import RETRIEVE_CART from '../queries/Cart';
 import ADD_TO_CART from '../mutations/AddToCart';
 import REMOVE_FROM_CART from '../mutations/RemoveFromCart';
+import { CART_COOKIE } from '../constants/carts';
 
 const ShopifyCartContext = React.createContext({});
 
@@ -12,7 +13,7 @@ export function ShopifyCartProvider({ children }) {
   const [cartData, setCartData] = useState('');
 
   const cookies = new Cookies();
-  const cartToken = cookies.get('atlas-shopify-cart') ?? null;
+  const cartToken = cookies.get(CART_COOKIE) ?? null;
 
   const [createCart] = useMutation(CREATE_CART);
   const [retrieveCart] = useLazyQuery(RETRIEVE_CART, {
@@ -31,7 +32,7 @@ export function ShopifyCartProvider({ children }) {
         variables: { input: {} },
       })
         .then((response) => {
-          cookies.set('atlas-shopify-cart', response.data.cartCreate.cart.id);
+          cookies.set(CART_COOKIE, response.data.cartCreate.cart.id);
           setCartData(response.data.cartCreate.cart);
         })
         .catch((err) => console.error(err));

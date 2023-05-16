@@ -6,6 +6,7 @@ import CREATE_CART from '../../../mutations/CreateCart';
 import RETRIEVE_CART from '../../../queries/Cart';
 import empty from '../../../data/stubs/cart/empty';
 import multiple from '../../../data/stubs//cart/multiple';
+import { CART_COOKIE } from '../../../constants/carts';
 import Cart from '../Cart';
 
 describe('<Cart />', () => {
@@ -44,8 +45,7 @@ describe('<Cart />', () => {
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value:
-        'atlas-shopify-cart=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
     });
 
     render(
@@ -78,8 +78,7 @@ describe('<Cart />', () => {
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value:
-        'atlas-shopify-cart=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
     });
 
     render(

@@ -5,6 +5,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import productsStub from '../../../data/stubs/products';
+import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
 
 describe('<ProductDetails />', () => {
@@ -75,8 +76,7 @@ describe('<ProductDetails />', () => {
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value:
-        'atlas-shopify-cart=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
     });
 
     const variantsProduct = productsStub.data.products.nodes[7];

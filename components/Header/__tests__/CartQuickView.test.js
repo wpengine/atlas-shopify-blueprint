@@ -3,6 +3,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { CartQuickView } from '../CartQuickView';
+import { CART_COOKIE } from '../../../constants/carts';
 import RETRIEVE_CART from '../../../queries/Cart';
 import CREATE_CART from '../../../mutations/CreateCart';
 import empty from '../../../data/stubs/cart/empty';
@@ -50,8 +51,7 @@ describe('<CartQuickView />', () => {
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value:
-        'atlas-shopify-cart=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
     });
 
     render(
