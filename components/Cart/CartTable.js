@@ -42,7 +42,7 @@ const CartTable = ({
       );
   };
 
-  // TODO: implement these in upcoming story
+  // TODO: implement these in https://wpengine.atlassian.net/browse/TITAN-298
   const handleClickIncreaseQuantity = () => {};
   const handleClickDecreaseQuantity = () => {};
 
