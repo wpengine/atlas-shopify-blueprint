@@ -28,4 +28,41 @@ describe('<PostInfo />', () => {
     expect(screen.getByText('by foo')).toBeVisible();
     expect(screen.getByText('-30%')).toBeVisible();
   });
+
+  it('Render PostInfo without date', () => {
+    const postInfoAuthor = 'foo';
+    const postInfoSubTitle = '-30%';
+    let date = new Date();
+    const timeformat = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour12: false,
+    };
+
+    render(<PostInfo author={postInfoAuthor} subTitle={postInfoSubTitle} />);
+
+    expect(screen.getByText('by foo')).toBeVisible();
+    expect(screen.getByText('-30%')).toBeVisible();
+    expect(
+      screen.queryByText(`${date.toLocaleDateString('en-US', timeformat)}`)
+    ).not.toBeInTheDocument();
+  });
+
+  it('Render PostInfo without author and subtitle', () => {
+    let date = new Date();
+    const timeformat = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour12: false,
+    };
+
+    render(<PostInfo date={date} />);
+
+    expect(
+      screen.getByText(`${date.toLocaleDateString('en-US', timeformat)}`)
+    ).toBeVisible();
+    expect(screen.queryByText('by')).not.toBeInTheDocument();
+  });
 });

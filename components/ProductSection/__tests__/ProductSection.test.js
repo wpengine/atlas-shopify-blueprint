@@ -22,7 +22,7 @@ describe('<ProductSection />', () => {
 
     expect(screen.getByText('$18.0')).toBeVisible();
     expect(screen.getByText('Radiowave Shirt')).toBeVisible();
-    expect(screen.getByTestId('img')).toBeVisible();
+    expect(screen.getByTestId('product-img')).toBeVisible();
     expect(screen.getByText('Latest Products')).toBeVisible();
   });
 
@@ -94,5 +94,15 @@ describe('<ProductSection />', () => {
     const renderedProducts = screen.getAllByRole('listitem');
 
     expect(renderedProducts).toHaveLength(4);
+  });
+
+  it('Render empty ProductSection', () => {
+    const product = NaN;
+
+    render(<ProductSection products={product} />);
+
+    const renderedProducts = screen.queryAllByRole('listitem');
+
+    expect(renderedProducts).toHaveLength(0);
   });
 });

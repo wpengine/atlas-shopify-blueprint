@@ -17,6 +17,7 @@ describe('<EntryHeader />', () => {
         /Shop your Shopify products with WordPress and WPGraphQL/i
       )
     ).toBeVisible();
+    expect(screen.queryByTestId('featureImage-header')).not.toBeInTheDocument();
   });
 
   it('Display title and subtitle with the image', async () => {

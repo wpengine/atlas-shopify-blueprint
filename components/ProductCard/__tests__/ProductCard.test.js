@@ -11,6 +11,13 @@ describe('<ProductCard />', () => {
           {
             price: {
               amount: '18.0',
+              currencyCode: 'USD',
+              __typename: 'MoneyV2',
+            },
+            compareAtPrice: {
+              amount: '20.0',
+              currencyCode: 'USD',
+              __typename: 'MoneyV2',
             },
           },
         ],
@@ -21,6 +28,8 @@ describe('<ProductCard />', () => {
 
     expect(screen.getByText('$18.0')).toBeVisible();
     expect(screen.getByText('Radiowave Shirt')).toBeVisible();
-    expect(screen.getByTestId('img')).toBeVisible();
+    expect(screen.getByTestId('product-img')).toBeVisible();
+    expect(screen.getByText('Sale!')).toBeVisible();
+    expect(screen.getByTestId('sale-price')).toBeVisible();
   });
 });
