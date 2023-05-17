@@ -1,15 +1,17 @@
 import { useState } from 'react';
+import useShopifyCart from '../../hooks/useShopifyCart';
 import ProductDescription from './ProductDescription';
 import ProductPrice from './ProductPrice';
 import ProductMeta from './ProductMeta';
 import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
 
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product, setProductNotification }) => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants?.nodes[0]
   );
-  const [quantity, setQuantity] = useState(0);
+
+  const { addToCart, cartId, retrieveCart, setCartData } = useShopifyCart();
 
   const collections = product?.collections?.nodes ?? [];
 
@@ -21,10 +23,6 @@ const ProductDetails = ({ product }) => {
     (variantImage) => variantImage?.image?.url
   );
 
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-  };
-
   const handleVariantChange = (property) => {
     const variant = product.variants.nodes.find(
       (variant) =>
@@ -35,9 +33,31 @@ const ProductDetails = ({ product }) => {
     setSelectedVariant(variant);
   };
 
-  const handleSubmit = () => {
-    console.log('Add to cart will happen here');
-    return quantity;
+  const handleSubmit = (quantity, variantId) => {
+    addToCart({
+      variables: {
+        cartId,
+        lines: [{ quantity, merchandiseId: variantId }],
+      },
+    })
+      .then(() => {
+        setProductNotification({
+          message: `${product?.title} has been added to your cart.`,
+          className: 'success',
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        setProductNotification({
+          message: 'There was an issue adding this item to the cart',
+          className: 'error',
+        });
+      })
+      .finally(() =>
+        retrieveCart().then((response) => {
+          setCartData(response.data.cart);
+        })
+      );
   };
 
   return (
@@ -52,19 +72,19 @@ const ProductDetails = ({ product }) => {
       </div>
       <div className={styles.detailsColumn}>
         {selectedVariant?.compareAtPrice && (
-          <span className={styles.onSale}>Sale!</span>
+          <span className={styles.onSale}>Sale</span>
         )}
         <h1>{product?.title}</h1>
         <ProductPrice
           salePrice={selectedVariant?.compareAtPrice}
           price={selectedVariant?.price?.amount}
+          currencyCode={selectedVariant?.price?.currencyCode}
         />
         <ProductDescription description={product?.description} />
         <ProductMeta
           variant={selectedVariant}
           collections={collections}
           variantOptions={{ label: variantsLabel, options: variantsOptions }}
-          handleChange={handleQuantityChange}
           handleSubmit={handleSubmit}
           handleOptionChange={handleVariantChange}
         />

@@ -1,4 +1,8 @@
+import { useState } from 'react';
+import { ApolloProvider } from '@apollo/client';
+import { ShopifyCartProvider } from '../hooks/useShopifyCart';
 import dynamic from 'next/dynamic';
+import shopifyClient from '../utilities/shopifyClient';
 import { gql, useQuery } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
@@ -9,13 +13,15 @@ import {
   Container,
   NavigationMenu,
   SEO,
+  ProductNotification,
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
-import useCart from '../hooks/useCart';
 
 const Cart = dynamic(() => import('../components/Cart'), { ssr: false });
 
 export default function Page() {
+  const [productNotification, setProductNotification] = useState();
+
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -25,26 +31,33 @@ export default function Page() {
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
 
-  const cart = useCart();
-
   return (
     <>
       <SEO title={siteTitle} description={siteDescription} />
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
-      />
-      <Main>
-        <Container>
-          <div className="text-center spacing-top">
-            <h1>Cart</h1>
-
-            <Cart cart={cart} />
-          </div>
-        </Container>
-      </Main>
-      <Footer title={siteTitle} menuItems={footerMenu} />
+      <ApolloProvider client={shopifyClient}>
+        <ShopifyCartProvider>
+          <Header
+            title={siteTitle}
+            description={siteDescription}
+            menuItems={primaryMenu}
+          />
+          <Main>
+            <Container>
+              <div className="text-center spacing-top">
+                <h1>Cart</h1>
+                {productNotification && (
+                  <ProductNotification
+                    productNotification={productNotification}
+                    cartPage
+                  />
+                )}
+                <Cart setProductNotification={setProductNotification} />{' '}
+              </div>
+            </Container>
+          </Main>
+          <Footer title={siteTitle} menuItems={footerMenu} />
+        </ShopifyCartProvider>
+      </ApolloProvider>
     </>
   );
 }

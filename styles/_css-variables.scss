@@ -12,6 +12,7 @@
   --wpe--color--green: #00664e;
   --wpe--color--dark-green: #2a3533;
   --wpe--color--grey: #eeeeeeed;
+  --wpe--color--red: #be4040;
 
   // Color Assignments.
   --wpe--color--accent: var(--wpe--color--purple);
@@ -28,8 +29,8 @@
   --wpe--dropdown--background-color: var(--wpe--color--white);
   --wpe--main--color: var(--wpe--color--black);
   --wpe--main--background-color: var(--wpe--color--white);
-  --wpe--footer--color: var(--wpe--color--black);
-  --wpe--footer--background-color: var(--wpe--color--white);
+  --wpe--footer--color: var(--wpe--color--white);
+  --wpe--footer--background-color: var(--wpe--color--dark-green);
   --wpe--heading--color: var(--wpe--color--accent);
   --wpe--border--light: 1px solid var(--wpe--color--neutral);
   --wpe--border--extra-light: 1px solid var(--wpe--color--offwhite);
