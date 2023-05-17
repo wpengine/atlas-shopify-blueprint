@@ -29,7 +29,11 @@ export default function NavigationMenu({ menuItems, className }) {
           }
 
           return (
-            <li key={id} className={cxFromWp(cssClasses)}>
+            <li
+              data-testid="nav-element"
+              key={id}
+              className={cxFromWp(cssClasses)}
+            >
               <Link href={path ?? ''}>{label ?? ''}</Link>
               {children.length ? renderMenu(children) : null}
             </li>

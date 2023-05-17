@@ -25,6 +25,7 @@ export default function FeaturedImage({
         width={width}
         height={height}
         priority={priority}
+        data-testid="featureImage-header"
         {...props}
       />
     </figure>

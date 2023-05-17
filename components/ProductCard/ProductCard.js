@@ -23,6 +23,7 @@ const ProductCard = ({ product }) => {
               src={thumbnail ?? '/ProductDefault.gif'}
               alt={product?.name}
               loading="lazy"
+              data-testid="product-img"
             />
           </a>
         </Link>
@@ -37,7 +38,7 @@ const ProductCard = ({ product }) => {
           <span>
             {product?.variants?.nodes[0]?.compareAtPrice ? (
               <>
-                <del>
+                <del data-testid="sale-price">
                   {priceFormatter(
                     product?.variants?.nodes[0]?.compareAtPrice?.amount,
                     product?.variants?.nodes[0]?.compareAtPrice?.currencyCode
