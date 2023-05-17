@@ -134,6 +134,7 @@ const CartTable = ({
                   <div className={styles.quantity}>
                     <AiOutlineMinusCircle
                       size={24}
+                      data-testid="decrease-button"
                       className={styles.clickableIcon}
                       onClick={() =>
                         handleUpdateQuantity(
@@ -146,6 +147,7 @@ const CartTable = ({
                     {item.quantity}
                     <AiOutlinePlusCircle
                       size={24}
+                      data-testid="increase-button"
                       className={styles.clickableIcon}
                       onClick={() =>
                         handleUpdateQuantity(
