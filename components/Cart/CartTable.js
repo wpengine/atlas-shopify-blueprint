@@ -57,8 +57,6 @@ const CartTable = ({
             (line) => line.id === id
           )?.quantity;
 
-        console.log(quantityAfterUpdate);
-
         if (!quantityAfterUpdate) {
           setProductNotification({
             message: `${product} has been removed from your cart.`,
