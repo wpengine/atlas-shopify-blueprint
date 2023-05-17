@@ -140,7 +140,10 @@ describe('<Cart />', () => {
     });
 
     render(
-      <MockedProvider mocks={[retrieveCartMock]} addTypename={true}>
+      <MockedProvider
+        mocks={[retrieveCartMock, removeFromCartMock]}
+        addTypename={true}
+      >
         <ShopifyCartProvider>
           <Cart />
         </ShopifyCartProvider>

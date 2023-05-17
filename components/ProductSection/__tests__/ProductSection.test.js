@@ -20,7 +20,7 @@ describe('<ProductSection />', () => {
 
     render(<ProductSection heading={heading} products={[product]} />);
 
-    expect(screen.getByText('$18.0')).toBeVisible();
+    expect(screen.getByText('$18.00')).toBeVisible();
     expect(screen.getByText('Radiowave Shirt')).toBeVisible();
     expect(screen.getByTestId('product-img')).toBeVisible();
     expect(screen.getByText('Latest Products')).toBeVisible();
