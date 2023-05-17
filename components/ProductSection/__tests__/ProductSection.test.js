@@ -97,7 +97,7 @@ describe('<ProductSection />', () => {
   });
 
   it('Render empty ProductSection', () => {
-    const product = NaN;
+    const product = [];
 
     render(<ProductSection products={product} />);
 
