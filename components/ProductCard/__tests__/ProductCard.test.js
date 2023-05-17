@@ -5,6 +5,29 @@ import ProductCard from '../ProductCard';
 describe('<ProductCard />', () => {
   it('Render single product with title and price', () => {
     const product = {
+      title: 'Quark Shirt',
+      variants: {
+        nodes: [
+          {
+            price: {
+              amount: '20.0',
+              currencyCode: 'USD',
+              __typename: 'MoneyV2',
+            },
+          },
+        ],
+      },
+    };
+
+    render(<ProductCard product={product} />);
+
+    expect(screen.getByText('$20.0')).toBeVisible();
+    expect(screen.getByText('Quark Shirt')).toBeVisible();
+    expect(screen.getByTestId('product-img')).toBeVisible();
+  });
+
+  it('Render product on Sale', () => {
+    const product = {
       title: 'Radiowave Shirt',
       variants: {
         nodes: [
