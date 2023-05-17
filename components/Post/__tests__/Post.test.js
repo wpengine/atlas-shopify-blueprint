@@ -3,22 +3,23 @@ import { render, screen } from '@testing-library/react';
 import { Post } from '../../Post';
 
 describe('<Post />', () => {
-  it('Render Post with title, link and formated date', () => {
+  it('Render Post with title and link', () => {
     const postTitle = 'Sale';
-    let date = new Date();
-    const timeformat = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour12: false,
-    };
+    const author = 'foo';
+    const content = 'lorem';
 
-    render(<Post uri="https://someurl.com" title={postTitle} date={date} />);
+    render(
+      <Post
+        uri="https://someurl.com"
+        title={postTitle}
+        author={author}
+        content={content}
+      />
+    );
 
-    expect(
-      screen.getByText(`${date.toLocaleDateString('en-US', timeformat)}`)
-    ).toBeVisible();
     expect(screen.getByText('Sale')).toBeVisible();
+    expect(screen.getByText('by foo')).toBeVisible();
+    expect(screen.getByText('lorem')).toBeVisible();
   });
 
   it('Render Post with image', async () => {
