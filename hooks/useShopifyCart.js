@@ -5,6 +5,7 @@ import CREATE_CART from '../mutations/CreateCart';
 import RETRIEVE_CART from '../queries/Cart';
 import ADD_TO_CART from '../mutations/AddToCart';
 import REMOVE_FROM_CART from '../mutations/RemoveFromCart';
+import UPDATE_CART_QUANTITY from '../mutations/QuantityCart';
 import { CART_COOKIE } from '../constants/carts';
 
 const ShopifyCartContext = React.createContext({});
@@ -41,6 +42,7 @@ export function ShopifyCartProvider({ children }) {
 
   const [addToCart] = useMutation(ADD_TO_CART);
   const [removeFromCart] = useMutation(REMOVE_FROM_CART);
+  const [updateCartQuantity] = useMutation(UPDATE_CART_QUANTITY);
 
   const cartItems = cartData?.lines?.nodes ?? [];
   const cartCount = cartData?.totalQuantity;
@@ -59,6 +61,7 @@ export function ShopifyCartProvider({ children }) {
     checkoutUrl,
     addToCart,
     removeFromCart,
+    updateCartQuantity,
     retrieveCart,
     setCartData,
     cartId,
