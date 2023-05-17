@@ -52,9 +52,14 @@ const CartTable = ({
       },
     })
       .then((res) => {
-        const quantityAfterUpdate = res.data.cartLinesUpdate.cart.totalQuantity;
+        const quantityAfterUpdate =
+          res.data.cartLinesUpdate.cart.lines.nodes.find(
+            (line) => line.id === id
+          )?.quantity;
 
-        if (quantityAfterUpdate === 0) {
+        console.log(quantityAfterUpdate);
+
+        if (!quantityAfterUpdate) {
           setProductNotification({
             message: `${product} has been removed from your cart.`,
             className: 'success',
@@ -107,7 +112,7 @@ const CartTable = ({
             const image = item.merchandise.image;
 
             return (
-              <tr key={`cart-item-${product.handle}`}>
+              <tr key={`cart-item-${item.id}`}>
                 <td>
                   <AiOutlineCloseCircle
                     data-testid="remove-button"
