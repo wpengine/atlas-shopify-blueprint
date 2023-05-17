@@ -168,7 +168,7 @@ describe('<Cart />', () => {
     });
   });
 
-  it('increases the item quantity by 1', async () => {
+  it('increases the item quantity by 1 and price change is reflected', async () => {
     const retrieveCartMock = {
       request: {
         query: RETRIEVE_CART,
@@ -215,6 +215,7 @@ describe('<Cart />', () => {
 
       waitFor(() => {
         expect(screen.getByText(/3/i)).toBeVisible();
+        expect(screen.getByText(/US$105.00/i)).toBeVisible();
       });
     });
   });
@@ -291,7 +292,7 @@ describe('<Cart />', () => {
     });
   });
 
-  it('decreases the item quantity by 1', async () => {
+  it('decreases the item quantity by 1 and price change is reflected', async () => {
     const retrieveCartMock = {
       request: {
         query: RETRIEVE_CART,
@@ -338,6 +339,7 @@ describe('<Cart />', () => {
 
       waitFor(() => {
         expect(screen.getByText(/1/i)).toBeVisible();
+        expect(screen.getByText(/US$35.00/i)).toBeVisible();
       });
     });
   });
