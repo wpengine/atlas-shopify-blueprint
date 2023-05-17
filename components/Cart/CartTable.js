@@ -12,6 +12,7 @@ const CartTable = ({
   cartItems,
   setProductNotification,
   removeFromCart,
+  updateCartQuantity,
   cartId,
   setCartData,
   retrieveCart,
@@ -43,9 +44,49 @@ const CartTable = ({
       );
   };
 
-  // TODO: implement these in https://wpengine.atlassian.net/browse/TITAN-298
-  const handleClickIncreaseQuantity = () => {};
-  const handleClickDecreaseQuantity = () => {};
+  const handleUpdateQuantity = (product, id, quantityToUpdate) => {
+    updateCartQuantity({
+      variables: {
+        cartId,
+        lines: { id, quantity: quantityToUpdate },
+      },
+    })
+      .then((res) => {
+        const quantityAfterUpdate = res.data.cartLinesUpdate.cart.totalQuantity;
+
+        if (quantityAfterUpdate === 0) {
+          setProductNotification({
+            message: `${product} has been removed from your cart.`,
+            className: 'success',
+          });
+          return;
+        }
+
+        if (quantityAfterUpdate < quantityToUpdate) {
+          setProductNotification({
+            message:
+              'The maximum amount available for this product has been added to the cart',
+            className: 'error',
+          });
+        } else if (quantityAfterUpdate === quantityToUpdate) {
+          setProductNotification({
+            close,
+          });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setProductNotification({
+          message: `There was an issue changing this item's quantity.`,
+          className: 'error',
+        });
+      })
+      .finally(() =>
+        retrieveCart().then((response) => {
+          setCartData(response.data.cart);
+        })
+      );
+  };
 
   return (
     <div className={styles.cartTable}>
@@ -94,13 +135,25 @@ const CartTable = ({
                     <AiOutlineMinusCircle
                       size={24}
                       className={styles.clickableIcon}
-                      onClick={handleClickDecreaseQuantity}
+                      onClick={() =>
+                        handleUpdateQuantity(
+                          product.title,
+                          item.id,
+                          item.quantity - 1
+                        )
+                      }
                     />
                     {item.quantity}
                     <AiOutlinePlusCircle
                       size={24}
                       className={styles.clickableIcon}
-                      onClick={handleClickIncreaseQuantity}
+                      onClick={() =>
+                        handleUpdateQuantity(
+                          product.title,
+                          item.id,
+                          item.quantity + 1
+                        )
+                      }
                     />
                   </div>
                 </td>

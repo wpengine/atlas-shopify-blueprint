@@ -13,6 +13,7 @@ const Cart = ({ setProductNotification }) => {
     cartSubTotal,
     checkoutUrl,
     removeFromCart,
+    updateCartQuantity,
     cartId,
     setCartData,
     retrieveCart,
@@ -31,6 +32,7 @@ const Cart = ({ setProductNotification }) => {
       <CartTable
         cartItems={cartItems}
         removeFromCart={removeFromCart}
+        updateCartQuantity={updateCartQuantity}
         cartId={cartId}
         setCartData={setCartData}
         retrieveCart={retrieveCart}
