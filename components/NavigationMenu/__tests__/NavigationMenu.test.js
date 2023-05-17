@@ -39,14 +39,6 @@ describe('<NavigationMenu />', () => {
     expect(screen.getByText(/Home/i)).toBeInTheDocument();
   });
 
-  it('Render empty NavigationMenu', () => {
-    render(<NavigationMenu />);
-
-    const menu = screen.queryByLabelText('main-menu menu');
-
-    expect(menu).not.toBeInTheDocument();
-  });
-
   it('Render NavigationMenu items without __typename property', () => {
     const navData = [
       {
@@ -110,5 +102,13 @@ describe('<NavigationMenu />', () => {
     const menuElements = within(menu).getAllByTestId('nav-element');
 
     expect(menuElements).toHaveLength(1);
+  });
+
+  it('Render empty NavigationMenu', () => {
+    const navData = [];
+
+    render(<NavigationMenu menuItems={navData} />);
+
+    expect(screen.queryAllByTestId('nav-element')).toHaveLength(0);
   });
 });
