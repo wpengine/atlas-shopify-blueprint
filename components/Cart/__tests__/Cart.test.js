@@ -220,7 +220,7 @@ describe('<Cart />', () => {
     });
   });
 
-  it('increase the item until the max amount has been added', async () => {
+  it('increase the item until the max amount has been added and hides the notice when it is decreased again', async () => {
     const retrieveCartMock = {
       request: {
         query: RETRIEVE_CART,
@@ -288,6 +288,20 @@ describe('<Cart />', () => {
             /The maximum amount available for this product has been added to the cart./i
           )
         ).toBeVisible();
+      });
+
+      const decrease = screen.getByTestId('decrease-button');
+      fireEvent.click(decrease);
+
+      waitFor(() => {
+        waitFor(() => {
+          expect(screen.getByText(/2/i)).toBeVisible();
+        });
+        expect(
+          screen.queryByText(
+            /The maximum amount available for this product has been added to the cart./i
+          )
+        ).not.toBeVisible();
       });
     });
   });
