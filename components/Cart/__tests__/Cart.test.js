@@ -273,7 +273,7 @@ describe('<Cart />', () => {
       expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
       expect(screen.getByText(/2/i)).toBeVisible();
 
-      const increase = screen.getByTestId('decrease-button');
+      const increase = screen.getByTestId('increase-button');
       fireEvent.click(increase);
 
       waitFor(() => {
