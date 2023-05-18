@@ -4,11 +4,7 @@ import styles from './ProductNotification.module.scss';
 const cx = classNames.bind(styles);
 
 const ProductNotification = ({ productNotification, cartPage }) => {
-  if (productNotification.close) {
-    return null;
-  }
-
-  return (
+  return productNotification.close ? null : (
     <div
       className={cx(styles.notification, styles[productNotification.className])}
     >
