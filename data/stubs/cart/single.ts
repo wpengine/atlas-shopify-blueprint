@@ -3,7 +3,7 @@ const single = {
     id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
     checkoutUrl:
       'https://blueprintbetatest.myshopify.com/cart/c/c1-c63c275d6f27eb309d4efac08dee2e7d',
-    totalQuantity: 1,
+    totalQuantity: 3,
     cost: {
       totalAmount: {
         amount: '35.0',
@@ -17,7 +17,8 @@ const single = {
     lines: {
       nodes: [
         {
-          quantity: 1,
+          id: 'some-line-id',
+          quantity: 2,
           cost: {
             amountPerQuantity: {
               amount: '35.0',

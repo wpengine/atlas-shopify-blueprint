@@ -9,7 +9,12 @@ const ProductSection = ({ products, heading }) => {
         <h1>{heading}</h1>
         <div className="section">
           {products?.map?.((product) => {
-            return <ProductCard key={product.id} product={product} />;
+            return (
+              <ProductCard
+                key={`${heading}-section-${product.id}`}
+                product={product}
+              />
+            );
           })}
         </div>
       </Container>
