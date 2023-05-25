@@ -170,17 +170,20 @@
   .site-header-cart {
     width: 22%;
     float: right;
-    margin-right: 0;
-    margin-bottom: 0;
     position: relative;
     list-style-type: none;
-    margin-left: 0;
     padding: 0;
+    margin: 0.5rem 0 0 0;
     &:hover {
       .widget_shopping_cart {
         display: block;
       }
     }
+
+    @media (min-width: $breakpoint-extra-small) and (max-width: $breakpoint-small) {
+      margin: 0.1rem 0 0 0;
+    }
+
     .cart-contents {
       display: block;
       position: relative;
