@@ -7,7 +7,7 @@
   @import 'styles/breakpoints';
 
   position: relative;
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap;
   flex: 0 0 25%;
   max-width: 25%;
@@ -77,5 +77,17 @@
       font-weight: 700;
       margin-bottom: 1rem;
     }
+  }
+
+  @media (max-width: $breakpoint-small) {
+    .productImageContainer {
+      height: auto;
+    }
+  }
+
+  @media (max-width: $breakpoint-extra-small) {
+    max-width: 100%;
+    width: 100%;
+    display: block;
   }
 }
