@@ -56,6 +56,7 @@ const ProductDetails = ({ product, setProductNotification }) => {
       .finally(() =>
         retrieveCart().then((response) => {
           setCartData(response.data.cart);
+          window.scrollTo(0, 0);
         })
       );
   };
