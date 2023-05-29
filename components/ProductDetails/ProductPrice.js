@@ -1,5 +1,16 @@
 import priceFormatter from '../../utilities/priceFormatter';
 
+/**
+ * Render the ProductPrice component.
+ *
+ * @param {Props} props The props object.
+ * @param {string | number} props.salePrice The salePrice value.
+ * @param {string | number} props.price The price value.
+ * @param {string | number} props.currencyCode The currencyCode value.
+ *
+ * @returns {React.ReactElement} The ProductPrice component.
+ */
+
 const ProductPrice = ({ salePrice, price, currencyCode }) => {
   return (
     <p className="price">

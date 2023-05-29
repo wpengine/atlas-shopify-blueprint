@@ -5,6 +5,22 @@ import ProductVariantOptions from './ProductVariantOptions';
 import styles from './ProductMeta.module.scss';
 import useShopifyCart from '../../hooks/useShopifyCart';
 
+/**
+ * Render the ProductMeta component.
+ * @typedef {Object} Image
+ * @property {string} altText The altText value.
+ * @property {string} url The url value.
+ *
+ * @param {Props} props The props object.
+ * @param {string} selected The selected source value.
+ * @param {Array<string>} collection The collection value.
+ * @param {string} variantOptions The variantOptions value.
+ * @param {(variant: string) => void} props.handleOptionChange The product variant handler.
+ * @param {(quantity: number | string, variantId: number | string) => void} props.handleSubmit The submit handler.
+ *
+ * @returns {React.ReactElement} The ProductMeta component.
+ */
+
 const ProductMeta = ({
   variant,
   collections,

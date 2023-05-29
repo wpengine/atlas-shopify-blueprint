@@ -5,6 +5,26 @@ import flatListToHierarchical from '../../utilities/flatListToHierarchical';
 import styles from './NavigationMenu.module.scss';
 import stylesFromWP from './NavigationMenuClassesFromWP.module.scss';
 
+/**
+ * Render the NavigationMenu component.
+ *
+ * @typedef {Object} MenuItems
+ * @property {string} id The id value.
+ * @property {string} path The path value.
+ * @property {string} label The label value.
+ * @property {string} parentId The parentId value.
+ * @property {string} cssClasses The cssClasses value.
+ * @property {Object} menu The menu object.
+ *  @property {Object} node The node object.
+ *   @property {string} name The name value.
+ *
+ * @param {Props} props The props object.
+ * @param {MenuItems} props.props The menu items.
+ * @param {string} props.className The css className value.
+ *
+ * @returns {React.ReactElement} The NavigationMenu component.
+ */
+
 let cx = classNames.bind(styles);
 let cxFromWp = classNames.bind(stylesFromWP);
 

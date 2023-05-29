@@ -1,6 +1,18 @@
 import Link from 'next/link';
 import styles from './CtaButton.module.scss';
 
+/**
+ * Render the CtaButton component.
+ *
+ * @param {Props} props The props object.
+ * @param {string} props.ctaLink The button link value.
+ * @param {string} props.ctaLabel The button label value.
+ * @param {string} props.disabled The disabled parameter value.
+ * @param {(newValue: string) => void} props.ctaClick The onClick handler ( submit ).
+ *
+ * @returns {React.ReactElement} The CtaButton components.
+ */
+
 const CtaButton = ({ ctaLink = null, ctaLabel = null, disabled, ctaClick }) => {
   return ctaLink ? (
     <div className={styles.buttonContainer} onClick={ctaClick}>

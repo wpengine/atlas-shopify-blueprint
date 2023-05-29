@@ -8,6 +8,28 @@ import styles from './CartTable.module.scss';
 import Link from 'next/link';
 import priceFormatter from '../../utilities/priceFormatter';
 
+/**
+ * Render the CartTable component.
+ *
+ * @typedef {Object} Query
+ * @property {string} cartId - The cart token.
+ *
+ * @typedef {Object} Mutation
+ * @property {string} cartId - The cart token.
+ * @property {Array<string>} - The lines in cart.
+ *
+ * @param {Props} props The props object.
+ * @param {Array<string>} props.cartItems The cart items list.
+ * @param {Object.<string, string>} props.setProductNotification The state of products displayed to the user.
+ * @param {Mutation} props.removeFromCart The muation use to remove item from cart.
+ * @param {Mutation} props.updateCartQuantity The mutation use to update cart quantity.
+ * @param {string} props.cartId The cart token - cookies.
+ * @param {string} props.setCartData The state of cart (add or create).
+ * @param {Query} props.retrieveCart The query use retrive Cart.
+ *
+ * @returns {React.ReactElement} The CartTable component.
+ */
+
 const CartTable = ({
   cartItems,
   setProductNotification,

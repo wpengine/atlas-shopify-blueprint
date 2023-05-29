@@ -8,6 +8,15 @@ import REMOVE_FROM_CART from '../mutations/RemoveFromCart';
 import UPDATE_CART_QUANTITY from '../mutations/QuantityCart';
 import { CART_COOKIE } from '../constants/carts';
 
+/**
+ * Render the ShopifyCartProvider component.
+ *
+ * @param {Props} props The props object.
+ * @param {children: JSX.Element} props.children The children components.
+ *
+ * @returns {React.ReactElement} The ShopifyCartProvider component.
+ */
+
 const ShopifyCartContext = React.createContext({});
 
 export function ShopifyCartProvider({ children }) {

@@ -4,6 +4,15 @@ import { Loader } from '../Loader';
 import CartTable from './CartTable';
 import CartTotals from './CartTotals';
 
+/**
+ * Render the Cart component.
+ *
+ * @param {Props} props The props object.
+ * @param {Object.<string, string>} props.setProductNotification The state of products displayed to the user
+ *
+ * @returns {React.ReactElement} The Cart component.
+ */
+
 const Cart = ({ setProductNotification }) => {
   const {
     cartItems,

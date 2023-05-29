@@ -1,3 +1,12 @@
+/**
+ * Render the FormatDate component.
+ *
+ * @param {Props} props The props object.
+ * @param {Date} props.date The date input.
+ *
+ * @returns {React.ReactElement} The FormatDate component.
+ */
+
 export default function FormatDate({ date }) {
   let formattedDate = new Date(date);
 
