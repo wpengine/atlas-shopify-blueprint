@@ -12,8 +12,8 @@ import styles from './Footer.module.scss';
  * @property {string} parentId The parentId value.
  * @property {string} cssClasses The cssClasses value.
  * @property {Object} menu The menu object.
- *  @property {Object} node The node object.
- *   @property {string} name The name value.
+ * @property {Object} node The node object.
+ * @property {string} name The name value.
  *
  * @param {Props} props The props object.
  * @param {string} props.title The title value.
