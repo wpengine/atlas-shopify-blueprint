@@ -3,6 +3,8 @@ import useShopifyCart from '../../hooks/useShopifyCart';
 import { Loader } from '../Loader';
 import CartTable from './CartTable';
 import CartTotals from './CartTotals';
+import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 
 const Cart = ({ setProductNotification }) => {
   const {
@@ -23,8 +25,12 @@ const Cart = ({ setProductNotification }) => {
     return <Loader />;
   }
 
-  if (isCartEmpty) {
+  if (isCartEmpty && shopifyConfiguration.available()) {
     return <p>You have no items in cart</p>;
+  }
+
+  if (!shopifyConfiguration.available()) {
+    return <ConnectionUnavailable />;
   }
 
   return (

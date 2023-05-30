@@ -14,6 +14,8 @@ import {
   EntryHeader,
   ProductList,
 } from '../components';
+import ConnectionUnavailable from '../utilities/ConnectionUnavailable';
+import shopifyConfiguration from '../utilities/shopifyConfiguration';
 
 export default function Page() {
   const { data } = useQuery(Page.query, {
@@ -42,7 +44,7 @@ export default function Page() {
                   subTitle="Shop your Shopify products with WordPress and WPGraphQL"
                 />
 
-                <ProductList />
+                {shopifyConfiguration.available() ? <ProductList /> : <ConnectionUnavailable />}
               </div>
             </Container>
           </Main>
