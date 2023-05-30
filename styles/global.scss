@@ -12,6 +12,10 @@
   text-align: center;
   padding-bottom: 4em;
   display: flex;
+
+  @media (max-width: $breakpoint-extra-small) {
+    display: block;
+  }
 }
 
 .shop-grid {
@@ -19,6 +23,10 @@
   flex-wrap: wrap;
   margin-top: 4em;
   row-gap: 5em;
+
+  @media (max-width: $breakpoint-extra-small) {
+    display: block;
+  }
 }
 
 .formOptionChecked {

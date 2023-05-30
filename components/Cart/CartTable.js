@@ -96,7 +96,7 @@ const CartTable = ({
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th className={styles.hideOnMobile}></th>
             <th className={styles.hideOnMobile}></th>
             <th>Product</th>
             <th>Price</th>
@@ -111,7 +111,7 @@ const CartTable = ({
 
             return (
               <tr key={`cart-item-${item.id}`}>
-                <td>
+                <td className={styles.hideOnMobile}>
                   <AiOutlineCloseCircle
                     data-testid="remove-button"
                     size={24}
