@@ -4,8 +4,8 @@ import React from 'react';
  * Render the ProductVariantOptions component.
  *
  * @param {Props} props The props object.
- * @param {string | number} props.sortValue The sortValue value.
- * @param {string | number} props.setSortValue The setSortValue value.
+ * @param {string} props.sortValue The sortValue value.
+ * @param {string} props.setSortValue The setSortValue value.
  * @param {Object<string, string>} props.collection The collection value.
 
  * @returns {React.ReactElement} The ProductVariantOptions component.

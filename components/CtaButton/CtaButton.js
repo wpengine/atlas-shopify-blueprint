@@ -10,7 +10,7 @@ import styles from './CtaButton.module.scss';
  * @param {string} props.disabled The disabled parameter value.
  * @param {(newValue: string) => void} props.ctaClick The onClick handler ( submit ).
  *
- * @returns {React.ReactElement} The CtaButton components.
+ * @returns {React.ReactElement} The CtaButton component.
  */
 
 const CtaButton = ({ ctaLink = null, ctaLabel = null, disabled, ctaClick }) => {

@@ -21,11 +21,11 @@ import priceFormatter from '../../utilities/priceFormatter';
  * @param {Props} props The props object.
  * @param {Array<string>} props.cartItems The cart items list.
  * @param {Object.<string, string>} props.setProductNotification The state of products displayed to the user.
- * @param {Mutation} props.removeFromCart The muation use to remove item from cart.
- * @param {Mutation} props.updateCartQuantity The mutation use to update cart quantity.
- * @param {string} props.cartId The cart token - cookies.
- * @param {string} props.setCartData The state of cart (add or create).
- * @param {Query} props.retrieveCart The query use retrive Cart.
+ * @param {Mutation} props.removeFromCart The mutation to remove item from cart.
+ * @param {Mutation} props.updateCartQuantity The mutation to update cart quantity.
+ * @param {string} props.cartId The cart token.
+ * @param {string} props.setCartData The state of cart data.
+ * @param {Query} props.retrieveCart The query retrive Cart.
  *
  * @returns {React.ReactElement} The CartTable component.
  */
