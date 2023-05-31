@@ -5,7 +5,7 @@ import React from 'react';
  *
  * @param {Props} props The props object.
  * @param {string} props.sortValue The selected option on the base of which products will be filtered.
- * @param {string} props.setSortValue Used to filter products based on the selected sortValue.
+ * @param {string} props.setSortValue The selected option's value.
  * @param {string} props.collection Whether to show latest products by collection or all products.
 
  * @returns {React.ReactElement} The ShopFilter component.

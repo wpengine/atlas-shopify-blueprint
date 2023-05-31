@@ -2,7 +2,7 @@
  * Render the ProductDescription component.
  *
  * @param {Props} props The props object.
- * @param {string} props.description The Product description value.
+ * @param {string} props.description The Product's description value.
  *
  * @returns {React.ReactElement} The ProductDescription component.
  */

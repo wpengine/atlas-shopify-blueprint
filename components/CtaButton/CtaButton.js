@@ -5,8 +5,8 @@ import styles from './CtaButton.module.scss';
  * Render the CtaButton component.
  *
  * @param {Props} props The props object.
- * @param {string} props.ctaLink The url when using the Link component.
- * @param {string} props.ctaLabel The button label.
+ * @param {string} props.ctaLink (Optional) If provided, the browser will be redirected to this URL when the button is clicked.
+ * @param {string} props.ctaLabel (Optional) The button's label.
  * @param {string} props.disabled Whether the button is disable or not.
  * @param {(newValue: string) => void} props.ctaClick The onClick handler. Function to attach when the button is clicked.
  *
