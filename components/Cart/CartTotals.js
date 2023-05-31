@@ -7,7 +7,7 @@ import priceFormatter from '../../utilities/priceFormatter';
  * Render the CartTotals component.
  *
  * @param {Props} props The props object.
- * @param {string} props.cartSubTotal The subTotal price of items in the cart.
+ * @param {string} props.cartSubTotal The sub total price of items in the cart.
  * @param {string} props.cartTotal The total price of items in the cart.
  * @param {string} props.checkoutUrl The link to the Shopify checkout page.
  *

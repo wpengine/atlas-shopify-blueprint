@@ -1,13 +1,13 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 
 /**
- * The shopifyClient
+ * The Apollo Client used to make requests to Shopify Storefront API.
  *
- * @param {Object} link The link object.
- * @property {string} uri The environment variable where the url to the page on Shopify
- * @property {string} headers The headers values. The token used to make shopify requests that the customer puts in Atlas env vars
+ * @param {ApolloLink} link The http configuration for the request.
+ * @property {string} uri The base URL to Shopify Storefront API configured via Atlas Environment Variables.
+ * @property {string} headers The headers configuration for the request including the API token configured via Atlas Environment Variables.
  *
- * @returns {ApolloClient} The Apollo Client.
+ * @returns {ApolloClient} The Configured Apollo Client used to perform mutations and queries to Shopify Storefront API throughout the site.
  */
 
 const shopifyClient = new ApolloClient({

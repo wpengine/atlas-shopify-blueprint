@@ -44,25 +44,31 @@
     a:focus + ul {
       @extend %visible;
     }
-  }
 
-  a {
-    color: var(--wpe--navigation-menu--color);
-    padding: 0.5rem;
-    display: block;
-    transition: all 0.2s ease-out;
-    width: 100%;
-    white-space: nowrap;
-    text-align: center;
-
-    &:hover,
-    &:focus {
-      color: var(--wpe--navigation-menu--color--hover);
+    &:nth-of-type(1) {
+      a {
+        padding: 0;
+      }
     }
 
-    // Remove link underline when component is inside header.
-    header & {
-      text-decoration: none;
+    a {
+      color: var(--wpe--navigation-menu--color);
+      padding: 0.5rem;
+      display: block;
+      transition: all 0.2s ease-out;
+      width: 100%;
+      white-space: nowrap;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        color: var(--wpe--navigation-menu--color--hover);
+      }
+
+      // Remove link underline when component is inside header.
+      header & {
+        text-decoration: none;
+      }
     }
   }
 

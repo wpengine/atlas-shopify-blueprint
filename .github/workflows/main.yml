@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-      types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened]
 
 name: Main Workflow
 jobs:
@@ -26,5 +26,4 @@ jobs:
       # Force to fail step after specific time
       timeout-minutes: 5
       env:
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
