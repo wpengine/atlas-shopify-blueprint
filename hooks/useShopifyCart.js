@@ -10,14 +10,15 @@ import { CART_COOKIE } from '../constants/carts';
 
 /**
  * Render the ShopifyCartProvider component.
- * The hook is used to implement a store card from the first page the user enters.
- * shopifyCardContext after loading the first page checks if there is a previously generated store card
- * token in the cookies if not then such a token is created, if yes then the products
- * that were previously added to the card are still in it.
+ * The useShopifyCart hook provides state to the child components via React context.
+ * On each page render, useEffect runs to check if the cart token used to make requests to Shopify exists in the browser.
+ * If it does then retrieve the cart using this token (cart id) and if not then create a cart and save the cookie for next time.
+ * The data fetched from the cart API is then saved in a state within the Provider to be used throughout the site.
+ * The add to cart, remove from cart and update quantity methods are defined inside this Provider as graphQL mutations and used
+ * in various components throughout the site such ProductDetails and Cart.
  *
  * @param {Props} props The props object.
- * @param {children: JSX.Element} props.children All other components in the project structure, so that each component
- * can access and use the useContext hook with a generated store card token or a freshly created one.
+ * @param {children: JSX.Element} props.children All components that use the data and methods from the Provider.
  *
  * @returns {React.ReactElement} The ShopifyCartProvider component.
  */
