@@ -2,13 +2,13 @@ import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 import styles from './ProductGallery.module.scss';
 
 function ProductGallery({ selected, images, handleImageChange }) {
-  const handleClick = (selectedImage) => {
-    handleImageChange(selectedImage);
-  };
-
   if (!shopifyConfiguration.available()) {
     return null;
   }
+
+  const handleClick = (selectedImage) => {
+    handleImageChange(selectedImage);
+  };
 
   return (
     <>

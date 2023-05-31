@@ -21,12 +21,12 @@ const Cart = ({ setProductNotification }) => {
     retrieveCart,
   } = useShopifyCart();
 
-  if (isCartLoading) {
-    return <Loader />;
-  }
-
   if (!shopifyConfiguration.available()) {
     return <ConnectionUnavailable />;
+  }
+
+  if (isCartLoading) {
+    return <Loader />;
   }
 
   if (isCartEmpty) {
