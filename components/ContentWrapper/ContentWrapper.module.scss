@@ -2,6 +2,12 @@
   margin: 0 auto;
   line-height: 1.6875;
 
+  @import 'styles/breakpoints';
+
+  @media (max-width: $breakpoint-small) {
+    padding: 1rem;
+  }
+
   :global {
     // Scope WordPress block styles within ContentWrapper.
     @import 'styles/blocks';

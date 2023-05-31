@@ -1,9 +1,14 @@
 .component {
   @import 'styles/css-variables';
+  @import 'styles/breakpoints';
 
   display: flex;
   margin-top: 4rem;
   gap: 4rem;
+
+  @media (max-width: $breakpoint-extra-small) {
+    display: block;
+  }
 
   .onSale {
     border: 1px solid;
