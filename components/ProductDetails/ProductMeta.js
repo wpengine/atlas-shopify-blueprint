@@ -7,16 +7,13 @@ import useShopifyCart from '../../hooks/useShopifyCart';
 
 /**
  * Render the ProductMeta component.
- * @typedef {Object} Image
- * @property {string} altText The altText value.
- * @property {string} url The url value.
  *
  * @param {Props} props The props object.
- * @param {string} selected The selected source value.
+ * @param {string} variant The selected variant value. Used when selecting a product variant/color.
  * @param {Array<string>} collection The collection value.
- * @param {string} variantOptions The variantOptions value.
- * @param {(variant: string) => void} props.handleOptionChange The product variant handler.
- * @param {(quantity: number | string, variantId: number | string) => void} props.handleSubmit The submit handler.
+ * @param {string} variantOptions The variantOptions value. Selected variant/color of product.
+ * @param {(variant: string) => void} props.handleOptionChange The product variant handler. Selecting product variant/color.
+ * @param {(quantity: number | string, variantId: number | string) => void} props.handleSubmit The submit handler. Adding selected product to the cart.
  *
  * @returns {React.ReactElement} The ProductMeta component.
  */

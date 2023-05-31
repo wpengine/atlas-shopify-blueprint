@@ -1,19 +1,11 @@
-import {
-  ApolloClient,
-  createHttpLink,
-  InMemoryCache,
-} from '@apollo/client';
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 
 /**
  * The shopifyClient
  *
  * @param {Object} link The link object.
- * @property {string} uri The uri value.
- * @property {string} headers The headers values.
- * @param {ApolloCache} cache The cache option.
- * @param {Object} defaultOptions The default option object.
- * @property {Object} query The query object.
- * @property {string} fetchPolicy The fetchPolicy value.
+ * @property {string} uri The environment variable where the url to the page on Shopify
+ * @property {string} headers The headers values. The token used to make shopify requests that the customer puts in Atlas env vars
  *
  * @returns {ApolloClient} The Apollo Client.
  */

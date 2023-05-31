@@ -5,9 +5,9 @@ import classNames from 'classnames';
  * Render the ProductVariantOptions component.
  *
  * @param {Props} props The props object.
- * @param {string} props.selected The selected variant value.
- * @param {string | number} props.options The options value.
- * @param {(variant: string) => void} props.handleOptionChange The product variant handler.
+ * @param {string} props.selected The selected variant/color value of product.
+ * @param {string | number} props.options The options/color value of product.
+ * @param {(variant: string) => void} props.handleOptionChange The product variant/color handler. Selecting a variant/color of product.
  *
  * @returns {React.ReactElement} The ProductVariantOptions component.
  */

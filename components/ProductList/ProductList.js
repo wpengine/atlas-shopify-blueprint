@@ -9,38 +9,9 @@ import { FILTERS } from '../../constants/filters';
 
 /**
  * Render the ProductList component.
- * @typedef {Object} Image
- * @property {string} altText The altText value.
- * @property {string} url The url value.
- *
- * @typedef {Object} Products
- * @property {string} id The id value.
- * @property {number} quantity The quantity value.
- * @property {Object} cost The cost object.
- * @property {Object} amountPerQuantity The amountPerQuantity object.
- * @property {string} amount The amount value.
- * @property {Object} totalAmount The totalAmount Object.
- * @property {string} amount The amount value.
- * @property {Object} merchandise The merchandise object.
- * @property {string} id The id value.
- * @property {string} title The title value.
- * @property {Image} image The image object.
- * @property {string} altText The altText value.
- * @property {string} url The url value.
- * @property {Object} product The product object.
- * @property {string} id The id value.
- * @property {string} handle The handle value.
- * @property {string} title The title value.
- *
- * @typedef {Object} Query
- * @property {string} handle The handle value.
- * @property {boolean} reverse The reverse value.
- * @property {string | number} ProductCollectionSortKeys The productColection sort keys.
- * @property {Object} collection The collection object.
- * @returns {(first: string | number, reverse: boolean, sortKey: string | number) => Products} products The products value.
  *
  * @param {Props} props The props object.
- * @param {Query} props.collection The query to get collection.
+ * @param {string} props.collection The variables used in query to search for specific collection of products.
  *
  * @returns {React.ReactElement} The ProductList component.
  */

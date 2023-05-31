@@ -10,9 +10,14 @@ import { CART_COOKIE } from '../constants/carts';
 
 /**
  * Render the ShopifyCartProvider component.
+ * The hook is used to implement a store card from the first page the user enters.
+ * shopifyCardContext after loading the first page checks if there is a previously generated store card
+ * token in the cookies if not then such a token is created, if yes then the products
+ * that were previously added to the card are still in it
  *
  * @param {Props} props The props object.
- * @param {children: JSX.Element} props.children The children components.
+ * @param {children: JSX.Element} props.children All other components in the project structure, so that each component
+ * can access and use the useContext hook with a generated store card token or a freshly created one.
  *
  * @returns {React.ReactElement} The ShopifyCartProvider component.
  */

@@ -8,7 +8,7 @@ import styles from './CtaButton.module.scss';
  * @param {string} props.ctaLink The button link value.
  * @param {string} props.ctaLabel The button label value.
  * @param {string} props.disabled The disabled parameter value.
- * @param {(newValue: string) => void} props.ctaClick The onClick handler ( submit ).
+ * @param {(newValue: string) => void} props.ctaClick The onClick handler. Used for: Adding an item to a card, displaying product information.
  *
  * @returns {React.ReactElement} The CtaButton component.
  */

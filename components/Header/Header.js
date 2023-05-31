@@ -10,27 +10,6 @@ import {
 import styles from './Header.module.scss';
 import dynamic from 'next/dynamic';
 
-/**
- * Render the Header component.
- *
- * @typedef {Object} MenuItems
- * @property {string} id The id value.
- * @property {string} path The path value.
- * @property {string} label The label value.
- * @property {string} parentId The parentId value.
- * @property {string} cssClasses The cssClasses value.
- * @property {Object} menu The menu object.
- * @property {Object} node The node object.
- * @property {string} name The name value.
- *
- * @param {Props} props The props object.
- * @param {string} props.title The title value.
- * @param {string} props.description The description value.
- * @param {MenuItems} props.menuItems The menu items.
- *
- * @returns {React.ReactElement} The Header component.
- */
-
 const CartQuickView = dynamic(() => import('./CartQuickView'), { ssr: false });
 
 let cx = classNames.bind(styles);

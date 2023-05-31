@@ -6,7 +6,7 @@ import priceFormatter from '../../utilities/priceFormatter';
  * Render the CartQuickView component.
  *
  * @param {Props} props The props object.
- * @param {string} props.styles The css className value.
+ * @param {string} props.styles The css className value. Used to provide the styles to the content of the site.
  *
  * @returns {React.ReactElement} The CartQuickView component.
  */
