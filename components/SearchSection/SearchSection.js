@@ -1,4 +1,3 @@
-import { Container } from '../Container';
 import SearchInput from './SearchInput';
 import SearchRecommendations from './SearchRecommendations';
 import SearchResults from './SearchResults';
@@ -12,11 +11,7 @@ const SearchSection = ({ collections }) => {
     useSearch();
 
   if (!shopifyConfiguration.available()) {
-    return (
-      <Container>
-        <ConnectionUnavailable />
-      </Container>
-    );
+    return (<ConnectionUnavailable />);
   }
 
   return (
