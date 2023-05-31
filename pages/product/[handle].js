@@ -108,12 +108,12 @@ export async function getStaticProps(ctx) {
       props: { handle: ctx.params.handle, product },
     });
 
-  } else {
-    return getNextStaticProps(ctx, {
-      Page,
-      props: { handle: ctx.params.handle },
-    });
-  }
+  } 
+
+  return getNextStaticProps(ctx, {
+    Page,
+    props: { handle: ctx.params.handle },
+  });
 }
 
 export function getStaticPaths() {
