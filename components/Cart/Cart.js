@@ -25,12 +25,12 @@ const Cart = ({ setProductNotification }) => {
     return <Loader />;
   }
 
-  if (isCartEmpty && shopifyConfiguration.available()) {
-    return <p>You have no items in cart</p>;
-  }
-
   if (!shopifyConfiguration.available()) {
     return <ConnectionUnavailable />;
+  }
+
+  if (isCartEmpty) {
+    return <p>You have no items in cart</p>;
   }
 
   return (

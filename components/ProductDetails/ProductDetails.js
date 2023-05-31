@@ -64,39 +64,39 @@ const ProductDetails = ({ product, setProductNotification }) => {
 
   if (!shopifyConfiguration.available()) {
     return <ConnectionUnavailable />;
-  } else {
-    return (
-      <div className={styles.component}>
-        <div className={styles.detailsColumn}>
-          <ProductGallery
-            images={variantImages}
-            selected={selectedVariant?.image?.url}
-            variant={selectedVariant?.selectedOptions?.[0]?.value}
-            handleImageChange={handleVariantChange}
-          />
-        </div>
-        <div className={styles.detailsColumn}>
-          {selectedVariant?.compareAtPrice && (
-            <span className={styles.onSale}>Sale</span>
-          )}
-          <h1>{product?.title}</h1>
-          <ProductPrice
-            salePrice={selectedVariant?.compareAtPrice}
-            price={selectedVariant?.price?.amount}
-            currencyCode={selectedVariant?.price?.currencyCode}
-          />
-          <ProductDescription description={product?.description} />
-          <ProductMeta
-            variant={selectedVariant}
-            collections={collections}
-            variantOptions={{ label: variantsLabel, options: variantsOptions }}
-            handleSubmit={handleSubmit}
-            handleOptionChange={handleVariantChange}
-          />
-        </div>
-      </div>
-    );
   }
-};
+
+  return(
+    <div className={styles.component}>
+      <div className={styles.detailsColumn}>
+        <ProductGallery
+          images={variantImages}
+          selected={selectedVariant?.image?.url}
+          variant={selectedVariant?.selectedOptions?.[0]?.value}
+          handleImageChange={handleVariantChange}
+        />
+      </div>
+      <div className={styles.detailsColumn}>
+        {selectedVariant?.compareAtPrice && (
+          <span className={styles.onSale}>Sale</span>
+        )}
+        <h1>{product?.title}</h1>
+        <ProductPrice
+          salePrice={selectedVariant?.compareAtPrice}
+          price={selectedVariant?.price?.amount}
+          currencyCode={selectedVariant?.price?.currencyCode}
+        />
+        <ProductDescription description={product?.description} />
+        <ProductMeta
+          variant={selectedVariant}
+          collections={collections}
+          variantOptions={{ label: variantsLabel, options: variantsOptions }}
+          handleSubmit={handleSubmit}
+          handleOptionChange={handleVariantChange}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default ProductDetails;
