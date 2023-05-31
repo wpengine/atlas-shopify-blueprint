@@ -17,7 +17,6 @@ import {
   SEO,
 } from '../../components';
 import shopifyConfiguration from '../../utilities/shopifyConfiguration';
-import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
 
 export default function Page(props) {
   const [productNotification, setProductNotification] = useState();
@@ -50,11 +49,10 @@ export default function Page(props) {
                   productNotification={productNotification}
                 />
               )}
-              {!shopifyConfiguration.available ? <ConnectionUnavailable /> :
               <ProductDetails
                 product={product}
                 setProductNotification={setProductNotification}
-              />}
+              />
             </Container>
           </Main>
         </ShopifyCartProvider>
@@ -107,7 +105,6 @@ export async function getStaticProps(ctx) {
       Page,
       props: { handle: ctx.params.handle, product },
     });
-
   } 
 
   return getNextStaticProps(ctx, {

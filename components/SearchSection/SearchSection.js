@@ -4,10 +4,20 @@ import SearchRecommendations from './SearchRecommendations';
 import SearchResults from './SearchResults';
 import useSearch from '../../hooks/useSearch';
 import styles from './SearchSection.module.scss';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
+import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
 
 const SearchSection = ({ collections }) => {
   const { searchQuery, setSearchQuery, searchResults, isLoading, error } =
     useSearch();
+
+  if (!shopifyConfiguration.available()) {
+    return (
+      <Container>
+        <ConnectionUnavailable />
+      </Container>
+    );
+  }
 
   return (
     <Container>

@@ -1,11 +1,6 @@
-import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 import styles from './ProductGallery.module.scss';
 
 function ProductGallery({ selected, images, handleImageChange }) {
-  if (!shopifyConfiguration.available()) {
-    return null;
-  }
-
   const handleClick = (selectedImage) => {
     handleImageChange(selectedImage);
   };

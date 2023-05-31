@@ -13,6 +13,7 @@ import {
   SEO,
   SearchSection,
 } from '../components';
+import shopifyConfiguration from '../utilities/shopifyConfiguration';
 
 export default function Page(props) {
   const { data } = useQuery(Page.query, {
@@ -75,14 +76,20 @@ Page.variables = () => {
 };
 
 export async function getStaticProps(ctx) {
-  const { data } = await shopifyClient.query({
-    query: GET_COLLECTIONS,
-  });
+  if (shopifyConfiguration.available()) {
+    const { data } = await shopifyClient.query({
+      query: GET_COLLECTIONS,
+    });
 
-  const { collections } = data;
+    const { collections } = data;
+    
+    return getNextStaticProps(ctx, {
+      Page,
+      props: { collections: collections.nodes },
+    });
+  }
 
   return getNextStaticProps(ctx, {
     Page,
-    props: { collections: collections.nodes },
   });
 }
