@@ -4,9 +4,9 @@ import priceFormatter from '../../utilities/priceFormatter';
  * Render the ProductPrice component.
  *
  * @param {Props} props The props object.
- * @param {string | number} props.salePrice The salePrice value if is available.
- * @param {string | number} props.price The price value.
- * @param {string | number} props.currencyCode The currencyCode value.
+ * @param {string | number} props.salePrice The sale price for this product if it is available.
+ * @param {string | number} props.price The price fot this product.
+ * @param {string | number} props.currencyCode The currency code for this products price.
  *
  * @returns {React.ReactElement} The ProductPrice component.
  */

@@ -7,9 +7,9 @@ import styles from './ProductGallery.module.scss';
  * @property {string} url The url value. Source link to the image.
  *
  * @param {Props} props The props object.
- * @param {string} props.selected The selected source value for the image.
- * @param {Image} props.image The list of images.
- * @param {(image: Image) => void} props.handleImageChange The image change handler. Based on which variant were chosen.
+ * @param {string} props.selected The image of the current selected variant.
+ * @param {Image} props.images The list of variant images.
+ * @param {(image: Image) => void} props.handleImageChange The image change handler. Based on which variant was chosen.
  *
  * @returns {React.ReactElement} The ProductGallery component.
  */

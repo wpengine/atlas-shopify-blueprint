@@ -5,10 +5,10 @@ import styles from './CtaButton.module.scss';
  * Render the CtaButton component.
  *
  * @param {Props} props The props object.
- * @param {string} props.ctaLink The button link value.
- * @param {string} props.ctaLabel The button label value.
- * @param {string} props.disabled The disabled parameter value.
- * @param {(newValue: string) => void} props.ctaClick The onClick handler. Used for: Adding an item to a card, displaying product information.
+ * @param {string} props.ctaLink The url when using the Link component.
+ * @param {string} props.ctaLabel The button label.
+ * @param {string} props.disabled Whether the button is disable or not.
+ * @param {(newValue: string) => void} props.ctaClick The onClick handler. Function to attach when the button is clicked.
  *
  * @returns {React.ReactElement} The CtaButton component.
  */

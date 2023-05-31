@@ -16,17 +16,17 @@ import priceFormatter from '../../utilities/priceFormatter';
  *
  * @typedef {Object} Mutation
  * @property {string} cartId - The cart token.
- * @property {Array<string>} - The lines in cart - how many items is in cart.
+ * @property {Array<string>} - The lines in cart - how many items are in cart.
  *
  * @param {Props} props The props object.
  * @param {Array<string>} props.cartItems The cart items list. All items that are in the cart.
- * @param {(Object<string, string>) => void} props.setProductNotification The function that sets the display of the product.
- * notification component which tells the user if they successfully or unsuccessfully completed the remove from cart / decrease / increase quantity
+ * @param {(Object<string, string>) => void} props.setProductNotification The function that sets the display of the product
+ * notification component when the user performs cart operations.
  * @param {Mutation} props.removeFromCart The mutation to remove item from cart.
  * @param {Mutation} props.updateCartQuantity The mutation to update cart quantity.
  * @param {string} props.cartId The cart token.
  * @param {string} props.setCartData The state of cart data. Used to set cart data after adding, changing quantity, removing from cart.
- * @param {Query} props.retrieveCart The query retrive Cart.
+ * @param {Query} props.retrieveCart The query to retrieve Cart.
  *
  * @returns {React.ReactElement} The CartTable component.
  */

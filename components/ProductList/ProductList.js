@@ -11,7 +11,7 @@ import { FILTERS } from '../../constants/filters';
  * Render the ProductList component.
  *
  * @param {Props} props The props object.
- * @param {string} props.collection The variables used in query to search for specific collection of products.
+ * @param {string} props.collection Whether to query for products by collection or all products.
  *
  * @returns {React.ReactElement} The ProductList component.
  */

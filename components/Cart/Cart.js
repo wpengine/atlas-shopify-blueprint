@@ -8,8 +8,8 @@ import CartTotals from './CartTotals';
  * Render the Cart component.
  *
  * @param {Props} props The props object.
- * @param {(Object<string, string>) => void} props.setProductNotification The function that sets the display of the product
- * notification component which tells the user if they successfully or unsuccessfully completed the remove from cart / decrease / increase quantity
+ * @param {(Object<string, string>) => void} props.setProductNotification The function that sets the display of the
+ * product notification component when the user performs cart operations.
  *
  * @returns {React.ReactElement} The Cart component.
  */
