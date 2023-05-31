@@ -15,4 +15,5 @@ module.exports = {
       '<rootDir>/assetsTransformer.js',
     '\\.(scss|css|less)$': '<rootDir>/assetsTransformer.js',
   },
+  setupFiles: ["<rootDir>/.jest/setEnvVars"],
 };
