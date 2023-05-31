@@ -20,7 +20,7 @@ const SearchSection = ({ collections }) => {
   }
 
   return (
-    <Container>
+    <>
       <div className={styles.component}>
         <h2 className={styles['search-header-text']}>
           {searchQuery && !isLoading
@@ -43,7 +43,7 @@ const SearchSection = ({ collections }) => {
       {!isLoading && searchResults === null && (
         <SearchRecommendations collections={collections} />
       )}
-    </Container>
+    </>
   );
 };
 

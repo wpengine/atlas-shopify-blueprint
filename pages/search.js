@@ -12,6 +12,7 @@ import {
   NavigationMenu,
   SEO,
   SearchSection,
+  Container,
 } from '../components';
 import shopifyConfiguration from '../utilities/shopifyConfiguration';
 
@@ -36,7 +37,9 @@ export default function Page(props) {
             menuItems={primaryMenu}
           />
           <Main>
-            <SearchSection collections={props.collections} />
+            <Container>
+              <SearchSection collections={props.collections} />
+            </Container>
           </Main>
         </ShopifyCartProvider>
       </ApolloProvider>
