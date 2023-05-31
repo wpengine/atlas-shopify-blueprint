@@ -10,6 +10,7 @@ import { CART_COOKIE } from '../constants/carts';
 
 /**
  * Render the ShopifyCartProvider component.
+ *
  * The useShopifyCart hook provides state to the child components via React context.
  * On each page render, useEffect runs to check if the cart token used to make requests to Shopify exists in the browser.
  * If it does then retrieve the cart using this token (cart id) and if not then create a cart and save the cookie for next time.
