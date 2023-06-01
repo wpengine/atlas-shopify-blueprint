@@ -32,5 +32,4 @@ function ProductGallery({ selected, images, handleImageChange }) {
   );
 }
 
-
 export default ProductGallery;
