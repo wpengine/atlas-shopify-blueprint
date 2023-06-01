@@ -2,6 +2,17 @@ import styles from './ProductVariantOptions.module.scss';
 import classNames from 'classnames';
 import VARIANT_MAP from '../../constants/variant-map';
 
+/**
+ * Render the ProductVariantOptions component.
+ *
+ * @param {Props} props The props object.
+ * @param {string} props.selected The selected variant/color for this product.
+ * @param {string | number} props.options The variant options for this product.
+ * @param {(variant: string) => void} props.handleOptionChange The product variant/color handler. Selecting a variant/color for this product.
+ *
+ * @returns {React.ReactElement} The ProductVariantOptions component.
+ */
+
 const cx = classNames.bind(styles);
 
 const ProductVariantOptions = ({ selected, options, handleOptionChange }) => {

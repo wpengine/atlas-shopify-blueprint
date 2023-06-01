@@ -7,6 +7,15 @@ import { ProductCard } from '../ProductCard';
 import { ShopFilter } from './ShopFilter';
 import { FILTERS } from '../../constants/filters';
 
+/**
+ * Render the ProductList component.
+ *
+ * @param {Props} props The props object.
+ * @param {string} props.collection (Optional) If provided, queries products by collection, otherwise queries all products.
+ *
+ * @returns {React.ReactElement} The ProductList component.
+ */
+
 const ProductList = ({ collection = null }) => {
   const [sortValue, setSortValue] = useState(
     collection ? 'collection-latest' : 'latest'

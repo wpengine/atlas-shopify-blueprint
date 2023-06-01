@@ -3,6 +3,17 @@ import styles from './CartTotals.module.scss';
 import classNames from 'classnames';
 import priceFormatter from '../../utilities/priceFormatter';
 
+/**
+ * Render the CartTotals component.
+ *
+ * @param {Props} props The props object.
+ * @param {string} props.cartSubTotal The sub total price of items in the cart.
+ * @param {string} props.cartTotal The total price of items in the cart.
+ * @param {string} props.checkoutUrl The link to the Shopify checkout page.
+ *
+ * @returns {React.ReactElement} The CartTotals component.
+ */
+
 const cx = classNames.bind(styles);
 
 const CartTotals = ({ cartSubTotal, cartTotal, checkoutUrl }) => {

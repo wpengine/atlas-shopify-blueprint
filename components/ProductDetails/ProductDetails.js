@@ -6,6 +6,16 @@ import ProductMeta from './ProductMeta';
 import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
 
+/**
+ * Render the ProductDetails component.
+ *
+ * @param {Props} props The props object.
+ * @param {Object} props.product The Product object containing the details to render.
+ * @param {(Object<string, string>) => void} props.setProductNotification The function that displays the
+ * product notification component when the user performs cart operations.
+ * @returns {React.ReactElement} The ProductDetails component.
+ */
+
 const ProductDetails = ({ product, setProductNotification }) => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants?.nodes[0]

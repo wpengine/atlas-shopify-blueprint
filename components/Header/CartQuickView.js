@@ -2,6 +2,15 @@ import { useRouter } from 'next/router';
 import useShopifyCart from '../../hooks/useShopifyCart';
 import priceFormatter from '../../utilities/priceFormatter';
 
+/**
+ * Render the CartQuickView component.
+ *
+ * @param {Props} props The props object.
+ * @param {string} props.styles Styles provided to the component.
+ *
+ * @returns {React.ReactElement} The CartQuickView component.
+ */
+
 export function CartQuickView({ styles }) {
   const router = useRouter();
 
