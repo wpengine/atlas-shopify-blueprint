@@ -14,9 +14,9 @@ import { CART_COOKIE } from '../constants/carts';
  * The useShopifyCart hook provides state to the child components via React context.
  * On each page render, useEffect runs to check if the cart token used to make requests to Shopify exists in the browser.
  * If it does, then it retrieves the cart using this token (cart id), otherwise it creates a cart and saves the cookie for next time.
- * The data fetched from the cart API is then saved in a state within the Provider to be used throughout the site.
+ * The data fetched from the cart API is then saved in local state within the Provider to be used throughout the site.
  * The "add to cart", "remove from cart" and "update quantity" methods are defined inside this Provider as graphQL mutations and used
- * in various components throughout the site such ProductDetails and Cart.
+ * in various components throughout the site such as ProductDetails and Cart.
  *
  * @param {Props} props The props object.
  * @param {children: JSX.Element} props.children All components that use the data and methods from the Provider.
