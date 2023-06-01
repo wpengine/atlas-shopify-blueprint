@@ -1,5 +1,6 @@
 import styles from './ProductVariantOptions.module.scss';
 import classNames from 'classnames';
+import VARIANT_MAP from '../../constants/variant-map';
 
 /**
  * Render the ProductVariantOptions component.
@@ -51,7 +52,7 @@ const ProductVariantOptions = ({ selected, options, handleOptionChange }) => {
                   }
                 )}
                 style={{
-                  backgroundColor: option,
+                  backgroundColor: VARIANT_MAP[option],
                 }}
               />
             </label>
