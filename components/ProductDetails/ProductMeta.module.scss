@@ -1,4 +1,6 @@
 .productMeta {
+  @import 'styles/breakpoints';
+
   input.quantity {
     width: 5em;
     padding: 0.25em;
@@ -8,5 +10,9 @@
     &:disabled {
       cursor: not-allowed;
     }
+  }
+
+  @media (max-width: $breakpoint-extra-small) {
+    margin-bottom: 4rem;
   }
 }
