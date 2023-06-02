@@ -1,6 +1,15 @@
 const shopifyConfiguration = {
     available: function() {
-        return process.env.NEXT_PUBLIC_SHOPIFY_URL && process.env.NEXT_PUBLIC_SHOPIFY_TOKEN;
+        let urlIsValid = true;
+        const tokenExists = (process.env.NEXT_PUBLIC_SHOPIFY_TOKEN !== "");
+
+        try {
+            new URL(process.env.NEXT_PUBLIC_SHOPIFY_URL);
+        } catch (err) {
+            return false;
+        }
+
+        return urlIsValid && tokenExists;
     }
 };
 
