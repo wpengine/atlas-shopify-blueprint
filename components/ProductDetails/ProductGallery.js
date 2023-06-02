@@ -1,5 +1,18 @@
 import styles from './ProductGallery.module.scss';
 
+/**
+ * Render the ProductGallery component.
+ * @typedef {Object} Image
+ * @property {string} altText The alternate text for the image, if the image cannot be displayed.
+ *
+ * @param {Props} props The props object.
+ * @param {string} props.selected The image of the current selected variant.
+ * @param {Image} props.images The list of variant images.
+ * @param {(image: Image) => void} props.handleImageChange The image change handler. Based on which variant was chosen.
+ *
+ * @returns {React.ReactElement} The ProductGallery component.
+ */
+
 function ProductGallery({ selected, images, handleImageChange }) {
   const handleClick = (selectedImage) => {
     handleImageChange(selectedImage);
