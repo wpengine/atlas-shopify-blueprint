@@ -38,7 +38,7 @@ To run tests `npm run test`
 
 `.nvmrc` is specifying that Node.js `v18` should be used. Any developer could then run `nvm use` to download, install, and switch to that version. `nvm install` will then install dependencies in line with that version.
 
-## Configuring Shopify on locally and on Atlas
+## Configuring Shopify locally and on Atlas
 
 TBC
 
