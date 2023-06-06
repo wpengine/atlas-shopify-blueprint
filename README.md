@@ -1,6 +1,6 @@
 # Atlas Shopify Blueprint
 
-An Shopify template for Atlas Blueprints.
+A Shopify template for Atlas Blueprints.
 
 This repository contains a starter Blueprint to get you up and running quickly on WP Engine's Atlas platform with a simple WordPress site that uses product data from Shopify.
 
@@ -10,9 +10,9 @@ This repository contains a starter Blueprint to get you up and running quickly o
 
 ## Development
 
-Copy `.env.local.sample` to `.env.local` in your local development environment. The sample env file points to the dev Shopify Blueprint Wordpress site, but you can change it to point to a local Wordpress site instead.
+Copy `.env.local.sample` to `.env.local` in your local development environment to set environment variables locally. The sample env file points to the demo Shopify Blueprint Wordpress site, but you can change it to point to a local Wordpress site instead. Add your Shopify variables to configure the Shopify Client.
 
-If you run into issues with `npm install` try use `npm install --legacy-peer-deps`
+Install dependencies with `npm install` - if you run into issues try `npm install --legacy-peer-deps`
 
 Make sure that any Wordpress site that is connected to this headless site has set its Permalinks to use this custom structure:
 
@@ -22,7 +22,7 @@ Make sure that any Wordpress site that is connected to this headless site has se
 
 ## Architecture Decision Records
 
-See the docs/adr directory for a list of architectural decision records made so far.
+See the `docs/adr` directory for a list of architectural decision records made so far.
 
 ## Tests
 
@@ -32,7 +32,7 @@ To run tests `npm run test`
 
 ## Linting and pre commit hooks
 
-Eslint and Prettier are used for linting and formatting. Please have [Prettier](https://prettier.io/) installed in Vs Code when developing locally to adhere to formatting standards. For pre commit linting and formatting we use [Husky](https://github.com/typicode/husky). This will run when a you run a commit, if it fails check the logs for issues that needs to be solved before committing again.
+Eslint and Prettier are used for linting and formatting. Please have [Prettier](https://prettier.io/) installed in Vs Code when developing locally to adhere to formatting standards. For pre commit linting and formatting we use [Husky](https://github.com/typicode/husky). This will run when a you run a commit, if it fails check the Node logs for issues that need to be solved before committing again.
 
 ## NVM ( Node Version Manager)
 
@@ -50,4 +50,4 @@ For more information on this Blueprint please check out the following sources:
 - [Faust.js](https://faustjs.org/)
 - [WPGraphQL](https://www.wpgraphql.com/)
 - [Atlas Content Modeler](https://wordpress.org/plugins/atlas-content-modeler/)
-- [WP Engine's Atlas developer community](https://wpengine.com/builders/headless)
+- [Shopify Storefront API](https://shopify.dev/docs/api/storefront)
