@@ -1,4 +1,4 @@
-import shopifyConfiguration from "../shopifyConfiguration";
+import shopifyConfiguration from '../shopifyConfiguration';
 
 describe('shopifyConfiguration', () => {
   describe('When the environment variables are set', () => {
@@ -45,7 +45,7 @@ describe('shopifyConfiguration', () => {
 
     beforeEach(() => {
       jest.resetModules();
-      process.env.NEXT_PUBLIC_SHOPIFY_URL = "foo";
+      process.env.NEXT_PUBLIC_SHOPIFY_URL = 'foo';
     });
 
     afterAll(() => {
@@ -61,7 +61,7 @@ describe('shopifyConfiguration', () => {
 
     beforeEach(() => {
       jest.resetModules();
-      process.env.NEXT_PUBLIC_SHOPIFY_TOKEN = "";
+      process.env.NEXT_PUBLIC_SHOPIFY_TOKEN = '';
     });
 
     afterAll(() => {

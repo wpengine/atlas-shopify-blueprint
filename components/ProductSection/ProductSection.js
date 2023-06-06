@@ -10,15 +10,18 @@ const ProductSection = ({ products, heading }) => {
       <Container>
         <h1>{heading}</h1>
         <div className="section">
-        {!shopifyConfiguration.available() ? <ConnectionUnavailable /> : products?.map?.((product) => {
-            return (
-              <ProductCard
-                key={`${heading}-section-${product.id}`}
-                product={product}
-              />
-            );
-          })
-        }
+          {!shopifyConfiguration.available() ? (
+            <ConnectionUnavailable />
+          ) : (
+            products?.map?.((product) => {
+              return (
+                <ProductCard
+                  key={`${heading}-section-${product.id}`}
+                  product={product}
+                />
+              );
+            })
+          )}
         </div>
       </Container>
     </div>

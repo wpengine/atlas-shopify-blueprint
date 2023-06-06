@@ -105,7 +105,7 @@ export async function getStaticProps(ctx) {
       Page,
       props: { handle: ctx.params.handle, product },
     });
-  } 
+  }
 
   return getNextStaticProps(ctx, {
     Page,

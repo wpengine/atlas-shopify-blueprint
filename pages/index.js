@@ -17,7 +17,7 @@ export default function Page(props) {
 
 export async function getStaticProps(ctx) {
   const staticProps = await getWordPressProps({ ctx, revalidate: 5 });
-  
+
   if (shopifyConfiguration.available()) {
     const { data } = await shopifyClient.query({ query: GET_PRODUCTS });
     const { products } = data;

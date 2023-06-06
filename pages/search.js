@@ -85,7 +85,7 @@ export async function getStaticProps(ctx) {
     });
 
     const { collections } = data;
-    
+
     return getNextStaticProps(ctx, {
       Page,
       props: { collections: collections.nodes },

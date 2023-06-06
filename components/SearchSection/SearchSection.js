@@ -11,7 +11,7 @@ const SearchSection = ({ collections }) => {
     useSearch();
 
   if (!shopifyConfiguration.available()) {
-    return (<ConnectionUnavailable />);
+    return <ConnectionUnavailable />;
   }
 
   return (

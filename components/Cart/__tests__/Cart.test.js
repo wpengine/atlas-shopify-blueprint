@@ -22,7 +22,7 @@ describe('<Cart />', () => {
         },
         result: { data: empty },
       };
-  
+
       render(
         <MockedProvider mocks={[createCartMock]}>
           <ShopifyCartProvider>
@@ -30,10 +30,12 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
-      expect(await screen.findByText(/You have no items in cart/i)).not.toBeNull();
+
+      expect(
+        await screen.findByText(/You have no items in cart/i)
+      ).not.toBeNull();
     });
-  
+
     it('displays the items in cart and the checkout url is applied', async () => {
       const retrieveCartMock = {
         request: {
@@ -44,12 +46,12 @@ describe('<Cart />', () => {
         },
         result: { data: multiple },
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider mocks={[retrieveCartMock]} addTypename={true}>
           <ShopifyCartProvider>
@@ -57,7 +59,7 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByTestId('checkout-btn')).toHaveAttribute(
@@ -66,7 +68,7 @@ describe('<Cart />', () => {
         );
       });
     });
-  
+
     it('remove item from cart successfully', async () => {
       const retrieveCartMock = {
         request: {
@@ -77,12 +79,12 @@ describe('<Cart />', () => {
         },
         result: { data: multiple },
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider mocks={[retrieveCartMock]} addTypename={true}>
           <ShopifyCartProvider>
@@ -90,13 +92,13 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-  
+
         const remove = screen.getByText(/Triangulum Hoodie/i).closest('svg');
         fireEvent.click(remove);
-  
+
         waitFor(() => {
           expect(screen.queryByText(/Triangulum Hoodie/i)).not.toBeVisible();
           expect(
@@ -107,7 +109,7 @@ describe('<Cart />', () => {
         });
       });
     });
-  
+
     it('remove item from cart unsuccessfully and presents an error', async () => {
       const retrieveCartMock = {
         request: {
@@ -118,7 +120,7 @@ describe('<Cart />', () => {
         },
         result: { data: multiple },
       };
-  
+
       const removeFromCartMock = {
         request: {
           query: REMOVE_FROM_CART,
@@ -134,12 +136,12 @@ describe('<Cart />', () => {
         },
         error: new Error('An error occurred'),
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider
           mocks={[retrieveCartMock, removeFromCartMock]}
@@ -150,13 +152,13 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-  
+
         const remove = screen.getByText(/Triangulum Hoodie/i).closest('svg');
         fireEvent.click(remove);
-  
+
         waitFor(() => {
           expect(
             screen.getByText(
@@ -166,7 +168,7 @@ describe('<Cart />', () => {
         });
       });
     });
-  
+
     it('increases the item quantity by 1 and price change is reflected', async () => {
       const retrieveCartMock = {
         request: {
@@ -177,7 +179,7 @@ describe('<Cart />', () => {
         },
         result: { data: single },
       };
-  
+
       const increaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -188,12 +190,12 @@ describe('<Cart />', () => {
         },
         result: { data: { cartLinesUpdate: { cart: { totalQuantity: 2 } } } },
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider
           mocks={[retrieveCartMock, increaseQuantityMock]}
@@ -204,21 +206,21 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByText(/1/i)).toBeVisible();
-  
+
         const increase = screen.getByTestId('increase-button');
         fireEvent.click(increase);
-  
+
         waitFor(() => {
           expect(screen.getByText(/3/i)).toBeVisible();
           expect(screen.getByText(/US$105.00/i)).toBeVisible();
         });
       });
     });
-  
+
     it('increase the item until the max amount has been added and hides the notice when it is decreased again', async () => {
       const retrieveCartMock = {
         request: {
@@ -229,7 +231,7 @@ describe('<Cart />', () => {
         },
         result: { data: single },
       };
-  
+
       const increaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -240,7 +242,7 @@ describe('<Cart />', () => {
         },
         result: { data: { cartLinesUpdate: { cart: { totalQuantity: 1 } } } },
       };
-  
+
       const maxAfterQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -251,12 +253,12 @@ describe('<Cart />', () => {
         },
         result: { data: { cartLinesUpdate: { cart: { totalQuantity: 3 } } } },
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider
           mocks={[retrieveCartMock, increaseQuantityMock, maxAfterQuantityMock]}
@@ -267,20 +269,20 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByText(/2/i)).toBeVisible();
-  
+
         const increase = screen.getByTestId('increase-button');
         fireEvent.click(increase);
-  
+
         waitFor(() => {
           expect(screen.getByText(/3/i)).toBeVisible();
         });
-  
+
         fireEvent.click(increase);
-  
+
         waitFor(() => {
           expect(
             screen.getByText(
@@ -288,10 +290,10 @@ describe('<Cart />', () => {
             )
           ).toBeVisible();
         });
-  
+
         const decrease = screen.getByTestId('decrease-button');
         fireEvent.click(decrease);
-  
+
         waitFor(() => {
           waitFor(() => {
             expect(screen.getByText(/2/i)).toBeVisible();
@@ -304,7 +306,7 @@ describe('<Cart />', () => {
         });
       });
     });
-  
+
     it('decreases the item quantity by 1 and price change is reflected', async () => {
       const retrieveCartMock = {
         request: {
@@ -315,7 +317,7 @@ describe('<Cart />', () => {
         },
         result: { data: single },
       };
-  
+
       const decreaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -326,12 +328,12 @@ describe('<Cart />', () => {
         },
         result: { data: { cartLinesUpdate: { cart: { totalQuantity: 1 } } } },
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider
           mocks={[retrieveCartMock, decreaseQuantityMock]}
@@ -342,21 +344,21 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByText(/2/i)).toBeVisible();
-  
+
         const decrease = screen.getByTestId('decrease-button');
         fireEvent.click(decrease);
-  
+
         waitFor(() => {
           expect(screen.getByText(/1/i)).toBeVisible();
           expect(screen.getByText(/US$35.00/i)).toBeVisible();
         });
       });
     });
-  
+
     it('decreases the item until its removed from cart', async () => {
       const retrieveCartMock = {
         request: {
@@ -367,7 +369,7 @@ describe('<Cart />', () => {
         },
         result: { data: single },
       };
-  
+
       const decreaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -378,7 +380,7 @@ describe('<Cart />', () => {
         },
         result: { data: { cartLinesUpdate: { cart: { totalQuantity: 1 } } } },
       };
-  
+
       const removeAfterDecreaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -389,12 +391,12 @@ describe('<Cart />', () => {
         },
         result: { data: { cartLinesUpdate: { cart: { totalQuantity: 0 } } } },
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider
           mocks={[
@@ -409,20 +411,20 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByText(/2/i)).toBeVisible();
-  
+
         const decrease = screen.getByTestId('decrease-button');
         fireEvent.click(decrease);
-  
+
         waitFor(() => {
           expect(screen.getByText(/1/i)).toBeVisible();
         });
-  
+
         fireEvent.click(decrease);
-  
+
         waitFor(() => {
           expect(
             screen.getByText(
@@ -432,7 +434,7 @@ describe('<Cart />', () => {
         });
       });
     });
-  
+
     it('changes the quantity unsuccessfully and presents an error', async () => {
       const retrieveCartMock = {
         request: {
@@ -443,7 +445,7 @@ describe('<Cart />', () => {
         },
         result: { data: single },
       };
-  
+
       const decreaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
@@ -454,12 +456,12 @@ describe('<Cart />', () => {
         },
         error: new Error('An error occurred'),
       };
-  
+
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
         value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
       });
-  
+
       render(
         <MockedProvider
           mocks={[retrieveCartMock, decreaseQuantityMock]}
@@ -470,18 +472,20 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
+
       waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByText(/2/i)).toBeVisible();
-  
+
         const decrease = screen.getByTestId('decrease-button');
         fireEvent.click(decrease);
-  
+
         waitFor(() => {
           expect(screen.getByText(/2/i)).toBeVisible();
           expect(
-            screen.getByText(/There was an issue changing this item's quantity/i)
+            screen.getByText(
+              /There was an issue changing this item's quantity/i
+            )
           ).toBeVisible();
         });
       });
@@ -508,7 +512,7 @@ describe('<Cart />', () => {
         },
         result: { data: empty },
       };
-  
+
       render(
         <MockedProvider mocks={[createCartMock]}>
           <ShopifyCartProvider>
@@ -516,8 +520,10 @@ describe('<Cart />', () => {
           </ShopifyCartProvider>
         </MockedProvider>
       );
-  
-      expect(await screen.findByText(/To get started connecting your Shopify store/i)).not.toBeNull();
+
+      expect(
+        await screen.findByText(/To get started connecting your Shopify store/i)
+      ).not.toBeNull();
     });
   });
 });

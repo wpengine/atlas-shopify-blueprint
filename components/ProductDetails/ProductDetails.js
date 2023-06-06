@@ -77,7 +77,7 @@ const ProductDetails = ({ product, setProductNotification }) => {
     return <ConnectionUnavailable />;
   }
 
-  return(
+  return (
     <div className={styles.component}>
       <div className={styles.detailsColumn}>
         <ProductGallery
@@ -108,6 +108,6 @@ const ProductDetails = ({ product, setProductNotification }) => {
       </div>
     </div>
   );
-}
+};
 
 export default ProductDetails;
