@@ -51,3 +51,4 @@ For more information on this Blueprint please check out the following sources:
 - [WPGraphQL](https://www.wpgraphql.com/)
 - [Atlas Content Modeler](https://wordpress.org/plugins/atlas-content-modeler/)
 - [Shopify Storefront API](https://shopify.dev/docs/api/storefront)
+- [WP Engine's Atlas developer community](https://wpengine.com/builders/headless)
