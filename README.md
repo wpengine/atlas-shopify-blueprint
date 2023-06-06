@@ -14,7 +14,7 @@ Copy `.env.local.sample` to `.env.local` in your local development environment t
 
 Install dependencies with `npm install` - if you run into issues try `npm install --legacy-peer-deps`
 
-Make sure that any Wordpress site that is connected to this headless site has set its Permalinks to use this custom structure:
+Make sure that any Wordpress site that is connected to this headless site has set its Permalinks set to use this custom structure:
 
 ```
 /posts/%postname%/
@@ -32,7 +32,7 @@ To run tests `npm run test`
 
 ## Linting and pre commit hooks
 
-Eslint and Prettier are used for linting and formatting. Please have [Prettier](https://prettier.io/) installed in Vs Code when developing locally to adhere to formatting standards. For pre commit linting and formatting we use [Husky](https://github.com/typicode/husky). This will run when a you run a commit, if it fails check the Node logs for issues that need to be solved before committing again.
+[Eslint](https://eslint.org/) and Prettier are used for linting and formatting. Please have [Prettier](https://prettier.io/) installed in Vs Code when developing locally to adhere to formatting standards. For pre commit linting and formatting we use [Husky](https://github.com/typicode/husky). This will run when a you run a commit, if it fails check the Node logs for issues that need to be solved before committing again.
 
 ## NVM ( Node Version Manager)
 
