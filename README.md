@@ -14,7 +14,7 @@ Copy `.env.local.sample` to `.env.local` in your local development environment t
 
 Install dependencies with `npm install` - if you run into issues try `npm install --legacy-peer-deps`
 
-Make sure that any Wordpress site that is connected to this headless site has set its Permalinks set to use this custom structure:
+Make sure that any Wordpress site that is connected to this headless site has its Permalinks set to use this custom structure:
 
 ```
 /posts/%postname%/
