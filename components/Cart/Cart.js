@@ -3,6 +3,8 @@ import useShopifyCart from '../../hooks/useShopifyCart';
 import { Loader } from '../Loader';
 import CartTable from './CartTable';
 import CartTotals from './CartTotals';
+import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 
 /**
  * Render the Cart component.
@@ -28,6 +30,10 @@ const Cart = ({ setProductNotification }) => {
     setCartData,
     retrieveCart,
   } = useShopifyCart();
+
+  if (!shopifyConfiguration.available()) {
+    return <ConnectionUnavailable />;
+  }
 
   if (isCartLoading) {
     return <Loader />;

@@ -5,6 +5,8 @@ import ProductPrice from './ProductPrice';
 import ProductMeta from './ProductMeta';
 import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
+import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
 
 /**
  * Render the ProductDetails component.
@@ -70,6 +72,10 @@ const ProductDetails = ({ product, setProductNotification }) => {
         })
       );
   };
+
+  if (!shopifyConfiguration.available()) {
+    return <ConnectionUnavailable />;
+  }
 
   return (
     <div className={styles.component}>

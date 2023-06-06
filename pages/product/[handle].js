@@ -16,6 +16,7 @@ import {
   ProductNotification,
   SEO,
 } from '../../components';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 
 export default function Page(props) {
   const [productNotification, setProductNotification] = useState();
@@ -92,16 +93,23 @@ Page.variables = () => {
 };
 
 export async function getStaticProps(ctx) {
-  const { data } = await shopifyClient.query({
-    query: GET_PRODUCT,
-    variables: { handle: ctx.params.handle },
-  });
+  if (shopifyConfiguration.available()) {
+    const { data } = await shopifyClient.query({
+      query: GET_PRODUCT,
+      variables: { handle: ctx.params.handle },
+    });
 
-  const { product } = data;
+    const { product } = data;
+
+    return getNextStaticProps(ctx, {
+      Page,
+      props: { handle: ctx.params.handle, product },
+    });
+  }
 
   return getNextStaticProps(ctx, {
     Page,
-    props: { handle: ctx.params.handle, product },
+    props: { handle: ctx.params.handle },
   });
 }
 

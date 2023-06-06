@@ -1,6 +1,8 @@
 import styles from './ProductSection.module.scss';
 import { ProductCard } from '../ProductCard';
 import { Container } from '../Container';
+import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 
 const ProductSection = ({ products, heading }) => {
   return (
@@ -8,14 +10,18 @@ const ProductSection = ({ products, heading }) => {
       <Container>
         <h1>{heading}</h1>
         <div className="section">
-          {products?.map?.((product) => {
-            return (
-              <ProductCard
-                key={`${heading}-section-${product.id}`}
-                product={product}
-              />
-            );
-          })}
+          {!shopifyConfiguration.available() ? (
+            <ConnectionUnavailable />
+          ) : (
+            products?.map?.((product) => {
+              return (
+                <ProductCard
+                  key={`${heading}-section-${product.id}`}
+                  product={product}
+                />
+              );
+            })
+          )}
         </div>
       </Container>
     </div>

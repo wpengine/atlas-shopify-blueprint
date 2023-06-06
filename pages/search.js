@@ -12,7 +12,9 @@ import {
   NavigationMenu,
   SEO,
   SearchSection,
+  Container,
 } from '../components';
+import shopifyConfiguration from '../utilities/shopifyConfiguration';
 
 export default function Page(props) {
   const { data } = useQuery(Page.query, {
@@ -35,7 +37,9 @@ export default function Page(props) {
             menuItems={primaryMenu}
           />
           <Main>
-            <SearchSection collections={props.collections} />
+            <Container>
+              <SearchSection collections={props.collections} />
+            </Container>
           </Main>
         </ShopifyCartProvider>
       </ApolloProvider>
@@ -75,14 +79,20 @@ Page.variables = () => {
 };
 
 export async function getStaticProps(ctx) {
-  const { data } = await shopifyClient.query({
-    query: GET_COLLECTIONS,
-  });
+  if (shopifyConfiguration.available()) {
+    const { data } = await shopifyClient.query({
+      query: GET_COLLECTIONS,
+    });
 
-  const { collections } = data;
+    const { collections } = data;
+
+    return getNextStaticProps(ctx, {
+      Page,
+      props: { collections: collections.nodes },
+    });
+  }
 
   return getNextStaticProps(ctx, {
     Page,
-    props: { collections: collections.nodes },
   });
 }

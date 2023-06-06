@@ -6,6 +6,8 @@ import { Loader } from '../Loader';
 import { ProductCard } from '../ProductCard';
 import { ShopFilter } from './ShopFilter';
 import { FILTERS } from '../../constants/filters';
+import shopifyConfiguration from '../../utilities/shopifyConfiguration';
+import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
 
 /**
  * Render the ProductList component.
@@ -33,6 +35,10 @@ const ProductList = ({ collection = null }) => {
 
   const products =
     productsData?.products?.nodes || productsData?.collection?.products?.nodes;
+
+  if (!shopifyConfiguration.available()) {
+    return <ConnectionUnavailable />;
+  }
 
   return (
     <>

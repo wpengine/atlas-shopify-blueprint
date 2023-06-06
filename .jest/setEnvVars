@@ -1,0 +1,2 @@
+process.env.NEXT_PUBLIC_SHOPIFY_URL='https://foo.com';
+process.env.NEXT_PUBLIC_SHOPIFY_TOKEN='bar';
