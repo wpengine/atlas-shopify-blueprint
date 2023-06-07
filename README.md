@@ -4,7 +4,7 @@ A Shopify template for Atlas Blueprints.
 
 This repository contains a starter Blueprint to get you up and running quickly on WP Engine's Atlas platform with a simple WordPress site that uses product data from Shopify.
 
-- [Check out the demo store here](atlasshopify.wpengine.com)
+- [Check out the demo store here](https://atlasshopify.wpengine.com)
 - [Try a sandbox version of Atlas to get started with this Blueprint](https://wpengine.com/headless-wordpress/)
 - [Documentation can be found here](#)
 
