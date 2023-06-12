@@ -22,7 +22,6 @@ export default function NavigationMenu({ menuItems, className }) {
         {items.map((item) => {
           const { id, path, label, children, cssClasses } = item;
 
-          // @TODO - Remove guard clause after ghost menu items are no longer appended to array.
           // eslint-disable-next-line no-prototype-builtins
           if (!item.hasOwnProperty('__typename')) {
             return null;
