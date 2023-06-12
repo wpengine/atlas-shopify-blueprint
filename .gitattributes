@@ -1,0 +1,9 @@
+# Exclude files from exporting/archiving
+.gitattributes            export-ignore
+.gitignore                export-ignore
+sonar-project.properties  export-ignore
+
+# Exclude directories from exporting/archiving
+.github/    export-ignore
+.circleci/  export-ignore
+.husky/     export-ignore
