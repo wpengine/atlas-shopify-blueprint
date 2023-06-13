@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { useDebounce } from 'use-debounce';
-import { useRouter } from 'next/router';
 import { SEARCH_PRODUCT } from '../queries/Products';
 
 const searchInputDebounceMs = 500;
@@ -21,7 +20,6 @@ function useSearch() {
   const [searchResults, setSearchResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const router = useRouter();
 
   /**
    * Fetch results based on the search query and cursor if we are paginating.
@@ -31,7 +29,7 @@ function useSearch() {
 
   const [
     fetchResults,
-    { data: searchData, loading: searchLoading, error: searchError },
+    { data: searchData, error: searchError },
   ] = useLazyQuery(SEARCH_PRODUCT);
 
   /**

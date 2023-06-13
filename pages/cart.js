@@ -1,21 +1,13 @@
-import { useState } from 'react';
-import { ApolloProvider } from '@apollo/client';
-import { ShopifyCartProvider } from '../hooks/useShopifyCart';
+import { ApolloProvider, gql, useQuery } from '@apollo/client';
+import { getNextStaticProps } from '@faustwp/core';
 import dynamic from 'next/dynamic';
-import shopifyClient from '../utilities/shopifyClient';
-import { gql, useQuery } from '@apollo/client';
+import { useState } from 'react';
+
+import { Container, Footer, Header, Main, NavigationMenu, ProductNotification, SEO } from '../components';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
-import {
-  Header,
-  Footer,
-  Main,
-  Container,
-  NavigationMenu,
-  SEO,
-  ProductNotification,
-} from '../components';
-import { getNextStaticProps } from '@faustwp/core';
+import { ShopifyCartProvider } from '../hooks/useShopifyCart';
+import shopifyClient from '../utilities/shopifyClient';
 
 const Cart = dynamic(() => import('../components/Cart'), { ssr: false });
 

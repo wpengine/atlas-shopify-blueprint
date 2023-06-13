@@ -11,9 +11,10 @@ export default function flatListToHierarchical(
 
     childrenOf[id] = childrenOf[id] || [];
     newItem[childrenKey] = childrenOf[id];
+    childrenOf[parentId] = childrenOf[parentId] || [];
 
     parentId
-      ? (childrenOf[parentId] = childrenOf[parentId] || []).push(newItem)
+      ? (childrenOf[parentId]).push(newItem)
       : tree.push(newItem);
   });
 
