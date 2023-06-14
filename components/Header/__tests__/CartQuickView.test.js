@@ -7,14 +7,14 @@ import { CART_COOKIE } from '../../../constants/carts';
 import RETRIEVE_CART from '../../../queries/Cart';
 import CREATE_CART from '../../../mutations/CreateCart';
 import empty from '../../../data/stubs/cart/empty';
-import multiple from '../../../data/stubs/cart/multiple';
+import {cartMultiple} from '../../../data/stubs/cart/cartMultiple';
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ pathname: '/product/test-product' }),
 }));
 
 describe('<CartQuickView />', () => {
-  it('displays the empty cart state on hover', () => {
+  it('displays the empty cart state on hover', async () => {
     const createCartMock = {
       request: {
         query: CREATE_CART,
@@ -33,25 +33,25 @@ describe('<CartQuickView />', () => {
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getByText(/You have no items in cart/i)).toBeVisible();
     });
   });
 
-  it('displays the items in cart', () => {
+  it('displays the items in cart', async () => {
     const retrieveCartMock = {
       request: {
         query: RETRIEVE_CART,
         variables: {
-          id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+          id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
     });
 
     render(
@@ -63,7 +63,7 @@ describe('<CartQuickView />', () => {
     );
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
     });
   });

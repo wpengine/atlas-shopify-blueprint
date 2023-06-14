@@ -35,7 +35,6 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-
     await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         productsShop.data.products.nodes.length
