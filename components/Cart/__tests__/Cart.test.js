@@ -6,13 +6,13 @@ import {
   screen,
   waitFor,
   act,
+  within,
 } from '@testing-library/react';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
 import CREATE_CART from '../../../mutations/CreateCart';
 import RETRIEVE_CART from '../../../queries/Cart';
 import REMOVE_FROM_CART from '../../../mutations/RemoveFromCart';
 import empty from '../../../data/stubs/cart/empty';
-import single from '../../../data/stubs/cart/single';
 import { CART_COOKIE } from '../../../constants/carts';
 import Cart from '../Cart';
 import UPDATE_CART_QUANTITY from '../../../mutations/QuantityCart';
@@ -24,6 +24,9 @@ import {
   cartSingle,
   increaseFromCartSingle,
   decreaseFromCartSingle,
+  increasedCartSingle,
+  decreaseCartSingle,
+  removeAfterDecreaseCartSingle,
 } from '../../../data/stubs/cart/cartSingle';
 
 describe('<Cart />', () => {
@@ -188,9 +191,7 @@ describe('<Cart />', () => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
       });
 
-      const remove = await screen.getByTestId(
-        'remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca'
-      );
+      const remove = await screen.getByTestId('remove-button-0');
 
       act(() => {
         fireEvent.click(remove);
@@ -393,26 +394,29 @@ describe('<Cart />', () => {
         request: {
           query: RETRIEVE_CART,
           variables: {
-            id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+            id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
           },
         },
-        result: { data: single },
+        result: { data: increasedCartSingle },
       };
 
       const decreaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
           variables: {
-            cartId: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
-            lines: { id: 'some-line-id', quantity: 1 },
+            cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
+            lines: {
+              id: 'gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+              quantity: 1,
+            },
           },
         },
-        result: { data: { cartLinesUpdate: { cart: { totalQuantity: 1 } } } },
+        result: { data: decreaseCartSingle },
       };
 
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
-        value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
+        value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
       });
 
       render(
@@ -426,17 +430,24 @@ describe('<Cart />', () => {
         </MockedProvider>
       );
 
-      waitFor(() => {
+      await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByText(/2/i)).toBeVisible();
+      });
 
-        const decrease = screen.getByTestId('decrease-button');
+      const decrease = await screen.getByTestId('decrease-button');
+
+      act(() => {
         fireEvent.click(decrease);
+      });
 
-        waitFor(() => {
-          expect(screen.getByText(/1/i)).toBeVisible();
-          expect(screen.getByText(/US$35.00/i)).toBeVisible();
-        });
+      await waitFor(() => {
+        const summaryElement = screen.getByTestId('summary');
+        const pricesFromSummary = within(summaryElement).getAllByText('$35.00');
+
+        for (let price of pricesFromSummary) {
+          expect(price).toBeVisible();
+        }
       });
     });
 
@@ -445,102 +456,29 @@ describe('<Cart />', () => {
         request: {
           query: RETRIEVE_CART,
           variables: {
-            id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+            id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
           },
         },
-        result: { data: single },
+        result: { data: cartSingle },
       };
 
       const decreaseQuantityMock = {
         request: {
           query: UPDATE_CART_QUANTITY,
           variables: {
-            cartId: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
-            lines: { id: 'some-line-id', quantity: 1 },
+            cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
+            lines: {
+              id: 'gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+              quantity: 0,
+            },
           },
         },
-        result: { data: { cartLinesUpdate: { cart: { totalQuantity: 1 } } } },
-      };
-
-      const removeAfterDecreaseQuantityMock = {
-        request: {
-          query: UPDATE_CART_QUANTITY,
-          variables: {
-            cartId: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
-            lines: { id: 'some-line-id', quantity: 0 },
-          },
-        },
-        result: { data: { cartLinesUpdate: { cart: { totalQuantity: 0 } } } },
+        result: { data: removeAfterDecreaseCartSingle },
       };
 
       Object.defineProperty(window.document, 'cookie', {
         writable: true,
-        value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
-      });
-
-      render(
-        <MockedProvider
-          mocks={[
-            retrieveCartMock,
-            decreaseQuantityMock,
-            removeAfterDecreaseQuantityMock,
-          ]}
-          addTypename={true}
-        >
-          <ShopifyCartProvider>
-            <Cart />
-          </ShopifyCartProvider>
-        </MockedProvider>
-      );
-
-      waitFor(() => {
-        expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-        expect(screen.getByText(/2/i)).toBeVisible();
-
-        const decrease = screen.getByTestId('decrease-button');
-        fireEvent.click(decrease);
-
-        waitFor(() => {
-          expect(screen.getByText(/1/i)).toBeVisible();
-        });
-
-        fireEvent.click(decrease);
-
-        waitFor(() => {
-          expect(
-            screen.getByText(
-              /Triangulum Hoodie has been removed from your cart./i
-            )
-          ).toBeVisible();
-        });
-      });
-    });
-
-    it('changes the quantity unsuccessfully and presents an error', async () => {
-      const retrieveCartMock = {
-        request: {
-          query: RETRIEVE_CART,
-          variables: {
-            id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
-          },
-        },
-        result: { data: single },
-      };
-
-      const decreaseQuantityMock = {
-        request: {
-          query: UPDATE_CART_QUANTITY,
-          variables: {
-            cartId: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
-            lines: { id: 'some-line-id', quantity: 1 },
-          },
-        },
-        error: new Error('An error occurred'),
-      };
-
-      Object.defineProperty(window.document, 'cookie', {
-        writable: true,
-        value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
+        value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
       });
 
       render(
@@ -554,21 +492,83 @@ describe('<Cart />', () => {
         </MockedProvider>
       );
 
-      waitFor(() => {
+      await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-        expect(screen.getByText(/2/i)).toBeVisible();
+        expect(screen.getByText(/1/i)).toBeVisible();
+      });
 
-        const decrease = screen.getByTestId('decrease-button');
+      const decrease = await screen.getByTestId('decrease-button');
+
+      act(() => {
         fireEvent.click(decrease);
+      });
 
-        waitFor(() => {
-          expect(screen.getByText(/2/i)).toBeVisible();
-          expect(
-            screen.getByText(
-              /There was an issue changing this item's quantity/i
-            )
-          ).toBeVisible();
-        });
+      await waitFor(() => {
+        expect(
+          screen.getByText(
+            /Triangulum Hoodie has been removed from your cart./i
+          )
+        ).toBeVisible();
+      });
+    });
+
+    it('changes the quantity unsuccessfully and presents an error', async () => {
+      const retrieveCartMock = {
+        request: {
+          query: RETRIEVE_CART,
+          variables: {
+            id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
+          },
+        },
+        result: { data: cartSingle },
+      };
+
+      const decreaseQuantityMock = {
+        request: {
+          query: UPDATE_CART_QUANTITY,
+          variables: {
+            cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
+            lines: {
+              id: 'gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+              quantity: 1,
+            },
+          },
+        },
+        error: new Error('An error occurred'),
+      };
+
+      Object.defineProperty(window.document, 'cookie', {
+        writable: true,
+        value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
+      });
+
+      render(
+        <MockedProvider
+          mocks={[retrieveCartMock, decreaseQuantityMock]}
+          addTypename={true}
+        >
+          <ShopifyCartProvider>
+            <Cart />
+          </ShopifyCartProvider>
+        </MockedProvider>
+      );
+
+      await waitFor(() => {
+        expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
+        expect(screen.getByText(/1/i)).toBeVisible();
+      });
+
+      const decrease = await screen.getByTestId('decrease-button');
+
+      act(() => {
+        fireEvent.click(decrease);
+      });
+
+      await waitFor(() => {
+        expect(screen.getByText(/1/i)).toBeVisible();
+        expect(
+          screen.getByText(/There was an issue changing this item's quantity/i)
+        ).toBeVisible();
       });
     });
   });
