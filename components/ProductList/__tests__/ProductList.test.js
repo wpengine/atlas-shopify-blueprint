@@ -34,7 +34,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         productsStub.data.products.nodes.length
       );
@@ -91,11 +91,11 @@ describe('<ProductList />', () => {
       target: { value: 'price-desc' },
     });
 
-    waitFor(async () => {
+    await waitFor(async () => {
       const allProducts = await screen.findAllByRole('listitem');
-      const firstPrice = within(allProducts[0]).getByText('$35.0');
+      const firstPrice = within(allProducts[0]).getByText('$35.00');
       const lastPrice = within(allProducts[allProducts.length - 1]).getByText(
-        '$15.0'
+        '$15.00'
       );
       expect(firstPrice).toBeInTheDocument();
       expect(lastPrice).toBeInTheDocument();
@@ -136,7 +136,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         collectionsMock.result.data.collection.products.nodes.length
       );
@@ -179,7 +179,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         collectionsMock.result.data.collection.products.nodes.length
       );
