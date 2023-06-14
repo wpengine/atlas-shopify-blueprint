@@ -248,7 +248,8 @@ describe('<Cart />', () => {
 
       await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-        expect(screen.getByText(/1/i)).toBeVisible();
+        const quantitySection = screen.getByLabelText('quantity-section');
+        expect(within(quantitySection).getByText('1')).toBeVisible();
       });
 
       const increase = await screen.getByTestId('increase-button');

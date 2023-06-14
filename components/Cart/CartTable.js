@@ -156,7 +156,7 @@ const CartTable = ({
                   </Link>
                 </td>
                 <td>{priceFormatter(item.cost.amountPerQuantity.amount)}</td>
-                <td>
+                <td aria-label="quantity-section">
                   <div className={styles.quantity}>
                     <AiOutlineMinusCircle
                       size={24}
