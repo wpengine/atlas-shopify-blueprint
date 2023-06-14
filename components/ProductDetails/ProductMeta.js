@@ -64,7 +64,7 @@ const ProductMeta = ({
         </>
       )}
 
-      <div>
+      <div aria-label="quantity-amount-section">
         <p>
           <b>
             <span style={{ color: 'red' }}>{variant?.quantityAvailable}</span>{' '}

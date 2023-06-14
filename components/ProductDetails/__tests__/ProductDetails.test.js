@@ -1,31 +1,39 @@
 import '@testing-library/jest-dom';
 import RETRIEVE_CART from '../../../queries/Cart';
 import ADD_TO_CART from '../../../mutations/AddToCart';
-import multiple from '../../../data/stubs/cart/multiple';
+import { cartMultiple } from '../../../data/stubs/cart/cartMultiple';
 import { MockedProvider } from '@apollo/react-testing';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import productsStub from '../../../data/stubs/products';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+  within,
+} from '@testing-library/react';
+import { productsShop } from '../../../data/productsShop';
 import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
 
 describe('<ProductDetails />', () => {
   it('displays a product with no variants', () => {
-    const noVariantsProduct = productsStub.data.products.nodes[0];
+    const noVariantsProduct = productsShop.data.products.nodes[0];
+
     render(<ProductDetails product={noVariantsProduct} />);
 
     expect(screen.getByText(/Radiowave Shirt/i)).toBeInTheDocument();
   });
 
   it('displays a product with variants', () => {
-    const variantsProduct = productsStub.data.products.nodes[3];
+    const variantsProduct = productsShop.data.products.nodes[3];
     render(<ProductDetails product={variantsProduct} />);
 
     expect(screen.getByText(/Triangulum Hoodie/i)).toBeInTheDocument();
   });
 
   it('changes the image and the colour at the same time', () => {
-    const variantsProduct = productsStub.data.products.nodes[3];
+    const variantsProduct = productsShop.data.products.nodes[3];
     render(<ProductDetails product={variantsProduct} />);
 
     expect(screen.getByText(/TRI-1/i)).toBeInTheDocument();
@@ -35,7 +43,10 @@ describe('<ProductDetails />', () => {
     ).toBe('');
 
     const selectedImage = screen.getByTestId('slide-image-1');
-    fireEvent.click(selectedImage);
+
+    act(() => {
+      fireEvent.click(selectedImage);
+    });
 
     expect(screen.queryByText(/TRI-1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/TRI-2/i)).toBeInTheDocument();
@@ -45,7 +56,7 @@ describe('<ProductDetails />', () => {
   });
 
   it('changes the colour and the image at the same time', () => {
-    const variantsProduct = productsStub.data.products.nodes[3];
+    const variantsProduct = productsShop.data.products.nodes[3];
     render(<ProductDetails product={variantsProduct} />);
 
     expect(screen.getByText(/TRI-1/i)).toBeInTheDocument();
@@ -55,7 +66,10 @@ describe('<ProductDetails />', () => {
     ).toBe('');
 
     const selectedColour = screen.getByTestId('variant-option-purple');
-    fireEvent.click(selectedColour);
+
+    act(() => {
+      fireEvent.click(selectedColour);
+    });
 
     expect(screen.queryByText(/TRI-1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/TRI-2/i)).toBeInTheDocument();
@@ -69,18 +83,18 @@ describe('<ProductDetails />', () => {
       request: {
         query: RETRIEVE_CART,
         variables: {
-          id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+          id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
     });
 
-    const variantsProduct = productsStub.data.products.nodes[7];
+    const variantsProduct = productsShop.data.products.nodes[7];
 
     render(
       <MockedProvider mocks={[retrieveCartMock]} addTypename={true}>
@@ -90,7 +104,7 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getByText(/Add to cart/i))
         .closest('button')
         .toBeDisabled();
@@ -102,17 +116,17 @@ describe('<ProductDetails />', () => {
       request: {
         query: RETRIEVE_CART,
         variables: {
-          id: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
+          id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     const addToCartMock = {
       request: {
         query: ADD_TO_CART,
         variables: {
-          cartId: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
+          cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
           lines: [
             {
               quantity: 1,
@@ -121,7 +135,7 @@ describe('<ProductDetails />', () => {
           ],
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
@@ -129,7 +143,7 @@ describe('<ProductDetails />', () => {
       value: `${CART_COOKIE}=gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a`,
     });
 
-    const variantsProduct = productsStub.data.products.nodes[0];
+    const variantsProduct = productsShop.data.products.nodes[0];
 
     render(
       <MockedProvider
@@ -142,12 +156,21 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    waitFor(() => {
-      expect(screen.getByText(/4 left at this price/i)).toBeVisible();
+    await waitFor(() => {
+      const quantityAmountSection = screen.getByLabelText(
+        'quantity-amount-section'
+      );
+      expect(within(quantityAmountSection).getByText('10')).toBeVisible();
+      expect(
+        within(quantityAmountSection).getByText(/left at this price/i)
+      ).toBeVisible();
+    });
+
+    act(() => {
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
     });
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         screen.getByText(/Radiowave Shirt has been added to your cart/i)
       ).toBeVisible();
@@ -162,7 +185,7 @@ describe('<ProductDetails />', () => {
           id: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     const addToCartMock = {
@@ -186,7 +209,7 @@ describe('<ProductDetails />', () => {
       value: `${CART_COOKIE}=gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a`,
     });
 
-    const variantsProduct = productsStub.data.products.nodes[0];
+    const variantsProduct = productsShop.data.products.nodes[0];
 
     render(
       <MockedProvider
@@ -199,12 +222,12 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getByText(/4 left at this price/i)).toBeVisible();
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
     });
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         screen.getByText(/There was an issue adding this item to the cart/i)
       ).toBeVisible();
