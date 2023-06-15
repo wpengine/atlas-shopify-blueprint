@@ -6,12 +6,13 @@ import {
   screen,
   waitFor,
   within,
+  act,
 } from '@testing-library/react';
 import ProductList from '../ProductList';
 import { GET_PRODUCTS } from '../../../queries/Products';
 import { GET_COLLECTION } from '../../../queries/Collections';
-import productsStub from '../../../data/stubs/products';
 import { FILTERS } from '../../../constants/filters';
+import productsStub from '../../../data/products';
 
 describe('<ProductList />', () => {
   test('Rendering list of products', async () => {
@@ -34,7 +35,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         productsStub.data.products.nodes.length
       );
@@ -87,15 +88,17 @@ describe('<ProductList />', () => {
       </MockedProvider>
     );
 
-    fireEvent.change(screen.getByRole('combobox', { name: 'shop-filter' }), {
-      target: { value: 'price-desc' },
+    act(() => {
+      fireEvent.change(screen.getByRole('combobox', { name: 'shop-filter' }), {
+        target: { value: 'price-desc' },
+      });
     });
 
-    waitFor(async () => {
+    await waitFor(async () => {
       const allProducts = await screen.findAllByRole('listitem');
-      const firstPrice = within(allProducts[0]).getByText('$35.0');
+      const firstPrice = within(allProducts[0]).getByText('$35.00');
       const lastPrice = within(allProducts[allProducts.length - 1]).getByText(
-        '$15.0'
+        '$12.34'
       );
       expect(firstPrice).toBeInTheDocument();
       expect(lastPrice).toBeInTheDocument();
@@ -136,7 +139,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         collectionsMock.result.data.collection.products.nodes.length
       );
@@ -179,7 +182,7 @@ describe('<ProductList />', () => {
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
         collectionsMock.result.data.collection.products.nodes.length
       );

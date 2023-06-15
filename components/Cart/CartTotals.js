@@ -21,7 +21,7 @@ const CartTotals = ({ cartSubTotal, cartTotal, checkoutUrl }) => {
     <div className={styles.cartTotals}>
       <h3>Summary</h3>
 
-      <table>
+      <table data-testid="summary">
         <tbody>
           <tr>
             <th>Subtotal</th>

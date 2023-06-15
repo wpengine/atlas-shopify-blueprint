@@ -1,17 +1,29 @@
 import '@testing-library/jest-dom';
 import RETRIEVE_CART from '../../../queries/Cart';
 import ADD_TO_CART from '../../../mutations/AddToCart';
-import multiple from '../../../data/stubs/cart/multiple';
+import {
+  cartMultiple,
+  addToCartMultiple,
+  disabledButtonCartMultiple,
+} from '../../../data/stubs/cart/cartMultiple';
 import { MockedProvider } from '@apollo/react-testing';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import productsStub from '../../../data/stubs/products';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+} from '@testing-library/react';
+import productsStub from '../../../data/products';
 import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
 
 describe('<ProductDetails />', () => {
+  global.scrollTo = jest.fn();
   it('displays a product with no variants', () => {
     const noVariantsProduct = productsStub.data.products.nodes[0];
+
     render(<ProductDetails product={noVariantsProduct} />);
 
     expect(screen.getByText(/Radiowave Shirt/i)).toBeInTheDocument();
@@ -35,7 +47,10 @@ describe('<ProductDetails />', () => {
     ).toBe('');
 
     const selectedImage = screen.getByTestId('slide-image-1');
-    fireEvent.click(selectedImage);
+
+    act(() => {
+      fireEvent.click(selectedImage);
+    });
 
     expect(screen.queryByText(/TRI-1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/TRI-2/i)).toBeInTheDocument();
@@ -55,7 +70,10 @@ describe('<ProductDetails />', () => {
     ).toBe('');
 
     const selectedColour = screen.getByTestId('variant-option-purple');
-    fireEvent.click(selectedColour);
+
+    act(() => {
+      fireEvent.click(selectedColour);
+    });
 
     expect(screen.queryByText(/TRI-1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/TRI-2/i)).toBeInTheDocument();
@@ -69,15 +87,15 @@ describe('<ProductDetails />', () => {
       request: {
         query: RETRIEVE_CART,
         variables: {
-          id: 'gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d',
+          id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: multiple },
+      result: { data: disabledButtonCartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: `${CART_COOKIE}=gid://shopify/Cart/c1-c63c275d6f27eb309d4efac08dee2e7d`,
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
     });
 
     const variantsProduct = productsStub.data.products.nodes[7];
@@ -90,10 +108,8 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    waitFor(() => {
-      expect(screen.getByText(/Add to cart/i))
-        .closest('button')
-        .toBeDisabled();
+    await waitFor(() => {
+      expect(screen.getByText(/Add to cart/i).closest('button')).toBeDisabled();
     });
   });
 
@@ -102,17 +118,17 @@ describe('<ProductDetails />', () => {
       request: {
         query: RETRIEVE_CART,
         variables: {
-          id: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
+          id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     const addToCartMock = {
       request: {
         query: ADD_TO_CART,
         variables: {
-          cartId: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
+          cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
           lines: [
             {
               quantity: 1,
@@ -121,12 +137,12 @@ describe('<ProductDetails />', () => {
           ],
         },
       },
-      result: { data: multiple },
+      result: { data: addToCartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: `${CART_COOKIE}=gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a`,
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
     });
 
     const variantsProduct = productsStub.data.products.nodes[0];
@@ -142,12 +158,15 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    waitFor(() => {
-      expect(screen.getByText(/4 left at this price/i)).toBeVisible();
+    await waitFor(() => {
+      expect((screen.getByRole('button')).dataset.cartId).toBe("gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca");
+    })
+
+    act(() => {
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
     });
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         screen.getByText(/Radiowave Shirt has been added to your cart/i)
       ).toBeVisible();
@@ -159,17 +178,17 @@ describe('<ProductDetails />', () => {
       request: {
         query: RETRIEVE_CART,
         variables: {
-          id: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
+          id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: multiple },
+      result: { data: cartMultiple },
     };
 
     const addToCartMock = {
       request: {
         query: ADD_TO_CART,
         variables: {
-          cartId: 'gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a',
+          cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
           lines: [
             {
               quantity: 1,
@@ -183,7 +202,7 @@ describe('<ProductDetails />', () => {
 
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: `${CART_COOKIE}=gid://shopify/Cart/c1-6bcda1657c8fa22e7188b08d5b217a2a`,
+      value: `${CART_COOKIE}=gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca`,
     });
 
     const variantsProduct = productsStub.data.products.nodes[0];
@@ -199,12 +218,17 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    waitFor(() => {
-      expect(screen.getByText(/4 left at this price/i)).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('button').dataset.cartId).toBe(
+        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca'
+      );
+    });
+
+    act(() => {
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
     });
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         screen.getByText(/There was an issue adding this item to the cart/i)
       ).toBeVisible();

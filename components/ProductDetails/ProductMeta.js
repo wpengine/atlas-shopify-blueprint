@@ -27,7 +27,7 @@ const ProductMeta = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
 
-  const { cartItems } = useShopifyCart();
+  const { cartItems, cartId } = useShopifyCart();
 
   const itemInCart = cartItems?.find(
     (line) => line.merchandise.sku === variant?.sku
@@ -64,7 +64,7 @@ const ProductMeta = ({
         </>
       )}
 
-      <div>
+      <div aria-label="quantity-amount-section">
         <p>
           <b>
             <span style={{ color: 'red' }}>{variant?.quantityAvailable}</span>{' '}
@@ -84,6 +84,7 @@ const ProductMeta = ({
         />
       </div>
       <CtaButton
+        cartId={cartId}
         ctaLabel="Add to cart"
         ctaClick={() => handleSubmit(parseInt(quantity), variant?.id)}
         disabled={itemInCart?.quantity === variant?.quantityAvailable}

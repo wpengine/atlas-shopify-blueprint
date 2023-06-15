@@ -1,19 +1,22 @@
 import { ApolloProvider, gql, useQuery } from '@apollo/client';
 import { getNextStaticProps } from '@faustwp/core';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
-
-import { Container, Footer, Header, Main, NavigationMenu, ProductNotification, SEO } from '../components';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import { ShopifyCartProvider } from '../hooks/useShopifyCart';
 import shopifyClient from '../utilities/shopifyClient';
+import {
+  Header,
+  Footer,
+  Main,
+  Container,
+  NavigationMenu,
+  SEO,
+} from '../components';
 
 const Cart = dynamic(() => import('../components/Cart'), { ssr: false });
 
 export default function Page() {
-  const [productNotification, setProductNotification] = useState();
-
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -35,16 +38,7 @@ export default function Page() {
           />
           <Main>
             <Container>
-              <div className="text-center spacing-top">
-                <h1>Cart</h1>
-                {productNotification && (
-                  <ProductNotification
-                    productNotification={productNotification}
-                    cartPage
-                  />
-                )}
-                <Cart setProductNotification={setProductNotification} />{' '}
-              </div>
+              <Cart />
             </Container>
           </Main>
           <Footer title={siteTitle} menuItems={footerMenu} />

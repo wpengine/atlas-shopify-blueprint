@@ -91,7 +91,7 @@ const CartTable = ({
         if (quantityAfterUpdate < quantityToUpdate) {
           setProductNotification({
             message:
-              'The maximum amount available for this product has been added to the cart',
+              'The maximum amount available for this product has been added to the cart.',
             className: 'error',
           });
         } else if (quantityAfterUpdate === quantityToUpdate) {
@@ -136,7 +136,7 @@ const CartTable = ({
               <tr key={`cart-item-${item.id}`}>
                 <td className={styles.hideOnMobile}>
                   <AiOutlineCloseCircle
-                    data-testid="remove-button"
+                    data-testid={`remove-button-${item.id}`}
                     size={24}
                     className={styles.clickableIcon}
                     onClick={() => handleDelete(cartId, item.id, product.title)}
@@ -156,7 +156,7 @@ const CartTable = ({
                   </Link>
                 </td>
                 <td>{priceFormatter(item.cost.amountPerQuantity.amount)}</td>
-                <td>
+                <td aria-label="quantity-section">
                   <div className={styles.quantity}>
                     <AiOutlineMinusCircle
                       size={24}
@@ -170,7 +170,11 @@ const CartTable = ({
                         )
                       }
                     />
-                    {item.quantity}
+                    <span
+                      aria-label={`item-quantity-${item.quantity}-${item.id}`}
+                    >
+                      {item.quantity}
+                    </span>
                     <AiOutlinePlusCircle
                       size={24}
                       data-testid="increase-button"
