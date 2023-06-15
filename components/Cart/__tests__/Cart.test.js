@@ -131,7 +131,7 @@ describe('<Cart />', () => {
         expect(screen.getByText(/Topography Shirt/i)).toBeVisible();
       });
 
-      const remove = await screen.getByTestId('remove-button-0');
+      const remove = await screen.getByTestId('remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca');
 
       act(() => {
         fireEvent.click(remove);
@@ -191,7 +191,7 @@ describe('<Cart />', () => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
       });
 
-      const remove = await screen.getByTestId('remove-button-0');
+      const remove = await screen.getByTestId('remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca');
 
       act(() => {
         fireEvent.click(remove);
@@ -342,7 +342,7 @@ describe('<Cart />', () => {
 
       await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-        expect(screen.getByLabelText('item-quantity-1-0')).toBeInTheDocument();
+        expect(screen.getByLabelText('item-quantity-1-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca')).toBeInTheDocument();
       });
 
       const increaseButton = await screen.getByTestId('increase-button');
@@ -353,7 +353,7 @@ describe('<Cart />', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByLabelText('item-quantity-2-0')).toBeInTheDocument();
+        expect(screen.getByLabelText('item-quantity-2-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca')).toBeInTheDocument();
       });
 
       // add another which can't go beyond 2
@@ -386,7 +386,7 @@ describe('<Cart />', () => {
             /The maximum amount available for this product has been added to the cart./i
           )
         ).not.toBeInTheDocument();
-        expect(screen.getByLabelText('item-quantity-1-0')).toBeInTheDocument();
+        expect(screen.getByLabelText('item-quantity-1-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca')).toBeInTheDocument();
       });
     });
 

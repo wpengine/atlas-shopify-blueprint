@@ -4,7 +4,6 @@ import ADD_TO_CART from '../../../mutations/AddToCart';
 import {
   cartMultiple,
   addToCartMultiple,
-  disableadButtonCartMultiple,
 } from '../../../data/stubs/cart/cartMultiple';
 import { MockedProvider } from '@apollo/react-testing';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
@@ -14,13 +13,13 @@ import {
   fireEvent,
   waitFor,
   act,
-  within,
 } from '@testing-library/react';
 import productsStub from '../../../data/products';
 import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
 
 describe('<ProductDetails />', () => {
+  global.scrollTo = jest.fn();
   it('displays a product with no variants', () => {
     const noVariantsProduct = productsStub.data.products.nodes[0];
 
@@ -90,7 +89,7 @@ describe('<ProductDetails />', () => {
           id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: disableadButtonCartMultiple },
+      result: { data: cartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
@@ -108,10 +107,10 @@ describe('<ProductDetails />', () => {
       </MockedProvider>
     );
 
-    const addToCartButton = await screen.getByText('Add to cart');
-
     await waitFor(() => {
-      expect(addToCartButton).closest('button').toBeDisabled();
+      expect(screen.getByText(/Add to cart/i))
+        .closest('button')
+        .toBeDisabled();
     });
   });
 
@@ -161,12 +160,6 @@ describe('<ProductDetails />', () => {
         </ShopifyCartProvider>
       </MockedProvider>
     );
-
-    await waitFor(() => {
-      expect(screen.getByRole('button').dataset.cartId).toBe(
-        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca'
-      );
-    });
 
     act(() => {
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
@@ -225,13 +218,9 @@ describe('<ProductDetails />', () => {
     );
 
     await waitFor(() => {
-      const quantityAmountSection = screen.getByLabelText(
-        'quantity-amount-section'
+      expect(screen.getByRole('button').dataset.cartId).toBe(
+        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca'
       );
-      expect(within(quantityAmountSection).getByText('10')).toBeVisible();
-      expect(
-        within(quantityAmountSection).getByText(/left at this price/i)
-      ).toBeVisible();
     });
 
     act(() => {

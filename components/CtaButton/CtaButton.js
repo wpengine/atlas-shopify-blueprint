@@ -18,7 +18,7 @@ const CtaButton = ({
   ctaLabel = null,
   disabled,
   ctaClick,
-  cartId,
+  cartId = null,
 }) => {
   return ctaLink ? (
     <div className={styles.buttonContainer} onClick={ctaClick}>
@@ -29,10 +29,10 @@ const CtaButton = ({
   ) : (
     <div className={styles.buttonContainer}>
       <button
-        data-cart-id={cartId}
         disabled={disabled}
         className={styles.button}
         onClick={ctaClick}
+        data-cart-id={cartId}
       >
         {ctaLabel}
       </button>

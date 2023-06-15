@@ -450,3 +450,192 @@ export const addToCartMultiple = {
     __typename: 'CartLinesAddPayload',
   },
 };
+
+export const disabledButtonCartMultiple = {
+  cart: {
+    id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
+    createdAt: '2023-06-11T13:08:53Z',
+    updatedAt: '2023-06-15T09:35:02Z',
+    checkoutUrl:
+      'https://blueprintbetatest.myshopify.com/cart/c/c1-74d26c3130aa39e303d99d4d430c6eca',
+    totalQuantity: 5,
+    lines: {
+      nodes: [
+        {
+          id: 'gid://shopify/CartLine/89d99461-5e2e-4f9a-a2e2-7f999fdf7bfe?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          quantity: 1,
+          merchandise: {
+            id: 'gid://shopify/ProductVariant/44876466749743',
+            sku: 'TRI-1',
+            title: 'Blue',
+            image: {
+              url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hoodie-blue.jpg?v=1681383898',
+              altText: null,
+              __typename: 'Image',
+            },
+            product: {
+              id: 'gid://shopify/Product/8235118264623',
+              handle: 'triangulum-hoodie',
+              title: 'Triangulum Hoodie',
+              __typename: 'Product',
+            },
+            __typename: 'ProductVariant',
+          },
+          cost: {
+            amountPerQuantity: {
+              amount: '35.0',
+              __typename: 'MoneyV2',
+            },
+            totalAmount: {
+              amount: '35.0',
+              __typename: 'MoneyV2',
+            },
+            __typename: 'CartLineCost',
+          },
+          attributes: [],
+          __typename: 'CartLine',
+        },
+        {
+          id: 'gid://shopify/CartLine/b554557c-7611-4767-aa3c-cf3d6b0b5965?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          quantity: 1,
+          merchandise: {
+            id: 'gid://shopify/ProductVariant/44876453544239',
+            sku: 'TPG-1',
+            title: 'Default Title',
+            image: {
+              url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-gray_2717712f-efe9-443b-a417-dc074b129a14.jpg?v=1681383619',
+              altText: null,
+              __typename: 'Image',
+            },
+            product: {
+              id: 'gid://shopify/Product/8235111022895',
+              handle: 'topography-shirt',
+              title: 'Topography Shirt',
+              __typename: 'Product',
+            },
+            __typename: 'ProductVariant',
+          },
+          cost: {
+            amountPerQuantity: {
+              amount: '20.0',
+              __typename: 'MoneyV2',
+            },
+            totalAmount: {
+              amount: '20.0',
+              __typename: 'MoneyV2',
+            },
+            __typename: 'CartLineCost',
+          },
+          attributes: [],
+          __typename: 'CartLine',
+        },
+        {
+          id: 'gid://shopify/CartLine/14bb84c7-4268-45f5-acd9-881cc14d7118?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          quantity: 2,
+          merchandise: {
+            id: 'gid://shopify/ProductVariant/44876574720303',
+            sku: 'TCC-1',
+            title: 'Default Title',
+            image: {
+              url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
+              altText: null,
+              __typename: 'Image',
+            },
+            product: {
+              id: 'gid://shopify/Product/8235141300527',
+              handle: 'toasty-cap-cotton',
+              title: 'Toasty Cap Cotton',
+              __typename: 'Product',
+            },
+            __typename: 'ProductVariant',
+          },
+          variants: {
+            nodes: [
+              {
+                id: 'gid://shopify/ProductVariant/44876574720303',
+                sku: 'TCC-1',
+                quantityAvailable: 2,
+                image: {
+                  url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
+                  __typename: 'Image',
+                },
+                selectedOptions: [
+                  {
+                    name: 'Title',
+                    value: 'Default Title',
+                    __typename: 'SelectedOption',
+                  },
+                ],
+                price: {
+                  amount: '20.0',
+                  currencyCode: 'USD',
+                  __typename: 'MoneyV2',
+                },
+                compareAtPrice: {
+                  amount: '25.0',
+                  currencyCode: 'USD',
+                  __typename: 'MoneyV2',
+                },
+                __typename: 'ProductVariant',
+              },
+            ],
+            __typename: 'ProductVariantConnection',
+          },
+          __typename: 'Product',
+        },
+        {
+          id: 'gid://shopify/CartLine/49faa432-583b-4dde-b99f-0a27753bb35c?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          quantity: 1,
+          merchandise: {
+            id: 'gid://shopify/ProductVariant/44876432343343',
+            sku: 'RWV-1',
+            title: 'Default Title',
+            image: {
+              url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187',
+              altText: null,
+              __typename: 'Image',
+            },
+            product: {
+              id: 'gid://shopify/Product/8235106631983',
+              handle: 'radiowave-shirt',
+              title: 'Radiowave Shirt',
+              __typename: 'Product',
+            },
+            __typename: 'ProductVariant',
+          },
+          cost: {
+            amountPerQuantity: {
+              amount: '18.0',
+              __typename: 'MoneyV2',
+            },
+            totalAmount: {
+              amount: '18.0',
+              __typename: 'MoneyV2',
+            },
+            __typename: 'CartLineCost',
+          },
+          attributes: [],
+          __typename: 'CartLine',
+        },
+      ],
+      __typename: 'CartLineConnection',
+    },
+    attributes: [],
+    cost: {
+      totalAmount: {
+        amount: '113.0',
+        currencyCode: 'USD',
+        __typename: 'MoneyV2',
+      },
+      subtotalAmount: {
+        amount: '113.0',
+        currencyCode: 'USD',
+        __typename: 'MoneyV2',
+      },
+      totalTaxAmount: null,
+      totalDutyAmount: null,
+      __typename: 'CartCost',
+    },
+    __typename: 'Cart',
+  },
+};
