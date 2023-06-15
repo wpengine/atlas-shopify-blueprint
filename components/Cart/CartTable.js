@@ -128,15 +128,15 @@ const CartTable = ({
           </tr>
         </thead>
         <tbody>
-          {cartItems?.map?.((item, index) => {
+          {cartItems?.map?.((item) => {
             const product = item.merchandise.product;
             const image = item.merchandise.image;
 
             return (
-              <tr key={`cart-item-${index}`}>
+              <tr key={`cart-item-${item.id}`}>
                 <td className={styles.hideOnMobile}>
                   <AiOutlineCloseCircle
-                    data-testid={`remove-button-${index}`}
+                    data-testid={`remove-button-${item.id}`}
                     size={24}
                     className={styles.clickableIcon}
                     onClick={() => handleDelete(cartId, item.id, product.title)}
@@ -171,7 +171,7 @@ const CartTable = ({
                       }
                     />
                     <span
-                      aria-label={`item-quantity-${item.quantity}-${index}`}
+                      aria-label={`item-quantity-${item.quantity}-${item.id}`}
                     >
                       {item.quantity}
                     </span>
