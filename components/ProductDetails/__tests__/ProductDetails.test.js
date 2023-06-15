@@ -4,6 +4,7 @@ import ADD_TO_CART from '../../../mutations/AddToCart';
 import {
   cartMultiple,
   addToCartMultiple,
+  disabledButtonCartMultiple,
 } from '../../../data/stubs/cart/cartMultiple';
 import { MockedProvider } from '@apollo/react-testing';
 import { ShopifyCartProvider } from '../../../hooks/useShopifyCart';
@@ -89,7 +90,7 @@ describe('<ProductDetails />', () => {
           id: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
         },
       },
-      result: { data: cartMultiple },
+      result: { data: disabledButtonCartMultiple },
     };
 
     Object.defineProperty(window.document, 'cookie', {
@@ -108,15 +109,11 @@ describe('<ProductDetails />', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Add to cart/i))
-        .closest('button')
-        .toBeDisabled();
+      expect(screen.getByText(/Add to cart/i).closest('button')).toBeDisabled();
     });
   });
 
   it('adds an item to the cart successfully', async () => {
-    global.scrollTo = jest.fn();
-
     const retrieveCartMock = {
       request: {
         query: RETRIEVE_CART,
@@ -160,6 +157,10 @@ describe('<ProductDetails />', () => {
         </ShopifyCartProvider>
       </MockedProvider>
     );
+
+    await waitFor(() => {
+      expect((screen.getByRole('button')).dataset.cartId).toBe("gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca");
+    })
 
     act(() => {
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
