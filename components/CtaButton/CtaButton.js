@@ -13,7 +13,13 @@ import styles from './CtaButton.module.scss';
  * @returns {React.ReactElement} The CtaButton component.
  */
 
-const CtaButton = ({ ctaLink = null, ctaLabel = null, disabled, ctaClick }) => {
+const CtaButton = ({
+  ctaLink = null,
+  ctaLabel = null,
+  disabled,
+  ctaClick,
+  cartId,
+}) => {
   return ctaLink ? (
     <div className={styles.buttonContainer} onClick={ctaClick}>
       <Link href={ctaLink}>
@@ -22,7 +28,12 @@ const CtaButton = ({ ctaLink = null, ctaLabel = null, disabled, ctaClick }) => {
     </div>
   ) : (
     <div className={styles.buttonContainer}>
-      <button disabled={disabled} className={styles.button} onClick={ctaClick}>
+      <button
+        data-cart-id={cartId}
+        disabled={disabled}
+        className={styles.button}
+        onClick={ctaClick}
+      >
         {ctaLabel}
       </button>
     </div>
