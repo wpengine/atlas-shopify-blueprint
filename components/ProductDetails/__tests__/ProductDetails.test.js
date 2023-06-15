@@ -16,6 +16,7 @@ import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
 
 describe('<ProductDetails />', () => {
+  global.scrollTo = jest.fn();
   it('displays a product with no variants', () => {
     const noVariantsProduct = productsStub.data.products.nodes[0];
 
