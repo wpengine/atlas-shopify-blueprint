@@ -1,10 +1,10 @@
-import { ApolloProvider } from '@apollo/client';
-import { ShopifyCartProvider } from '../hooks/useShopifyCart';
+import { ApolloProvider, gql, useQuery } from '@apollo/client';
+import { getNextStaticProps } from '@faustwp/core';
 import dynamic from 'next/dynamic';
-import shopifyClient from '../utilities/shopifyClient';
-import { gql, useQuery } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import { ShopifyCartProvider } from '../hooks/useShopifyCart';
+import shopifyClient from '../utilities/shopifyClient';
 import {
   Header,
   Footer,
@@ -13,7 +13,6 @@ import {
   NavigationMenu,
   SEO,
 } from '../components';
-import { getNextStaticProps } from '@faustwp/core';
 
 const Cart = dynamic(() => import('../components/Cart'), { ssr: false });
 
