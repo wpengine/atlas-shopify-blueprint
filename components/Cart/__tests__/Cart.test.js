@@ -18,7 +18,7 @@ import Cart from '../Cart';
 import UPDATE_CART_QUANTITY from '../../../mutations/QuantityCart';
 import {
   cartMultiple,
-  removeFromMultipleCart,
+  removeFromCartMultiple,
 } from '../../../data/stubs/cart/cartMultiple';
 import {
   cartSingle,
@@ -107,7 +107,7 @@ describe('<Cart />', () => {
             ],
           },
         },
-        result: { data: removeFromMultipleCart },
+        result: { data: removeFromCartMultiple },
       };
 
       Object.defineProperty(window.document, 'cookie', {

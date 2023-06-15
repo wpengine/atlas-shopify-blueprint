@@ -12,7 +12,7 @@ import ProductList from '../ProductList';
 import { GET_PRODUCTS } from '../../../queries/Products';
 import { GET_COLLECTION } from '../../../queries/Collections';
 import { FILTERS } from '../../../constants/filters';
-import { productsShop } from '../../../data/productsShop';
+import productsStub from '../../../data/products';
 
 describe('<ProductList />', () => {
   test('Rendering list of products', async () => {
@@ -25,7 +25,7 @@ describe('<ProductList />', () => {
           handle: null,
         },
       },
-      result: productsShop,
+      result: productsStub,
     };
 
     render(
@@ -37,7 +37,7 @@ describe('<ProductList />', () => {
     expect(screen.getByTestId('loading')).toBeVisible();
     await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
-        productsShop.data.products.nodes.length
+        productsStub.data.products.nodes.length
       );
     });
   });
@@ -52,10 +52,10 @@ describe('<ProductList />', () => {
           handle: null,
         },
       },
-      result: productsShop,
+      result: productsStub,
     };
 
-    const sortedNodes = productsShop.data.products.nodes.sort((a, b) => {
+    const sortedNodes = productsStub.data.products.nodes.sort((a, b) => {
       const priceA = parseFloat(a.variants.nodes[0].price.amount);
       const priceB = parseFloat(b.variants.nodes[0].price.amount);
       return priceB - priceA;
@@ -106,7 +106,7 @@ describe('<ProductList />', () => {
   });
 
   test('Rendering list of products by clothing collection', async () => {
-    const collection = productsShop.data.products.nodes.filter((product) => {
+    const collection = productsStub.data.products.nodes.filter((product) => {
       return product.collections.nodes.find(
         (collection) => collection.title === 'Clothing'
       );
@@ -149,7 +149,7 @@ describe('<ProductList />', () => {
   });
 
   test('Rendering list of products by apparel & accessories collection', async () => {
-    const collection = productsShop.data.products.nodes.filter((product) => {
+    const collection = productsStub.data.products.nodes.filter((product) => {
       return product.collections.nodes.find(
         (collection) => collection.title === 'Apparel & Accessories'
       );

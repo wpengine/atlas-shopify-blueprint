@@ -7,6 +7,7 @@ import ProductGallery from './ProductGallery';
 import styles from './ProductDetails.module.scss';
 import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
+import { ProductNotification } from '../ProductNotification';
 
 /**
  * Render the ProductDetails component.
@@ -18,10 +19,11 @@ import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
  * @returns {React.ReactElement} The ProductDetails component.
  */
 
-const ProductDetails = ({ product, setProductNotification }) => {
+const ProductDetails = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants?.nodes[0]
   );
+  const [productNotification, setProductNotification] = useState();
 
   const { addToCart, cartId, retrieveCart, setCartData } = useShopifyCart();
 
@@ -78,33 +80,40 @@ const ProductDetails = ({ product, setProductNotification }) => {
   }
 
   return (
-    <div className={styles.component}>
-      <div className={styles.detailsColumn}>
-        <ProductGallery
-          images={variantImages}
-          selected={selectedVariant?.image?.url}
-          variant={selectedVariant?.selectedOptions?.[0]?.value}
-          handleImageChange={handleVariantChange}
+    <div>
+      {productNotification && (
+        <ProductNotification
+          productNotification={productNotification}
         />
-      </div>
-      <div className={styles.detailsColumn}>
-        {selectedVariant?.compareAtPrice && (
-          <span className={styles.onSale}>Sale</span>
-        )}
-        <h1>{product?.title}</h1>
-        <ProductPrice
-          salePrice={selectedVariant?.compareAtPrice}
-          price={selectedVariant?.price?.amount}
-          currencyCode={selectedVariant?.price?.currencyCode}
-        />
-        <ProductDescription description={product?.description} />
-        <ProductMeta
-          variant={selectedVariant}
-          collections={collections}
-          variantOptions={{ label: variantsLabel, options: variantsOptions }}
-          handleSubmit={handleSubmit}
-          handleOptionChange={handleVariantChange}
-        />
+      )}
+      <div className={styles.component}>
+        <div className={styles.detailsColumn}>
+          <ProductGallery
+            images={variantImages}
+            selected={selectedVariant?.image?.url}
+            variant={selectedVariant?.selectedOptions?.[0]?.value}
+            handleImageChange={handleVariantChange}
+          />
+        </div>
+        <div className={styles.detailsColumn}>
+          {selectedVariant?.compareAtPrice && (
+            <span className={styles.onSale}>Sale</span>
+          )}
+          <h1>{product?.title}</h1>
+          <ProductPrice
+            salePrice={selectedVariant?.compareAtPrice}
+            price={selectedVariant?.price?.amount}
+            currencyCode={selectedVariant?.price?.currencyCode}
+          />
+          <ProductDescription description={product?.description} />
+          <ProductMeta
+            variant={selectedVariant}
+            collections={collections}
+            variantOptions={{ label: variantsLabel, options: variantsOptions }}
+            handleSubmit={handleSubmit}
+            handleOptionChange={handleVariantChange}
+          />
+        </div>
       </div>
     </div>
   );

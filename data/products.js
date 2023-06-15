@@ -1,4 +1,4 @@
-export const productsShop = {
+const productsStub = {
     "data": {
         "products": {
             "nodes": [
@@ -836,3 +836,5 @@ export const productsShop = {
         }
     }
 }
+
+export default productsStub;

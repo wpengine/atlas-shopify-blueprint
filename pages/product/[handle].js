@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { gql, useQuery, ApolloProvider } from '@apollo/client';
 import { getNextStaticProps } from '@faustwp/core';
 import shopifyClient from '../../utilities/shopifyClient';
@@ -13,13 +12,11 @@ import {
   Container,
   NavigationMenu,
   ProductDetails,
-  ProductNotification,
   SEO,
 } from '../../components';
 import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 
 export default function Page(props) {
-  const [productNotification, setProductNotification] = useState();
 
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
@@ -44,14 +41,8 @@ export default function Page(props) {
           />
           <Main>
             <Container>
-              {productNotification && (
-                <ProductNotification
-                  productNotification={productNotification}
-                />
-              )}
               <ProductDetails
                 product={product}
-                setProductNotification={setProductNotification}
               />
             </Container>
           </Main>
