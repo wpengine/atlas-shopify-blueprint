@@ -104,7 +104,7 @@ describe('<ProductDetails />', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Add to foocart/i).closest('button')).toBeDisabled();
+      expect(screen.getByText(/Add to cart/i).closest('button')).toBeDisabled();
     });
   });
 
