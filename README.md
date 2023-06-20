@@ -10,7 +10,9 @@ This repository contains a starter Blueprint to get you up and running quickly o
 
 ## Development
 
-Copy `.env.local.sample` to `.env.local` in your local development environment to set environment variables locally. The sample env file points to the demo Shopify Blueprint Wordpress site, but you can change it to point to a local Wordpress site instead. Add your Shopify variables to configure the Shopify Client.
+Copy `.env.local.sample` to `.env.local` in your local development environment to set environment variables locally. The sample env file points to the demo Shopify Blueprint Wordpress site, but you can change it to point to a local Wordpress site instead.
+
+[Add your Shopify variables to configure the Shopify Client](#configuring-shopify-locally-and-on-atlas).
 
 Install dependencies with `npm install` - if you run into issues try `npm install --legacy-peer-deps`
 
@@ -34,13 +36,18 @@ To run tests `npm run test`
 
 [Eslint](https://eslint.org/) and Prettier are used for linting and formatting. Please have [Prettier](https://prettier.io/) installed in Vs Code when developing locally to adhere to formatting standards. For pre commit linting and formatting we use [Husky](https://github.com/typicode/husky). This will run when a you run a commit, if it fails check the Node logs for issues that need to be solved before committing again.
 
-## NVM ( Node Version Manager)
+## NVM ( Node Version Manager )
 
 `.nvmrc` is specifying that Node.js `v18` should be used. Any developer could then run `nvm use` to download, install, and switch to that version. `nvm install` will then install dependencies in line with that version.
 
 ## Configuring Shopify locally and on Atlas
 
-TBC
+In addition to default environment variables the Shopify Blueprint needs to add 2 more as follows:
+
+- NEXT_PUBLIC_SHOPIFY_TOKEN
+- NEXT_PUBLIC_SHOPIFY_URL
+
+For local development these can be added to `.env.local` and for production deployments these can be added in Atlas Dashboard. See [WP Engine headless docs for directions on how to configure Atlas Environment Variables](https://developers.wpengine.com/docs/atlas/local-app-development/frontend-app-config#2--define-environment-variables).
 
 ## For more information
 
