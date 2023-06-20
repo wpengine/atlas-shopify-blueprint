@@ -15,9 +15,9 @@ const ProductPrice = ({ compareAtPrice, price, currencyCode }) => {
   return (
     <p className="price">
       {compareAtPrice && (
-        <>
+        <span data-testid="compare-price">
           <del>{priceFormatter(compareAtPrice, currencyCode)}</del>{' '}
-        </>
+        </span>
       )}
       {priceFormatter(price, currencyCode)}
     </p>
