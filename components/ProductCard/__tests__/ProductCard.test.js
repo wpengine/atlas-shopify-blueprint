@@ -51,8 +51,9 @@ describe('<ProductCard />', () => {
 
     expect(screen.getByText('$18.00')).toBeVisible();
     expect(screen.getByText('Radiowave Shirt')).toBeVisible();
+    expect(screen.getByText('$20.00')).toBeVisible();
     expect(screen.getByTestId('product-img')).toBeVisible();
     expect(screen.getByText('Sale')).toBeVisible();
-    expect(screen.getByTestId('sale-price')).toBeVisible();
+    expect(screen.getByTestId('compare-price')).toBeVisible();
   });
 });

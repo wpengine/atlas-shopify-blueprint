@@ -82,9 +82,7 @@ const ProductDetails = ({ product }) => {
   return (
     <div>
       {productNotification && (
-        <ProductNotification
-          productNotification={productNotification}
-        />
+        <ProductNotification productNotification={productNotification} />
       )}
       <div className={styles.component}>
         <div className={styles.detailsColumn}>
@@ -101,7 +99,7 @@ const ProductDetails = ({ product }) => {
           )}
           <h1>{product?.title}</h1>
           <ProductPrice
-            salePrice={selectedVariant?.compareAtPrice}
+            compareAtPrice={selectedVariant?.compareAtPrice?.amount}
             price={selectedVariant?.price?.amount}
             currencyCode={selectedVariant?.price?.currencyCode}
           />
