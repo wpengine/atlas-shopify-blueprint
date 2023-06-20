@@ -44,8 +44,8 @@ To run tests `npm run test`
 
 In addition to default environment variables the Shopify Blueprint needs to add 2 more as follows:
 
-- NEXT_PUBLIC_SHOPIFY_TOKEN
-- NEXT_PUBLIC_SHOPIFY_URL
+- NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN
+- NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL
 
 For local development these can be added to `.env.local` and for production deployments these can be added in Atlas Dashboard. See [WP Engine headless docs for directions on how to configure Atlas Environment Variables](https://developers.wpengine.com/docs/atlas/local-app-development/frontend-app-config#2--define-environment-variables).
 
