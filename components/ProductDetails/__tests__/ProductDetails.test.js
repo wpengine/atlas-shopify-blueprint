@@ -21,6 +21,18 @@ import { ProductDetails } from '..';
 
 describe('<ProductDetails />', () => {
   global.scrollTo = jest.fn();
+
+  beforeEach(() => {
+    const originalConsoleError = console.error;
+    console.error = jest.fn((...errors) => {
+      const errorMessage = errors.join(' ');
+      if (errorMessage.includes('An error occurred')) {
+        return;
+      }
+      originalConsoleError(...errors);
+    })
+  });
+
   it('displays a product with no variants', () => {
     const noVariantsProduct = productsStub.data.products.nodes[0];
 

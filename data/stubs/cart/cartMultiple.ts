@@ -352,79 +352,39 @@ export const addToCartMultiple = {
             __typename: 'CartLine',
           },
           {
-            "id": "gid://shopify/Product/8235106631983",
-            "handle": "radiowave-shirt",
-            "title": "Radiowave Shirt",
-            "description": "The most common form of commercial T-shirt decoration is screen-printing. In screen-printing, a design is separated into individual colors. Plastisol or water based inks are applied to the shirt through mesh screens which limits the areas where ink is deposited. In most commercial T-shirt printing, the specific colors in the design are used. 100% Cotton White To achieve a wider color spectrum with a limited number of colors, process printing or simulated process is effective. Process printing is best suited for light colored shirts. Simulated process is best suited for dark colored shirts. Eco-friendly Materials Before the hippie movement Rit Dye was known as a hobby for older women. Other methods of decorating shirts include using paints, markers, fabric transfer crayons, dyes, spray paint, and many more. Some techniques that can be used include sponging, stenciling, daubing, stamping, screen printing, bleaching, and many more.",
-            "featuredImage": {
-                "url": "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187",
-                "__typename": "Image"
+            id: "gid://shopify/CartLine/40fbd19a-1138-4611-b42d-6ebea6f0187d?cart=c1-699c431b11059f95758ef34a7aa93a45",
+            quantity: 1,
+            merchandise: {
+                id: "gid://shopify/ProductVariant/44876432343343",
+                sku: "RWV-1",
+                title: "Default Title",
+                image: {
+                    url: "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187",
+                    altText: null,
+                    __typename: "Image"
+                },
+                product: {
+                    id: "gid://shopify/Product/8235106631983",
+                    handle: "radiowave-shirt",
+                    title: "Radiowave Shirt",
+                    __typename: "Product"
+                },
+                __typename: "ProductVariant"
             },
-            "images": {
-                "nodes": [
-                    {
-                        "url": "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187",
-                        "__typename": "Image"
-                    },
-                    {
-                        "url": "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-green.jpg?v=1681383186",
-                        "__typename": "Image"
-                    },
-                    {
-                        "url": "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-gray.jpg?v=1681383187",
-                        "__typename": "Image"
-                    },
-                    {
-                        "url": "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-blue.jpg?v=1681383187",
-                        "__typename": "Image"
-                    }
-                ],
-                "__typename": "ImageConnection"
+            cost: {
+                amountPerQuantity: {
+                    amount: "18.0",
+                    __typename: "MoneyV2"
+                },
+                totalAmount: {
+                    amount: "18.0",
+                    __typename: "MoneyV2"
+                },
+                __typename: "CartLineCost"
             },
-            "collections": {
-                "nodes": [
-                    {
-                        "handle": "clothing",
-                        "title": "Clothing",
-                        "__typename": "Collection"
-                    }
-                ],
-                "__typename": "CollectionConnection"
-            },
-            "variants": {
-                "nodes": [
-                    {
-                        "id": "gid://shopify/ProductVariant/44876432343343",
-                        "sku": "RWV-1",
-                        "quantityAvailable": 10,
-                        "image": {
-                            "url": "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187",
-                            "__typename": "Image"
-                        },
-                        "selectedOptions": [
-                            {
-                                "name": "Title",
-                                "value": "Default Title",
-                                "__typename": "SelectedOption"
-                            }
-                        ],
-                        "price": {
-                            "amount": "18.0",
-                            "currencyCode": "USD",
-                            "__typename": "MoneyV2"
-                        },
-                        "compareAtPrice": {
-                            "amount": "20.0",
-                            "currencyCode": "USD",
-                            "__typename": "MoneyV2"
-                        },
-                        "__typename": "ProductVariant"
-                    }
-                ],
-                "__typename": "ProductVariantConnection"
-            },
-            "__typename": "Product"
-        },
+            attributes: [],
+            __typename: "CartLine"
+        }
         ],
         __typename: 'CartLineConnection',
       },
@@ -548,40 +508,20 @@ export const disabledButtonCartMultiple = {
               __typename: 'Product',
             },
             __typename: 'ProductVariant',
+          }, 
+          cost: {
+            amountPerQuantity: {
+                amount: "20.0",
+                __typename: "MoneyV2"
+            },
+            totalAmount: {
+                amount: "40.0",
+                __typename: "MoneyV2"
+            },
+            __typename: "CartLineCost"
           },
-          variants: {
-            nodes: [
-              {
-                id: 'gid://shopify/ProductVariant/44876574720303',
-                sku: 'TCC-1',
-                quantityAvailable: 2,
-                image: {
-                  url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/hat-2.jpg?v=1681385139',
-                  __typename: 'Image',
-                },
-                selectedOptions: [
-                  {
-                    name: 'Title',
-                    value: 'Default Title',
-                    __typename: 'SelectedOption',
-                  },
-                ],
-                price: {
-                  amount: '20.0',
-                  currencyCode: 'USD',
-                  __typename: 'MoneyV2',
-                },
-                compareAtPrice: {
-                  amount: '25.0',
-                  currencyCode: 'USD',
-                  __typename: 'MoneyV2',
-                },
-                __typename: 'ProductVariant',
-              },
-            ],
-            __typename: 'ProductVariantConnection',
-          },
-          __typename: 'Product',
+          attributes: [],
+          __typename: "CartLine"
         },
         {
           id: 'gid://shopify/CartLine/49faa432-583b-4dde-b99f-0a27753bb35c?cart=c1-74d26c3130aa39e303d99d4d430c6eca',

@@ -30,6 +30,17 @@ import {
 } from '../../../data/stubs/cart/cartSingle';
 
 describe('<Cart />', () => {
+  beforeEach(() => {
+    const originalConsoleError = console.error;
+    console.error = jest.fn((...errors) => {
+      const errorMessage = errors.join(' ');
+      if (errorMessage.includes('An error occurred') || errorMessage.includes('Invalid URL')) {
+        return;
+      }
+      originalConsoleError(...errors);
+    })
+  });
+
   describe('When Shopify Configuration is available', () => {
     it('displays the empty cart state', async () => {
       const createCartMock = {
@@ -531,7 +542,7 @@ describe('<Cart />', () => {
             cartId: 'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
             lines: {
               id: 'gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
-              quantity: 1,
+              quantity: 0,
             },
           },
         },
