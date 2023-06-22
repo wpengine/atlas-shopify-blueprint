@@ -23,14 +23,16 @@ describe('<ProductDetails />', () => {
   global.scrollTo = jest.fn();
 
   beforeEach(() => {
-    const originalConsoleError = console.error;
     console.error = jest.fn((...errors) => {
       const errorMessage = errors.join(' ');
       if (errorMessage.includes('An error occurred')) {
         return;
       }
-      originalConsoleError(...errors);
-    })
+    });
+  });
+
+  afterEach(() => {
+    console.error.mockReset();
   });
 
   it('displays a product with no variants', () => {

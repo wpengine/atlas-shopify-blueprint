@@ -30,6 +30,7 @@ import {
 } from '../../../data/stubs/cart/cartSingle';
 
 describe('<Cart />', () => {
+  //global.console.warn = jest.fn();
   beforeEach(() => {
     const originalConsoleError = console.error;
     console.error = jest.fn((...errors) => {
@@ -39,6 +40,10 @@ describe('<Cart />', () => {
       }
       originalConsoleError(...errors);
     })
+  });
+
+  afterEach(() => {
+    console.error.mockReset();
   });
 
   describe('When Shopify Configuration is available', () => {

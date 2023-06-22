@@ -2,14 +2,16 @@ import shopifyConfiguration from '../shopifyConfiguration';
 
 describe('shopifyConfiguration', () => {
   beforeEach(() => {
-    const originalConsoleError = console.error;
     console.error = jest.fn((...errors) => {
       const errorMessage = errors.join(' ');
       if (errorMessage.includes('Invalid URL')) {
         return;
       }
-      originalConsoleError(...errors);
-    })
+    });
+  });
+
+  afterEach(() => {
+    console.error.mockReset();
   });
 
   describe('When the environment variables are set', () => {
