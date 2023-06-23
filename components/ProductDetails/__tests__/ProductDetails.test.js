@@ -18,17 +18,13 @@ import {
 import productsStub from '../../../data/products';
 import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
+import { suppressErrors } from '../../../utilities/suppressErrors';
 
 describe('<ProductDetails />', () => {
   global.scrollTo = jest.fn();
 
   beforeEach(() => {
-    console.error = jest.fn((...errors) => {
-      const errorMessage = errors.join(' ');
-      if (errorMessage.includes('An error occurred')) {
-        return;
-      }
-    });
+    suppressErrors();
   });
 
   afterEach(() => {

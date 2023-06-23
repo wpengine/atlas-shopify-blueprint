@@ -1,13 +1,9 @@
 import shopifyConfiguration from '../shopifyConfiguration';
+import { suppressErrors } from '../suppressErrors';
 
 describe('shopifyConfiguration', () => {
   beforeEach(() => {
-    console.error = jest.fn((...errors) => {
-      const errorMessage = errors.join(' ');
-      if (errorMessage.includes('Invalid URL')) {
-        return;
-      }
-    });
+    suppressErrors();
   });
 
   afterEach(() => {

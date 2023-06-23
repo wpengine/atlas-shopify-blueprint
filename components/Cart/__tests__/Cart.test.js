@@ -28,18 +28,11 @@ import {
   decreaseCartSingle,
   removeAfterDecreaseCartSingle,
 } from '../../../data/stubs/cart/cartSingle';
+import { suppressErrors } from '../../../utilities/suppressErrors';
 
 describe('<Cart />', () => {
-  //global.console.warn = jest.fn();
   beforeEach(() => {
-    const originalConsoleError = console.error;
-    console.error = jest.fn((...errors) => {
-      const errorMessage = errors.join(' ');
-      if (errorMessage.includes('An error occurred') || errorMessage.includes('Invalid URL')) {
-        return;
-      }
-      originalConsoleError(...errors);
-    })
+    suppressErrors();
   });
 
   afterEach(() => {
