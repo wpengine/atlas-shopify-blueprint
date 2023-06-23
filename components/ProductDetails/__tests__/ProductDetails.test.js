@@ -46,6 +46,26 @@ describe('<ProductDetails />', () => {
     expect(screen.getByText(/Triangulum Hoodie/i)).toBeInTheDocument();
   });
 
+  it('displays a product with compare at price crossed out', () => {
+    const variantsProduct = productsStub.data.products.nodes[0];
+    render(<ProductDetails product={variantsProduct} />);
+
+    expect(screen.getByText(/Radiowave Shirt/i)).toBeInTheDocument();
+    expect(screen.getByTestId('compare-price')).toBeInTheDocument();
+    expect(screen.getByText('$20.00')).toBeVisible();
+    expect(screen.getByText('$18.00')).toBeVisible();
+  });
+
+  it('displays a product with only one current price', () => {
+    const variantsProduct = productsStub.data.products.nodes[1];
+    render(<ProductDetails product={variantsProduct} />);
+
+    expect(screen.getByText(/Quark Shirt/i)).toBeInTheDocument();
+    expect(screen.queryByTestId('compare-price')).not.toBeInTheDocument();
+    expect(screen.getByText('$20.00')).toBeVisible();
+    expect(screen.queryByText('$18.00')).not.toBeInTheDocument();
+  });
+
   it('changes the image and the colour at the same time', () => {
     const variantsProduct = productsStub.data.products.nodes[3];
     render(<ProductDetails product={variantsProduct} />);
@@ -169,8 +189,10 @@ describe('<ProductDetails />', () => {
     );
 
     await waitFor(() => {
-      expect((screen.getByRole('button')).dataset.cartId).toBe("gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca");
-    })
+      expect(screen.getByRole('button').dataset.cartId).toBe(
+        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca'
+      );
+    });
 
     act(() => {
       fireEvent.click(screen.getByText(/Add to cart/i).closest('button'));
