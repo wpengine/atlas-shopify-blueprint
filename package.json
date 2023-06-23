@@ -16,7 +16,7 @@
     "@apollo/react-testing": "^4.0.0",
     "@faustwp/cli": "1.0.1",
     "@faustwp/core": "0.2.13",
-    "@wordpress/base-styles": "^4.26.0",
+    "@wordpress/base-styles": "^4.27.0",
     "@wordpress/block-library": "^7.13.0",
     "classnames": "^2.3.1",
     "eslint-plugin-jest": "^27.2.2",
