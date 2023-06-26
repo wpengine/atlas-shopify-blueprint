@@ -578,8 +578,8 @@ describe('<Cart />', () => {
 
     beforeEach(() => {
       jest.resetModules();
-      delete process.env.NEXT_PUBLIC_SHOPIFY_TOKEN;
-      delete process.env.NEXT_PUBLIC_SHOPIFY_URL;
+      delete process.env.NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN;
+      delete process.env.NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL;
     });
 
     afterAll(() => {

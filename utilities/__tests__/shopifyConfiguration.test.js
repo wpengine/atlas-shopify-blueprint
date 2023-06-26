@@ -12,8 +12,8 @@ describe('shopifyConfiguration', () => {
 
     beforeEach(() => {
       jest.resetModules();
-      delete process.env.NEXT_PUBLIC_SHOPIFY_TOKEN;
-      delete process.env.NEXT_PUBLIC_SHOPIFY_URL;
+      delete process.env.NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN;
+      delete process.env.NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL;
     });
 
     afterAll(() => {
@@ -30,8 +30,8 @@ describe('shopifyConfiguration', () => {
 
     beforeEach(() => {
       jest.resetModules();
-      process.env.NEXT_PUBLIC_SHOPIFY_TOKEN = null;
-      process.env.NEXT_PUBLIC_SHOPIFY_URL = null;
+      process.env.NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN = null;
+      process.env.NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL = null;
     });
 
     afterAll(() => {
@@ -43,12 +43,12 @@ describe('shopifyConfiguration', () => {
     });
   });
 
-  describe('When the NEXT_PUBLIC_SHOPIFY_URL is invalid', () => {
+  describe('When the NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL is invalid', () => {
     const OLD_ENV = process.env;
 
     beforeEach(() => {
       jest.resetModules();
-      process.env.NEXT_PUBLIC_SHOPIFY_URL = 'foo';
+      process.env.NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL = 'foo';
     });
 
     afterAll(() => {
@@ -60,12 +60,12 @@ describe('shopifyConfiguration', () => {
     });
   });
 
-  describe('When the NEXT_PUBLIC_SHOPIFY_TOKEN is empty', () => {
+  describe('When the NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN is empty', () => {
     const OLD_ENV = process.env;
 
     beforeEach(() => {
       jest.resetModules();
-      process.env.NEXT_PUBLIC_SHOPIFY_TOKEN = '';
+      process.env.NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN = '';
     });
 
     afterAll(() => {
