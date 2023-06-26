@@ -1,15 +1,6 @@
 import shopifyConfiguration from '../shopifyConfiguration';
-import { suppressErrors } from '../suppressErrors';
 
 describe('shopifyConfiguration', () => {
-  beforeEach(() => {
-    suppressErrors();
-  });
-
-  afterEach(() => {
-    console.error.mockReset();
-  });
-
   describe('When the environment variables are set', () => {
     it('returns true', () => {
       expect(shopifyConfiguration.available()).toBeTruthy();

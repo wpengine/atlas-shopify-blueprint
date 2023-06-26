@@ -28,17 +28,8 @@ import {
   decreaseCartSingle,
   removeAfterDecreaseCartSingle,
 } from '../../../data/stubs/cart/cartSingle';
-import { suppressErrors } from '../../../utilities/suppressErrors';
 
 describe('<Cart />', () => {
-  beforeEach(() => {
-    suppressErrors();
-  });
-
-  afterEach(() => {
-    console.error.mockReset();
-  });
-
   describe('When Shopify Configuration is available', () => {
     it('displays the empty cart state', async () => {
       const createCartMock = {

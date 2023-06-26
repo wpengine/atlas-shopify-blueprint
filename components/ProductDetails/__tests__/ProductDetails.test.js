@@ -18,18 +18,9 @@ import {
 import productsStub from '../../../data/products';
 import { CART_COOKIE } from '../../../constants/carts';
 import { ProductDetails } from '..';
-import { suppressErrors } from '../../../utilities/suppressErrors';
 
 describe('<ProductDetails />', () => {
   global.scrollTo = jest.fn();
-
-  beforeEach(() => {
-    suppressErrors();
-  });
-
-  afterEach(() => {
-    console.error.mockReset();
-  });
 
   it('displays a product with no variants', () => {
     const noVariantsProduct = productsStub.data.products.nodes[0];
