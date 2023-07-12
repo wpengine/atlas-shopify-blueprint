@@ -1,7 +1,6 @@
 import shopifyConfiguration from '../shopifyConfiguration';
 
 describe('shopifyConfiguration', () => {
-
   describe('When the environment variables are set', () => {
     it('returns true', () => {
       expect(shopifyConfiguration.available()).toBeTruthy();

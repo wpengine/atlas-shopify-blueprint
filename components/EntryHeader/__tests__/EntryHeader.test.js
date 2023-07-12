@@ -3,6 +3,8 @@ import { render, screen } from '@testing-library/react';
 import EntryHeader from '../EntryHeader';
 
 describe('<EntryHeader />', () => {
+  global.console.warn = jest.fn();
+  
   it('Display title and subtitle with no image', () => {
     render(
       <EntryHeader
