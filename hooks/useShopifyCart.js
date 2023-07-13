@@ -6,7 +6,7 @@ import RETRIEVE_CART from '../queries/Cart';
 import ADD_TO_CART from '../mutations/AddToCart';
 import REMOVE_FROM_CART from '../mutations/RemoveFromCart';
 import UPDATE_CART_QUANTITY from '../mutations/QuantityCart';
-import { CART_COOKIE } from '../constants/carts';
+import { CART_COOKIE, EIGHT_DAYS_IN_SECONDS } from '../constants/carts';
 
 /**
  * Render the ShopifyCartProvider component.
@@ -49,7 +49,7 @@ export function ShopifyCartProvider({ children }) {
         variables: { input: {} },
       })
         .then((response) => {
-          cookies.set(CART_COOKIE, response.data.cartCreate.cart.id);
+          cookies.set(CART_COOKIE, response.data.cartCreate.cart.id, { maxAge: EIGHT_DAYS_IN_SECONDS });
           setCartData(response.data.cartCreate.cart);
         })
         .catch((err) => console.error(err));
