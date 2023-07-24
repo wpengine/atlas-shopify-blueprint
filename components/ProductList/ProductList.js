@@ -48,11 +48,11 @@ const ProductList = ({ collection = null }) => {
         collection={collection}
       />
       {loading && <Loader />}
-      <div className="shop-grid" role="list">
+      <ul className="shop-grid">
         {products?.map?.((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </div>
+      </ul>
     </>
   );
 };

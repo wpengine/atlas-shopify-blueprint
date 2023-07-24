@@ -26,11 +26,11 @@ export default function SearchResults({ searchResults, isLoading }) {
     <div className={styles.component}>
       <h1>Results</h1>
 
-      <div className="shop-grid">
+      <ul className="shop-grid">
         {searchResults?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </div>
+      </ul>
 
       {isLoading === true && (
         <>

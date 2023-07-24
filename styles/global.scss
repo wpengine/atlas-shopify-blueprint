@@ -11,6 +11,7 @@
   margin: 0 auto;
   text-align: center;
   padding-bottom: 4em;
+  padding-left: 0;
   display: flex;
 
   @media (max-width: $breakpoint-extra-small) {
@@ -23,6 +24,7 @@
   flex-wrap: wrap;
   margin-top: 4em;
   row-gap: 5em;
+  padding-left: 0;
 
   @media (max-width: $breakpoint-extra-small) {
     display: block;

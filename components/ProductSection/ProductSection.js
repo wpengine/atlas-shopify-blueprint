@@ -9,9 +9,11 @@ const ProductSection = ({ products, heading }) => {
     <div className={`section ${styles.component}`}>
       <Container>
         <h1>{heading}</h1>
-        <div className="section">
+        <ul className="section">
           {!shopifyConfiguration.available() ? (
-            <ConnectionUnavailable />
+            <li>
+              <ConnectionUnavailable />
+            </li>
           ) : (
             products?.map?.((product) => {
               return (
@@ -22,7 +24,7 @@ const ProductSection = ({ products, heading }) => {
               );
             })
           )}
-        </div>
+        </ul>
       </Container>
     </div>
   );

@@ -92,7 +92,7 @@ export function CartQuickView({ styles }) {
                 <a href="/cart" className={styles['button']}>
                   View cart
                 </a>
-                <a href={checkoutUrl} className={styles['button']}>
+                <a href={checkoutUrl ? checkoutUrl : "/cart"} className={styles['button']}>
                   Checkout
                 </a>
               </p>
