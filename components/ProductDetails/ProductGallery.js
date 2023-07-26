@@ -36,6 +36,8 @@ function ProductGallery({ selected, images, handleImageChange }) {
                   alt={image?.altText}
                   loading="lazy"
                   onClick={() => handleClick(image)}
+                  width="604" 
+                  height="464"
                 />
               </div>
             ))}
