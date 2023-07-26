@@ -56,7 +56,7 @@ export function CartQuickView({ styles }) {
                   >
                     <a href={`/product/${item.merchandise.product.handle}`}>
                       <img
-                        width="324"
+                        width="420"
                         height="324"
                         src={item.merchandise.image.url}
                         className={styles['thumbnail']}
@@ -92,7 +92,7 @@ export function CartQuickView({ styles }) {
                 <a href="/cart" className={styles['button']}>
                   View cart
                 </a>
-                <a href={checkoutUrl ? checkoutUrl : "/cart"} className={styles['button']}>
+                <a href={checkoutUrl} className={styles['button']}>
                   Checkout
                 </a>
               </p>

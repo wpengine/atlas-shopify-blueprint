@@ -21,7 +21,7 @@ function ProductGallery({ selected, images, handleImageChange }) {
   return (
     <>
       <div className={styles.featured}>
-        <img src={selected} alt="product image" />
+        <img src={selected} alt="product image" width="604" height="464"/>
       </div>
       <div className={styles.productGallery}>
         <div className={styles.imageGrid}>

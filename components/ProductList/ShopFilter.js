@@ -18,7 +18,7 @@ export const ShopFilter = ({ sortValue, setSortValue, collection }) => {
 
   return (
     <select
-      role="combobox"
+      role="listbox"
       name="shop-filter"
       onChange={handleChange}
       value={sortValue}

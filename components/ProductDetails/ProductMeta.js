@@ -71,13 +71,13 @@ const ProductMeta = ({
             left at this price
           </b>
         </p>
-        <label style={{ display: 'block' }}>Quantity:</label>
+        <label style={{ display: 'block' }} for="quantity">Quantity:</label>
         <input
           type="number"
           min="1"
           max={variant?.quantityAvailable}
           step="1"
-          name="quantity"
+          id="quantity"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
           className={styles.quantity}

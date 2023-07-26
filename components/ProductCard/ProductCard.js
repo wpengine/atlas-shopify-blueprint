@@ -24,6 +24,8 @@ const ProductCard = ({ product }) => {
               alt={product?.title}
               loading="lazy"
               data-testid="product-img"
+              width="234"
+              height="180"
             />
           </a>
         </Link>
