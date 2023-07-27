@@ -19,7 +19,7 @@ const cx = classNames.bind(styles);
 const CartTotals = ({ cartSubTotal, cartTotal, checkoutUrl }) => {
   return (
     <div className={styles.cartTotals}>
-      <h3>Summary</h3>
+      <p>Summary</p>
 
       <table data-testid="summary">
         <tbody>

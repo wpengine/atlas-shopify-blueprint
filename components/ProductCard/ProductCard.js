@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
   const thumbnail = product?.featuredImage?.url;
 
   return (
-    <div className={cx([styles.column, styles.productWrapper])} role="listitem">
+    <li className={cx([styles.column, styles.productWrapper])}>
       <div className={styles.productImageContainer}>
         <Link href={productHref}>
           <a>
@@ -21,9 +21,11 @@ const ProductCard = ({ product }) => {
             <img
               className={styles.productImage}
               src={thumbnail ?? '/ProductDefault.gif'}
-              alt={product?.name}
+              alt={product?.title}
               loading="lazy"
               data-testid="product-img"
+              width="234"
+              height="180"
             />
           </a>
         </Link>
@@ -59,7 +61,7 @@ const ProductCard = ({ product }) => {
         </div>
         <CtaButton ctaLink={productHref} ctaLabel="View product" />
       </div>
-    </div>
+    </li>
   );
 };
 
