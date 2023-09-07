@@ -145,9 +145,8 @@ const CartTable = ({
                 <td className={styles.hideOnMobile}>
                   <img
                     src={image.url}
-                    alt={image.altText}
+                    alt={product.title}
                     className={styles.cartImage}
-                    loading="lazy"
                   />
                 </td>
                 <td>

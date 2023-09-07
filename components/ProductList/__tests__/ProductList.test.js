@@ -89,7 +89,7 @@ describe('<ProductList />', () => {
     );
 
     act(() => {
-      fireEvent.change(screen.getByRole('combobox', { name: 'shop-filter' }), {
+      fireEvent.change(screen.getByRole('listbox', { name: 'shop-filter' }), {
         target: { value: 'price-desc' },
       });
     });

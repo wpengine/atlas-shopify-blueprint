@@ -14,7 +14,7 @@ describe('<SearchSection', () => {
       </MockedProvider>
     );
 
-    const searchBar = await screen.findByRole('input', { name: /search/i });
+    const searchBar = await screen.findByRole('textbox', { name: /search/i });
 
     expect(searchBar).toBeVisible();
     expect(screen.getByText(/Browse Collections/i)).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe('<SearchSection', () => {
       </MockedProvider>
     );
 
-    const input = await screen.findByRole('input', { name: /search/i });
+    const input = await screen.findByRole('textbox', { name: /search/i });
     fireEvent.change(input, { target: { value: 'awfdfdf' } });
 
     expect(screen.getAllByTestId('loading-result')).toHaveLength(3);
@@ -63,7 +63,7 @@ describe('<SearchSection', () => {
       </MockedProvider>
     );
 
-    const input = await screen.findByRole('input', { name: /search/i });
+    const input = await screen.findByRole('textbox', { name: /search/i });
     fireEvent.change(input, { target: { value: 'hood' } });
 
     expect(screen.getAllByTestId('loading-result')).toHaveLength(3);
