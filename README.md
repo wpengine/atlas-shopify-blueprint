@@ -49,6 +49,16 @@ In addition to default environment variables the Shopify Blueprint needs to add 
 
 For local development these can be added to `.env.local` and for production deployments these can be added in Atlas Dashboard. See [WP Engine headless docs for directions on how to configure Atlas Environment Variables](https://developers.wpengine.com/docs/atlas/local-app-development/frontend-app-config#2--define-environment-variables).
 
+## Creating a new Github release
+
+The steps involved with creating a new release are as follows :
+
+1. Make sure the version in package.json is updated as appropriate
+2. Make sure develop has all the changes that are intended to be in the release
+3. Merge `develop` into the `main` branch
+4. Launch a fresh Atlas Blueprint and ensure changes are there and the version is correct.
+5. Create a new release in Github with the tag as the latest version with `main` as the target. (For description you can use the `generate release notes` button)
+
 ## For more information
 
 For more information on this Blueprint please check out the following sources:
