@@ -53,11 +53,15 @@ For local development these can be added to `.env.local` and for production depl
 
 The steps involved with creating a new release are as follows :
 
-1. Make sure the version in package.json is updated as appropriate
-2. Make sure develop has all the changes that are intended to be in the release
-3. Merge `develop` into the `main` branch
-4. Launch a fresh Atlas Blueprint and ensure changes are there and the version is correct.
-5. Create a new release in Github with the tag as the latest version with `main` as the target. (For description you can use the `generate release notes` button)
+1. Update the version in `package.json`
+2. Run `npm install` and check the new version in the generated `package-lock.json`
+3. Create a PR against `develop` with the version update. Review and merge the PR.
+4. Create a PR from `develop` into the `main` branch and make sure it includes all the changes that are intended to be in the release. Review and merge the PR.
+5. In the User Portal (production), create a new Atlas App using the Shopify Blueprint and verify if changes are there and the version is correct.
+6. Create a new release in Github with the tag as the latest version with `main` as the target. (For description you can use the `generate release notes` button)
+7. Post a message to [#team-pe-titan-public](https://wpengine.slack.com/archives/C04SJP4UBB7) using the following template:
+   > 🚀 Atlas Shopify Blueprint - Version X.Y.Z 🚀
+   > We have released a new version of the blueprint. <Short sentences summarising the changes added>. For more details, follow this link: https://github.com/wpengine/atlas-shopify-blueprint/releases/tag/X.Y.Z
 
 ## For more information
 
