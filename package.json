@@ -35,7 +35,7 @@
     "@babel/preset-react": "^7.22.15",
     "@testing-library/jest-dom": "^6.1.2",
     "@testing-library/react": "^12.1.5",
-    "babel-jest": "^29.6.2",
+    "babel-jest": "^29.7.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "eslint-plugin-unused-imports": "^3.0.0",
