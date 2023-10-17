@@ -7,7 +7,7 @@ import { CART_COOKIE } from '../../../constants/carts';
 import RETRIEVE_CART from '../../../queries/Cart';
 import CREATE_CART from '../../../mutations/CreateCart';
 import empty from '../../../data/stubs/cart/empty';
-import {cartMultiple} from '../../../data/stubs/cart/cartMultiple';
+import { cartMultiple } from '../../../data/stubs/cart/cartMultiple';
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({ pathname: '/product/test-product' }),
@@ -28,7 +28,7 @@ describe('<CartQuickView />', () => {
         <ShopifyCartProvider>
           <CartQuickView styles={{}} />
         </ShopifyCartProvider>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));
@@ -59,7 +59,7 @@ describe('<CartQuickView />', () => {
         <ShopifyCartProvider>
           <CartQuickView styles={{}} />
         </ShopifyCartProvider>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     fireEvent.mouseOver(screen.getByTitle(/View your shopping cart/i));

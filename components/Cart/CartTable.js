@@ -51,7 +51,7 @@ const CartTable = ({
         setProductNotification({
           message: `${product} has been removed from your cart.`,
           className: 'success',
-        })
+        }),
       )
       .catch((err) => {
         console.error(err);
@@ -63,7 +63,7 @@ const CartTable = ({
       .finally(() =>
         retrieveCart().then((response) => {
           setCartData(response.data.cart);
-        })
+        }),
       );
   };
 
@@ -77,7 +77,7 @@ const CartTable = ({
       .then((res) => {
         const quantityAfterUpdate =
           res.data.cartLinesUpdate.cart.lines.nodes.find(
-            (line) => line.id === id
+            (line) => line.id === id,
           )?.quantity;
 
         if (!quantityAfterUpdate) {
@@ -110,7 +110,7 @@ const CartTable = ({
       .finally(() =>
         retrieveCart().then((response) => {
           setCartData(response.data.cart);
-        })
+        }),
       );
   };
 
@@ -165,7 +165,7 @@ const CartTable = ({
                         handleUpdateQuantity(
                           product.title,
                           item.id,
-                          item.quantity - 1
+                          item.quantity - 1,
                         )
                       }
                     />
@@ -182,7 +182,7 @@ const CartTable = ({
                         handleUpdateQuantity(
                           product.title,
                           item.id,
-                          item.quantity + 1
+                          item.quantity + 1,
                         )
                       }
                     />

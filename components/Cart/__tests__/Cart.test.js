@@ -45,11 +45,11 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       expect(
-        await screen.findByText(/You have no items in cart/i)
+        await screen.findByText(/You have no items in cart/i),
       ).not.toBeNull();
     });
 
@@ -74,14 +74,14 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
         expect(screen.getByTestId('checkout-btn')).toHaveAttribute(
           'href',
-          'https://blueprintbetatest.myshopify.com/cart/c/c1-74d26c3130aa39e303d99d4d430c6eca'
+          'https://blueprintbetatest.myshopify.com/cart/c/c1-74d26c3130aa39e303d99d4d430c6eca',
         );
       });
     });
@@ -123,7 +123,7 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
@@ -131,7 +131,9 @@ describe('<Cart />', () => {
         expect(screen.getByText(/Topography Shirt/i)).toBeVisible();
       });
 
-      const remove = await screen.getByTestId('remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca');
+      const remove = await screen.getByTestId(
+        'remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+      );
 
       act(() => {
         fireEvent.click(remove);
@@ -140,8 +142,8 @@ describe('<Cart />', () => {
       await waitFor(() => {
         expect(
           screen.queryByText(
-            /Triangulum Hoodie has been removed from your cart./i
-          )
+            /Triangulum Hoodie has been removed from your cart./i,
+          ),
         ).toBeVisible();
         expect(screen.getByText(/Topography Shirt/i)).toBeVisible();
       });
@@ -184,14 +186,16 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
       });
 
-      const remove = await screen.getByTestId('remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca');
+      const remove = await screen.getByTestId(
+        'remove-button-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+      );
 
       act(() => {
         fireEvent.click(remove);
@@ -243,7 +247,7 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
@@ -337,12 +341,16 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
         expect(screen.getByText(/Triangulum Hoodie/i)).toBeVisible();
-        expect(screen.getByLabelText('item-quantity-1-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca')).toBeInTheDocument();
+        expect(
+          screen.getByLabelText(
+            'item-quantity-1-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          ),
+        ).toBeInTheDocument();
       });
 
       const increaseButton = await screen.getByTestId('increase-button');
@@ -353,7 +361,11 @@ describe('<Cart />', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByLabelText('item-quantity-2-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca')).toBeInTheDocument();
+        expect(
+          screen.getByLabelText(
+            'item-quantity-2-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          ),
+        ).toBeInTheDocument();
       });
 
       // add another which can't go beyond 2
@@ -364,13 +376,13 @@ describe('<Cart />', () => {
       await waitFor(() => {
         expect(
           screen.getByText(
-            /The maximum amount available for this product has been added to the cart./i
-          )
+            /The maximum amount available for this product has been added to the cart./i,
+          ),
         ).toBeVisible();
         expect(
           screen.getByText(
-            /The maximum amount available for this product has been added to the cart./i
-          )
+            /The maximum amount available for this product has been added to the cart./i,
+          ),
         ).toBeInTheDocument();
       });
 
@@ -383,10 +395,14 @@ describe('<Cart />', () => {
       await waitFor(() => {
         expect(
           screen.queryByText(
-            /The maximum amount available for this product has been added to the cart./i
-          )
+            /The maximum amount available for this product has been added to the cart./i,
+          ),
         ).not.toBeInTheDocument();
-        expect(screen.getByLabelText('item-quantity-1-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca')).toBeInTheDocument();
+        expect(
+          screen.getByLabelText(
+            'item-quantity-1-gid://shopify/CartLine/4d7efdf2-e95c-4792-b55d-914e3626f6e6?cart=c1-74d26c3130aa39e303d99d4d430c6eca',
+          ),
+        ).toBeInTheDocument();
       });
     });
 
@@ -428,7 +444,7 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
@@ -490,7 +506,7 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
@@ -507,8 +523,8 @@ describe('<Cart />', () => {
       await waitFor(() => {
         expect(
           screen.getByText(
-            /Triangulum Hoodie has been removed from your cart./i
-          )
+            /Triangulum Hoodie has been removed from your cart./i,
+          ),
         ).toBeVisible();
       });
     });
@@ -551,7 +567,7 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       await waitFor(() => {
@@ -568,7 +584,7 @@ describe('<Cart />', () => {
       await waitFor(() => {
         expect(screen.getByText(/1/i)).toBeVisible();
         expect(
-          screen.getByText(/There was an issue changing this item's quantity/i)
+          screen.getByText(/There was an issue changing this item's quantity/i),
         ).toBeVisible();
       });
     });
@@ -600,11 +616,13 @@ describe('<Cart />', () => {
           <ShopifyCartProvider>
             <Cart />
           </ShopifyCartProvider>
-        </MockedProvider>
+        </MockedProvider>,
       );
 
       expect(
-        await screen.findByText(/To get started connecting your Shopify store/i)
+        await screen.findByText(
+          /To get started connecting your Shopify store/i,
+        ),
       ).not.toBeNull();
     });
   });

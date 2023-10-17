@@ -30,7 +30,7 @@ const ProductMeta = ({
   const { cartItems, cartId } = useShopifyCart();
 
   const itemInCart = cartItems?.find(
-    (line) => line.merchandise.sku === variant?.sku
+    (line) => line.merchandise.sku === variant?.sku,
   );
 
   return (
@@ -71,7 +71,9 @@ const ProductMeta = ({
             left at this price
           </b>
         </p>
-        <label style={{ display: 'block' }} for="quantity">Quantity:</label>
+        <label style={{ display: 'block' }} for="quantity">
+          Quantity:
+        </label>
         <input
           type="number"
           min="1"

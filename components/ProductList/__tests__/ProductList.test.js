@@ -31,13 +31,13 @@ describe('<ProductList />', () => {
     render(
       <MockedProvider mocks={[productsMock]} addTypename={true}>
         <ProductList />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
     await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
-        productsStub.data.products.nodes.length
+        productsStub.data.products.nodes.length,
       );
     });
   });
@@ -85,7 +85,7 @@ describe('<ProductList />', () => {
         addTypename={true}
       >
         <ProductList />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     act(() => {
@@ -98,7 +98,7 @@ describe('<ProductList />', () => {
       const allProducts = await screen.findAllByRole('listitem');
       const firstPrice = within(allProducts[0]).getByText('$35.00');
       const lastPrice = within(allProducts[allProducts.length - 1]).getByText(
-        '$12.34'
+        '$12.34',
       );
       expect(firstPrice).toBeInTheDocument();
       expect(lastPrice).toBeInTheDocument();
@@ -108,7 +108,7 @@ describe('<ProductList />', () => {
   test('Rendering list of products by clothing collection', async () => {
     const collection = productsStub.data.products.nodes.filter((product) => {
       return product.collections.nodes.find(
-        (collection) => collection.title === 'Clothing'
+        (collection) => collection.title === 'Clothing',
       );
     });
 
@@ -135,13 +135,13 @@ describe('<ProductList />', () => {
     render(
       <MockedProvider mocks={[collectionsMock]} addTypename={true}>
         <ProductList collection="clothing" />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
     await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
-        collectionsMock.result.data.collection.products.nodes.length
+        collectionsMock.result.data.collection.products.nodes.length,
       );
       expect(screen.queryByText(/Toasty Cap Eco/i)).not.toBeInTheDocument();
       expect(screen.getByText(/Andromeda Hoodie/i)).toBeInTheDocument();
@@ -151,7 +151,7 @@ describe('<ProductList />', () => {
   test('Rendering list of products by apparel & accessories collection', async () => {
     const collection = productsStub.data.products.nodes.filter((product) => {
       return product.collections.nodes.find(
-        (collection) => collection.title === 'Apparel & Accessories'
+        (collection) => collection.title === 'Apparel & Accessories',
       );
     });
 
@@ -178,13 +178,13 @@ describe('<ProductList />', () => {
     render(
       <MockedProvider mocks={[collectionsMock]} addTypename={true}>
         <ProductList collection="apparel-accessories" />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(screen.getByTestId('loading')).toBeVisible();
     await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toEqual(
-        collectionsMock.result.data.collection.products.nodes.length
+        collectionsMock.result.data.collection.products.nodes.length,
       );
       expect(screen.getByText(/Toasty Cap Eco/i)).toBeInTheDocument();
       expect(screen.queryByText(/Andromeda Hoodie/i)).not.toBeInTheDocument();

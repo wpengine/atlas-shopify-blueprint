@@ -43,18 +43,18 @@ const ProductCard = ({ product }) => {
                 <del data-testid="compare-price">
                   {priceFormatter(
                     product?.variants?.nodes[0]?.compareAtPrice?.amount,
-                    product?.variants?.nodes[0]?.compareAtPrice?.currencyCode
+                    product?.variants?.nodes[0]?.compareAtPrice?.currencyCode,
                   )}
                 </del>{' '}
                 {priceFormatter(
                   product?.variants?.nodes[0]?.price?.amount,
-                  product?.variants?.nodes[0]?.price?.currencyCode
+                  product?.variants?.nodes[0]?.price?.currencyCode,
                 )}
               </>
             ) : (
               priceFormatter(
                 product?.variants?.nodes[0]?.price?.amount,
-                product?.variants?.nodes[0]?.price?.currencyCode
+                product?.variants?.nodes[0]?.price?.currencyCode,
               )
             )}
           </span>
