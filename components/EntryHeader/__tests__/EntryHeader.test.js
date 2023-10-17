@@ -4,20 +4,20 @@ import EntryHeader from '../EntryHeader';
 
 describe('<EntryHeader />', () => {
   global.console.warn = jest.fn();
-  
+
   it('Display title and subtitle with no image', () => {
     render(
       <EntryHeader
         title="Shopping"
         subTitle="Shop your Shopify products with WordPress and WPGraphQL"
-      />
+      />,
     );
 
     expect(screen.getByText(/Shopping/i)).toBeVisible();
     expect(
       screen.getByText(
-        /Shop your Shopify products with WordPress and WPGraphQL/i
-      )
+        /Shop your Shopify products with WordPress and WPGraphQL/i,
+      ),
     ).toBeVisible();
     expect(screen.queryByTestId('featureImage-header')).not.toBeInTheDocument();
   });
@@ -32,20 +32,20 @@ describe('<EntryHeader />', () => {
           altText: 'my-test-image',
           mediaDetails: { width: 200, height: 200 },
         }}
-      />
+      />,
     );
 
     const image = await screen.getByAltText('my-test-image');
 
     expect(image).toHaveAttribute(
       'src',
-      '/_next/image?url=https%3A%2F%2Fsome-url&w=3840&q=75'
+      '/_next/image?url=https%3A%2F%2Fsome-url&w=3840&q=75',
     );
     expect(screen.getByText(/Shopping/i)).toBeVisible();
     expect(
       screen.getByText(
-        /Shop your Shopify products with WordPress and WPGraphQL/i
-      )
+        /Shop your Shopify products with WordPress and WPGraphQL/i,
+      ),
     ).toBeVisible();
   });
 });

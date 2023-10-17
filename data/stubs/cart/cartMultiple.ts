@@ -352,39 +352,39 @@ export const addToCartMultiple = {
             __typename: 'CartLine',
           },
           {
-            id: "gid://shopify/CartLine/40fbd19a-1138-4611-b42d-6ebea6f0187d?cart=c1-699c431b11059f95758ef34a7aa93a45",
+            id: 'gid://shopify/CartLine/40fbd19a-1138-4611-b42d-6ebea6f0187d?cart=c1-699c431b11059f95758ef34a7aa93a45',
             quantity: 1,
             merchandise: {
-                id: "gid://shopify/ProductVariant/44876432343343",
-                sku: "RWV-1",
-                title: "Default Title",
-                image: {
-                    url: "https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187",
-                    altText: null,
-                    __typename: "Image"
-                },
-                product: {
-                    id: "gid://shopify/Product/8235106631983",
-                    handle: "radiowave-shirt",
-                    title: "Radiowave Shirt",
-                    __typename: "Product"
-                },
-                __typename: "ProductVariant"
+              id: 'gid://shopify/ProductVariant/44876432343343',
+              sku: 'RWV-1',
+              title: 'Default Title',
+              image: {
+                url: 'https://cdn.shopify.com/s/files/1/0695/2478/3407/products/shirt-charcoal.jpg?v=1681383187',
+                altText: null,
+                __typename: 'Image',
+              },
+              product: {
+                id: 'gid://shopify/Product/8235106631983',
+                handle: 'radiowave-shirt',
+                title: 'Radiowave Shirt',
+                __typename: 'Product',
+              },
+              __typename: 'ProductVariant',
             },
             cost: {
-                amountPerQuantity: {
-                    amount: "18.0",
-                    __typename: "MoneyV2"
-                },
-                totalAmount: {
-                    amount: "18.0",
-                    __typename: "MoneyV2"
-                },
-                __typename: "CartLineCost"
+              amountPerQuantity: {
+                amount: '18.0',
+                __typename: 'MoneyV2',
+              },
+              totalAmount: {
+                amount: '18.0',
+                __typename: 'MoneyV2',
+              },
+              __typename: 'CartLineCost',
             },
             attributes: [],
-            __typename: "CartLine"
-        }
+            __typename: 'CartLine',
+          },
         ],
         __typename: 'CartLineConnection',
       },
@@ -508,20 +508,20 @@ export const disabledButtonCartMultiple = {
               __typename: 'Product',
             },
             __typename: 'ProductVariant',
-          }, 
+          },
           cost: {
             amountPerQuantity: {
-                amount: "20.0",
-                __typename: "MoneyV2"
+              amount: '20.0',
+              __typename: 'MoneyV2',
             },
             totalAmount: {
-                amount: "40.0",
-                __typename: "MoneyV2"
+              amount: '40.0',
+              __typename: 'MoneyV2',
             },
-            __typename: "CartLineCost"
+            __typename: 'CartLineCost',
           },
           attributes: [],
-          __typename: "CartLine"
+          __typename: 'CartLine',
         },
         {
           id: 'gid://shopify/CartLine/49faa432-583b-4dde-b99f-0a27753bb35c?cart=c1-74d26c3130aa39e303d99d4d430c6eca',

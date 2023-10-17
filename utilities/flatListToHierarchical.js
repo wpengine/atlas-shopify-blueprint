@@ -1,6 +1,6 @@
 export default function flatListToHierarchical(
   data = [],
-  { idKey = 'id', parentKey = 'parentId', childrenKey = 'children' } = {}
+  { idKey = 'id', parentKey = 'parentId', childrenKey = 'children' } = {},
 ) {
   const tree = [];
   const childrenOf = {};
@@ -13,9 +13,7 @@ export default function flatListToHierarchical(
     newItem[childrenKey] = childrenOf[id];
     childrenOf[parentId] = childrenOf[parentId] || [];
 
-    parentId
-      ? (childrenOf[parentId]).push(newItem)
-      : tree.push(newItem);
+    parentId ? childrenOf[parentId].push(newItem) : tree.push(newItem);
   });
 
   return tree;

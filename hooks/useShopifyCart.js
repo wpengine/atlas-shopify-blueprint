@@ -49,7 +49,9 @@ export function ShopifyCartProvider({ children }) {
         variables: { input: {} },
       })
         .then((response) => {
-          cookies.set(CART_COOKIE, response.data.cartCreate.cart.id, { maxAge: EIGHT_DAYS_IN_SECONDS });
+          cookies.set(CART_COOKIE, response.data.cartCreate.cart.id, {
+            maxAge: EIGHT_DAYS_IN_SECONDS,
+          });
           setCartData(response.data.cartCreate.cart);
         })
         .catch((err) => console.error(err));

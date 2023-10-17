@@ -28,18 +28,18 @@ describe('<SEO />', () => {
         description={props.seo.description}
         imageUrl={props.seo.imageUrl}
         url={props.seo.url}
-      />
+      />,
     );
 
     expect(document.title).toBe('Atlas Shopify');
     expect(document.querySelector('meta[name="description"]').content).toBe(
-      'SUPER-powered Headless eCommerce'
+      'SUPER-powered Headless eCommerce',
     );
     expect(document.querySelector('meta[property="og:image"]').content).toBe(
-      'https://some-img-url.com'
+      'https://some-img-url.com',
     );
     expect(document.querySelector('meta[property="og:url"]').content).toBe(
-      'https://some-url.com'
+      'https://some-url.com',
     );
   });
 
@@ -48,13 +48,13 @@ describe('<SEO />', () => {
 
     expect(document.title).toHaveLength(0);
     expect(
-      document.querySelector('meta[name="description"]')
+      document.querySelector('meta[name="description"]'),
     ).not.toBeInTheDocument();
     expect(
-      document.querySelector('meta[property="og:image"]')
+      document.querySelector('meta[property="og:image"]'),
     ).not.toBeInTheDocument();
     expect(
-      document.querySelector('meta[property="og:url"]')
+      document.querySelector('meta[property="og:url"]'),
     ).not.toBeInTheDocument();
   });
 });

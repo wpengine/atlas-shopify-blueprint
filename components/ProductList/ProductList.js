@@ -20,7 +20,7 @@ import ConnectionUnavailable from '../../utilities/ConnectionUnavailable';
 
 const ProductList = ({ collection = null }) => {
   const [sortValue, setSortValue] = useState(
-    collection ? 'collection-latest' : 'latest'
+    collection ? 'collection-latest' : 'latest',
   );
 
   const QUERY = collection ? GET_COLLECTION : GET_PRODUCTS;

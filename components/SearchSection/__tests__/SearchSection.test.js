@@ -11,7 +11,7 @@ describe('<SearchSection', () => {
     render(
       <MockedProvider>
         <SearchSection collections={collectionsStub.data.collections} />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const searchBar = await screen.findByRole('textbox', { name: /search/i });
@@ -34,7 +34,7 @@ describe('<SearchSection', () => {
     render(
       <MockedProvider mocks={[noResultsMock]}>
         <SearchSection collections={collectionsStub.data.collections} />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const input = await screen.findByRole('textbox', { name: /search/i });
@@ -60,7 +60,7 @@ describe('<SearchSection', () => {
     render(
       <MockedProvider mocks={[resultsMock]}>
         <SearchSection collections={collectionsStub.data.collections} />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     const input = await screen.findByRole('textbox', { name: /search/i });

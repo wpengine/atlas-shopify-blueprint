@@ -21,7 +21,7 @@ import { ProductNotification } from '../ProductNotification';
 
 const ProductDetails = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(
-    product?.variants?.nodes[0]
+    product?.variants?.nodes[0],
   );
   const [productNotification, setProductNotification] = useState();
 
@@ -31,17 +31,17 @@ const ProductDetails = ({ product }) => {
 
   const variantsLabel = product?.variants?.nodes[0]?.selectedOptions?.[0]?.name;
   const variantsOptions = product?.variants?.nodes?.map?.((variant) =>
-    variant.selectedOptions?.[0]?.value.toLowerCase()
+    variant.selectedOptions?.[0]?.value.toLowerCase(),
   );
   const variantImages = product?.variants?.nodes?.map?.(
-    (variantImage) => variantImage?.image?.url
+    (variantImage) => variantImage?.image?.url,
   );
 
   const handleVariantChange = (property) => {
     const variant = product.variants.nodes.find(
       (variant) =>
         variant.selectedOptions[0].value.toLowerCase() === property ||
-        variant.image.url === property
+        variant.image.url === property,
     );
 
     setSelectedVariant(variant);
@@ -71,7 +71,7 @@ const ProductDetails = ({ product }) => {
         retrieveCart().then((response) => {
           setCartData(response.data.cart);
           window.scrollTo(0, 0);
-        })
+        }),
       );
   };
 
