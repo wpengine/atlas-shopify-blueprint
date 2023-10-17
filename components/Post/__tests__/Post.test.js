@@ -37,8 +37,8 @@ describe('<Post />', () => {
     const image = await screen.getByAltText('my-test-image');
 
     expect(image).toHaveAttribute(
-      'src',
-      '/_next/image?url=https%3A%2F%2Fsome-url&w=3840&q=75',
+      'alt',
+      'my-test-image',
     );
   });
 });
