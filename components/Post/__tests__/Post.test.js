@@ -38,7 +38,7 @@ describe('<Post />', () => {
 
     expect(image).toHaveAttribute(
       'src',
-      'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+      '/_next/image?url=https%3A%2F%2Fsome-url&w=3840&q=75',
     );
   });
 });
