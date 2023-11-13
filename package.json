@@ -46,8 +46,9 @@
     "prettier": "3.0.3"
   },
   "overrides": {
-    "yaml": "2.2.2",
-    "semver": "7.5.3"
+    "react": "^18.2.0",
+    "semver": "7.5.3",
+    "yaml": "2.2.2"
   },
   "lint-staged": {
     "**/*": "npm run lint"
