@@ -49,7 +49,7 @@ const ProductVariantOptions = ({ selected, options, handleOptionChange }) => {
                   styles.formOptionVariantPattern,
                   {
                     formOptionChecked: checked,
-                  }
+                  },
                 )}
                 style={{
                   backgroundColor: VARIANT_MAP[option],

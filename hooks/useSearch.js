@@ -15,7 +15,7 @@ function useSearch() {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedSearchQuery] = useDebounce(
     searchQuery,
-    searchInputDebounceMs
+    searchInputDebounceMs,
   );
   const [searchResults, setSearchResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,10 +27,8 @@ function useSearch() {
    * @returns
    */
 
-  const [
-    fetchResults,
-    { data: searchData, error: searchError },
-  ] = useLazyQuery(SEARCH_PRODUCT);
+  const [fetchResults, { data: searchData, error: searchError }] =
+    useLazyQuery(SEARCH_PRODUCT);
 
   /**
    * Fetch initial results. This can happen either upon first search. Or after

@@ -33,6 +33,7 @@ jobs:
           at: .
       - node/install-packages:
           app-dir: <<parameters.slug>>
+          override-ci-command: npm ci --legacy-peer-deps
       - run:
           name: NPM build
           command: |
@@ -57,6 +58,7 @@ jobs:
           at: .
       - node/install-packages:
           app-dir: <<parameters.slug>>
+          override-ci-command: npm ci --legacy-peer-deps
       - run:
           name: Set env file
           command: |
@@ -84,6 +86,7 @@ jobs:
           at: .
       - node/install-packages:
           app-dir: <<parameters.slug>>
+          override-ci-command: npm ci --legacy-peer-deps
       - run:
           name: NPM test
           command: |

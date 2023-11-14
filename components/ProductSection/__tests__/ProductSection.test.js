@@ -88,7 +88,7 @@ describe('<ProductSection />', () => {
         key={[products.id]}
         heading={heading}
         products={products}
-      />
+      />,
     );
 
     const renderedProducts = screen.getAllByRole('listitem');

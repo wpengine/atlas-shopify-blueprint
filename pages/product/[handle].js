@@ -17,7 +17,6 @@ import {
 import shopifyConfiguration from '../../utilities/shopifyConfiguration';
 
 export default function Page(props) {
-
   const { data } = useQuery(Page.query, {
     variables: Page.variables(),
   });
@@ -41,9 +40,7 @@ export default function Page(props) {
           />
           <Main>
             <Container>
-              <ProductDetails
-                product={product}
-              />
+              <ProductDetails product={product} />
             </Container>
           </Main>
         </ShopifyCartProvider>

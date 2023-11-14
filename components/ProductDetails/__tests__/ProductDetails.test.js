@@ -64,7 +64,7 @@ describe('<ProductDetails />', () => {
     expect(screen.getByText(/TRI-1/i)).toBeInTheDocument();
     expect(screen.queryByText(/TRI-2/i)).not.toBeInTheDocument();
     expect(
-      screen.getByTestId('variant-option-blue').getAttribute('checked')
+      screen.getByTestId('variant-option-blue').getAttribute('checked'),
     ).toBe('');
 
     const selectedImage = screen.getByTestId('slide-image-1');
@@ -76,7 +76,7 @@ describe('<ProductDetails />', () => {
     expect(screen.queryByText(/TRI-1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/TRI-2/i)).toBeInTheDocument();
     expect(
-      screen.getByTestId('variant-option-purple').getAttribute('checked')
+      screen.getByTestId('variant-option-purple').getAttribute('checked'),
     ).toBe('');
   });
 
@@ -87,7 +87,7 @@ describe('<ProductDetails />', () => {
     expect(screen.getByText(/TRI-1/i)).toBeInTheDocument();
     expect(screen.queryByText(/TRI-2/i)).not.toBeInTheDocument();
     expect(
-      screen.getByTestId('variant-option-blue').getAttribute('checked')
+      screen.getByTestId('variant-option-blue').getAttribute('checked'),
     ).toBe('');
 
     const selectedColour = screen.getByTestId('variant-option-purple');
@@ -99,7 +99,7 @@ describe('<ProductDetails />', () => {
     expect(screen.queryByText(/TRI-1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/TRI-2/i)).toBeInTheDocument();
     expect(
-      screen.getByTestId('variant-option-purple').getAttribute('checked')
+      screen.getByTestId('variant-option-purple').getAttribute('checked'),
     ).toBe('');
   });
 
@@ -126,7 +126,7 @@ describe('<ProductDetails />', () => {
         <ShopifyCartProvider>
           <ProductDetails product={variantsProduct} />
         </ShopifyCartProvider>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => {
@@ -176,12 +176,12 @@ describe('<ProductDetails />', () => {
         <ShopifyCartProvider>
           <ProductDetails product={variantsProduct} />
         </ShopifyCartProvider>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => {
       expect(screen.getByRole('button').dataset.cartId).toBe(
-        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca'
+        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
       );
     });
 
@@ -191,7 +191,7 @@ describe('<ProductDetails />', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/Radiowave Shirt has been added to your cart/i)
+        screen.getByText(/Radiowave Shirt has been added to your cart/i),
       ).toBeVisible();
     });
   });
@@ -238,12 +238,12 @@ describe('<ProductDetails />', () => {
         <ShopifyCartProvider>
           <ProductDetails product={variantsProduct} />
         </ShopifyCartProvider>
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => {
       expect(screen.getByRole('button').dataset.cartId).toBe(
-        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca'
+        'gid://shopify/Cart/c1-74d26c3130aa39e303d99d4d430c6eca',
       );
     });
 
@@ -253,7 +253,7 @@ describe('<ProductDetails />', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/There was an issue adding this item to the cart/i)
+        screen.getByText(/There was an issue adding this item to the cart/i),
       ).toBeVisible();
     });
   });

@@ -75,7 +75,9 @@
     background-color: transparent;
     color: var(--wpe--color--white);
     border: 0.1rem solid var(--wpe--color--white);
-    transition: color 0.3s ease, background-color 0.3s ease;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
 
     &:hover,
     &:focus {

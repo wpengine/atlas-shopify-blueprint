@@ -5,7 +5,7 @@ import ProductNotification from '../ProductNotification';
 describe('<ProductNotification />', () => {
   test('Shows a message and View Cart', async () => {
     render(
-      <ProductNotification productNotification={{ message: 'Success' }} />
+      <ProductNotification productNotification={{ message: 'Success' }} />,
     );
 
     expect(screen.getByText(/Success/i)).toBeVisible();
@@ -17,7 +17,7 @@ describe('<ProductNotification />', () => {
       <ProductNotification
         productNotification={{ message: 'Removed' }}
         cartPage
-      />
+      />,
     );
 
     expect(screen.getByText(/Removed/i)).toBeVisible();
