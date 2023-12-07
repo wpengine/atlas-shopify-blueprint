@@ -36,9 +36,6 @@ describe('<Post />', () => {
 
     const image = await screen.getByAltText('my-test-image');
 
-    expect(image).toHaveAttribute(
-      'alt',
-      'my-test-image',
-    );
+    expect(image).toHaveAttribute('alt', 'my-test-image');
   });
 });
