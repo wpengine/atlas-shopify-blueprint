@@ -1,0 +1,11 @@
+# Usage: Copy and rename this file to `.envrc`, then replace the values.
+
+# Your WordPress site URL
+export NEXT_PUBLIC_WORDPRESS_URL=https://atlasshopify.wpengine.com
+
+# Plugin secret found in WordPress Settings->Faust
+# export FAUST_SECRET_KEY=YOUR_PLUGIN_SECRET
+
+# Shopify configuration
+export NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN=YOUR_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN
+export NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL=YOUR_SHOPIFY_GRAPHQL_URL

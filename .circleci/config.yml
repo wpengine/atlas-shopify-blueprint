@@ -62,7 +62,7 @@ jobs:
       - run:
           name: Set env file
           command: |
-            cp .env.local.sample .env.local
+            cp .envrc.sample .envrc
           working_directory: <<parameters.slug>>
       - run:
           name: NPM lint

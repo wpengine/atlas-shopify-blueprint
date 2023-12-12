@@ -38,7 +38,7 @@ describe('<Post />', () => {
 
     expect(image).toHaveAttribute(
       'alt',
-      'my-test-image',
+      'my-test-image'
     );
   });
 });
