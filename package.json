@@ -22,7 +22,7 @@
     "eslint-plugin-jest": "^27.6.0",
     "graphql": "^16.8.1",
     "jest-environment-jsdom": "^29.7.0",
-    "next": "^14.0.3",
+    "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
