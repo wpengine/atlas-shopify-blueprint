@@ -16,8 +16,7 @@ const shopifyClient = new ApolloClient({
 
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token':
-        process.env.NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN,
+      "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOlsiaHR0cHM6Ly9kZXZlbG9wZXIuYmlnY29tbWVyY2UuY29tIl0sImVhdCI6MTcwMjc1MjM5OSwiaWF0IjoxNzAyNTc5NTk5LCJpc3MiOiJCQyIsInNpZCI6MTAwMjY3Mjk2Niwic3ViIjoiQkMiLCJzdWJfdHlwZSI6MCwidG9rZW5fdHlwZSI6MX0.hsBuf_IFzWcpkIYXJ7UIkq7KO4xInZRT2t9iZppKF8wJ7UkHzsJ3-Odw41siVLOCbbjzdUSEwTMS7vZ_GAWdHA",
     },
   }),
   cache: new InMemoryCache(),
