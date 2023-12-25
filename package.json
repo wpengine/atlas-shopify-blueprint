@@ -18,7 +18,7 @@
     "@faustwp/core": "1.2.0",
     "@wordpress/base-styles": "^4.38.0",
     "@wordpress/block-library": "^8.23.0",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.3",
     "eslint-plugin-jest": "^27.6.0",
     "graphql": "^16.8.1",
     "jest-environment-jsdom": "^29.7.0",
