@@ -1,7 +1,18 @@
 # IDEs
 .vscode/
-node_modules
-.env.local
-**/.DS_Store
+
 # JavaScript dependencies
-.next
+node_modules
+
+# Local environment
+.envrc
+.env.local
+
+# macOS
+**/.DS_Store
+
+# nextJS
+.next/
+
+# Coverage reports
+coverage/
