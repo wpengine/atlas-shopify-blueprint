@@ -17,4 +17,11 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/.jest/setEnvVars'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setupTests.js'],
+  collectCoverage: true,
+  collectCoverageFrom: ['<rootDir>/utilities/**', '<rootDir>/components/**'],
+  coverageThreshold: {
+    global: {
+      lines: 85,
+    },
+  },
 };
