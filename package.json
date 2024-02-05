@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.10",
+    "@apollo/client": "^3.9.2",
     "@apollo/react-testing": "^4.0.0",
     "@faustwp/cli": "1.2.1",
     "@faustwp/core": "1.2.0",
