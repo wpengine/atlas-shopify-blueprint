@@ -28,7 +28,7 @@
     "react-icons": "^4.12.0",
     "sass": "^1.77.8",
     "universal-cookie": "^6.1.3",
-    "use-debounce": "^10.0.1"
+    "use-debounce": "^10.0.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.0",
