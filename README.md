@@ -1,11 +1,11 @@
-# Atlas Shopify Blueprint
+# Headless Platform Shopify Blueprint
 
-A Shopify template for Atlas Blueprints.
+A Shopify template for Headless Platform Blueprints.
 
-This repository contains a starter Blueprint to get you up and running quickly on WP Engine's Atlas platform with a simple WordPress site that uses product data from Shopify.
+This repository contains a starter Blueprint to get you up and running quickly on WP Engine's Headless Platform with a simple WordPress site that uses product data from Shopify.
 
 - [Check out the demo store here](https://atlasshopify.wpengine.com)
-- [Try a sandbox version of Atlas to get started with this Blueprint](https://wpengine.com/headless-wordpress/)
+- [Try a sandbox version of Headless Platform to get started with this Blueprint](https://wpengine.com/headless-wordpress/)
 - [Documentation can be found here](https://developers.wpengine.com/docs/atlas-shopify-blueprint/introduction)
 
 ## Development
@@ -40,14 +40,14 @@ To run tests `npm run test`
 
 `.nvmrc` is specifying that Node.js `v18` should be used. Any developer could then run `nvm use` to download, install, and switch to that version. `nvm install` will then install dependencies in line with that version.
 
-## Configuring Shopify locally and on Atlas
+## Configuring Shopify locally and on Headless Platform
 
 In addition to default environment variables the Shopify Blueprint needs to add 2 more as follows:
 
 - NEXT_PUBLIC_SHOPIFY_HEADLESS_PUBLIC_ACCESS_TOKEN
 - NEXT_PUBLIC_SHOPIFY_GRAPHQL_URL
 
-For local development these can be added to `.env.local` and for production deployments these can be added in Atlas Dashboard. See [WP Engine headless docs for directions on how to configure Atlas Environment Variables](https://developers.wpengine.com/docs/atlas/local-app-development/frontend-app-config#2--define-environment-variables).
+For local development these can be added to `.env.local` and for production deployments these can be added in Headless Platform Dashboard. See [WP Engine headless docs for directions on how to configure Headless Platform Environment Variables](https://developers.wpengine.com/docs/atlas/local-app-development/frontend-app-config#2--define-environment-variables).
 
 ## Creating a new Github release
 
@@ -57,19 +57,19 @@ The steps involved with creating a new release are as follows :
 2. Run `npm install` and check the new version in the generated `package-lock.json`
 3. Create a PR against `develop` with the version update. Review and merge the PR.
 4. Create a PR from `develop` into the `main` branch and make sure it includes all the changes that are intended to be in the release. Review and merge the PR.
-5. In the User Portal (production), create a new Atlas App using the Shopify Blueprint and verify if changes are there and the version is correct.
+5. In the User Portal (production), create a new Headless Platform App using the Shopify Blueprint and verify if changes are there and the version is correct.
 6. Create a new release in Github with the tag as the latest version with `main` as the target. (For description you can use the `generate release notes` button)
 7. Post a message to [#team-pe-titan-public](https://wpengine.slack.com/archives/C04SJP4UBB7) using the following template:
-   > 🚀 Atlas Shopify Blueprint - Version X.Y.Z 🚀
+   > 🚀 Headless Platform Shopify Blueprint - Version X.Y.Z 🚀
    > We have released a new version of the blueprint. <Short sentences summarising the changes added>. For more details, follow this link: https://github.com/wpengine/atlas-shopify-blueprint/releases/tag/X.Y.Z
 
 ## For more information
 
 For more information on this Blueprint please check out the following sources:
 
-- [WP Engine's Atlas Platform](https://wpengine.com/headless-wordpress/)
+- [WP Engine's Headless Platform](https://wpengine.com/headless-wordpress/)
 - [Faust.js](https://faustjs.org/)
 - [WPGraphQL](https://www.wpgraphql.com/)
 - [Atlas Content Modeler](https://wordpress.org/plugins/atlas-content-modeler/)
 - [Shopify Storefront API](https://shopify.dev/docs/api/storefront)
-- [WP Engine's Atlas developer community](https://wpengine.com/builders/headless)
+- [WP Engine's Headless Platform developer community](https://wpengine.com/builders/headless)

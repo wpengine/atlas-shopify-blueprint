@@ -15,7 +15,7 @@ describe('<SEO />', () => {
   it('Render SEO with all requirements', () => {
     const props = {
       seo: {
-        title: 'Atlas Shopify',
+        title: 'Headless Platform Shopify',
         description: 'SUPER-powered Headless eCommerce',
         imageUrl: 'https://some-img-url.com',
         url: 'https://some-url.com',
@@ -31,7 +31,7 @@ describe('<SEO />', () => {
       />,
     );
 
-    expect(document.title).toBe('Atlas Shopify');
+    expect(document.title).toBe('Headless Platform Shopify');
     expect(document.querySelector('meta[name="description"]').content).toBe(
       'SUPER-powered Headless eCommerce',
     );
