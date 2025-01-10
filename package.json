@@ -1,7 +1,7 @@
 {
   "name": "@faustwp/atlas-shopify-blueprint",
   "private": true,
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "dev": "faust dev",
     "build": "faust build",
