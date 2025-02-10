@@ -31,7 +31,7 @@
     "use-debounce": "^10.0.4"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-env": "^7.26.8",
     "@babel/preset-react": "^7.26.3",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.3.1",
