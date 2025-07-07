@@ -22,7 +22,7 @@
     "eslint-plugin-jest": "^27.9.0",
     "graphql": "^16.11.0",
     "jest-environment-jsdom": "^29.7.0",
-    "next": "^15.3.4",
+    "next": "^15.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.3.1",
     "react-icons": "^4.12.0",
@@ -31,7 +31,7 @@
     "use-debounce": "^10.0.5"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.3.1",
